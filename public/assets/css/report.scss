@@ -1,0 +1,39 @@
+.row {
+  .dashboard-item-container {
+    a {
+      text-decoration: none;
+      .panel-primary {
+        .panel-body {
+          padding: 40px;
+        }
+        .panel-footer {
+          font-weight: 600;
+          font-size: 105%;
+        }
+      }
+    }
+  }
+  #dates_container {
+    margin: 0 auto;
+    float: none;
+    #dates_sub_container {
+      margin: 0 auto;
+      float: none;
+      .input-daterange {
+        .date-input {
+          width: 100px;
+        }
+      }
+    }
+  }
+  #toolbar_buttons_container {
+    #toolbar_buttons_sub_container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      #generate_report {
+        margin-right: 20px;
+      }
+    }
+  }
+}

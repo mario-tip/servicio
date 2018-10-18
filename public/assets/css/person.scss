@@ -1,0 +1,46 @@
+.portlet-body, .modal-body{
+  .horizontal-form {
+    .form-body {
+      .row {
+        .form-group-container {
+          .form-group {
+            label {
+              width: 150px;
+              span {
+                color: red;
+                font-weight: bold;
+              }
+            }
+            .form-control {
+              display: inline-block;
+            }
+            .no-text-area {
+              width: 80%;
+            }
+            .text-area {
+              width: 90.2%;
+            }
+            .date-picker {
+              display: inline-table;
+              input {
+                pointer-events: none;
+                width: 75%;
+                width: inherit;
+              }
+            }
+            .textarea-label {
+              vertical-align: top
+            }
+            textarea {
+              resize: vertical;
+            }
+            .textarea-content {
+              width: 70%;
+              text-align: justify;
+            }
+          }
+        }
+      }
+    }
+  }
+}

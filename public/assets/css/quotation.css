@@ -1,0 +1,52 @@
+.horizontal-form .form-body .row .form-group-container .form-group label {
+  width: 160px; }
+  .horizontal-form .form-body .row .form-group-container .form-group label span {
+    color: red;
+    font-weight: bold; }
+.horizontal-form .form-body .row .form-group-container .form-group .form-control {
+  width: 80%;
+  display: inline-block; }
+.horizontal-form .form-body .row .form-group-container .form-group .date-picker {
+  display: inline-table; }
+  .horizontal-form .form-body .row .form-group-container .form-group .date-picker input {
+    width: 75%;
+    width: inherit; }
+.horizontal-form .form-body .row .form-group-container .form-group .textarea-label {
+  vertical-align: top; }
+.horizontal-form .form-body .row .form-group-container .form-group textarea {
+  resize: vertical; }
+.horizontal-form .form-body .row .form-group-container .form-group .textarea-content {
+  width: 70%;
+  text-align: justify; }
+.horizontal-form .form-body .row .form-group-container .form-group .quotation-image {
+  max-width: 45%;
+  max-height: 45%;
+  display: block;
+  margin: auto; }
+.horizontal-form .form-body .row .form-group-container .form-group #icon_file_container {
+  width: 100%;
+  text-align: center; }
+  .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container a {
+    text-decoration: none; }
+    .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container a .file-type-icon {
+      max-width: 8%;
+      max-height: 8%; }
+.horizontal-form .form-body .row .form-group-container .form-group .file-not-found {
+  text-align: center; }
+.horizontal-form .form-body .row .form-group-container #get_equipment_parts {
+  display: block;
+  width: 80px; }
+.horizontal-form .form-body .select2-group .control-label {
+  width: 160px; }
+  .horizontal-form .form-body .select2-group .control-label span {
+    color: red;
+    font-weight: bold; }
+.horizontal-form .form-body .select2-group .select2 {
+  display: inline-block;
+  width: 80% !important; }
+
+table tbody tr #quotation_description_td {
+  width: 33%;
+  text-align: justify; }
+
+/*# sourceMappingURL=quotation.css.map */

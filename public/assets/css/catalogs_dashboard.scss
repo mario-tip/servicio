@@ -1,0 +1,16 @@
+.row {
+  .dashboard-item-container {
+    a {
+      text-decoration: none;
+      .panel-primary {
+        .panel-body {
+          padding: 40px;
+        }
+        .panel-footer {
+          font-weight: 600;
+          font-size: 105%;
+        }
+      }
+    }
+  }
+}

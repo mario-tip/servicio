@@ -1,0 +1,84 @@
+.portlet-body, .modal-body{
+  .horizontal-form {
+    .form-body {
+      .row {
+        .form-group-container {
+          .form-group {
+            .form-label {
+              width: 175px;
+            }
+            .show-label {
+              width: 195px;
+            }
+            label {
+              span {
+                color: red;
+                font-weight: bold;
+              }
+            }
+            .form-control, .date-picker-container, .time-picker-container {
+              width: 75%;
+              display: inline-block;
+            }
+            .date-picker{
+              display: inline-flex;
+              input {
+                width: inherit;
+                pointer-events: none;
+              }
+            }
+            .textarea-label {
+              vertical-align: top
+            }
+            textarea {
+              resize: vertical;
+            }
+            .textarea-content {
+              width: 70%;
+              text-align: justify;
+            }
+            .damaged-parts, .incident-description{
+              display: inline-block;
+              max-width: 75%;
+              text-align: justify;
+            }
+            .file-not-found {
+              text-align: center;
+            }
+            .incident-image {
+              max-width:45%;
+              max-height:45%;
+              display:block;
+              margin:auto;
+            }
+            #icon_file_container {
+              width: 100%;
+              text-align: center;
+              a {
+                text-decoration: none;
+                .file-type-icon{
+                  max-width:8%;
+                  max-height:8%;
+                }
+              }
+            }
+            #service_order_notes {
+              width: 74.4%;
+            }
+          }
+          .timepicker-group {
+            .time-picker-container {
+              display: inline-flex;
+              input {
+                pointer-events: none;
+              }
+            }
+          }
+        }
+      }
+      .quotation-not-found {
+        text-align: center;
+      }
+    }
+  }
+}

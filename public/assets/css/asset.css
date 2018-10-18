@@ -1,0 +1,33 @@
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group label {
+  width: 150px; }
+  .portlet-body .horizontal-form .form-body .row .form-group-container .form-group label span, .modal-body .horizontal-form .form-body .row .form-group-container .form-group label span {
+    color: red;
+    font-weight: bold; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .form-control, .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker-container, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .form-control, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker-container {
+  display: inline-block;
+  width: 80%; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .asset-equipment, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .asset-equipment {
+  width: 39.3%;
+  margin-right: 10px; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker {
+  display: inline-table; }
+  .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker input, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker input {
+    pointer-events: none;
+    width: inherit; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label {
+  vertical-align: top; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group textarea, .modal-body .horizontal-form .form-body .row .form-group-container .form-group textarea {
+  resize: vertical; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content {
+  width: 70%;
+  text-align: justify; }
+.portlet-body .horizontal-form .form-body .row .asset-images-carousel, .modal-body .horizontal-form .form-body .row .asset-images-carousel {
+  width: 80%; }
+  .portlet-body .horizontal-form .form-body .row .asset-images-carousel img, .modal-body .horizontal-form .form-body .row .asset-images-carousel img {
+    margin: 0 12px 0 12px; }
+.portlet-body .firmware-history-asset-data, .modal-body .firmware-history-asset-data {
+  border: 1px solid #e7ecf1;
+  margin-bottom: 30px;
+  padding: 20px 0 10px 20px; }
+
+/*# sourceMappingURL=asset.css.map */

@@ -1,0 +1,9 @@
+.row .dashboard-item-container a {
+  text-decoration: none; }
+  .row .dashboard-item-container a .panel-primary .panel-body {
+    padding: 40px; }
+  .row .dashboard-item-container a .panel-primary .panel-footer {
+    font-weight: 600;
+    font-size: 105%; }
+
+/*# sourceMappingURL=catalogs_dashboard.css.map */

@@ -1,0 +1,23 @@
+.row .dashboard-item-container a {
+  text-decoration: none; }
+  .row .dashboard-item-container a .panel-primary .panel-body {
+    padding: 40px; }
+  .row .dashboard-item-container a .panel-primary .panel-footer {
+    font-weight: 600;
+    font-size: 105%; }
+.row #dates_container {
+  margin: 0 auto;
+  float: none; }
+  .row #dates_container #dates_sub_container {
+    margin: 0 auto;
+    float: none; }
+    .row #dates_container #dates_sub_container .input-daterange .date-input {
+      width: 100px; }
+.row #toolbar_buttons_container #toolbar_buttons_sub_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+  .row #toolbar_buttons_container #toolbar_buttons_sub_container #generate_report {
+    margin-right: 20px; }
+
+/*# sourceMappingURL=report.css.map */

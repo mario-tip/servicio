@@ -1,0 +1,51 @@
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .form-label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .form-label {
+  width: 175px; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .show-label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .show-label {
+  width: 195px; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group label span, .modal-body .horizontal-form .form-body .row .form-group-container .form-group label span {
+  color: red;
+  font-weight: bold; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .form-control, .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker-container, .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .time-picker-container, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .form-control, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker-container, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .time-picker-container {
+  width: 75%;
+  display: inline-block; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker {
+  display: inline-flex; }
+  .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker input, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker input {
+    width: inherit;
+    pointer-events: none; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label {
+  vertical-align: top; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group textarea, .modal-body .horizontal-form .form-body .row .form-group-container .form-group textarea {
+  resize: vertical; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content {
+  width: 70%;
+  text-align: justify; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .damaged-parts, .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .incident-description, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .damaged-parts, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .incident-description {
+  display: inline-block;
+  max-width: 75%;
+  text-align: justify; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .file-not-found, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .file-not-found {
+  text-align: center; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .incident-image, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .incident-image {
+  max-width: 45%;
+  max-height: 45%;
+  display: block;
+  margin: auto; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container, .modal-body .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container {
+  width: 100%;
+  text-align: center; }
+  .portlet-body .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container a, .modal-body .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container a {
+    text-decoration: none; }
+    .portlet-body .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container a .file-type-icon, .modal-body .horizontal-form .form-body .row .form-group-container .form-group #icon_file_container a .file-type-icon {
+      max-width: 8%;
+      max-height: 8%; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group #service_order_notes, .modal-body .horizontal-form .form-body .row .form-group-container .form-group #service_order_notes {
+  width: 74.4%; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .timepicker-group .time-picker-container, .modal-body .horizontal-form .form-body .row .form-group-container .timepicker-group .time-picker-container {
+  display: inline-flex; }
+  .portlet-body .horizontal-form .form-body .row .form-group-container .timepicker-group .time-picker-container input, .modal-body .horizontal-form .form-body .row .form-group-container .timepicker-group .time-picker-container input {
+    pointer-events: none; }
+.portlet-body .horizontal-form .form-body .quotation-not-found, .modal-body .horizontal-form .form-body .quotation-not-found {
+  text-align: center; }
+
+/*# sourceMappingURL=service_order.css.map */

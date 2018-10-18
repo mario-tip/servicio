@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEI,gCAAE;EACA,eAAe,EAAE,IAAI;EAEnB,2DAAY;IACV,OAAO,EAAE,IAAI;EAEf,6DAAc;IACZ,WAAW,EAAE,GAAG;IAChB,SAAS,EAAE,IAAI",
+"sources": ["catalogs_dashboard.scss"],
+"names": [],
+"file": "catalogs_dashboard.css"
+}

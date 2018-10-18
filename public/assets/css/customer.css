@@ -1,0 +1,23 @@
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group label {
+  width: 150px; }
+  .portlet-body .horizontal-form .form-body .row .form-group-container .form-group label span, .modal-body .horizontal-form .form-body .row .form-group-container .form-group label span {
+    color: red;
+    font-weight: bold; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .form-control, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .form-control {
+  width: 80%;
+  display: inline-block; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker {
+  display: inline-table; }
+  .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker input, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .date-picker input {
+    pointer-events: none;
+    width: 75%;
+    width: inherit; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label {
+  vertical-align: top; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group textarea, .modal-body .horizontal-form .form-body .row .form-group-container .form-group textarea {
+  resize: vertical; }
+.portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content {
+  width: 70%;
+  text-align: justify; }
+
+/*# sourceMappingURL=customer.css.map */

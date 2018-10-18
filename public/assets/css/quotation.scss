@@ -1,0 +1,85 @@
+.horizontal-form {
+  .form-body {
+    .row {
+      .form-group-container {
+        .form-group {
+          label {
+            width: 160px;
+            span {
+              color: red;
+              font-weight: bold;
+            }
+          }
+          .form-control {
+            width: 80%;
+            display: inline-block;
+          }
+          .date-picker {
+            display: inline-table;
+            input {
+              width: 75%;
+              width: inherit;
+            }
+          }
+          .textarea-label {
+            vertical-align: top
+          }
+          textarea {
+            resize: vertical;
+          }
+          .textarea-content {
+            width: 70%;
+            text-align: justify;
+          }
+          .quotation-image {
+            max-width:45%;
+            max-height:45%;
+            display:block;
+            margin:auto;
+          }
+          #icon_file_container {
+            width: 100%;
+            text-align: center;
+            a {
+              text-decoration: none;
+              .file-type-icon{
+                max-width:8%;
+                max-height:8%;
+              }
+            }
+          }
+          .file-not-found {
+            text-align: center;
+          }
+        }
+        #get_equipment_parts {
+          display: block;
+          width: 80px;
+        }
+      }
+    }
+    .select2-group {
+      .control-label {
+        width: 160px;
+        span {
+          color: red;
+          font-weight: bold;
+        }
+      }
+      .select2 {
+        display:inline-block;
+        width: 80% !important;
+      }
+    }
+  }
+}
+table {
+  tbody {
+    tr {
+      #quotation_description_td {
+        width: 33%;
+        text-align: justify;
+      }
+    }
+  }
+}

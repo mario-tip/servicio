@@ -1,0 +1,55 @@
+.portlet-body, .modal-body{
+  .horizontal-form {
+    .form-body {
+      .row {
+        .form-group-container {
+          .form-group {
+            label {
+              width: 150px;
+              span {
+                color: red;
+                font-weight: bold;
+              }
+            }
+            .form-control, .date-picker-container {
+              display: inline-block;
+              width: 80%;
+            }
+            .asset-equipment {
+              width: 39.3%;
+              margin-right: 10px;
+            }
+              .date-picker {
+                display: inline-table;
+                input {
+                  pointer-events: none;
+                  width: inherit;
+                }
+              }
+            .textarea-label {
+              vertical-align: top
+            }
+            textarea {
+              resize: vertical;
+            }
+            .textarea-content {
+              width: 70%;
+              text-align: justify;
+            }
+          }
+        }
+        .asset-images-carousel {
+          width: 80%;
+          img {
+            margin: 0 12px 0 12px;
+          }
+        }
+      }
+    }
+  }
+  .firmware-history-asset-data {
+    border: 1px solid #e7ecf1;
+    margin-bottom: 30px;
+    padding: 20px 0 10px 20px;
+  }
+}

@@ -1,0 +1,46 @@
+$label_width: 137px;
+
+.portlet-body{
+  .horizontal-form {
+    .form-body {
+      .row {
+        .form-group-container {
+          .form-group {
+            label {
+              width: $label_width;
+              span {
+                color: red;
+                font-weight: bold;
+              }
+            }
+            .form-control {
+              width: 70%;
+              display: inline-block;
+            }
+            .select2-container--bootstrap {
+              display: inline-block;
+            }
+          }
+        }
+        .select2-group {
+          width: 70%;
+          .control-label {
+            width: $label_width;
+            span {
+              color: red;
+              font-weight: bold;
+            }
+          }
+          .select2 {
+            display:inline-block;
+            width: 50% !important;
+            margin-right: 10px;
+          }
+        }
+      }
+      #equipment_parts_container {
+        margin-top: 30px;
+      }
+    }
+  }
+}
