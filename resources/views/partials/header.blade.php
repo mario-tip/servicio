@@ -5,7 +5,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ url('/') }}">
-                <img src="{{ asset('/images/eeo_logo.png') }}" alt="logo" class="logo-default"/> </a>
+                <img src="{{ asset('/images/logo_aoc.png') }}" alt="logo" class="logo-default"/> </a>
             <div class="menu-toggler sidebar-toggler">
                 <span></span>
             </div>
