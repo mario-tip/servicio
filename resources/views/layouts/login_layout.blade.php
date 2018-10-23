@@ -9,6 +9,7 @@
     {!! Html::style('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all') !!}
 
     {!! Html::style('../assets/global/plugins/font-awesome/css/font-awesome.min.css') !!}
+    {!! Html::style('../assets/global/plugins/fontawesome-free-5.4.1/css/fontawesome.min.css') !!}
     {!! Html::style('../assets/global/plugins/simple-line-icons/simple-line-icons.min.css') !!}
     {!! Html::style('../assets/global/plugins/bootstrap/css/bootstrap.min.css') !!}
     {!! Html::style('../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}

@@ -5,7 +5,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ url('/') }}">
-                <img src="{{ asset('/images/logo_aoc.png') }}" alt="logo" class="logo-default"/> </a>
+                <img src="{{ asset('/images/logo_aoc_v3.png') }}" height="57" alt="logo" class="logo-default"/> </a>
             <div class="menu-toggler sidebar-toggler">
                 <span></span>
             </div>
@@ -25,8 +25,8 @@
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <span class="username username-hide-on-mobile"> {!!Auth::user()->username!!} </span>
-                            <i class="fa fa-angle-down"></i>
+                          <span class="username username-hide-on-mobile"> {!!Auth::user()->username!!} </span>
+                          <i class="glyphicon glyphicon-menu-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>

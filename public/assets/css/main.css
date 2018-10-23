@@ -10,3 +10,51 @@
 }
 
 /*# sourceMappingURL=main.css.map */
+
+
+/*Para los iconos de el dashboard*/
+.minizoom {
+
+
+  padding: 0px;
+  transition: transform .3s;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.minizoom:hover,
+.minizoom:focus {
+  -ms-transform: scale(1.1);
+  /* IE 9 */
+  -webkit-transform: scale(1.1);
+  /* Safari 3-8 */
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+  -webkit-animation: pulse .5s;
+  animation: pulse .5s;
+
+
+  /*Para la sombra*/
+  text-align: center;
+    /*text-shadow: 4px 4px 8px rgb(0, 0, 0);*/
+    /*box-shadow: 6px 6px 20px 0px rgba(0,0,0,0.75);*/
+}
+
+#dashboard .tiles {
+    margin-right: -10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#dashboard div {
+
+
+}
+
+#dashboard div > a {
+
+  /* background: green; */
+}
