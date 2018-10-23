@@ -7,7 +7,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <div class="portlet-body">
         <div class="tiles">
-            <a href="#!/dashboard/usuario">
+            <a href="{!!URL::to('/equipments')!!}">
                 <div class="tile bg-blue-madison minizoom">
 
                     <div class="tile-body">
@@ -21,7 +21,7 @@
                 </div>
             </a>
 
-            <a href="#!/dashboard/cliente">
+            <a href="{!!URL::to('/actives')!!}">
                 <div class="tile bg-yellow-casablanca minizoom">
                     <div class="tile-body">
                         <i class="icon-login"></i>
@@ -34,7 +34,7 @@
                 </div>
             </a>
 
-            <a href="#!/dashboard/producto">
+            <a href="{!!URL::to('/quotations')!!}">
                 <div class="tile bg-red minizoom">
                     <div class="tile-body">
                         <i class="fas fa-quote-left"></i>
@@ -47,7 +47,7 @@
                 </div>
             </a>
 
-            <a href="#!/dashboard/almacen">
+            <a href="{!!URL::to('/service-orders')!!}">
               <div class="tile bg-green-haze minizoom">
                 <div class="tile-body">
                   <i class="fas fa-concierge-bell"></i>
@@ -60,7 +60,7 @@
               </div>
             </a>
 
-            <a href="#!/dashboard/vehiculo">
+            <a href="{!!route('reports.binnacle-service-orders')!!}">
                 <div class="tile bg-grey-gallery minizoom">
                     <div class="tile-body">
                       <i class="fas fa-book-open"></i>
@@ -73,7 +73,7 @@
                 </div>
             </a>
 
-            <a href="#!/dashboard/ruta">
+            <a href="{!!URL::to('/reports')!!}">
                 <div class="tile bg-yellow-gold minizoom">
                     <div class="tile-body">
                         <i class="fas fa-chart-line"></i>
@@ -86,7 +86,7 @@
                 </div>
             </a>
 
-            <a href="#!/dashboard/venta">
+            <a href="{!!URL::to('/parts')!!}">
                 <div class="tile bg-purple-wisteria minizoom">
                     <div class="tile-body">
                       <i class="fas fa-layer-group"></i>
@@ -99,7 +99,7 @@
                 </div>
             </a>
 
-            <a href="#!/dashboard/venta">
+            <a href="{!!URL::to('/incidents')!!}">
               <div class="tile bg-yellow-casablanca minizoom">
                 <div class="tile-body">
                   <i class="fas fa-cogs"></i>
@@ -112,7 +112,7 @@
               </div>
             </a>
 
-            <a href="#!/dashboard/venta">
+            <a href="{!!URL::to('/aid')!!}">
               <div class="tile bg-green-seagreen minizoom">
                 <div class="tile-body">
                   <i class="fas fa-chart-area"></i>
@@ -125,7 +125,7 @@
               </div>
             </a>
 
-            <a href="#!/dashboard/venta">
+            <a href="{!!URL::to('maintenances')!!}">
               <div class="tile bg-blue-madison minizoom">
                 <div class="tile-body">
                   <i class="fas fa-business-time"></i>
@@ -138,7 +138,7 @@
               </div>
             </a>
 
-            <a href="#!/dashboard/venta">
+            <a href="{!!URL::to('/catalogs')!!}">
               <div class="tile bg-grey-silver minizoom">
                 <div class="tile-body">
                   <i class="fas fa-journal-whills"></i>

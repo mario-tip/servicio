@@ -11,7 +11,8 @@
             <a href="{{route('reports.technician-tickets')}}">
                 <div class="panel panel-primary text-center no-boder bg-color-blue">
                     <div class="panel-body">
-                        <i class="fa fa-ticket fa-5x"></i>
+                        <i class="fas fa-ticket-alt fa-5x"></i>
+                        {{-- <i class="fas fa-ticket-alt"></i> --}}
                     </div>
                     <div class="panel-footer back-footer-blue">
                         Tickets por usuario y estatus

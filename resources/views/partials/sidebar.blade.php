@@ -82,7 +82,7 @@
                         <i class="icon-note"></i>
                         <span class="title">Registro de incidencias</span>
                     </a>
-                </li>s
+                </li>
                 @endif
                 @if(userHasPermission("listar_consulta_atencion_incidencias"))
                 <li id="liAid" class="nav-item">

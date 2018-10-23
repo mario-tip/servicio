@@ -11,10 +11,11 @@
 
 namespace Symfony\Component\Debug\Tests\FatalErrorHandler;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Debug\Exception\FatalErrorException;
 use Symfony\Component\Debug\FatalErrorHandler\UndefinedMethodFatalErrorHandler;
 
-class UndefinedMethodFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
+class UndefinedMethodFatalErrorHandlerTest extends TestCase
 {
     /**
      * @dataProvider provideUndefinedMethodData
@@ -63,10 +64,10 @@ class UndefinedMethodFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
             ),
             array(
                 array(
-                  'type' => 1,
-                  'message' => 'Call to undefined method class@anonymous::test()',
-                  'file' => '/home/possum/work/symfony/test.php',
-                  'line' => 11,
+                    'type' => 1,
+                    'message' => 'Call to undefined method class@anonymous::test()',
+                    'file' => '/home/possum/work/symfony/test.php',
+                    'line' => 11,
                 ),
                 'Attempted to call an undefined method named "test" of class "class@anonymous".',
             ),

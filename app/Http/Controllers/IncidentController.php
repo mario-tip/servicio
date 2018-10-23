@@ -245,7 +245,7 @@ class IncidentController extends Controller
                 // dd($incident->id);
                 // dd($order);
                 // print_r($order);
-            if(count($order)>0){
+            if(is_object($order)){
                 $name = $order->technician()->select('users.username')->first();
                 $incident->technician = $name->username;
 

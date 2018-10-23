@@ -129,7 +129,9 @@
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
                                         <label class="control-label"><span>*</span>Ubicación: </label>
-                                        {!!Form::select('asset[location_id]', $dependencies['locations'], $location_id, ['class' => 'bs-select form-control', 'id' => 'asset_location_id', 'title' => 'Seleccionar...']) !!}
+                                        {!!Form::select('asset[location_id]', $dependencies['locations'], $location_id, ['class' => 'bs-select form-control', 'id' => 'asset_location_id', 'title' => 'Seleccionar...'])
+
+                                        // {!!Form::select('size', ['L' => 'Large', 'S' => 'Small']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">

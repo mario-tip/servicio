@@ -71,19 +71,19 @@
                                     @endif
                                     @if(userHasPermission('mostrar_captura_info'))
                                     <a href="{{ URL::route('actives.show', $asset->id) }}" title="Mostrar" class="btn btn-icon-only green">
-                                        <i class="fa fa-bars"></i>
+                                        <i class="icon-eye"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('actualizar_firmware'))
                                     <a href="#large" data-toggle="modal"  title="Actualizar firmware" class="btn btn-icon-only purple update-firmware"
                                        data-current_firmware="{{count($asset->firmwares) > 0 ? $asset->firmwares->last()->firmware : ''}}"
                                        data-asset_id="{{$asset->id}}">
-                                        <i class="fa fa-shield"></i>
+                                        <i class="fas fa-sync-alt"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('historial_firmware'))
                                     <a id="firmware_history" href="{{url('/firmwares/' . $asset->id)}}" title="Historial de firmware" class="btn btn-icon-only purple-medium">
-                                        <i class="fa fa-clock-o"></i>
+                                        <i class="fas fa-history"></i>
                                     </a>
                                     @endif
                                 </td>

@@ -65,7 +65,8 @@
                                     @endif
                                     @if(userHasPermission("eliminar_tipo_equipo"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Eliminar" class="btn btn-icon-only red delete-equipment">
-                                        <i class="fa fa-times"></i>
+                                        {{-- <i class="fa fa-times"></i> --}}
+                                        <i class="far fa-trash-alt"></i>
                                     </a>
                                     @endif
                                 </td>

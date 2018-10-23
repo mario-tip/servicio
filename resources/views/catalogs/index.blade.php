@@ -69,7 +69,7 @@
             <a href="{{route('projects.index')}}">
                 <div class="panel panel-primary text-center no-boder bg-color-blue">
                     <div class="panel-body">
-                        <i class="fa fa-gears fa-5x"></i>
+                        <i class="icon-settings fa-5x"></i>
                     </div>
                     <div class="panel-footer back-footer-blue">
                         Proyectos
