@@ -242,7 +242,9 @@ class IncidentController extends Controller
 
             $order = ServiceOrder::where('type', 0)
                 ->where('type_id', $incident->id)->first();
-
+                // dd($incident->id);
+                // dd($order);
+                // print_r($order);
             if(count($order)>0){
                 $name = $order->technician()->select('users.username')->first();
                 $incident->technician = $name->username;
