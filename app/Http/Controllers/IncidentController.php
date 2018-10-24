@@ -307,12 +307,13 @@ class IncidentController extends Controller
             $order = ServiceOrder::where('type', 0)
                 ->where('type_id', $incident->id)->first();
 
-            if(count($order)>0){
+            if(is_object($order)){
                 $name = $order->technician()->select('users.username')->first();
                 $incident->technician = $name->username;
 
                 $person = $order->authorizer()->select('persons.name', 'persons.father_last_name', 'persons.mother_last_name')->first();
-                if(count($person)==1){
+
+                if(is_object($person)){
                     $incident->person = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
                 }else{
                     $incident->person = '';

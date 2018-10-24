@@ -78,12 +78,12 @@
                                     <a href="#large" data-toggle="modal"  title="Actualizar firmware" class="btn btn-icon-only purple update-firmware"
                                        data-current_firmware="{{count($asset->firmwares) > 0 ? $asset->firmwares->last()->firmware : ''}}"
                                        data-asset_id="{{$asset->id}}">
-                                        <i class="fas fa-sync-alt"></i>
+                                        <i class="fa fa-undo"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('historial_firmware'))
                                     <a id="firmware_history" href="{{url('/firmwares/' . $asset->id)}}" title="Historial de firmware" class="btn btn-icon-only purple-medium">
-                                        <i class="fas fa-history"></i>
+                                        <i class="fa fa-history"></i>
                                     </a>
                                     @endif
                                 </td>

@@ -41,7 +41,7 @@
                                 <td>{{$part->description}}</td>
                                 <td>
                                     <a class="btn btn-icon-only red icon-delete">
-                                        <i class="icon-user"></i>
+                                        <i class="fa fa-trash-o"></i>
                                     </a>
                                     <input name="parts[]" type="hidden" value="{{$part->id}}"/>
                                 </td>

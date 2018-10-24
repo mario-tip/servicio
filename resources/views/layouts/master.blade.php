@@ -7,7 +7,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <meta content="Preview page of Metronic Admin Theme #1 for statistics, charts, recent events and reports"
+    <meta content="Plataforma de servicio más grande de mundo"
           name="description"/>
     <meta content="" name="author"/>
 
@@ -46,7 +46,7 @@
 
     <!-- BEGIN FOOTER -->
     <div class="page-footer">
-        <div class="page-footer-inner"> 2017 &copy; Messoft Systems</div>
+        <div class="page-footer-inner"> @php echo date("Y");  @endphp &copy; Altatec de Occidente </div>
         <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>
         </div>

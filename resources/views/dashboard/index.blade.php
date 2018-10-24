@@ -37,7 +37,7 @@
             <a href="{!!URL::to('/quotations')!!}">
                 <div class="tile bg-red minizoom">
                     <div class="tile-body">
-                        <i class="fas fa-quote-left"></i>
+                      <i class="fa fa-quote-left"></i>
                     </div>
                     <div class="tile-object">
                         <div class="text-center">
@@ -50,7 +50,7 @@
             <a href="{!!URL::to('/service-orders')!!}">
               <div class="tile bg-green-haze minizoom">
                 <div class="tile-body">
-                  <i class="fas fa-concierge-bell"></i>
+                  <i class="fa fa-wrench"></i>
                 </div>
                 <div class="tile-object">
                   <div class="text-center">
@@ -63,7 +63,7 @@
             <a href="{!!route('reports.binnacle-service-orders')!!}">
                 <div class="tile bg-grey-gallery minizoom">
                     <div class="tile-body">
-                      <i class="fas fa-book-open"></i>
+                      <i class="icon-book-open"></i>
                     </div>
                     <div class="tile-object">
                         <div class="text-center">
@@ -76,7 +76,7 @@
             <a href="{!!URL::to('/reports')!!}">
                 <div class="tile bg-yellow-gold minizoom">
                     <div class="tile-body">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="icon-bar-chart"></i>
                     </div>
                     <div class="tile-object">
                         <div class="text-center">
@@ -89,11 +89,11 @@
             <a href="{!!URL::to('/parts')!!}">
                 <div class="tile bg-purple-wisteria minizoom">
                     <div class="tile-body">
-                      <i class="fas fa-layer-group"></i>
+                      <i class="icon-grid"></i>
                     </div>
                     <div class="tile-object">
                         <div class="text-center">
-                            <h4> <strong> Cat. Correlativos </strong> </h4>
+                            <h4> <strong>Correlativos </strong> </h4>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
             <a href="{!!URL::to('/incidents')!!}">
               <div class="tile bg-yellow-casablanca minizoom">
                 <div class="tile-body">
-                  <i class="fas fa-cogs"></i>
+                  <i class="fa fa-exclamation-triangle"></i>
                 </div>
                 <div class="tile-object">
                   <div class="text-center">
@@ -115,7 +115,7 @@
             <a href="{!!URL::to('/aid')!!}">
               <div class="tile bg-green-seagreen minizoom">
                 <div class="tile-body">
-                  <i class="fas fa-chart-area"></i>
+                  <i class="fa fa-pencil-square-o"></i>
                 </div>
                 <div class="tile-object">
                   <div class="text-center">
@@ -128,7 +128,7 @@
             <a href="{!!URL::to('maintenances')!!}">
               <div class="tile bg-blue-madison minizoom">
                 <div class="tile-body">
-                  <i class="fas fa-business-time"></i>
+                  <i class="fa fa-calendar"></i>
                 </div>
                 <div class="tile-object">
                   <div class="text-center">
@@ -141,7 +141,7 @@
             <a href="{!!URL::to('/catalogs')!!}">
               <div class="tile bg-grey-silver minizoom">
                 <div class="tile-body">
-                  <i class="fas fa-journal-whills"></i>
+                  <i class="fa fa-book"></i>
 
                 </div>
                 <div class="tile-object">

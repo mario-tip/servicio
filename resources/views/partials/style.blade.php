@@ -23,7 +23,7 @@
 
 <!-- BEGIN THEME LAYOUT STYLES -->
 {!! Html::style('assets/layouts/layout2/css/layout.min.css') !!}
-<link href="{{ asset('/assets/layouts/layout2/css/themes/grey.min.css') }}" rel="stylesheet" type="text/css"
+<link href="{{ asset('/assets/layouts/layout2/css/themes/blue.min.css') }}" rel="stylesheet" type="text/css"
       id="style_color"/>
 {!! Html::style('assets/layouts/layout2/css/custom.min.css') !!}
 <!-- END THEME LAYOUT STYLES -->
