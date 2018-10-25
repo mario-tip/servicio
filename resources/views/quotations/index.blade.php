@@ -70,7 +70,7 @@
                                 <td>
                                     @if(userHasPermission("mostrar_cotizacion_servicios"))
                                     <a href="{{URL::route('quotations.show', $quotation->id)}}" title="Mostrar" class="btn btn-icon-only green">
-                                        <i class="fas fa-eye"></i>
+                                        <i class="fa fa-eye"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("cambiar_estatus_cotizacion_servicios"))
@@ -85,7 +85,7 @@
                                     @endif
                                     @if(userHasPermission("cancelar_cotizacion_servicios"))
                                     <a href="#cancel_modal" data-toggle="modal" data-name="{{$quotation->name}}" data-id="{{$quotation->id}}" title="Cancelar" class="btn btn-icon-only red cancel_quotation">
-                                        <i class="far fa-trash-alt"></i>
+                                        <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
                                 </td>

@@ -14,7 +14,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/incidents')!!}">Listado de incidencias</a>
+                <a href="{!!URL::to('/incidents')!!}">Registro de incidencias</a>
             </li>
         </ul>
     </div>
@@ -27,7 +27,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Listado de incidencias</span>
+                        <span class="caption-subject bold">Registro de incidencias</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -102,7 +102,7 @@
                                     <a href="#basic" data-toggle="modal" data-name="{{$incident->name}}"
                                        data-id="{{$incident->id}}" title="Eliminar"
                                        class="btn btn-icon-only red modalDelete">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa  fa-trash-o"></i>
                                     </a>
                                     @endif
                                 </td>

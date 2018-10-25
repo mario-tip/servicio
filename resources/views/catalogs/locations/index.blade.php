@@ -72,7 +72,7 @@
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_ubicaciones"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$location->name}}" data-id="{{$location->id}}" title="Eliminar" class="btn btn-icon-only red delete-location">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
                                 </td>

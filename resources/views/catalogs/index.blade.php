@@ -11,7 +11,7 @@
             <a href="{{route('providers.index')}}">
                 <div class="panel panel-primary text-center no-boder bg-color-blue">
                     <div class="panel-body">
-                        <i class="fa fa-list-alt fa-5x"></i>
+                        <i class="fa fa-taxi fa-5x"></i>
                     </div>
                     <div class="panel-footer back-footer-blue">
                         Proveedores
@@ -39,7 +39,7 @@
             <a href="{{route('locations.index')}}">
                 <div class="panel panel-primary text-center no-boder bg-color-blue">
                     <div class="panel-body">
-                        <i class="icon-target fa-5x"></i>
+                        <i class="fa fa-map-marker fa-5x"></i>
                     </div>
                     <div class="panel-footer back-footer-blue">
                         Ubicaciones
@@ -53,7 +53,7 @@
             <a href="{{route('customers.index')}}">
                 <div class="panel panel-primary text-center no-boder bg-color-blue">
                     <div class="panel-body">
-                        <i class="fa fa-user fa-5x"></i>
+                        <i class="icon-user-follow fa-5x"></i>
                     </div>
                     <div class="panel-footer back-footer-blue">
                         Clientes
@@ -69,7 +69,7 @@
             <a href="{{route('projects.index')}}">
                 <div class="panel panel-primary text-center no-boder bg-color-blue">
                     <div class="panel-body">
-                        <i class="icon-settings fa-5x"></i>
+                        <i class="fa fa-building fa-5x"></i>
                     </div>
                     <div class="panel-footer back-footer-blue">
                         Proyectos

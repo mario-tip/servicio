@@ -34,7 +34,7 @@
                 <li id="liAssets" class="nav-item">
                     <a href="{!!URL::to('/actives')!!}" class="nav-link nav-toggle">
                         <i class="icon-pencil"></i>
-                        <span class="title">Captura de información</span>
+                        <span class="title">Captura activos</span>
                     </a>
                 </li>
                 @endif
@@ -71,7 +71,7 @@
                 @if(userHasPermission('listar_catalogo_correlativos'))
                 <li id="liParts" class="nav-item">
                     <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
-                        <i class="far fa-bookmark"></i>
+                        <i class="fa fa-bookmark"></i>
                         <span class="title">Catálogo de correlativos</span>
                     </a>
                 </li>

@@ -70,7 +70,7 @@
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_proyectos"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$project->name}}" data-id="{{$project->id}}" title="Eliminar" class="btn btn-icon-only red delete-project">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
                                 </td>

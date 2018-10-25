@@ -72,7 +72,7 @@
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_clientes"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$customer->name}}" data-id="{{$customer->id}}" title="Eliminar" class="btn btn-icon-only red delete-customer">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
                                 </td>

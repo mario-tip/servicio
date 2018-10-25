@@ -72,7 +72,7 @@
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_proveedores"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$provider->name}}" data-id="{{$provider->id}}" title="Eliminar" class="btn btn-icon-only red delete-provider">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
                                 </td>

@@ -72,7 +72,7 @@
                                     <a href="#basic" data-toggle="modal" data-name="{{$part->name}}"
                                        data-id="{{$part->id}}" title="Eliminar"
                                        class="btn btn-icon-only red modalDelete">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
                                 </td>

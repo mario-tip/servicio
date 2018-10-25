@@ -68,7 +68,7 @@
                                 <td class="center"> {{$service_order->getStatusWord()}} </td>
                                 <td>
                                     <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btn-icon-only green">
-                                        <i class="fas fa-eye"></i>
+                                        <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
                             </tr>
