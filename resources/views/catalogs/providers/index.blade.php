@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_proveedores"))
-                                    <a href="{{URL::route('providers.create')}}" class="btn green"><i class="fa fa-plus"></i> Nuevo proveedor</a>
+                                    <a href="{{URL::route('providers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nuevo proveedor</a>
                                     @endif
                                 </div>
                             </div>
@@ -66,12 +66,12 @@
                                 <td class="center">{{$provider->phone}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_proveedores"))
-                                    <a href="{{route('providers.edit', $provider->id) }}" title="Editar" class="btn btn-icon-only green-meadow">
+                                    <a href="{{route('providers.edit', $provider->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-meadow">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_proveedores"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$provider->name}}" data-id="{{$provider->id}}" title="Eliminar" class="btn btn-icon-only red delete-provider">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$provider->name}}" data-id="{{$provider->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-provider">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -95,8 +95,8 @@
                 <div class="modal-body" id="bodyDelete"></div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal" onclick="deleteProvider()">Aceptar</button>
-                    <button type="button" class="btn red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteProvider()">Aceptar</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -114,7 +114,7 @@
                 </div>
                 <div class="modal-body">El proveedor no se puede eliminar, si está asociado a otros registros.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
                 </div>
             </div>
             <!-- /.modal-content -->

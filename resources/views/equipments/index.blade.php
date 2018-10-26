@@ -93,8 +93,8 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal" onclick="deleteEquipment()">Aceptar</button>
-                    <button type="button" class="btn red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteEquipment()">Aceptar</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
                 </div>
             </div>
             <!-- /.modal-content -->

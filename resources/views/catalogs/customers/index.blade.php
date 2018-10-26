@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_clientes"))
-                                    <a href="{{URL::route('customers.create')}}" class="btn green"><i class="fa fa-plus"></i> Nuevo cliente</a>
+                                    <a href="{{URL::route('customers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nuevo cliente</a>
                                     @endif
                                 </div>
                             </div>
@@ -66,12 +66,12 @@
                                 <td class="center"> {{$customer->getTypeWord()}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_clientes"))
-                                    <a href="{{route('customers.edit', $customer->id) }}" title="Editar" class="btn btn-icon-only green-meadow">
+                                    <a href="{{route('customers.edit', $customer->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-meadow">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_clientes"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$customer->name}}" data-id="{{$customer->id}}" title="Eliminar" class="btn btn-icon-only red delete-customer">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$customer->name}}" data-id="{{$customer->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-customer">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -97,8 +97,8 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal" onclick="deleteCustomer()">Aceptar</button>
-                    <button type="button" class="btn red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteCustomer()">Aceptar</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -116,7 +116,7 @@
                 </div>
                 <div class="modal-body">El cliente NO se puede eliminar si está asociada a un activo.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
                 </div>
             </div>
             <!-- /.modal-content -->

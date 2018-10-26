@@ -58,7 +58,7 @@ function addPart() {
                 response.part.number,
                 '<span class="currency-format">' + response.part.price + '</span>',
                 response.part.description,
-                '<a class="btn btn-icon-only red icon-delete">' +
+                '<a class="btn btn-circle btn-icon-only red icon-delete">' +
                 '<i class="fa fa-trash-o"></i>' +
                 '</a>' +
                 '<input name="parts[]" type="hidden" value="' + response.part.id + '"/>'

@@ -18,7 +18,7 @@
                             {!!Form::select('asset[equipment_id]', $dependencies['equipments'], $asset->equipment_id,
                             ['class' => 'bs-select form-control asset-equipment', 'id' => 'asset_equipment_id',
                             'title' => 'Seleccionar...']) !!}
-                            <a class="btn green-meadow" id="get_equipment_parts">Aceptar</a>
+                            <a class="btn btn-circle green-meadow" id="get_equipment_parts">Aceptar</a>
                         </div>
                     </div>
                 </div>
@@ -67,8 +67,8 @@
         </div>
     </div>
     <div class="form-actions col-sm-offset-5">
-        <button type="submit" class="btn green-meadow" id="save_asset">Guardar</button>
-        <a class="btn red" href="{!!URL::route('actives.index')!!}">Cancelar</a>
+        <button type="submit" class="btn btn-circle green-meadow" id="save_asset">Guardar</button>
+        <a class="btn btn-circle red" href="{!!URL::route('actives.index')!!}">Cancelar</a>
     </div>
 </div>
 <!-- END ADDITIONAL INFO PORTLET-->

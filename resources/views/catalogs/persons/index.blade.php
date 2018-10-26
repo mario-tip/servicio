@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_personas"))
-                                    <a href="{{URL::route('persons.create')}}" class="btn green"><i class="fa fa-plus"></i> Nueva persona</a>
+                                    <a href="{{URL::route('persons.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nueva persona</a>
                                     @endif
                                 </div>
                             </div>
@@ -68,12 +68,12 @@
                                 <td class="center">{{$person->email}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_personas"))
-                                    <a href="{{route('persons.edit', $person->id) }}" title="Editar" class="btn btn-icon-only green-meadow">
+                                    <a href="{{route('persons.edit', $person->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-meadow">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_personas"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$person->name}}" data-id="{{$person->id}}" title="Eliminar" class="btn btn-icon-only red delete-person">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$person->name}}" data-id="{{$person->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-person">
                                         <i class="fa fa-times"></i>
                                     </a>
                                     @endif

@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_proyectos"))
-                                    <a href="{{URL::route('projects.create')}}" class="btn green"><i class="fa fa-plus"></i> Nuevo proyecto</a>
+                                    <a href="{{URL::route('projects.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nuevo proyecto</a>
                                     @endif
                                 </div>
                             </div>
@@ -64,12 +64,12 @@
                                 <td class="center"> {{$project->description}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_proyectos"))
-                                    <a href="{{route('projects.edit', $project->id) }}" title="Editar" class="btn btn-icon-only green-meadow">
+                                    <a href="{{route('projects.edit', $project->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-meadow">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_proyectos"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$project->name}}" data-id="{{$project->id}}" title="Eliminar" class="btn btn-icon-only red delete-project">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$project->name}}" data-id="{{$project->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-project">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -95,8 +95,8 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal" onclick="deleteProject()">Aceptar</button>
-                    <button type="button" class="btn red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteProject()">Aceptar</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -114,7 +114,7 @@
                 </div>
                 <div class="modal-body">El projecto NO se puede eliminar si está asociado a un activo.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
                 </div>
             </div>
             <!-- /.modal-content -->

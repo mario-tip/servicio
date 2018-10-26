@@ -86,6 +86,6 @@
         </div>
     </div>
     <div class="form-actions col-sm-offset-5">
-        <button class="btn green-meadow" id="save_location">Guardar</button>
-        <a class="btn red" href="{{route('locations.index')}}">Cancelar</a>
+        <button class="btn btn-circle green-meadow" id="save_location">Guardar</button>
+        <a class="btn btn-circle red" href="{{route('locations.index')}}">Cancelar</a>
     </div>

@@ -86,12 +86,12 @@
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
 
-                                    <button type="submit" class="btn blue" id="generate_report">Generar</button>
+                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generar</button>
 
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-technician-tickets'])!!}
                                         <input type="hidden" id="data" name="data">
-                                        <button type="submit" class="btn green-meadow disabled-button" id="download_report" disabled>Descargar</button>
+                                        <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Descargar</button>
                                     {!! Form::close() !!}
                                 </div>
                             </div>

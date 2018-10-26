@@ -82,7 +82,7 @@
                                 <td>
                                     @if(userHasPermission("mostrar_consulta_atencion_incidencias"))
                                     <a href="{!!URL::to('/incidents_datails/'.$incident->id)!!}" title="Ver detalle"
-                                       class="btn btn-icon-only green-meadow ">
+                                       class="btn btn-circle btn-icon-only green-meadow ">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     @endif

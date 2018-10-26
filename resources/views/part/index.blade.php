@@ -37,7 +37,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_correlativos"))
-                                    <a href="{{URL::route('parts.create')}}" class="btn green"><i class="fa fa-plus"></i> Nueva parte</a>
+                                    <a href="{{URL::route('parts.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nueva parte</a>
                                     @endif
                                 </div>
                             </div>
@@ -64,14 +64,14 @@
                                 <td>
                                     @if(userHasPermission("editar_catalogo_correlativos"))
                                     <a href="{{  URL::route('parts.edit', $part->id) }}" title="Editar"
-                                       class="btn btn-icon-only green-meadow ">
+                                       class="btn btn-circle btn-icon-only green-meadow ">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_correlativos"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$part->name}}"
                                        data-id="{{$part->id}}" title="Eliminar"
-                                       class="btn btn-icon-only red modalDelete">
+                                       class="btn btn-circle btn-icon-only red modalDelete">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -98,8 +98,8 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal" onclick="deleteUser()">Aceptar</button>
-                    <button type="button" class="btn red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Aceptar</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -117,7 +117,7 @@
                 </div>
                 <div class="modal-body">El correlativo NO se puede eliminar si esta asociado a un activo o equipo.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
                 </div>
             </div>
             <!-- /.modal-content -->

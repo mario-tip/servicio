@@ -42,7 +42,7 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    <a href="{{URL::route('maintenances.create')}}" class="btn green"><i class="fa fa-plus"></i> Registrar mantenimiento</a>
+                                    <a href="{{URL::route('maintenances.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Registrar mantenimiento</a>
                                 </div>
                             </div>
                         </div>

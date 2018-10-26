@@ -96,6 +96,6 @@
 </div>
 
 <div class="form-actions col-sm-offset-5">
-    <button type="submit" class="btn green-meadow" id="send">Guardar</button>
-    <a class="btn red" href="{{URL::route('maintenances.index')}}">Cancelar</a>
+    <button type="submit" class="btn btn-circle green-meadow" id="send">Guardar</button>
+    <a class="btn btn-circle red" href="{{URL::route('maintenances.index')}}">Cancelar</a>
 </div>

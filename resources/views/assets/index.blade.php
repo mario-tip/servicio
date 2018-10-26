@@ -110,8 +110,8 @@
                     @include("assets.forms.update_firmware_form")
                 </div>
                 <div class="form-actions col-sm-offset-5">
-                    <button type="submit" class="btn green-meadow" id="save_asset">Guardar</button>
-                    <a class="btn red" href="#" data-dismiss="modal">Cancelar</a>
+                    <button type="submit" class="btn btn-circle green-meadow" id="save_asset">Guardar</button>
+                    <a class="btn btn-circle red" href="#" data-dismiss="modal">Cancelar</a>
                 </div>
                 {!! Form::close() !!}
             </div>
