@@ -40,7 +40,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission('crear_captura_info'))
-                                    <a href="{{URL::route('actives.create')}}" class="btn green"><i class="fa fa-plus"></i> Nuevo Activo</a>
+                                    <a href="{{URL::route('actives.create')}}" class="btn green btn-circle"><i class="fa fa-plus"></i> Nuevo Activo</a>
                                     @endif
                                 </div>
                             </div>
@@ -65,24 +65,24 @@
                                 <td class="center"> {{$asset->serial}} </td>
                                 <td>
                                     @if(userHasPermission('editar_captura_info'))
-                                    <a href="{{ URL::route('actives.edit', $asset->id) }}" title="Editar" class="btn btn-icon-only green-jungle">
+                                    <a href="{{ URL::route('actives.edit', $asset->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-jungle">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('mostrar_captura_info'))
-                                    <a href="{{ URL::route('actives.show', $asset->id) }}" title="Mostrar" class="btn btn-icon-only green">
+                                    <a href="{{ URL::route('actives.show', $asset->id) }}" title="Mostrar" class="btn btn-circle btn-icon-only green">
                                         <i class="icon-eye"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('actualizar_firmware'))
-                                    <a href="#large" data-toggle="modal"  title="Actualizar firmware" class="btn btn-icon-only purple update-firmware"
+                                    <a href="#large" data-toggle="modal"  title="Actualizar firmware" class="btn btn-circle btn-icon-only purple update-firmware"
                                        data-current_firmware="{{count($asset->firmwares) > 0 ? $asset->firmwares->last()->firmware : ''}}"
                                        data-asset_id="{{$asset->id}}">
                                         <i class="fa fa-undo"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('historial_firmware'))
-                                    <a id="firmware_history" href="{{url('/firmwares/' . $asset->id)}}" title="Historial de firmware" class="btn btn-icon-only purple-medium">
+                                    <a id="firmware_history" href="{{url('/firmwares/' . $asset->id)}}" title="Historial de firmware" class="btn btn-circle btn-icon-only purple-medium">
                                         <i class="fa fa-history"></i>
                                     </a>
                                     @endif

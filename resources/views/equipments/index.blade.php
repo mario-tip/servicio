@@ -27,7 +27,7 @@
     <div class="row content_container">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
-            <div class="portlet light portlet-fit bordered">
+            <div class="portlet portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
                         <span class="caption-subject bold">Catálogo de tipos de equipo</span>
@@ -40,7 +40,8 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_tipo_equipo"))
-                                    <a href="{{URL::route('equipments.create')}}" class="btn green"><i class="fa fa-plus"></i> Nuevo Equipo</a>
+                                    <a href="{{URL::route('equipments.create')}}" class="btn btn-circle btn-success "><i class="fa fa-plus"></i> Nuevo Equipo</a>
+
                                     @endif
                                 </div>
                             </div>
@@ -59,12 +60,12 @@
                                 <td class="center"> {{$equipment->name}} </td>
                                 <td>
                                     @if(userHasPermission("editar_tipo_equipo"))
-                                    <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Editar" class="btn btn-icon-only green-jungle">
+                                    <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_tipo_equipo"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Eliminar" class="btn btn-icon-only red delete-equipment">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-equipment">
                                         {{-- <i class="fa fa-times"></i> --}}
                                         <i class="fa fa-trash-o"></i>
                                     </a>

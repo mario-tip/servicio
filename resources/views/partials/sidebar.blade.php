@@ -71,7 +71,7 @@
                 @if(userHasPermission('listar_catalogo_correlativos'))
                 <li id="liParts" class="nav-item">
                     <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
-                        <i class="fa fa-bookmark"></i>
+                        <i class="icon-map"></i>
                         <span class="title">Catálogo de correlativos</span>
                     </a>
                 </li>

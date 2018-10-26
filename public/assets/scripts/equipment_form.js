@@ -3,7 +3,7 @@ $(document).ready(function(){
     token = $("input[name='_token']").val();
     $("#part_select" ).select2({
         ajax: {
-            url: '/get-select2-parts',
+            url: '../get-select2-parts',
             dataType: 'json',
             headers: {'X-CSRF-TOKEN': token},
             data: function (params) {

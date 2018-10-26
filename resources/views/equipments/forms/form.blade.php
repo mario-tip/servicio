@@ -15,7 +15,7 @@
                     <div class="select2-group">
                         <label class="control-label" for="equipment_parts"><span></span>Agregar partes: </label>
                         <select id="part_select" class="form-control select2"></select>
-                        <a class="btn green-meadow" id="add_part">Agregar</a>
+                        <a class="btn btn-circle green-meadow" id="add_part">Agregar</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                                 <td><span class="currency-format">{{$part->price}}</span></td>
                                 <td>{{$part->description}}</td>
                                 <td>
-                                  <a class="btn btn-icon-only red icon-delete">
+                                  <a class="btn btn-circle btn-icon-only red icon-delete">
                                       <i class="fa fa-trash-o"></i>
                                   </a>
                                   <input name="parts[]" type="hidden" value="{{$part->id}}"/>
@@ -57,6 +57,6 @@
 </div>
 
 <div class="form-actions col-sm-offset-5">
-    <button class="btn green-meadow" id="save_equipment">Guardar</button>
-    <a class="btn red" href="{!!URL::route('equipments.index')!!}">Cancelar</a>
+    <button class="btn btn-circle green-meadow" id="save_equipment">Guardar</button>
+    <a class="btn btn-circle red" href="{!!URL::route('equipments.index')!!}">Cancelar</a>
 </div>
