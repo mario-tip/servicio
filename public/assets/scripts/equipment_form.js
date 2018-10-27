@@ -3,7 +3,7 @@ $(document).ready(function(){
     token = $("input[name='_token']").val();
     $("#part_select" ).select2({
         ajax: {
-            url: '../get-select2-parts',
+            url: 'get-select2-parts',
             dataType: 'json',
             headers: {'X-CSRF-TOKEN': token},
             data: function (params) {
@@ -43,7 +43,7 @@ $('#add_part').click(function(){
 function addPart() {
     var selected_part_id = $('#part_select').val();
     $.ajax({
-        url: '/get-part',
+        url: 'get-part',
         method: 'POST',
         dataType: 'JSON',
         data: {'part_id': selected_part_id},
@@ -83,7 +83,7 @@ $('#equipment_form').submit(function(e) {
     //console.log('here');
     var serialized_form = $(this).serialize();
     var method = $(this).data('method');
-    var url = '/equipments';
+    var url = 'equipments';
     if(method == 'PUT') {url += '/' + $('#equipment_id').val(); }
     sendForm(serialized_form, method, url);
 });
@@ -101,7 +101,7 @@ function sendForm(serialized_form, method, url) {
             if(response.errors == true) {
                 $('#errors_container').html(response.errors_fragment);
             } else {
-                window.location = '/equipments';
+                window.location = '../equipments';
             }
         }
     });
