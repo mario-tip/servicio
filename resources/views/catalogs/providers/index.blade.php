@@ -3,6 +3,7 @@
 @section("styles")
     {!!Html::style("/assets/global/plugins/datatables/datatables.min.css")!!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
+    {!! Html::style("/assets/css/provider.css") !!}
 @endsection
 
 @section('breadcrumb')
@@ -66,7 +67,7 @@
                                 <td class="center">{{$provider->phone}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_proveedores"))
-                                    <a href="{{route('providers.edit', $provider->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-meadow">
+                                    <a href="{{route('providers.edit', $provider->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif

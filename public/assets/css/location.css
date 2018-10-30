@@ -21,3 +21,8 @@
   text-align: justify; }
 
 /*# sourceMappingURL=location.css.map */
+#sample_editable_1 td:nth-child(4) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

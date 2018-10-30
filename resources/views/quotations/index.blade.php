@@ -68,24 +68,27 @@
                                 <td class="center" id="quotation_description_td">{{$quotation->description}}</td>
                                 <td class="center">{{$quotation->getAuthorizationWord()}}</td>
                                 <td>
-                                    @if(userHasPermission("mostrar_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.show', $quotation->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only green">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    @endif
-                                    @if(userHasPermission("cambiar_estatus_cotizacion_servicios"))
-                                    <a href="#authorization_modal" data-toggle="modal" title="Cambiar estatus" data-id="{{$quotation->id}}" data-authorization="{{$quotation->authorization}}" class="btn btn-circle btn-icon-only green-meadow change-quotation-status">
-                                        <i class="fa fa-check"></i>
-                                    </a>
-                                    @endif
                                     @if(userHasPermission("editar_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.edit', $quotation->id)}}" title="Editar" class="btn btn-circle btn-icon-only green-jungle">
+                                    <a href="{{URL::route('quotations.edit', $quotation->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
+
+                                    @if(userHasPermission("mostrar_cotizacion_servicios"))
+                                    <a href="{{URL::route('quotations.show', $quotation->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    @endif
+
                                     @if(userHasPermission("cancelar_cotizacion_servicios"))
                                     <a href="#cancel_modal" data-toggle="modal" data-name="{{$quotation->name}}" data-id="{{$quotation->id}}" title="Cancelar" class="btn btn-circle btn-icon-only red cancel_quotation">
                                         <i class="fa fa-trash-o"></i>
+                                    </a>
+                                    @endif
+
+                                    @if(userHasPermission("cambiar_estatus_cotizacion_servicios"))
+                                    <a href="#authorization_modal" data-toggle="modal" title="Cambiar estatus" data-id="{{$quotation->id}}" data-authorization="{{$quotation->authorization}}" class="btn btn-circle btn-icon-only green-meadow change-quotation-status">
+                                        <i class="fa fa-check"></i>
                                     </a>
                                     @endif
                                 </td>

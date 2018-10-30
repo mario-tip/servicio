@@ -195,7 +195,7 @@ table.dataTable.display tbody tr:hover.selected>.sorting_3, table.dataTable.orde
 }
 
 table.dataTable.no-footer {
-  border-bottom: 1px solid #111
+  /* border-bottom: 1px solid #111 */
 }
 
 table.dataTable.nowrap th, table.dataTable.nowrap td {

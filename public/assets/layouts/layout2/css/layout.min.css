@@ -52,7 +52,7 @@
 .page-header.navbar .page-logo {
   float: left;
   display: block;
-  width: 312px;
+  width: 239px;
   height: 68px;
   padding-left: 20px;
   padding-right: 20px
@@ -750,7 +750,7 @@
   }
 
   .page-header.navbar .menu-toggler.responsive-toggler {
-    background-image: url(../img/sidebar-toggler.png)
+    background-image: url(../img/sidebar-toggler-inverse.png)
   }
 
   .page-header.navbar .search-form {

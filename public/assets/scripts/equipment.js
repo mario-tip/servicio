@@ -25,7 +25,7 @@ function deleteEquipment() {
                     $('#notification_container').html(response.errors_fragment);
                 }
             } else {
-                window.location = "../equipments";
+                window.location = "/equipments";
                 $("#message").fadeIn();
             }
         }

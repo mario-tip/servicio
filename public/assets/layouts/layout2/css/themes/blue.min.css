@@ -369,7 +369,7 @@
 
 @media (max-width:767px) {
   .page-header.navbar {
-    background: #17C4BB
+    background: #fff
   }
 
   .page-header.navbar .top-menu .navbar-nav>li.dropdown>.dropdown-toggle:hover {

@@ -45,7 +45,7 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    <a href="{{ URL::route('maintenances.edit', $maintenance->id) }}" class="btn green-jungle"><i class="fa fa-edit"></i> Editar mantenimiento</a>
+                                    <a href="{{ URL::route('maintenances.edit', $maintenance->id) }}" class="btn btn-circle green-meadow"><i class="fa fa-edit"></i> Editar mantenimiento</a>
                                 </div>
                             </div>
                         </div>

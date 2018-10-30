@@ -325,7 +325,6 @@ footer p{
     color:#fff;
     background:transparent;
     text-shadow:none;
-
 }
 .sidebar-collapse > .nav > li > a {
     padding:15px 10px;
@@ -429,3 +428,7 @@ ul.nav.nav-second-level.collapse.in {
     }
 }
 
+
+#large div > div {
+  background: green;
+}

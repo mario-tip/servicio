@@ -3,6 +3,8 @@
 @section("styles")
     {!! Html::style("/assets/global/plugins/datatables/datatables.min.css")!!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
+
+    {!! Html::style("/assets/css/service_order.css") !!}
 @endsection
 
 @section('breadcrumb')
@@ -67,7 +69,7 @@
                                 <td class="center"> {{$service_order->date}} </td>
                                 <td class="center"> {{$service_order->getStatusWord()}} </td>
                                 <td>
-                                    <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only green">
+                                    <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </td>

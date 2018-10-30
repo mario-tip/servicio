@@ -27,7 +27,7 @@
     <div class="row content_container">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
-            <div class="portlet portlet-fit bordered">
+            <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
                         <span class="caption-subject bold">Catálogo de tipos de equipo</span>
@@ -58,7 +58,7 @@
                             @foreach($equipments as $equipment)
                             <tr>
                                 <td class="center"> {{$equipment->name}} </td>
-                                <td>
+                                <td id="equipments_table">
                                     @if(userHasPermission("editar_tipo_equipo"))
                                     <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>

@@ -31,3 +31,23 @@
   padding: 20px 0 10px 20px; }
 
 /*# sourceMappingURL=asset.css.map */
+/* #large > div > div > div:nth-child(4) {
+  background: green;
+} */
+
+#firmware_form > div:nth-child(4){
+  /* background: green; */
+  margin-bottom: 20px;
+}
+
+#sample_editable_1 td:nth-child(5) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#equipments_table{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

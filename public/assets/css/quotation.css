@@ -50,3 +50,14 @@ table tbody tr #quotation_description_td {
   text-align: justify; }
 
 /*# sourceMappingURL=quotation.css.map */
+#authorization_form > div:nth-child(3){
+  margin-bottom: 20px;
+}
+
+/* border-left: solid 1px #c2cad8; */
+
+#sample_editable_1 td:nth-child(6) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

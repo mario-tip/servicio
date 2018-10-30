@@ -3,6 +3,7 @@
 @section("styles")
     {!!Html::style("/assets/global/plugins/datatables/datatables.min.css")!!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
+    {!! Html::style("/assets/css/incident.css") !!}
 @endsection
 
 @section('breadcrumb')
@@ -86,15 +87,10 @@
                                 <td class="center"> {{\Carbon\Carbon::parse($incident->suggested_date)->format('d-m-Y')}} </td>
                                 {{--<td class="center">  </td>--}}
                                 <td>
-                                    @if(userHasPermission("generar_orden_servicio"))
-                                    <a href="{{url('service-orders/create/' . $incident->id)}}" title="Generar orden de servicio"
-                                       class="btn btn-circle btn-icon-only green-meadow ">
-                                        <i class="fa fa-file-text-o"></i>
-                                    </a>
-                                    @endif
+
                                     @if(userHasPermission("editar_registro_incidencias"))
                                     <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Editar"
-                                       class="btn btn-circle btn-icon-only green-meadow ">
+                                       class="btn btn-circle btn-icon-only btn-info ">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
@@ -105,6 +101,14 @@
                                         <i class="fa  fa-trash-o"></i>
                                     </a>
                                     @endif
+
+                                    @if(userHasPermission("generar_orden_servicio"))
+                                    <a href="{{url('service-orders/create/' . $incident->id)}}" title="Generar orden de servicio"
+                                       class="btn btn-circle btn-icon-only green-meadow ">
+                                        <i class="fa fa-file-text-o"></i>
+                                    </a>
+                                    @endif
+
                                 </td>
                             </tr>
                         @endforeach

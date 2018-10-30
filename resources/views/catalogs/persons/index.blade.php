@@ -3,6 +3,8 @@
 @section("styles")
     {!!Html::style("/assets/global/plugins/datatables/datatables.min.css")!!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
+    {!! Html::style("/assets/css/person.css") !!}
+
 @endsection
 
 @section('breadcrumb')
@@ -68,7 +70,7 @@
                                 <td class="center">{{$person->email}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_personas"))
-                                    <a href="{{route('persons.edit', $person->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-meadow">
+                                    <a href="{{route('persons.edit', $person->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif

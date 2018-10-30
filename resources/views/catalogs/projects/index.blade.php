@@ -3,6 +3,7 @@
 @section("styles")
     {!!Html::style("/assets/global/plugins/datatables/datatables.min.css")!!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
+    {!! Html::style("/assets/css/project.css") !!}
 @endsection
 
 @section('breadcrumb')
@@ -64,8 +65,8 @@
                                 <td class="center"> {{$project->description}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_proyectos"))
-                                    <a href="{{route('projects.edit', $project->id) }}" title="Editar" class="btn btn-circle btn-icon-only green-meadow">
-                                        <i class="fa fa-edit"></i>
+                                    <a href="{{route('projects.edit', $project->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                      <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_proyectos"))
