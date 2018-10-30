@@ -69,6 +69,7 @@
                                 <td class="center">{{$person->mother_last_name}}</td>
                                 <td class="center">{{$person->email}}</td>
                                 <td>
+                                  <div>
                                     @if(userHasPermission("editar_catalogo_personas"))
                                     <a href="{{route('persons.edit', $person->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
@@ -79,6 +80,7 @@
                                         <i class="fa fa-times"></i>
                                     </a>
                                     @endif
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach

@@ -81,12 +81,14 @@
                                 <td class="center"> {{$incident->technician}} </td>
                                 <td class="center"> {{$incident->status}} </td>
                                 <td>
+                                  <div>
                                     @if(userHasPermission("mostrar_consulta_atencion_incidencias"))
                                     <a href="{!!URL::to('/incidents_datails/'.$incident->id)!!}" title="Ver detalle"
                                        class="btn btn-circle btn-icon-only grey-silver ">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     @endif
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach

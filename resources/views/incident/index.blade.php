@@ -87,7 +87,7 @@
                                 <td class="center"> {{\Carbon\Carbon::parse($incident->suggested_date)->format('d-m-Y')}} </td>
                                 {{--<td class="center">  </td>--}}
                                 <td>
-
+                                  <div>
                                     @if(userHasPermission("editar_registro_incidencias"))
                                     <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Editar"
                                        class="btn btn-circle btn-icon-only btn-info ">
@@ -108,7 +108,7 @@
                                         <i class="fa fa-file-text-o"></i>
                                     </a>
                                     @endif
-
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach

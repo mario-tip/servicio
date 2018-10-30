@@ -58,9 +58,11 @@ function addPart() {
                 response.part.number,
                 '<span class="currency-format">' + response.part.price + '</span>',
                 response.part.description,
+                '<div class = "center_items">'+
                 '<a class="btn btn-circle btn-icon-only red icon-delete">' +
                 '<i class="fa fa-trash-o"></i>' +
                 '</a>' +
+                '</div>'+
                 '<input name="parts[]" type="hidden" value="' + response.part.id + '"/>'
             ]).draw(false);
             $('.currency-format').number(true, 2);

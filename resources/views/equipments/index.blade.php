@@ -57,20 +57,23 @@
                         <tbody>
                             @foreach($equipments as $equipment)
                             <tr>
-                                <td class="center"> {{$equipment->name}} </td>
-                                <td id="equipments_table">
-                                    @if(userHasPermission("editar_tipo_equipo"))
-                                    <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    @endif
-                                    @if(userHasPermission("eliminar_tipo_equipo"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-equipment">
-                                        {{-- <i class="fa fa-times"></i> --}}
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                    @endif
-                                </td>
+                              <td class="center"> {{$equipment->name}} </td>
+
+                              <td>
+                                <div class="center_items">
+                                  @if(userHasPermission("editar_tipo_equipo"))
+                                  <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                      <i class="fa fa-edit"></i>
+                                  </a>
+                                  @endif
+                                  @if(userHasPermission("eliminar_tipo_equipo"))
+                                  <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-equipment">
+                                      {{-- <i class="fa fa-times"></i> --}}
+                                      <i class="fa fa-trash-o"></i>
+                                  </a>
+                                  @endif
+                                </div>
+                              </td>
                             </tr>
                             @endforeach
                         </tbody>

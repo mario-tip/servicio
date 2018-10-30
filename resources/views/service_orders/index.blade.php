@@ -69,9 +69,11 @@
                                 <td class="center"> {{$service_order->date}} </td>
                                 <td class="center"> {{$service_order->getStatusWord()}} </td>
                                 <td>
+                                  <div>
                                     <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">
-                                        <i class="fa fa-eye"></i>
+                                      <i class="fa fa-eye"></i>
                                     </a>
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach

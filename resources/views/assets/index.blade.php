@@ -64,6 +64,7 @@
                                 <td class="center"> {{$asset->model}} </td>
                                 <td class="center"> {{$asset->serial}} </td>
                                 <td>
+                                  <div class="center_items">
                                     @if(userHasPermission('editar_captura_info'))
                                     <a href="{{ URL::route('actives.edit', $asset->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
@@ -86,6 +87,7 @@
                                         <i class="fa fa-history"></i>
                                     </a>
                                     @endif
+                                  </div>
                                 </td>
                             </tr>
                             @endforeach

@@ -31,12 +31,15 @@
   padding: 20px 0 10px 20px; }
 
 /*# sourceMappingURL=asset.css.map */
+
+/* @carlos Adrian  */
+
 /* #large > div > div > div:nth-child(4) {
   background: green;
 } */
 
-#firmware_form > div:nth-child(4){
-  /* background: green; */
+/* #firmware_form > div:nth-child(4){
+  background: green;
   margin-bottom: 20px;
 }
 
@@ -47,6 +50,12 @@
 }
 
 #equipments_table{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.center_items{
   display: flex;
   align-items: center;
   justify-content: center;

@@ -66,6 +66,7 @@
                                 <td class="center"> {{$location->building}}</td>
                                 <td class="center"> {{$location->area}}</td>
                                 <td>
+                                  <div>
                                     @if(userHasPermission("editar_catalogo_ubicaciones"))
                                     <a href="{{route('locations.edit', $location->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
@@ -76,6 +77,7 @@
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach

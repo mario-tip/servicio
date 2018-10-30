@@ -68,6 +68,7 @@
                                 <td class="center" id="quotation_description_td">{{$quotation->description}}</td>
                                 <td class="center">{{$quotation->getAuthorizationWord()}}</td>
                                 <td>
+                                  <div>
                                     @if(userHasPermission("editar_cotizacion_servicios"))
                                     <a href="{{URL::route('quotations.edit', $quotation->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
@@ -82,7 +83,7 @@
 
                                     @if(userHasPermission("cancelar_cotizacion_servicios"))
                                     <a href="#cancel_modal" data-toggle="modal" data-name="{{$quotation->name}}" data-id="{{$quotation->id}}" title="Cancelar" class="btn btn-circle btn-icon-only red cancel_quotation">
-                                        <i class="fa fa-trash-o"></i>
+                                        <i class="fa fa-ban"></i>
                                     </a>
                                     @endif
 
@@ -91,6 +92,7 @@
                                         <i class="fa fa-check"></i>
                                     </a>
                                     @endif
+                                  </div>
                                 </td>
                             </tr>
                             @endforeach

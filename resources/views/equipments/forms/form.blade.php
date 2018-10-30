@@ -35,15 +35,18 @@
                         @if(count($equipment->parts) > 0)
                             @foreach($equipment->parts as $part)
                             <tr>
+
                                 <td>{{$part->name}}</td>
                                 <td>{{$part->number}}</td>
                                 <td><span class="currency-format">{{$part->price}}</span></td>
                                 <td>{{$part->description}}</td>
                                 <td>
-                                  <a class="btn btn-circle btn-icon-only red icon-delete">
-                                      <i class="fa fa-trash-o"></i>
-                                  </a>
-                                  <input name="parts[]" type="hidden" value="{{$part->id}}"/>
+                                  <div class="center_items">
+                                    <a class="btn btn-circle btn-icon-only red icon-delete">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                    <input name="parts[]" type="hidden" value="{{$part->id}}"/>
+                                  </div>
                                 </td>
                             </tr>
                             @endforeach

@@ -24,7 +24,7 @@
   text-align: justify; }
 
 /*# sourceMappingURL=person.css.map */
-#sample_editable_1 td:nth-child(5) {
+#sample_editable_1 td div {
   display: flex;
   align-items: center;
   justify-content: center;

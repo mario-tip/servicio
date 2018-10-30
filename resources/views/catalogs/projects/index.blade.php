@@ -64,6 +64,7 @@
                                 <td class="center"> {{$project->name}}</td>
                                 <td class="center"> {{$project->description}}</td>
                                 <td>
+                                  <div>
                                     @if(userHasPermission("editar_catalogo_proyectos"))
                                     <a href="{{route('projects.edit', $project->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
                                       <i class="fa fa-edit"></i>
@@ -74,6 +75,7 @@
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach

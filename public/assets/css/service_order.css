@@ -50,7 +50,7 @@
 
 /*# sourceMappingURL=service_order.css.map */
 
-#sample_editable_1 td:nth-child(9) {
+#sample_editable_1 td div {
   display: flex;
   align-items: center;
   justify-content: center;

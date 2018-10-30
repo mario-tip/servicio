@@ -56,7 +56,8 @@ table tbody tr #quotation_description_td {
 
 /* border-left: solid 1px #c2cad8; */
 
-#sample_editable_1 td:nth-child(6) {
+
+#sample_editable_1 td > div {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,7 +1,6 @@
 
-#sample_editable_1 td:nth-child(10) {
+#sample_editable_1 td div{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
 }

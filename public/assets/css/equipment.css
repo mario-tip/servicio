@@ -23,3 +23,14 @@
   margin-top: 30px; }
 
 /*# sourceMappingURL=equipment.css.map */
+/* #datatable_parts tbody tr td:nth-child(5){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.center_items{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
