@@ -136,6 +136,8 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liParts").addClass("active");
+            $("#liAssetsPrincipal").addClass("active");
+
         });
 
         $(".modalDelete").click(function(){

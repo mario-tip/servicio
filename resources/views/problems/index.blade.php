@@ -21,7 +21,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/maintenances')!!}">Administración de mantenimientos programados</a>
+                <a href="{!!URL::to('/problems')!!}">Problems</a>
             </li>
         </ul>
     </div>
@@ -33,27 +33,10 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Calendario de próximos mantenimientos</span>
+                        <span class="caption-subject bold">Problems</span>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <div class="table-toolbar">
-                        <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6">
-                                <div class="btn-group pull-right">
-                                    <a href="{{URL::route('maintenances.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Registrar mantenimiento</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-                            <div id="maintenance-calendar"> </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -85,7 +68,7 @@
 
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liMaintenances").addClass("active");
+            $("#liProblems").addClass("active");
             $("#liHelpDesk").addClass("active");
 
             var token= $("#token").val();

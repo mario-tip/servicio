@@ -94,6 +94,7 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liServiceOrders").addClass("active");
+            $("#liHelpDesk").addClass("active");
         });
     </script>
 @endsection

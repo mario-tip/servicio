@@ -105,6 +105,16 @@ Route::post('/maintenances/search_dates', 'MaintenanceController@search_dates');
 Route::get('/assetData/{id}', ['as' => 'findAsset', 'uses' => 'MaintenanceController@assetData']);
 Route::get('getDataTechnician/{id}', 'MaintenanceController@getDataTechnician');
 
+// Problems
+// Route::resource('/maintenances', 'MaintenanceController');
+// Route::get('findTechnician', 'MaintenanceController@findTechnician');
+// Route::post('/maintenances/search_dates', 'MaintenanceController@search_dates');
+// Route::get('/assetData/{id}', ['as' => 'findAsset', 'uses' => 'MaintenanceController@assetData']);
+// Route::get('getDataTechnician/{id}', 'MaintenanceController@getDataTechnician');
+Route::get('/problems', function () {
+    return view('problems.index');
+});
+
 // Route to manage incidents
 Route::resource('/incidents', 'IncidentController');
 Route::get('aid', 'IncidentController@getIncidents');

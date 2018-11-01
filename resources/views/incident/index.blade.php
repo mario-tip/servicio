@@ -168,6 +168,7 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liIncidents").addClass("active");
+            $("#liHelpDesk").addClass("active");
         });
 
         $(".modalDelete").click(function(){

@@ -139,6 +139,8 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liAssets").addClass("active");
+            $("#liAssetsPrincipal").addClass("active");
+
         });
         $(".update-firmware").click(function(){
             var asset_id = $(this).data('asset_id');
