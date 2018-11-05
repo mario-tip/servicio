@@ -108,6 +108,8 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liAid").addClass("active");
+            $("#liAnalitycs").addClass("active");
+
         });
     </script>
 @endsection

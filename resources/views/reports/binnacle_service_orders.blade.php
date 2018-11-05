@@ -104,6 +104,7 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liServiceOrdersBinnacle").addClass("active");
+            $("#liAnalitycs").addClass("active");
         });
 
         $('.date-picker').datepicker({

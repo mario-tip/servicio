@@ -3,3 +3,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.portlet-title {
+  background: #36D7B7;
+  border-radius: .7em !important;
+}

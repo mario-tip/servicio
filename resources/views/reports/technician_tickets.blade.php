@@ -134,7 +134,9 @@
     {!! Html::script('/assets/scripts/tickets_report.js') !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liReports").addClass("active");
+            $("#liAnalitycs").addClass("active");
+            $("#liReportTiket").addClass("active");
+
         });
 
         $('.date-picker').datepicker({

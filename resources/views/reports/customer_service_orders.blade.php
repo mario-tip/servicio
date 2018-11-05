@@ -125,7 +125,8 @@
     {!! Html::script('/assets/scripts/customer_service_orders_report.js') !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liReports").addClass("active");
+          $("#liAnalitycs").addClass("active");
+          $("#liReportService").addClass("active");
         });
 
         $('.date-picker').datepicker({

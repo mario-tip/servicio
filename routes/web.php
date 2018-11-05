@@ -39,10 +39,16 @@ Route::get('/get-incident-parts', 'QuotationController@getIncidentParts');
 Route::post('/change-authorization-status', 'QuotationController@changeAuthorizationStatus');
 
 //Service orders
+Route::get('/help_service', function () {
+    return view('help_service.index');
+});
+
 Route::get('service-orders/create/{incident_id}', ['as' => 'service-orders.create',
     'uses' => 'ServiceOrderController@create'
 ]);
 Route::resource('/service-orders', 'ServiceOrderController');
+
+
 
 //Reports
 Route::get('/reports', function () {

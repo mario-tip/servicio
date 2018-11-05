@@ -119,7 +119,8 @@
     {!! Html::script('/assets/scripts/incidents_report.js') !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liReports").addClass("active");
+            $("#liAnalitycs").addClass("active");
+            $("#liReportIncidents").addClass("active");
         });
 
         $('.date-picker').datepicker({

@@ -5,7 +5,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ url('/') }}">
-                <img src="{{ asset('/images/logo_hh.png') }}" height="70" alt="logo" class="logo-default"/> </a>
+                <img src="{{ asset('/images/logo2.png') }}" height="60" alt="logo" class="logo-default"/> </a>
             <div class="menu-toggler sidebar-toggler">
                 <span></span>
             </div>

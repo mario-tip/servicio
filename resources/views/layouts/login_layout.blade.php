@@ -17,16 +17,17 @@
     {!! Html::style('assets/global/plugins/select2/css/select2-bootstrap.min.css') !!}
     {!! Html::style('assets/global/css/components-rounded.min.css') !!}
     {!! Html::style('assets/global/css/plugins.min.css') !!}
-    {!! Html::style('assets/pages/css/login.min.css') !!}
+    {!! Html::style('assets/pages/css/login2.css') !!}
 
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 
 <body class=" login">
+
     <div class="logo">
-        {{--<a href="#">
-            <img src="images/logo-laravel.png" alt="" style="height: 150px;"/>
-        </a>--}}
+      <a href="#">
+        <img src="images/Logo_3.png" alt=""  style="height: 6em;"/>
+      </a>
     </div>
 
     <div class="content">

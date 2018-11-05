@@ -68,7 +68,11 @@
     <form class="login-form" action="{{ url('/login') }}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="token" value="{{csrf_token()}}">
-        <h3 class="form-title">Iniciar sesión</h3>
+        <div class="form-title">
+          <span class="form-title">Welcome.</span>
+          <span class="form-subtitle">Please login.</span>
+        </div>
+
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
             <span> Introduce tu correo electrónico y contraseña. </span>
@@ -99,11 +103,12 @@
             </div>
         </div>
         <div class="form-actions">
-            <button type="submit" class="btn green uppercase">Entrar</button>
+            <button type="submit" class="btn green btn-outline btn-block  uppercase">Entrar</button>
             {{--<label class="rememberme check mt-checkbox mt-checkbox-outline">
                 <input type="checkbox" name="remember" value="1" />Remember
                 <span></span>
             </label>--}}
+            <br>
             <a href="{{ url('/password/reset') }}" id="forget-password" class="forget-password">¿Se te olvidó tu contraseña?</a>
         </div>
         {{--<div class="login-options">

@@ -37,7 +37,7 @@
         								Incidents</a>
         							</li>
         							<li id="liServiceOrders" class="nav-item" >
-        								<a href="{!!URL::to('/service-orders')!!}" class="nav-link nav-toggle">
+        								<a href="{!!URL::to('/help_service')!!}" class="nav-link nav-toggle">
         								<i class="icon-call-in"></i>
         								Service</a>
         							</li>
@@ -79,7 +79,7 @@
                 @if(userHasPermission('listar_captura_info'))
                 <li id="liAssetsPrincipal" class="nav-item">
                   <a class="nav-link nav-toggle">
-                      <i class="icon-pencil"></i>
+                      <i class="icon-screen-desktop"></i>
                       <span class="title">Assets</span>
                   </a>
                   <ul class="sub-menu">
@@ -93,11 +93,7 @@
                       <i class="icon-layers"></i>
                       Asset Groups</a>
                     </li>
-                    <li id="" class="nav-item">
-                      <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
-                      <i class="icon-notebook"></i>
-                      Catalogs</a>
-                    </li>
+
                     <li id="liParts" class="nav-item">
                       <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
                       <i class="icon-frame"></i>
@@ -117,7 +113,48 @@
                 </li>
                 @endif
 
+
                 @if(userHasPermission("listar_tipo_equipo"))
+                <li id="liAnalitycs" class="nav-item">
+                    <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                      <i class="icon-graph"></i>
+                      <span class="title">Analytics</span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li id="liServiceOrdersBinnacle" class="nav-item">
+                        <a href="{!!route('reports.binnacle-service-orders')!!}" class="nav-link nav-toggle">
+                        <i class="icon-earphones-alt"></i>
+                        Services</a>
+                      </li>
+                      <li id="liAid" class="nav-item" >
+                        <a href="{!!URL::to('/aid')!!}" class="nav-link nav-toggle">
+                        <i class=" icon-bubble "></i>
+                        Incidents</a>
+                      </li>
+
+                      <li id="liReportIncidents" class="nav-item" >
+                        <a href="{{route('reports.incidents')}}" class="nav-link nav-toggle">
+                        <i class=" icon-bubble "></i>
+                        Incidents</a>
+                      </li>
+
+                      <li id="liReportTiket" class="nav-item">
+                        <a href="{{route('reports.technician-tickets')}}" class="nav-link nav-toggle">
+                        <i class=" icon-cup"></i>
+                        User Tikets</a>
+                      </li>
+                      <li id="liReportService" class="nav-item">
+                        <a href="{{route('reports.customer-service-orders')}}" class="nav-link nav-toggle">
+                        <i class=" icon-user-follow"></i>
+                        Customer service</a>
+                      </li>
+                    </ul>
+                  </li>
+                </li>
+                @endif
+
+
+                {{-- @if(userHasPermission("listar_tipo_equipo"))
                 <li id="liEquipments" class="nav-item">
                     <a href="{!!URL::to('/equipments')!!}" class="nav-link nav-toggle">
                       <i class="glyphicon glyphicon-barcode"></i>
@@ -125,16 +162,17 @@
                     </a>
                   </li>
                 </li>
-                @endif
+                @endif --}}
 
-                @if(userHasPermission("listar_cotizacion_servicios"))
+                {{-- @if(userHasPermission("listar_cotizacion_servicios"))
                 <li id="liQuotations" class="nav-item">
                     <a href="{!!URL::to('/quotations')!!}" class="nav-link nav-toggle">
                         <i class=" icon-calculator"></i>
                         <span class="title">Generar cotización de servicio</span>
                     </a>
                 </li>
-                @endif
+                @endif --}}
+
                 {{-- @if(userHasPermission("listar_consulta_servicio"))
                 <li id="liServiceOrders" class="nav-item">
                     <a href="{!!URL::to('/service-orders')!!}" class="nav-link nav-toggle">
@@ -143,20 +181,22 @@
                     </a>
                 </li>
                 @endif --}}
-                @if(userHasPermission("generar_consulta_bitacora"))
+                {{-- @if(userHasPermission("generar_consulta_bitacora"))
                 <li id="liServiceOrdersBinnacle" class="nav-item">
                     <a href="{!!route('reports.binnacle-service-orders')!!}" class="nav-link nav-toggle">
                         <i class="icon-book-open"></i>
                         <span class="title">Consulta de bitácora e historial de servicios</span>
                     </a>
                 </li>
-                 @endif
-                <li id="liReports" class="nav-item">
+                 @endif --}}
+
+                {{-- <li id="liReports" class="nav-item">
                     <a href="{!!URL::to('/reports')!!}" class="nav-link nav-toggle">
                         <i class="icon-graph"></i>
                         <span class="title">Reportes</span>
                     </a>
-                </li>
+                </li> --}}
+
                 {{-- @if(userHasPermission('listar_catalogo_correlativos'))
                 <li id="liParts" class="nav-item">
                     <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
@@ -175,14 +215,14 @@
                 </li>
                 @endif --}}
 
-                @if(userHasPermission("listar_consulta_atencion_incidencias"))
+                {{-- @if(userHasPermission("listar_consulta_atencion_incidencias"))
                 <li id="liAid" class="nav-item">
                     <a href="{!!URL::to('/aid')!!}" class="nav-link nav-toggle">
                         <i class=" icon-clock"></i>
                         <span class="title">Consulta y atención de incidencias</span>
                     </a>
                 </li>
-                @endif
+                @endif --}}
 
 
                 {{-- <li id="liMaintenances" class="nav-item">
@@ -192,11 +232,50 @@
                     </a>
                 </li> --}}
 
-                <li id="liCatalogs" class="nav-item">
+                {{-- <li id="liCatalogs" class="nav-item">
                     <a href="{!!URL::to('/catalogs')!!}" class="nav-link nav-toggle">
                         <i class=" icon-notebook"></i>
                         <span class="title">Catálogos</span>
                     </a>
+                </li> --}}
+
+                <li id="liTools" class="nav-item">
+                    <a href="{!!URL::to('/catalogs')!!}" class="nav-link nav-toggle">
+                        <i class=" icon-settings"></i>
+                        <span class="title">Admin panel </span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li id="liAssets" class="nav-item">
+                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                        <i class="glyphicon glyphicon-briefcase"></i>
+                        Suppliers</a>
+                      </li>
+                      <li id="" class="nav-item" >
+                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                        <i class="glyphicon glyphicon-user"></i>
+                        People</a>
+                      </li>
+                      <li id="" class="nav-item">
+                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                        <i class="glyphicon glyphicon-map-marker"></i>
+                        Locations</a>
+                      </li>
+                      <li id="" class="nav-item">
+                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                        <i class="glyphicon glyphicon-shopping-cart"></i>
+                        Customers</a>
+                      </li>
+                      <li id="" class="nav-item">
+                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                        <i class="glyphicon glyphicon-blackboard"></i>
+                        Proyects</a>
+                      </li>
+                      <li id="" class="nav-item">
+                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                        <i class="glyphicon glyphicon-barcode"></i>
+                        Equipment</a>
+                      </li>
+                    </ul>
                 </li>
             @else
             <li id="liCustomerIncidents" class="nav-item">

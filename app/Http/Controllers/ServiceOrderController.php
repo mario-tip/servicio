@@ -26,7 +26,7 @@ class ServiceOrderController extends Controller
     {
         if(userHasPermission("listar_consulta_servicio")) {
             $service_orders = ServiceOrder::all();
-            return view('service_orders.index', compact('service_orders'));
+            return view('help_service.service_orders.index', compact('service_orders'));
         }
         return redirect()->back();
     }
@@ -41,7 +41,7 @@ class ServiceOrderController extends Controller
         if(userHasPermission("generar_orden_servicio")) {
             $incident = Incident::find($incident_id);
             $dependencies = $this->getDependenciesData();
-            return view('service_orders.create', compact('incident', 'dependencies'));
+            return view('help_service.service_orders.create', compact('incident', 'dependencies'));
         }
         return redirect()->back();
     }
@@ -84,7 +84,7 @@ class ServiceOrderController extends Controller
     {
         if(userHasPermission("mostrar_consulta_servicio")) {
             $service_order = ServiceOrder::find($id);
-            return view('service_orders.show', compact('service_order'));
+            return view('help_service.service_orders.show', compact('service_order'));
         }
         return redirect()->back();
     }
