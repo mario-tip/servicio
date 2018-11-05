@@ -133,6 +133,7 @@
     {!! Html::script("/assets/scripts/equipment.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
+            $("#liTools").addClass("active");
             $("#liEquipments").addClass("active");
         });
     </script>

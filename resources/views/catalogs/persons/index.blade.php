@@ -137,7 +137,9 @@
     {!! Html::script("/assets/scripts/simplified_datatable.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liCatalogs").addClass("active");
+            $("#liTools").addClass("active");
+            $("#liPeople").addClass("active");
+
         });
 
         $(".delete-person").click(function(){

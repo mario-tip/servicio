@@ -240,38 +240,38 @@
                 </li> --}}
 
                 <li id="liTools" class="nav-item">
-                    <a href="{!!URL::to('/catalogs')!!}" class="nav-link nav-toggle">
+                    <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                         <i class=" icon-settings"></i>
                         <span class="title">Admin panel </span>
                     </a>
                     <ul class="sub-menu">
-                      <li id="liAssets" class="nav-item">
-                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                      <li id="liSuppliers" class="nav-item">
+                        <a href="{{route('providers.index')}}" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-briefcase"></i>
                         Suppliers</a>
                       </li>
-                      <li id="" class="nav-item" >
-                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                      <li id="liPeople" class="nav-item" >
+                        <a href="{{route('persons.index')}}" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-user"></i>
                         People</a>
                       </li>
-                      <li id="" class="nav-item">
-                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                      <li id="liLocations" class="nav-item">
+                        <a href="{{route('locations.index')}}" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-map-marker"></i>
                         Locations</a>
                       </li>
-                      <li id="" class="nav-item">
-                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                      <li id="liCustomer" class="nav-item">
+                        <a href="{{route('customers.index')}}" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-shopping-cart"></i>
                         Customers</a>
                       </li>
-                      <li id="" class="nav-item">
-                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                      <li id="liProjects" class="nav-item">
+                        <a href="{{route('projects.index')}}" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-blackboard"></i>
                         Proyects</a>
                       </li>
-                      <li id="" class="nav-item">
-                        <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
+                      <li id="liEquipments" class="nav-item">
+                        <a href="{!!URL::to('/equipments')!!}" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-barcode"></i>
                         Equipment</a>
                       </li>
