@@ -38,7 +38,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Tickets por usuario y status</span>
+                        <span class="caption-subject bold font-green-500">Tickets por usuario y status</span>
                     </div>
                 </div>
                 <div class="portlet-body">

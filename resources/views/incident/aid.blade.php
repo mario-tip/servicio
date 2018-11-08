@@ -27,7 +27,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Consulta y atención de incidencias</span>
+                        <span class="caption-subject bold font-green-600">Consulta y atención de incidencias</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -107,8 +107,8 @@
     {!! Html::script("/assets/scripts/simplified_datatable.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liAid").addClass("active");
             $("#liAnalitycs").addClass("active");
+            $("#liAnalyticsIncidents").addClass("active");
 
         });
     </script>

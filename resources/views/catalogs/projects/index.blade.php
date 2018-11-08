@@ -34,7 +34,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Proyectos</span>
+                        <span class="caption-subject bold font-blue-400">Proyectos</span>
                     </div>
                 </div>
                 <div class="portlet-body">

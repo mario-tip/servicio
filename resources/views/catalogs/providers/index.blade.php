@@ -34,7 +34,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Catálogo de Proveedores</span>
+                        <span class="caption-subject bold font-blue-800">Catálogo de Proveedores</span>
                     </div>
                 </div>
                 <div class="portlet-body">

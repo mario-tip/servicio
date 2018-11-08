@@ -28,7 +28,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Catálogo de correlativos</span>
+                        <span class="caption-subject bold font-cian-500">Catálogo de correlativos</span>
                     </div>
                 </div>
                 <div class="portlet-body">

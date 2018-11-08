@@ -3,7 +3,7 @@ Login page
 ***/
 /* bg color */
 .login {
-  background-color: #89C4F4;
+  background-color: #81D4FA;
 }
 .login a {
   color: #edf4f8 !important;
@@ -32,7 +32,7 @@ Login page
 }
 
 .login .form-subtitle {
-  color: #c9dce9;
+  color: #fff;
   font-size: 17px;
   font-weight: 300 !important;
   padding-left: 10px;

@@ -30,7 +30,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Catálogo de tipos de equipo prueba </span>
+                        <span class="caption-subject bold font-blue-300">Catálogo de tipos de equipo prueba </span>
                     </div>
                 </div>
                 <div class="portlet-body">

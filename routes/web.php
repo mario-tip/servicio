@@ -48,6 +48,11 @@ Route::get('service-orders/create/{incident_id}', ['as' => 'service-orders.creat
 ]);
 Route::resource('/service-orders', 'ServiceOrderController');
 
+// analytics_incidents
+
+Route::get('/analytics_incident', function () {
+    return view('analytics_incident.index');
+});
 
 
 //Reports

@@ -39,7 +39,7 @@
 
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Servicio para clientes</span>
+                        <span class="caption-subject bold font-green-400">Servicio para clientes</span>
                     </div>
                 </div>
                 <div class="portlet-body">

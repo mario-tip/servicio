@@ -206,7 +206,7 @@
                     </div>
                 </a>
 
-                <a href="{!!URL::to('/aid')!!}">
+                <a href="{!!URL::to('/analytics_incident')!!}">
                   <div class="tile bg-green-600  minizoom">
 
                     <div class="tile-object">
@@ -216,20 +216,9 @@
                     </div>
                   </div>
                 </a>
-
-                <a href="{{route('reports.incidents')}}">
-                  <div class="tile bg-green-500  minizoom">
-
-                    <div class="tile-object">
-                      <div class="text-center">
-                        <h4> <strong> Incidents </strong> </h4>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
+                
                 <a href="{{route('reports.technician-tickets')}}">
-                  <div class="tile bg-green-400 minizoom">
+                  <div class="tile bg-green-500 minizoom">
 
                     <div class="tile-object">
                       <div class="text-center">
@@ -240,7 +229,7 @@
                 </a>
 
                 <a href="{{route('reports.customer-service-orders')}}">
-                    <div class="tile bg-green-300  minizoom">
+                    <div class="tile bg-green-400  minizoom">
 
                         <div class="tile-object">
                             <div class="text-center">

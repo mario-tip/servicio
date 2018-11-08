@@ -32,7 +32,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Generar cotización de servicio</span>
+                        <span class="caption-subject bold font-red-700">Generar cotización de servicio</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -134,7 +134,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Autorizar cotización</h4>
+                  <h4 class="modal-title">Autorizar cotización</h4>
                 </div>
                 <div id="modal_errors_container"></div>
                 {!! Form::open(['id' => 'authorization_form']) !!}
@@ -168,7 +168,8 @@
     {!! Html::script("/assets/scripts/quotation.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liQuotations").addClass("active");
+            $("#liHelpDesk").addClass("active");
+            $("#liServiceOrders").addClass("active");
         });
     </script>
 @endsection

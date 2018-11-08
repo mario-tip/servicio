@@ -28,6 +28,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
+                        <i class="icon-fire font-red-800"></i>
                         <span class="caption-subject bold font-red-800">Registro de incidencias</span>
                     </div>
                 </div>

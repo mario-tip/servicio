@@ -28,7 +28,7 @@
                 <li id="liHelpDesk" class="nav-item">
                     <a  class="nav-link nav-toggle">
                       <i class="icon-earphones-alt"></i>
-                      <span class="title">Help Desk</span>
+                      <span class="title not-select ">Help Desk</span>
                     </a>
                     <ul class="sub-menu">
         							<li id="liIncidents" class="nav-item">
@@ -80,7 +80,7 @@
                 <li id="liAssetsPrincipal" class="nav-item">
                   <a class="nav-link nav-toggle">
                       <i class="icon-screen-desktop"></i>
-                      <span class="title">Assets</span>
+                      <span class="title not-select ">Assets</span>
                   </a>
                   <ul class="sub-menu">
                     <li id="liAssets" class="nav-item">
@@ -118,7 +118,7 @@
                 <li id="liAnalitycs" class="nav-item">
                     <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                       <i class="icon-graph"></i>
-                      <span class="title">Analytics</span>
+                      <span class="title not-select ">Analytics</span>
                     </a>
                     <ul class="sub-menu">
                       <li id="liServiceOrdersBinnacle" class="nav-item">
@@ -126,14 +126,8 @@
                         <i class="icon-earphones-alt"></i>
                         Services</a>
                       </li>
-                      <li id="liAid" class="nav-item" >
-                        <a href="{!!URL::to('/aid')!!}" class="nav-link nav-toggle">
-                        <i class=" icon-bubble "></i>
-                        Incidents</a>
-                      </li>
-
-                      <li id="liReportIncidents" class="nav-item" >
-                        <a href="{{route('reports.incidents')}}" class="nav-link nav-toggle">
+                      <li id="liAnalyticsIncidents" class="nav-item" >
+                        <a href="{!!URL::to('/analytics_incident')!!}" class="nav-link nav-toggle">
                         <i class=" icon-bubble "></i>
                         Incidents</a>
                       </li>
@@ -242,7 +236,7 @@
                 <li id="liTools" class="nav-item">
                     <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                         <i class=" icon-settings"></i>
-                        <span class="title">Admin panel </span>
+                        <span class="title not-select ">Admin panel </span>
                     </a>
                     <ul class="sub-menu">
                       <li id="liSuppliers" class="nav-item">

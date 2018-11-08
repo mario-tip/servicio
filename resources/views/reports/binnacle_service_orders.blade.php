@@ -37,7 +37,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Bitácora de servicios</span>
+                        <span class="caption-subject bold font-green-700">Bitácora de servicios</span>
                     </div>
                 </div>
                 <div class="portlet-body">

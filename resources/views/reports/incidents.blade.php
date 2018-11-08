@@ -38,7 +38,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Incidencias</span>
+                        <span class="caption-subject bold font-green-600">Incidencias</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -120,7 +120,7 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liAnalitycs").addClass("active");
-            $("#liReportIncidents").addClass("active");
+            $("#liAnalyticsIncidents").addClass("active");
         });
 
         $('.date-picker').datepicker({

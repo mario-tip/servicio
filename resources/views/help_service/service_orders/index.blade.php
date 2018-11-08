@@ -29,7 +29,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Consulta de servicios</span>
+                        <span class="caption-subject bold font-red-700">Consulta de servicios</span>
                     </div>
                 </div>
                 <div class="portlet-body">

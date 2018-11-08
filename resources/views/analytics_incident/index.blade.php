@@ -9,16 +9,16 @@
     <div class="row">
         @if(userHasPermission("listar_catalogo_proveedores"))
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-						<a class="dashboard-stat bg-red-700 red-thunderbird" href="{!!URL::to('/quotations')!!}">
+						<a class="dashboard-stat bg-green-600 red-thunderbird" href="{!!URL::to('/aid')!!}">
   						<div class="visual">
-  							<i class="fa fa-money"></i>
+  							<i class="icon-speedometer"></i>
   						</div>
   						<div class="details">
   							<div class="number">
 
   							</div>
   							<div class="desc">
-  								 Generar cotización de servicios
+  								 Consulta y atención de incidencias
   							</div>
   						</div>
 						</a>
@@ -30,31 +30,29 @@
 
         @if(userHasPermission("listar_catalogo_personas"))
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat red-thunderbird bg-red-700" href="{!!URL::to('/service-orders')!!}">
+            <a class="dashboard-stat red-thunderbird bg-green-600" href="{{route('reports.incidents')}}">
               <div class="visual">
-                <i class="fa fa-dollar"></i>
+                <i class="fa fa-bar-chart-o"></i>
               </div>
               <div class="details">
                 <div class="number">
 
                 </div>
                 <div class="desc">
-                   Consulta de servicios
+                   Reporte de incidencias
                 </div>
               </div>
             </a>
           </div>
         @endif
-
-
     </div>
 
 @endsection
 @section("scripts")
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liHelpDesk").addClass("active");
-            $("#liServiceOrders").addClass("active");
+            $("#liAnalitycs").addClass("active");
+            $("#liAnalyticsIncidents").addClass("active");
 
         });
     </script>

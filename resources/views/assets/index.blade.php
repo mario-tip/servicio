@@ -30,7 +30,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Captura de información de activos</span>
+                        <span class="caption-subject bold font-cian-700">Captura de información de activos</span>
                     </div>
                 </div>
                 <div class="portlet-body">
