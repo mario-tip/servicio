@@ -33,7 +33,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Calendario de próximos mantenimientos</span>
+                        <span class="caption-subject bold font-red-600">Calendario de próximos mantenimientos</span>
                     </div>
                 </div>
                 <div class="portlet-body">

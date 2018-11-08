@@ -33,7 +33,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Problems</span>
+                        <span class="caption-subject bold font-red-500">Problems</span>
                     </div>
                 </div>
 

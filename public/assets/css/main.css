@@ -15,7 +15,6 @@
 /*Para los iconos de el dashboard*/
 .minizoom {
 
-
   padding: 0px;
   transition: transform .3s;
   width: 50px;
@@ -33,6 +32,7 @@
   box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
   -webkit-animation: pulse .5s;
   animation: pulse .5s;
+  box-shadow: 0 5px 10px rgba(50, 50, 50, .5);
 
 
   /*Para la sombra*/
