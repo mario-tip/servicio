@@ -15,7 +15,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/incidents')!!}">Registro de incidencias</a>
+                <a href="{!!URL::to('/incidents')!!}">Event log </a>
             </li>
         </ul>
     </div>
@@ -29,7 +29,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-fire font-red-800"></i>
-                        <span class="caption-subject bold font-red-800">Registro de incidencias</span>
+                        <span class="caption-subject bold font-red-800">Event log </span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -39,7 +39,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_registro_incidencias"))
-                                    <a href="{{URL::route('incidents.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Registrar incidencia</a>
+                                    <a href="{{URL::route('incidents.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add incident</a>
                                     @endif
                                 </div>
                             </div>
@@ -48,16 +48,16 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
-                            <th class="center">Persona quien levanto la incidencia</th>
-                            <th class="center">Activo</th>
+                            <th class="center">who registered?</th>
+                            <th class="center">Asset</th>
                             <th class="center">Folio</th>
-                            <th class="center">Ubicación</th>
-                            <th class="center">Prioriedad</th>
-                            <th class="center">Tipo de incidencia</th>
-                            <th class="center">Hora</th>
-                            <th class="center">Fecha</th>
+                            <th class="center">Location</th>
+                            <th class="center">Preference</th>
+                            <th class="center">Type</th>
+                            <th class="center">Hour</th>
+                            <th class="center">Date</th>
                             {{--<th class="center">Estatus</th>--}}
-                            <th class="center">Acciones</th>
+                            <th class="center">Actions</th>
                         </tr>
                         </thead>
 

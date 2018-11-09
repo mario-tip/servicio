@@ -19,7 +19,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/quotations')!!}">Cotizaciones</a>
+                <a href="{!!URL::to('/quotations')!!}">Quotations</a>
             </li>
         </ul>
     </div>
@@ -32,7 +32,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-red-700">Generar cotización de servicio</span>
+                        <span class="caption-subject bold font-red-700">Service quotations</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -42,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Registrar cotización</a>
+                                    <a href="{{URL::route('quotations.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add quotation</a>
                                     @endif
                                 </div>
                             </div>
@@ -51,12 +51,12 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                             <tr>
-                                <th class="center">Activo</th>
-                                <th class="center">Nombre de cotización</th>
-                                <th class="center">Total</th>
-                                <th class="center">Descripción</th>
-                                <th class="center">Estatus</th>
-                                <th class="center">Acciones</th>
+                                <th class="center">Asset</th>
+                                <th class="center">Name quotation</th>
+                                <th class="center">Price</th>
+                                <th class="center">Description</th>
+                                <th class="center">Status</th>
+                                <th class="center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

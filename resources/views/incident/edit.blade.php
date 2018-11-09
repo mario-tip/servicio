@@ -20,11 +20,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/incidents')!!}">Listado de incidencias</a>
+                <a href="{!!URL::to('/incidents')!!}">Event log </a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a>Editar incidencia</a>
+                <a>Edit incident</a>
             </li>
         </ul>
     </div>
@@ -37,7 +37,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Editar incidencia</span>
+                        <i class="icon-pencil font-blue"></i>
+                        <span class="caption-subject bold font-blue">Edit incident</span>
                     </div>
                 </div>
                 <div class="portlet-body">

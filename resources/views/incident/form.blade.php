@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Buscar activo:</label>
+                <label for="name" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Search asset:</label>
                 <div class="col-sm-7">
                     <select name="asset_id" id="asset_id" class="form-control asset"></select>
                 </div>
@@ -10,9 +10,9 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Tipo de servicio:</label>
+                <label for="name" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Service type:</label>
                 <div class="col-sm-7">
-                    {!! Form::select('type', array('0'=>'Limpieza','1'=>'Reparación'), null, ['class' => 'bs-select form-control', 'id' => 'type', 'title' => 'Seleccionar...']) !!}
+                    {!! Form::select('type', array('0'=>'Limpieza','1'=>'Reparación'), null, ['class' => 'bs-select form-control', 'id' => 'type', 'title' => 'Select...']) !!}
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label">Id de activo:</label>
+                <label for="name" class="col-md-3 control-label">Asset ID:</label>
                 <div class="col-sm-7">
                     {!!Form::text('asset_custom_id',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'asset_custom_id'])!!}
                 </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label">Nombre de activo:</label>
+                <label for="name" class="col-md-3 control-label">Name Asset:</label>
                 <div class="col-sm-7">
                     {!!Form::text('asset_name',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'asset_name'])!!}
                 </div>
@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label">Marca:</label>
+                <label for="name" class="col-md-3 control-label">Brand:</label>
                 <div class="col-sm-7">
                     {!!Form::text('brand',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'brand'])!!}
                 </div>
@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label">Ubicación:</label>
+                <label for="name" class="col-md-3 control-label">Location:</label>
                 <div class="col-sm-7">
                     {!!Form::text('location',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'location'])!!}
                 </div>
@@ -68,17 +68,17 @@
     </div>
 
     <div class="form-group">
-        <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Descripción del problema:</label>
+        <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Problem description:</label>
         <div class="col-sm-7">
             {!!Form::textarea('description',null,['class'=>'form-control', 'placeholder'=>'', 'autocomplete'=>"off", 'id'=>'description'])!!}
         </div>
     </div>
 
     <div class="form-group">
-        <label for="name" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Persona que reporta el problema:</label>
+        <label for="name" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Person report problem :</label>
         <div class="col-sm-7">
             <select class="bs-select form-control person" name="person_id" id="person_id">
-                <option value="0" disabled selected>Selecciona una opción...</option>
+                <option value="0" disabled selected>Select...</option>
                 @foreach($persons as $person)
                     <option value="{{$person->id}}"
                             {{isset($incident) ? ($incident->person_id == $person->id)?'selected':'' : ''}}
@@ -89,7 +89,7 @@
     </div>
 
     <div class="form-group">
-        <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Fecha de atención sugerida:</label>
+        <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Suggested date:</label>
         <div class="col-sm-7">
             <div class="col-sm-4">
                 <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
@@ -115,21 +115,21 @@
     </div>
 
     <div class="form-group">
-        <label for="name" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Prioridad:</label>
+        <label for="name" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Preference:</label>
         <div class="col-sm-7">
-            {!! Form::select('priority', array('0'=>'Alta', '1'=>'Media', '2'=>'Baja'), null, ['class' => 'bs-select form-control', 'id' => 'priority', 'title' => 'Seleccionar...']) !!}
+            {!! Form::select('priority', array('0'=>'Alta', '1'=>'Media', '2'=>'Baja'), null, ['class' => 'bs-select form-control', 'id' => 'priority', 'title' => 'Select...']) !!}
         </div>
     </div>
 
     <div class="form-group">
-        <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Adjuntar evidencia:</label>
+        <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Add evidence:</label>
         <div class="col-sm-7">
             <input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Seleccionar archivo" data-iconName="fa fa-inbox"/>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="inputEmail1" class="col-md-2 control-label">Notas adicionales:</label>
+        <label for="inputEmail1" class="col-md-2 control-label">Notes:</label>
         <div class="col-sm-7">
             {!!Form::textarea('notes',null,['class'=>'form-control', 'placeholder'=>'', 'autocomplete'=>"off", 'id'=>'notes'])!!}
         </div>
@@ -140,7 +140,7 @@
 <div class="portlet light portlet-fit bordered">
     <div class="portlet-title">
         <div class="caption">
-            <span class="caption-subject bold">Seleccionar partes afectadas (Opcional)</span>
+            <span class="caption-subject bold">Affected parties (Optional)</span>
         </div>
     </div>
     <div class="portlet-body horizontal-form">
@@ -154,6 +154,6 @@
 <!-- END ASSET'S PARTS PORTLET-->
 
 <div class="form-actions col-sm-offset-5">
-    <button type="submit" class="btn btn-circle green-meadow" id="send">Guardar</button>
-    <a class="btn btn-circle red" href="{{URL::route('incidents.index')}}">Cancelar</a>
+    <button type="submit" class="btn btn-circle green-meadow" id="send">Save</button>
+    <a class="btn btn-circle red" href="{{URL::route('incidents.index')}}">Cancel</a>
 </div>

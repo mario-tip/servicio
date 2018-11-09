@@ -21,11 +21,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/incidents')!!}">Listado de incidencias</a>
+                <a href="{!!URL::to('/incidents')!!}">Event log</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/incidents/create')!!}">Registrar incidencia</a>
+                <a href="{!!URL::to('/incidents/create')!!}">Add incident</a>
             </li>
         </ul>
     </div>
@@ -38,7 +38,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Registrar incidencia</span>
+                        <i class="fa fa-plus font-red-800"></i>
+                        <span class="caption-subject bold font-red-800">Add incident</span>
                     </div>
                 </div>
                 <div class="portlet-body">
