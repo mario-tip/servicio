@@ -97,7 +97,7 @@
                     <li id="liParts" class="nav-item">
                       <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
                       <i class="icon-frame"></i>
-                      parts brochure</a>
+                      Parts brochure</a>
                     </li>
                     <li id="" class="nav-item">
                       <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">

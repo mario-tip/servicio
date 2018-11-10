@@ -124,7 +124,7 @@
     <div class="form-group">
         <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Add evidence:</label>
         <div class="col-sm-7">
-            <input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Seleccionar archivo" data-iconName="fa fa-inbox"/>
+            <input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox"/>
         </div>
     </div>
 

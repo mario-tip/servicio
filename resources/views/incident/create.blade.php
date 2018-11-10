@@ -77,7 +77,9 @@
     {!! Html::script("/assets/scripts/incident.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
+            $("#liHelpDesk").addClass("active");
             $("#liIncidents").addClass("active");
+
 
             $(".asset" ).select2({ //Funcion para buscar el id de la persona que lo invito
                 placeholder: 'Introduce el nombre',

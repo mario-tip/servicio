@@ -18,11 +18,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/quotations')!!}">Cotizaciones</a>
+                <a href="{!!URL::to('/quotations')!!}">Quotations</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="#">Registrar cotización de servicio</a>
+                <a href="#">Add quotation service</a>
             </li>
         </ul>
     </div>
@@ -37,7 +37,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Registrar cotización de servicio</span>
+                        <i class="icon-call-in font-red-700"></i>
+                        <span class="caption-subject bold font-red-700">Add quotation service</span>
                     </div>
                 </div>
                 @include("quotations.forms.form")
@@ -81,7 +82,7 @@
                     cache: true
                 },
                 language: "es",
-                placeholder: "Introduce el folio de incidencia",
+                placeholder: "insert folio incident",
                 minimumInputLength: 3,
             });
             $('.currency-format').number(true, 2);

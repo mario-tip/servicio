@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Nombre de parte</th>
+                <th>Name of the part </th>
             </tr>
         </thead>
         <tbody>

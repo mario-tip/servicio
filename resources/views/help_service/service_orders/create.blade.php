@@ -17,11 +17,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/incidents')!!}">Listado de incidencias</a>
+                <a href="{!!URL::to('/incidents')!!}">Event log</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="#">Generar orden de servicio</a>
+                <a href="#">Service order</a>
             </li>
         </ul>
     </div>
@@ -37,10 +37,11 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Generar orden de servicio</span>
+                        <i class="fa fa-bell font-green-meadow"></i>
+                        <span class="caption-subject bold font-green-meadow">Service order</span>
                     </div>
                 </div>
-                @include("service_orders.forms.form")
+                @include("help_service.service_orders.forms.form")
             </div>
         {!! Form::close() !!}
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -59,7 +60,9 @@
     {!! Html::script('/assets/scripts/service_order_form.js') !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liServiceOrders").addClass("active");
+            $("#liHelpDesk").addClass("active");
+            $("#liIncidents").addClass("active");
+
         });
     </script>
 @endsection

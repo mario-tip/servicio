@@ -32,6 +32,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
+                      <i class="icon-call-in font-red-700"></i>
                         <span class="caption-subject bold font-red-700">Service quotations</span>
                     </div>
                 </div>

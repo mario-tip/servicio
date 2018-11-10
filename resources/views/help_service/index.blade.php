@@ -18,7 +18,7 @@
 
   							</div>
   							<div class="desc">
-  								 Generar cotización de servicios
+  								 Service Quotation
   							</div>
   						</div>
 						</a>
@@ -39,7 +39,7 @@
 
                 </div>
                 <div class="desc">
-                   Consulta de servicios
+                   View services
                 </div>
               </div>
             </a>

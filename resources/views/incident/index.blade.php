@@ -90,21 +90,21 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_registro_incidencias"))
-                                    <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Editar"
+                                    <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Edit"
                                        class="btn btn-circle btn-icon-only btn-info ">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_registro_incidencias"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$incident->name}}"
-                                       data-id="{{$incident->id}}" title="Eliminar"
+                                       data-id="{{$incident->id}}" title="Delete"
                                        class="btn btn-circle btn-icon-only red modalDelete">
                                         <i class="fa  fa-trash-o"></i>
                                     </a>
                                     @endif
 
                                     @if(userHasPermission("generar_orden_servicio"))
-                                    <a href="{{url('service-orders/create/' . $incident->id)}}" title="Generar orden de servicio"
+                                    <a href="{{url('service-orders/create/' . $incident->id)}}" title="Generate service order"
                                        class="btn btn-circle btn-icon-only green-meadow ">
                                         <i class="fa fa-file-text-o"></i>
                                     </a>
@@ -125,15 +125,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar incidencia</h4>
+                    <h4 class="modal-title">Delete incident</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
 
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Acept</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -149,9 +149,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">La incidencia NO se puede eliminar si esta en proceso.</div>
+                <div class="modal-body">The incidence can NOT be eliminated if it is in process.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Acept</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -176,7 +176,7 @@
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
-            var nameNode=document.createTextNode("¿Desea eliminar la incidencia seleccionada?");
+            var nameNode=document.createTextNode("Are you sure to eliminate the incidence?");
             nodeName.appendChild(nameNode);
             $("#bodyDelete").empty();
             document.getElementById("bodyDelete").appendChild(nodeName);
