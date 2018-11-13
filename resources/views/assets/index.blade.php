@@ -17,7 +17,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/actives')!!}">Activos</a>
+                <a href="{!!URL::to('/actives')!!}">Assets</a>
             </li>
         </ul>
     </div>
@@ -30,7 +30,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-cian-700">Captura de información de activos</span>
+                        <i class="icon-list font-cian-700"></i>
+                        <span class="caption-subject bold font-cian-700">Asset information capture</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -40,7 +41,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission('crear_captura_info'))
-                                    <a href="{{URL::route('actives.create')}}" class="btn green btn-circle"><i class="fa fa-plus"></i> Nuevo Activo</a>
+                                    <a href="{{URL::route('actives.create')}}" class="btn green btn-circle"><i class="fa fa-plus"></i> Add asset</a>
                                     @endif
                                 </div>
                             </div>
@@ -49,11 +50,11 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                             <tr>
-                                <th class="center">Id de activo</th>
-                                <th class="center">Nombre de activo</th>
-                                <th class="center">Modelo</th>
-                                <th class="center">No. de serie</th>
-                                <th class="center">Acciones</th>
+                                <th class="center">Asset ID </th>
+                                <th class="center">Asset name</th>
+                                <th class="center">Model</th>
+                                <th class="center">Serial number</th>
+                                <th class="center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,24 +67,24 @@
                                 <td>
                                   <div class="center_items">
                                     @if(userHasPermission('editar_captura_info'))
-                                    <a href="{{ URL::route('actives.edit', $asset->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{ URL::route('actives.edit', $asset->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('mostrar_captura_info'))
-                                    <a href="{{ URL::route('actives.show', $asset->id) }}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">
+                                    <a href="{{ URL::route('actives.show', $asset->id) }}" title="Show" class="btn btn-circle btn-icon-only grey-silver">
                                         <i class="icon-eye"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('actualizar_firmware'))
-                                    <a href="#large" data-toggle="modal"  title="Actualizar firmware" class="btn btn-circle btn-icon-only green-seagreen update-firmware"
+                                    <a href="#large" data-toggle="modal"  title="Update firmware" class="btn btn-circle btn-icon-only green-seagreen update-firmware"
                                        data-current_firmware="{{count($asset->firmwares) > 0 ? $asset->firmwares->last()->firmware : ''}}"
                                        data-asset_id="{{$asset->id}}">
                                         <i class="fa fa-undo"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission('historial_firmware'))
-                                    <a id="firmware_history" href="{{url('/firmwares/' . $asset->id)}}" title="Historial de firmware" class="btn btn-circle btn-icon-only green-haze">
+                                    <a id="firmware_history" href="{{url('/firmwares/' . $asset->id)}}" title="History firmware" class="btn btn-circle btn-icon-only green-haze">
                                         <i class="fa fa-history"></i>
                                     </a>
                                     @endif
@@ -103,7 +104,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Historial de Firmware</h4>
+                    <h4 class="modal-title">History de Firmware</h4>
                 </div>
                 <div id="modal_errors_container"></div>
                 {!! Form::open(['route' => 'firmwares.store', 'method' => 'POST', 'id' => 'firmware_form']) !!}
@@ -112,8 +113,8 @@
                     @include("assets.forms.update_firmware_form")
                 </div>
                 <div class="form-actions col-sm-offset-5">
-                    <button type="submit" class="btn btn-circle green-meadow" id="save_asset">Guardar</button>
-                    <a class="btn btn-circle red" href="#" data-dismiss="modal">Cancelar</a>
+                    <button type="submit" class="btn btn-circle green-meadow" id="save_asset">Save</button>
+                    <a class="btn btn-circle red" href="#" data-dismiss="modal">Cancel</a>
                 </div>
                 {!! Form::close() !!}
             </div>
@@ -139,7 +140,7 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liAssets").addClass("active");
-            $("#liAssetsPrincipal").addClass("active");
+            $("#liAssetsList").addClass("active");
 
         });
         $(".update-firmware").click(function(){

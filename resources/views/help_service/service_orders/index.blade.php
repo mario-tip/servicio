@@ -16,7 +16,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a>Consulta de servicios</a>
+                <a href="{!!URL::to('/help_service')!!}">Service</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a>View services</a>
             </li>
         </ul>
     </div>
@@ -29,7 +33,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-red-700">Consulta de servicios</span>
+                        <i class="fa fa-search font-red-700"></i>
+                        <span class="caption-subject bold font-red-700">View services</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -46,15 +51,15 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
-                            <th class="center">Folio</th>
-                            <th class="center">Activo</th>
-                            <th class="center">Ubicación</th>
-                            <th class="center">Tipo de incidencia</th>
-                            <th class="center">Problema reportado</th>
-                            <th class="center">Hora</th>
-                            <th class="center">Fecha</th>
-                            <th class="center">Estatus</th>
-                            <th class="center">Acciones</th>
+                            <th class="center">Sheet number</th>
+                            <th class="center">Active</th>
+                            <th class="center">Location</th>
+                            <th class="center">Incident type</th>
+                            <th class="center">Sheet number</th>
+                            <th class="center">Hour</th>
+                            <th class="center">Date </th>
+                            <th class="center">Status</th>
+                            <th class="center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -19,7 +19,12 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/quotations')!!}">Quotations</a>
+                <a href="{!!URL::to('/help_service')!!}">Service</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{!!URL::to('/quotations')!!}">Service Quotation
+                </a>
             </li>
         </ul>
     </div>
@@ -71,25 +76,25 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.edit', $quotation->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{URL::route('quotations.edit', $quotation->id)}}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
 
                                     @if(userHasPermission("mostrar_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.show', $quotation->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">
+                                    <a href="{{URL::route('quotations.show', $quotation->id)}}" title="Show" class="btn btn-circle btn-icon-only grey-silver">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     @endif
 
                                     @if(userHasPermission("cancelar_cotizacion_servicios"))
-                                    <a href="#cancel_modal" data-toggle="modal" data-name="{{$quotation->name}}" data-id="{{$quotation->id}}" title="Cancelar" class="btn btn-circle btn-icon-only red cancel_quotation">
+                                    <a href="#cancel_modal" data-toggle="modal" data-name="{{$quotation->name}}" data-id="{{$quotation->id}}" title="Cancel" class="btn btn-circle btn-icon-only red cancel_quotation">
                                         <i class="fa fa-ban"></i>
                                     </a>
                                     @endif
 
                                     @if(userHasPermission("cambiar_estatus_cotizacion_servicios"))
-                                    <a href="#authorization_modal" data-toggle="modal" title="Cambiar estatus" data-id="{{$quotation->id}}" data-authorization="{{$quotation->authorization}}" class="btn btn-circle btn-icon-only green-meadow change-quotation-status">
+                                    <a href="#authorization_modal" data-toggle="modal" title="Change status" data-id="{{$quotation->id}}" data-authorization="{{$quotation->authorization}}" class="btn btn-circle btn-icon-only green-meadow change-quotation-status">
                                         <i class="fa fa-check"></i>
                                     </a>
                                     @endif
@@ -110,15 +115,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cancelar cotización</h4>
+                    <h4 class="modal-title">Quotation cancel</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
                     <div id="modal_message"></div>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="cancelQuotation()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="cancelQuotation()">Ok</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -135,7 +140,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title">Autorizar cotización</h4>
+                  <h4 class="modal-title">Authorize quotation</h4>
                 </div>
                 <div id="modal_errors_container"></div>
                 {!! Form::open(['id' => 'authorization_form']) !!}
@@ -143,8 +148,8 @@
                     @include("quotations.forms.authorization_form")
                 </div>
                 <div class="form-actions col-sm-offset-5">
-                    <button type="submit" class="btn btn-circle green-meadow">Guardar</button>
-                    <a class="btn btn-circle red" href="#" data-dismiss="modal">Cancelar</a>
+                    <button type="submit" class="btn btn-circle green-meadow">Save</button>
+                    <a class="btn btn-circle red" href="#" data-dismiss="modal">Cancel</a>
                 </div>
                 {!! Form::close() !!}
             </div>

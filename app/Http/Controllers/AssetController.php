@@ -113,12 +113,12 @@ class AssetController extends Controller
 
     private function validateInputs($form_data, $method) {
         $messages = [
-            'asset_custom_id.required' => 'El id del activo es requerido',
-            'adquisition_date.required' => 'La fecha de compra del activo es requerida',
-            'name.required' => 'El nombre del activo es requerido',
-            'model.required' => 'El modelo del activo es requrerido',
-            'unique' => 'El modelo ya existe',
-            'condition.required' => 'La condición del activo es requerida',
+            'asset_custom_id.required' => 'The id of the asset is required',
+            'adquisition_date.required' => 'The purchase date of the asset is required',
+            'name.required' => 'The name of the asset is required',
+            'model.required' => 'The asset model is required',
+            'unique' => 'The model already exists',
+            'condition.required' => 'The condition of the asset is required',
             'serial.required' => 'El número de serie del activo es requerido',
             'status.required' => 'El estatus del activo es requerido',
             'brand.required' => 'La marca del activo es requerida',

@@ -51,7 +51,7 @@
 
 @section("scripts")
     {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
-    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js") !!}
+    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
     {!! Html::script("/assets/pages/scripts/components-bootstrap-select.min.js") !!}

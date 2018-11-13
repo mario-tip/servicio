@@ -60,7 +60,10 @@
     <script type="application/javascript">
         var token = null;
         $(document).ready(function(){
-            $("#liQuotations").addClass("active");
+            $("#liHelpDesk").addClass("active");
+            $("#liServiceOrders").addClass("active");
+
+
             $('#span_quotation_file_required').html('*');
             token = $("input[name='_token']").val();
 

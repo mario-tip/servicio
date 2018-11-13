@@ -80,9 +80,9 @@
                                     <td class="center"> Baja </td>
                                 @endif
                                 @if($incident->type == 0)
-                                    <td class="center"> Limpieza </td>
+                                    <td class="center"> Clean  </td>
                                 @else
-                                    <td class="center"> Reparación </td>
+                                    <td class="center"> Repair </td>
                                 @endif
                                 <td class="center"> {{$incident->suggested_time}}  </td>
                                 <td class="center"> {{\Carbon\Carbon::parse($incident->suggested_date)->format('d-m-Y')}} </td>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Acept</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Ok</button>
                     <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
@@ -151,7 +151,7 @@
                 </div>
                 <div class="modal-body">The incidence can NOT be eliminated if it is in process.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Acept</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->

@@ -21,11 +21,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/maintenances')!!}">Administración de mantenimientos programados</a>
+                <a href="{!!URL::to('/maintenances')!!}">Administration of scheduled maintenance</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/maintenances/create')!!}">Registrar mantenimiento</a>
+                <a href="{!!URL::to('/maintenances/create')!!}">Add maintenance</a>
             </li>
         </ul>
     </div>
@@ -37,7 +37,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Registrar mantenimiento</span>
+                        <i class="fa fa-calendar font-red-600"></i>
+                        <span class="caption-subject bold font-red-600">Add maintenance</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -52,7 +53,7 @@
 @endsection
 @section("scripts")
     {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
-    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js") !!}
+    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
 
@@ -66,13 +67,14 @@
 
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     {!! Html::script("/assets/global/plugins/select2/js/select2.full.min.js") !!}
-    {!! Html::script("/assets/global/plugins/select2/js/i18n/es.js") !!}
+    {!! Html::script("/assets/global/plugins/select2/js/i18n/en.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
+            $("#liHelpDesk").addClass("active");
             $("#liMaintenances").addClass("active");
 
             $(".asset" ).select2({
-                placeholder: 'Introduce el nombre',
+                placeholder: 'Insert name',
                 ajax: {
                     url: "/findAsset",
                     dataType: 'json',
@@ -107,7 +109,7 @@
             });
 
             $(".technician" ).select2({
-                placeholder: 'Introduce el nombre',
+                placeholder: 'insert name',
                 ajax: {
                     url: "/findTechnician",
                     dataType: 'json',

@@ -18,11 +18,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/quotations')!!}">Cotizaciones</a>
+                <a href="{!!URL::to('/quotations')!!}">Quotations</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="#">Editar cotización de servicio</a>
+                <a href="#">Edit quotation service</a>
             </li>
         </ul>
     </div>
@@ -38,7 +38,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Editar cotización de servicio</span>
+                        <i class="icon-pencil font-blue"></i>
+                        <span class="caption-subject bold font-blue">Edit quotation service</span>
                     </div>
                 </div>
                 @include("quotations.forms.form")
@@ -59,7 +60,8 @@
     {!! Html::script("/assets/scripts/quotation.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liQuotations").addClass("active");
+            $("#liHelpDesk").addClass("active");
+            $("#liServiceOrders").addClass("active");
 
             var token = $("input[name='_token']").val();
             var quotation_incident_id = $('#quotation').data('incident_id');
@@ -83,7 +85,7 @@
                     cache: true
                 },
                 language: "es",
-                placeholder: "Introduce un nombre",
+                placeholder: "Insert name",
                 minimumInputLength: 3,
                 initSelection: function(element, callback) {
                     var quotaion_incident = {id: quotation_incident_id, text: quotation_incident_folio};

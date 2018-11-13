@@ -14,11 +14,11 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="{!!URL::to('/service-orders')!!}">Consulta de servicios</a>
+            <a href="{!!URL::to('/service-orders')!!}">View services</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a>Detalle de servicio</a>
+            <a>Detail service</a>
         </li>
     </ul>
 </div>
@@ -31,7 +31,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Detalle de incidencia</span>
+                        <i class="fa fa-eye"></i>
+                        <span class="caption-subject bold font-gray">Detail service</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -40,13 +41,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Levantó incidencia: </label>
+                                        <label class="control-label show-label">Who registered: </label>
                                         <label class="control-label">{{$service_order->incident->person->name}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Tipo de servicio: </label>
+                                        <label class="control-label show-label"> Service type : </label>
                                         <label class="control-label">{{App\Incident::getTypeWord($service_order->incident->type)}}</label>
                                     </div>
                                 </div>
@@ -54,13 +55,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Id de activo: </label>
+                                        <label class="control-label show-label">Asset ID : </label>
                                         <label class="control-label">{{$service_order->incident->asset->asset_custom_id}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Nombre de activo: </label>
+                                        <label class="control-label show-label">Asset name : </label>
                                         <label class="control-label">{{$service_order->incident->asset->name}}</label>
                                     </div>
                                 </div>
@@ -68,13 +69,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label  show-label">Ubicación: </label>
+                                        <label class="control-label  show-label">Location: </label>
                                         <label class="control-label">{{$service_order->incident->asset->locations[0]->address}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Marca: </label>
+                                        <label class="control-label show-label">Brand : </label>
                                         <label class="control-label">{{$service_order->incident->asset->brand}}</label>
                                     </div>
                                 </div>
@@ -82,7 +83,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Prioridad: </label>
+                                        <label class="control-label show-label">Priority: </label>
                                         <label class="control-label">{{\App\Incident::getPriorityWord($service_order->incident->priority)}}</label>
                                     </div>
                                 </div>
@@ -96,13 +97,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Hora: </label>
+                                        <label class="control-label show-label">Hour: </label>
                                         <label class="control-label">{{$service_order->time}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Estatus: </label>
+                                        <label class="control-label show-label">Status: </label>
                                         <label class="control-label">{{$service_order->getStatusWord()}}</label>
                                     </div>
                                 </div>
@@ -110,7 +111,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Fecha: </label>
+                                        <label class="control-label show-label">Date: </label>
                                         <label class="control-label">{{$service_order->date}}</label>
                                     </div>
                                 </div>
@@ -118,7 +119,7 @@
                             <div class="row">
                                 <div class="col-md-9 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Descripción del problema: </label>
+                                        <label class="control-label show-label textarea-label">Description Problem : </label>
                                         <div class="incident-description">
                                             {{$service_order->incident->description}}
                                         </div>
@@ -128,7 +129,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Fecha de atención sugerida: </label>
+                                        <label class="control-label show-label">Suggested attention date : </label>
                                         <label class="control-label">
                                             {{$service_order->incident->suggested_date}}
                                             {{$service_order->incident->suggested_time}}
@@ -139,7 +140,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Evidencia: </label>
+                                        <label class="control-label">Evidence: </label>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +151,7 @@
                                         $mime_array = App\Quotation::getFileMime(public_path($service_order->incident->evidence_file));
                                         ?>
                                         @if($mime_array == null)
-                                            <h2 class="file-not-found">Archivo no encontrado</h2>
+                                            <h2 class="file-not-found">Not found file </h2>
                                         @else
                                             <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
                                             @if($file_type == 'image')
@@ -160,7 +161,7 @@
                                                     <a href="{{'/' . $service_order->incident->evidence_file}}" download>
                                                         <img class="file-type-icon"
                                                              src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
-                                                        </br>Descargar
+                                                        </br>Download
                                                     </a>
                                                 </div>
                                             @endif
@@ -171,7 +172,7 @@
                             <div class="row">
                                 <div class="col-md-9 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Notas adicionales: </label>
+                                        <label class="control-label show-label textarea-label">Additional notes : </label>
                                         <div class="incident-description">
                                             {{$service_order->notes}}
                                         </div>
@@ -188,7 +189,8 @@
            <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Detalle de atención</span>
+                        <i class="fa fa-eye"></i>
+                        <span class="caption-subject bold">Attention detail </span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -197,7 +199,7 @@
                             <div class="row">
                                <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Técnico: </label>
+                                        <label class="control-label show-label">Technician : </label>
                                         <label class="control-label">{{$service_order->technician->name}}</label>
                                     </div>
                                 </div>
@@ -205,7 +207,7 @@
                             <div class="row">
                                 <div class="col-md-9 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Comentarios: </label>
+                                        <label class="control-label show-label textarea-label">Comments: </label>
                                         <div class="incident-description">
                                             {{$service_order->comments}}
                                         </div>
@@ -215,7 +217,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Autorizó {{$service_order->getIncidentTypeWord()}}: </label>
+                                        <label class="control-label show-label">authorized by {{$service_order->getIncidentTypeWord()}}: </label>
                                         <label class="control-label">
                                             {{!is_null($service_order->authorizer) ? $service_order->authorizer->name : null}}
                                         </label>
@@ -225,7 +227,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Firma: </label>
+                                        <label class="control-label">Signature: </label>
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +235,7 @@
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
                                         @if(is_null($service_order->signature))
-                                            <h2 class="file-not-found">Orden de servicio sin firma</h2>
+                                            <h2 class="file-not-found">Service order without signature </h2>
                                         @else
                                             <img src="{{'/' . $service_order->signature}}" class="incident-image" alt="">
                                         @endif
@@ -250,7 +252,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Detalle de cotización de servicio</span>
+                        <i class="fa fa-eye"></i>
+                        <span class="caption-subject bold">Service quote detail</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -261,7 +264,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Nombre de cotización: </label>
+                                        <label class="control-label show-label">Quote name : </label>
                                         <label class="control-label">
                                             {{$service_order->quotation->name}}
                                         </label>
@@ -271,7 +274,7 @@
                             <div class="row">
                                 <div class="col-md-9 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Descripción: </label>
+                                        <label class="control-label show-label textarea-label">Description: </label>
                                         <div class="incident-description">
                                             {{$service_order->quotation->description}}
                                         </div>
@@ -281,7 +284,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label">Estatus: </label>
+                                        <label class="control-label show-label">Status: </label>
                                         <label class="control-label">
                                             {{$service_order->quotation->getAuthorizationWord()}}
                                         </label>
@@ -291,7 +294,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Archivo de cotización: </label>
+                                        <label class="control-label">File quotation: </label>
                                     </div>
                                 </div>
                             </div>
@@ -302,7 +305,7 @@
                                         $mime_array = App\Quotation::getFileMime(public_path($service_order->quotation->quotation_file));
                                         ?>
                                         @if($mime_array == null)
-                                            <h2 class="file-not-found">Archivo no encontrado</h2>
+                                            <h2 class="file-not-found">Not foun file </h2>
                                         @else
                                             <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
                                             @if($file_type == 'image')
@@ -312,7 +315,7 @@
                                                     <a href="{{$service_order->quotation->quotation_file}}" download>
                                                         <img class="file-type-icon"
                                                              src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
-                                                        </br>Descargar
+                                                        </br>Download
                                                     </a>
                                                 </div>
                                             @endif
@@ -323,7 +326,7 @@
                             <div class="row">
                                 <div class="col-md-9 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Comentarios de autorización: </label>
+                                        <label class="control-label show-label textarea-label">Authorization comments : </label>
                                         <div class="incident-description">
                                             {{$service_order->quotation->comments}}
                                         </div>
@@ -332,12 +335,12 @@
                             </div>
                             <!-- La orden de servicio no tiene una cotización asociada -->
                             @else
-                                <h2 class="quotation-not-found">El servicio no tiene cotización</h2>
+                                <h2 class="quotation-not-found">The service has no quotation  </h2>
                             @endif
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Partes de incidencia: </label>
+                                        <label class="control-label">Incident parts : </label>
                                     </div>
                                 </div>
                                 <!-- Table parts -->
@@ -346,8 +349,8 @@
                                         <table class="table table-striped table-bordered table-hover order-column datatable-parts">
                                             <thead>
                                                 <tr>
-                                                    <th>Nombre de parte</th>
-                                                    <th>Precio</th>
+                                                    <th>Part name </th>
+                                                    <th>Price</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -378,7 +381,10 @@
     {!! Html::script("/assets/scripts/service_order_show.js")!!}
     <script type="text/javascript">
         $(document).ready(function() {
+            $("#liHelpDesk").addClass("active");
             $("#liServiceOrders").addClass("active");
+
+
            /* $('#asset_cost').number(true, 2);*/
         });
     </script>

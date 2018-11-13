@@ -77,13 +77,13 @@
                 @endif --}}
 
                 @if(userHasPermission('listar_captura_info'))
-                <li id="liAssetsPrincipal" class="nav-item">
+                <li id="liAssets" class="nav-item">
                   <a class="nav-link nav-toggle">
                       <i class="icon-screen-desktop"></i>
                       <span class="title not-select ">Assets</span>
                   </a>
                   <ul class="sub-menu">
-                    <li id="liAssets" class="nav-item">
+                    <li id="liAssetsList" class="nav-item">
                       <a href="{!!URL::to('/actives')!!}" class="nav-link nav-toggle">
                       <i class=" icon-list"></i>
                       Asset List</a>

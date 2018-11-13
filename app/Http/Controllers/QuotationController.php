@@ -126,16 +126,17 @@ class QuotationController extends Controller
 
     private function validateInputs($form_data, $method) {
         $messages = [
-            'quotation.name.required' => 'El nombre es requerido',
-            'quotation.description.required' => 'La descripción es requerida',
-            'quotation.incident_id.required' => 'La incidencia es requerida',
-            'quotation_file.required' => 'El archivo de cotización es requerido'
+
+            'quotation.incident_id.required' => 'The incident is required',
+            'quotation.name.required' => 'The name is required',
+            'quotation.description.required' => 'The description is required',
+            'quotation_file.required' => 'The file quotation is required'
         ];
 
         $validations = [
+          'quotation.incident_id' => 'required',
             'quotation.name' => 'required',
             'quotation.description' => 'required',
-            'quotation.incident_id' => 'required',
         ];
 
         if($method == 'POST') $validations['quotation_file'] = 'required';
@@ -204,7 +205,7 @@ class QuotationController extends Controller
             if($incident_parts == false) {
                 $response['errors'] = true;
                 $response['errors_fragment'] = \View::make('partials.request')
-                    ->withErrors(['msg' => 'Debes especificar un precio para cada parte seleccionada'])->render();
+                    ->withErrors(['msg' => 'Enter a price for each selected part'])->render();
                 return $response;
             }
 
@@ -235,7 +236,7 @@ class QuotationController extends Controller
                 $this->saveFile($file, $filename);
             }
 
-            $request->session()->flash('message', 'Cotización de servicio actualizada correctamente');
+            $request->session()->flash('message', 'Service quote updated successfully ');
             return response()->json($response);
         } catch (\Exception $e) {
             $response['errors'] = true;
@@ -286,7 +287,7 @@ class QuotationController extends Controller
                         }
                         $this->saveFile($file, $filename);
                     }
-                    $request->session()->flash('message', 'Cambio de estatus realizado correctamente');
+                    $request->session()->flash('message', 'Change status successfully');
                     return response()->json($response);
                 } catch(\Exception $e) {
                     $response['errors'] = true;
@@ -306,7 +307,7 @@ class QuotationController extends Controller
         if($form_data['authorization'] == '0') $form_data['authorization'] =  '';
 
         $messages = [
-            'authorization.required' => 'La autorización no debe quedar pendiente',
+            'authorization.required' => 'The authorization should not be left pending',
         ];
 
         $validations = [
@@ -338,7 +339,7 @@ class QuotationController extends Controller
             try {
                 $quotation->authorization = $canceled_status;
                 $quotation->save();
-                Session::flash('message', 'Cotización cancelada exitosamente');
+                Session::flash('message', 'Quote successfully canceled');
                 return response()->json(['errors' => false]);
             }catch(\Exception $e){
                 $response['errors'] = true;

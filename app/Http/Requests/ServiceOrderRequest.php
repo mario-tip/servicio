@@ -23,9 +23,9 @@ class ServiceOrderRequest extends FormRequest
      */
     public function messages() {
         return [
-            'service_order.user_id.required' => 'El en cargado de resolución es requerido',
-            'service_order.date.required' => 'La fecha es requerida',
-            'service_order.time.required' => 'La hora es requerida'
+            'service_order.user_id.required' => 'The person responsible for the resolution is required',
+            'service_order.date.required' => 'The date is required',
+            'service_order.time.required' => 'The hour is required'
         ];
     }
     public function rules()

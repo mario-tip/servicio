@@ -18,7 +18,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="#">Detalle de Cotización</a>
+                <a href="#">Detail quotation</a>
             </li>
         </ul>
     </div>
@@ -31,7 +31,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Detalle de cotizacón de servicio</span>
+                        <i class="fa fa-eye font-gray"></i>
+                        <span class="caption-subject bold font-gray">Detail quotation</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -40,7 +41,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Activo: </label>
+                                        <label class="control-label">Asset: </label>
                                         <label class="control-label">{{$quotation->incident->asset->name}}</label>
                                     </div>
                                 </div>
@@ -48,7 +49,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Nombre de cotización: </label>
+                                        <label class="control-label">Name quotation: </label>
                                         <label class="control-label">{{$quotation->name}}</label>
                                     </div>
                                 </div>
@@ -56,7 +57,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label textarea-label">Descripción: </label>
+                                        <label class="control-label textarea-label">Description: </label>
                                         <label class="control-label textarea-content">{{$quotation->description}}</label>
                                     </div>
                                 </div>
@@ -64,7 +65,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Estatus: </label>
+                                        <label class="control-label">Status: </label>
                                         <label class="control-label">{{$quotation->getAuthorizationWord()}}</label>
                                     </div>
                                 </div>
@@ -72,7 +73,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Archivo de cotización: </label>
+                                        <label class="control-label">File quotation: </label>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +82,7 @@
                                     <div class="form-group">
                                         <?php $mime_array = App\Quotation::getFileMime(public_path($quotation->quotation_file)); ?>
                                         @if($mime_array == null)
-                                            <h2 class="file-not-found">Archivo no encontrado</h2>
+                                            <h2 class="file-not-found">Not found file</h2>
                                         @else
                                             <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
                                             @if($file_type == 'image')
@@ -91,7 +92,7 @@
                                                     <a href="{{$quotation->quotation_file}}" download>
                                                         <img class="file-type-icon"
                                                              src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
-                                                        </br>Descargar
+                                                        </br>Download
                                                     </a>
                                                 </div>
                                             @endif
@@ -102,7 +103,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label textarea-label">Comentarios de autorización: </label>
+                                        <label class="control-label textarea-label">Notes authorization: </label>
                                         <label class="control-label textarea-content">{{$quotation->comments}}</label>
                                     </div>
                                 </div>
@@ -110,7 +111,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Partes de incidencia: </label>
+                                        <label class="control-label">Incident parts :</label>
                                     </div>
                                 </div>
                                 <!-- Table parts -->
@@ -119,8 +120,8 @@
                                         <table class="table table-striped table-bordered table-hover order-column" id="datatable_parts">
                                             <thead>
                                             <tr>
-                                                <th>Nombre de parte</th>
-                                                <th>Precio</th>
+                                                <th>Part name</th>
+                                                <th>Price</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -151,6 +152,10 @@
     {!! Html::script("/assets/scripts/quotation.js") !!}
     <script type="text/javascript">
         $(document).ready(function() {
+          $("#liHelpDesk").addClass("active");
+          $("#liServiceOrders").addClass("active");
+
+
             $('#asset_cost').number(true, 2);
 
             $('#datatable_parts').DataTable({

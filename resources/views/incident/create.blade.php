@@ -58,7 +58,7 @@
 @endsection
 @section("scripts")
     {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
-    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js") !!}
+    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
 
@@ -72,7 +72,7 @@
 
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     {!! Html::script("/assets/global/plugins/select2/js/select2.full.min.js") !!}
-    {!! Html::script("/assets/global/plugins/select2/js/i18n/es.js") !!}
+    {!! Html::script("/assets/global/plugins/select2/js/i18n/en.js") !!}
 
     {!! Html::script("/assets/scripts/incident.js") !!}
     <script type="application/javascript">
@@ -82,7 +82,7 @@
 
 
             $(".asset" ).select2({ //Funcion para buscar el id de la persona que lo invito
-                placeholder: 'Introduce el nombre',
+                placeholder: 'Insert name',
                 ajax: {
                     url: "/findAsset",
                     dataType: 'json',
@@ -108,7 +108,7 @@
         });
 
         $('.date-picker').datepicker({
-            language: "es",
+            language: "en",
             autoclose: true
         });
 

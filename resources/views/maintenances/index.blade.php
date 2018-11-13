@@ -21,7 +21,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/maintenances')!!}">Administración de mantenimientos programados</a>
+                <a href="{!!URL::to('/maintenances')!!}">Administration of scheduled maintenance</a>
             </li>
         </ul>
     </div>
@@ -33,7 +33,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-red-600">Calendario de próximos mantenimientos</span>
+                        <i class="fa fa-calendar font-red-600"></i>
+                        <span class="caption-subject bold font-red-600">Calendar of upcoming maintenance</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -42,7 +43,7 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    <a href="{{URL::route('maintenances.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Registrar mantenimiento</a>
+                                    <a href="{{URL::route('maintenances.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add maintenance</a>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +82,7 @@
 @section("scripts")
     {!! Html::script('assets/global/plugins/jquery.fullcalendar/lib/moment.min.js') !!}
     {!! Html::script('assets/global/plugins/jquery.fullcalendar/fullcalendar.min.js') !!}
-    {!! Html::script('assets/global/plugins/jquery.fullcalendar/lang/es.js') !!}
+    {!! Html::script('assets/global/plugins/jquery.fullcalendar/lang/en-ca.js') !!}
 
     <script type="application/javascript">
         $(document).ready(function(){

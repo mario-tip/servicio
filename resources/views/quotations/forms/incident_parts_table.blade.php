@@ -9,8 +9,8 @@
                     <span></span>
                 </label>
             </th>
-            <th>Nombre</th>
-            <th>Precio</th>
+            <th>Name</th>
+            <th>Price</th>
         </tr>
         </thead>
         <tbody>
