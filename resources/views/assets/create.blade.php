@@ -92,7 +92,7 @@
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
                                             <label class="control-label" for="asset_condition"><span>*</span>State: </label>
-                                            {!!Form::select('asset[condition]',['1' => 'Nuevo','2' => 'Usado'], $asset->condition, ['class' => 'bs-select form-control', 'id' => 'asset_condition', 'title' => 'Select...']) !!}
+                                            {!!Form::select('asset[condition]',['1' => 'New','2' => 'Used'], $asset->condition, ['class' => 'bs-select form-control', 'id' => 'asset_condition', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
                                             <label class="control-label" for="asset_model_status"><span>*</span>Status: </label>
-                                            {!!Form::select('asset[status]', ['0' => 'Inactivo','1' => 'Activo'], $asset->status, ['class' => 'bs-select form-control', 'id' => 'asset_status', 'title' => 'Select...']) !!}
+                                            {!!Form::select('asset[status]', ['0' => 'Inactive','1' => 'Active'], $asset->status, ['class' => 'bs-select form-control', 'id' => 'asset_status', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
                                 </div>

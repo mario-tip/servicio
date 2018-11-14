@@ -23,9 +23,9 @@ class Firmware extends Model
     protected $fillable = ['firmware', 'date', 'risk', 'previous_firmware', 'observations', 'assets_id'];
 
     protected $firmware_risks = [
-        '0' => 'Bajo',
-        '1' => 'Medio',
-        '2' => 'Alto'
+        '0' => 'Low',
+        '1' => 'Medium',
+        '2' => 'High'
     ];
 
     public function asset() {

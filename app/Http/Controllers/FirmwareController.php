@@ -23,6 +23,7 @@ class FirmwareController extends Controller
     {
         if(userHasPermission('historial_firmware')) {
             $asset = Asset::find($asset_id);
+            // return $asset;
             return view("assets.firmware_history", compact("asset"));
         }
         return redirect()->back();
@@ -61,7 +62,7 @@ class FirmwareController extends Controller
 
         try {
             Firmware::create($form_data);
-            $request->session()->flash('message', 'Firmware actualizado correctamente');
+            $request->session()->flash('message', 'Firmware update successful');
         } catch(\Exception $e) {
             return redirect()->back()->withErrors([$e->getMessage()]);
         }
@@ -70,9 +71,9 @@ class FirmwareController extends Controller
     private function validateInputs($form_data) {
 
         $messages = [
-            'firmware.required' => 'La nueva versión es requerida',
-            'date.required' => 'La fecha es requerida',
-            'risk.required' => 'El riesgo es requerido',
+            'firmware.required' => 'The new version is required',
+            'date.required' => 'The date is required',
+            'risk.required' => 'The risk is required',
         ];
 
         $validator = Validator::make($form_data, [

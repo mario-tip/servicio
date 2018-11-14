@@ -119,18 +119,18 @@ class AssetController extends Controller
             'model.required' => 'The asset model is required',
             'unique' => 'The model already exists',
             'condition.required' => 'The condition of the asset is required',
-            'serial.required' => 'El número de serie del activo es requerido',
-            'status.required' => 'El estatus del activo es requerido',
-            'brand.required' => 'La marca del activo es requerida',
-            'location_id.required' => 'La ubicación del activo es requerida',
-            'barcode.required' => 'El código de barras es requerido',
-            'subcategory_id.required' => 'La subcategoria es requerida',
-            'equipment_id.required' => 'El tipo de activo es requerido',
-            'maintenance_date.required' => 'La fecha de mantenimiento es requerida',
-            'cost.required' => 'El costo es requerido',
-            'person_id.required' => 'La persona es requerida',
-            'description.required' => 'La descripción es requerida',
-            'customer_id.required' => 'El cliente es requerido'
+            'serial.required' => 'The serial number of the asset is required',
+            'status.required' => 'The status of the asset is required',
+            'brand.required' => 'The brand of the asset is required',
+            'location_id.required' => 'The location of the asset is required',
+            'barcode.required' => 'The barcode is required',
+            'subcategory_id.required' => 'The subcategory is required',
+            'equipment_id.required' => 'The type of asset is required',
+            'maintenance_date.required' => 'The maintenance date is required',
+            'cost.required' => 'The price is required',
+            'person_id.required' => 'The person is required',
+            'description.required' => 'The description is required',
+            'customer_id.required' => 'The customer is required'
         ];
 
         $validations = [

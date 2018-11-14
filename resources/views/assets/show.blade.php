@@ -32,7 +32,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Información general</span>
+                      <i class="fa fa-eye font-gray"></i>
+                        <span class="caption-subject bold font-gray">Detail asset</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -41,13 +42,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Id de activo: </label>
+                                        <label class="control-label">Asset Id : </label>
                                         <label class="control-label">{{$asset->asset_custom_id}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Fecha de compra: </label>
+                                        <label class="control-label">Date of purchase : </label>
                                         <label class="control-label">{{$asset->adquisition_date}}</label>
                                     </div>
                                 </div>
@@ -55,13 +56,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Nombre de activo: </label>
+                                        <label class="control-label">Asset name : </label>
                                         <label class="control-label">{{$asset->name}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Costo: </label>
+                                        <label class="control-label">Price: </label>
                                         <label class="control-label" id="asset_cost">{{'$' . $asset->cost}}</label>
                                     </div>
                                 </div>
@@ -69,41 +70,43 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Modelo: </label>
+                                        <label class="control-label">Model: </label>
                                         <label class="control-label">{{$asset->model}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Condición: </label>
-                                        <label class="control-label">{{$asset->condition}}</label>
+                                        <label class="control-label">State : </label>
+                                        <label class="control-label"> {{ $asset->condition == 1 ? "New" : "Used" }}  </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Número de serie: </label>
+                                        <label class="control-label">Serial number : </label>
                                         <label class="control-label">{{$asset->serial}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Estatus: </label>
-                                        <label class="control-label">{{$asset->status}}</label>
+                                        <label class="control-label">Status: </label>
+                                        <label class="control-label">{{ $asset->serial == 1 ? "Inactive" : "Active" }}</label>
+
+
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Marca: </label>
+                                        <label class="control-label">Brand: </label>
                                         <label class="control-label">{{$asset->brand}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Persona: </label>
+                                        <label class="control-label">Person: </label>
                                         <label class="control-label">{{$asset->person->name}}</label>
                                     </div>
                                 </div>
@@ -111,13 +114,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label textarea-label">Descripción: </label>
+                                        <label class="control-label textarea-label">Description: </label>
                                         <label class="control-label textarea-content">{{$asset->description}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Fecha de vencimiento: </label>
+                                        <label class="control-label">Expiration date: </label>
                                         <label class="control-label">{{$asset->expires_date}}</label>
                                     </div>
                                 </div>
@@ -125,14 +128,14 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Proveedor: </label>
+                                        <label class="control-label">Provider: </label>
                                         <?php $provider = ($asset->provider != null) ? $asset->provider->name : null; ?>
                                         <label class="control-label">{{$provider}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Referencia de compra: </label>
+                                        <label class="control-label">Purchase reference : </label>
                                         <label class="control-label">{{$asset->purchase_order}}</label>
                                     </div>
                                 </div>
@@ -140,7 +143,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Cliente: </label>
+                                        <label class="control-label">Customer: </label>
                                         <label class="control-label">{{!empty($asset->customers) ? $asset->customers->name : ''}}</label>
                                     </div>
                                 </div>
@@ -158,7 +161,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Información adicional</span>
+                        <span class="caption-subject bold">Additional Information</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -167,13 +170,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Mantenimiento: </label>
+                                        <label class="control-label">Maintenance : </label>
                                         <label class="control-label">{{$asset->maintenance_date}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label textarea-label">Notas: </label>
+                                        <label class="control-label textarea-label">Notes : </label>
                                         <label class="control-label textarea-content">{{$asset->notes}}</label>
                                     </div>
                                 </div>
@@ -181,7 +184,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Fotos: </label>
+                                        <label class="control-label">Picture : </label>
                                         <label class="control-label"></label>
                                     </div>
                                 </div>
@@ -207,6 +210,9 @@
     {!!Html::script("/assets/scripts/asset.js")!!}
     <script type="text/javascript">
         $(document).ready(function() {
+          $("#liAssets").addClass("active");
+          $("#liAssetsList").addClass("active");
+
             $('#asset_cost').number(true, 2);
 
             /*Asset images slider*/
