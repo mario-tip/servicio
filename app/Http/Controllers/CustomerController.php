@@ -54,7 +54,7 @@ class CustomerController extends Controller
     {
         try {
             Customer::create($request->get('customer'));
-            $request->session()->flash('message', 'Cliente creado correctamente');
+            $request->session()->flash('message', 'Customer created successfully');
             return redirect()->route('customers.index');
         } catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -100,7 +100,7 @@ class CustomerController extends Controller
         try {
             $customer->fill($request->get('customer'));
             $customer->save();
-            $request->session()->flash('message', 'Cliente actualizado correctamente');
+            $request->session()->flash('message', 'Customer edit successfully');
             return redirect()->route('customers.index');
         } catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -125,7 +125,7 @@ class CustomerController extends Controller
         } else {
             try {
                 $customer->delete();
-                Session::flash('message', 'Cliente eliminado correctamente');
+                Session::flash('message', 'Customer delete successfully');
                 return response()->json(['errors' => false]);
             }catch(\Exception $e) {
                 $response['errors'] = true;

@@ -55,7 +55,7 @@ class ReportController extends Controller
             if(count($response['results']) == 0) {
                 $response['errors'] = true;
                 $response['errors_fragment'] = \View::make('partials.request')
-                    ->withErrors(['message' => 'No se encontraron resultados'])
+                    ->withErrors(['message' => 'No results found'])
                     ->render();
                 return response()->json($response);
             }
@@ -87,7 +87,8 @@ class ReportController extends Controller
                 array_push($report_excel, $aux);
             }
 
-            $headers = ["folio", "cliente", "persona", "activo_atendido", "fecha_atención" , "técnico", "ubicación", "estatus"];
+            $headers = ["folio", "customer", "person", "asset_attended", "date_attention" , "technical", "location", "status"];
+
             array_unshift($report_excel, $headers);
 
             try {
@@ -137,7 +138,7 @@ class ReportController extends Controller
             if(count($response['results']) == 0) {
                 $response['errors'] = true;
                 $response['errors_fragment'] = \View::make('partials.request')
-                    ->withErrors(['message' => 'No se encontraron resultados'])
+                    ->withErrors(['message' => 'No results found'])
                     ->render();
                 return response()->json($response);
             }
@@ -151,6 +152,7 @@ class ReportController extends Controller
         if(userHasPermission("exportar_reporte_incidencias")):
             $response = ['errors' => false];
             $incidents = $request->get('data');
+            var_dump( $incidents );
 
             $report_excel = [];
             foreach (json_decode($incidents) as $key){
@@ -168,7 +170,7 @@ class ReportController extends Controller
                 array_push($report_excel, $aux);
             }
 
-            $headers = ["folio", "id_activo", "cliente", "persona", "activo_atendido" , "fecha_atención", "técnico", "ubicación", "estatus"];
+            $headers = ["folio", "asset_ID", "customer", "person", "asset_attended" , "date_attention", "technical", "location", "status"];
             array_unshift($report_excel, $headers);
 
             try {
@@ -224,7 +226,7 @@ class ReportController extends Controller
             if(count($response['results']) == 0) {
                 $response['errors'] = true;
                 $response['errors_fragment'] = \View::make('partials.request')
-                    ->withErrors(['message' => 'No se encontraron resultados'])
+                    ->withErrors(['message' => 'No results found'])
                     ->render();
                 return response()->json($response);
             }
@@ -255,7 +257,7 @@ class ReportController extends Controller
                 array_push($report_excel, $aux);
             }
 
-            $headers = ["folio", "cliente", "persona", "activo_atendido", "fecha_atención" , "técnico", "ubicación", "estatus"];
+            $headers = ["folio", "customer", "person", "asset_attended", "date_attention" , "technical", "location", "status"];
             array_unshift($report_excel, $headers);
 
             try {
@@ -305,7 +307,7 @@ class ReportController extends Controller
             if(count($response['results']) == 0) {
                 $response['errors'] = true;
                 $response['errors_fragment'] = \View::make('partials.request')
-                    ->withErrors(['message' => 'No se encontraron resultados'])
+                    ->withErrors(['message' => 'No results found'])
                     ->render();
                 return response()->json($response);
             }
@@ -336,7 +338,8 @@ class ReportController extends Controller
                 array_push($report_excel, $aux);
             }
 
-            $headers = ["folio", "cliente", "persona", "activo_atendido", "fecha" , "usuario", "ubicación", "operación"];
+            $headers = ["folio", "customer", "person", "asset_attended", "date_attention" , "user", "location", "operation"];
+
             array_unshift($report_excel, $headers);
 
             try {

@@ -134,8 +134,8 @@
 
                       <li id="liReportTiket" class="nav-item">
                         <a href="{{route('reports.technician-tickets')}}" class="nav-link nav-toggle">
-                        <i class=" icon-cup"></i>
-                        User Tikets</a>
+                        <i class="icon-tag"></i>
+                        User Tickets</a>
                       </li>
                       <li id="liReportService" class="nav-item">
                         <a href="{{route('reports.customer-service-orders')}}" class="nav-link nav-toggle">

@@ -21,11 +21,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/parts')!!}">Catálogo de correlativos</a>
+                <a href="{!!URL::to('/parts')!!}">Parts brochure</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/parts/create')!!}">Nuevo correlativo</a>
+                <a href="{!!URL::to('/parts/create')!!}">New part</a>
             </li>
         </ul>
     </div>
@@ -38,7 +38,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Nuevo correlativo</span>
+                      <i class="fa fa-plus font-cian-500"></i>
+                        <span class="caption-subject bold font-cian-500 ">New part</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -77,7 +78,9 @@
 
     <script type="application/javascript">
         $(document).ready(function(){
+            $("#liAssets").addClass("active");
             $("#liParts").addClass("active");
+
 
             $('#price').number( true, 2 );
         });

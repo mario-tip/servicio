@@ -213,7 +213,7 @@ class IncidentController extends Controller
             $incident->parts()->detach();
             $incident->delete();
 
-            Session::flash('message', 'Incidencia eliminada correctamente.');
+            Session::flash('message', 'Incidence deleted successfully.');
 
             $data = false;
         }else{
@@ -250,9 +250,9 @@ class IncidentController extends Controller
                 $incident->technician = $name->username;
 
                 if($order->status == 0)
-                    $incident->status = 'Pendiente';
+                    $incident->status = 'Pending';
                 else{
-                    $incident->status = 'Atendido';
+                    $incident->status = 'Served';
                 }
             }else{
                 $incident->technician = '';
@@ -320,9 +320,9 @@ class IncidentController extends Controller
                 }
 
                 if($order->status == 0)
-                    $incident->status = 'Pendiente';
+                    $incident->status = 'Pending';
                 else{
-                    $incident->status = 'Atendido';
+                    $incident->status = 'Served';
                 }
 
                 $incident->person_notes = $order->notes;
@@ -374,9 +374,9 @@ class IncidentController extends Controller
                 $incident->technician = $name->username;
 
                 if($order->status == 0)
-                    $incident->status = 'Pendiente';
+                    $incident->status = 'Pending';
                 else{
-                    $incident->status = 'Atendido';
+                    $incident->status = 'Served';
                 }
             }else{
                 $incident->technician = '';
@@ -443,9 +443,9 @@ class IncidentController extends Controller
             }
 
             if($order->status == 0)
-                $incident->status = 'Pendiente';
+                $incident->status = 'Pending';
             else{
-                $incident->status = 'Atendido';
+                $incident->status = 'Served';
             }
 
             $incident->person_notes = $order->notes;

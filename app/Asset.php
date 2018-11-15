@@ -7,6 +7,7 @@ use Carbon\Carbon;
 
 class Asset extends Model
 {
+    
     /**
      * The database table used by the model.
      *

@@ -3,7 +3,7 @@
 @section("styles")
     {!!Html::style("/assets/global/plugins/datatables/datatables.min.css")!!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
-    {{-- {!! Html::style("/assets/css/quotation.css") !!} --}}
+    {!! Html::style("/assets/css/parts.css") !!}
 @endsection
 
 @section('breadcrumb')
@@ -15,7 +15,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/parts')!!}">Catálogo de correlativos</a>
+                <a href="{!!URL::to('/parts')!!}">Parts brochure</a>
             </li>
         </ul>
     </div>
@@ -28,7 +28,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-cian-500">Catálogo de correlativos</span>
+                        <i class="icon-frame font-cian-500"></i>
+                        <span class="caption-subject bold font-cian-500">Parts brochure</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -38,7 +39,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_correlativos"))
-                                    <a href="{{URL::route('parts.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nueva parte</a>
+                                    <a href="{{URL::route('parts.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New part</a>
                                     @endif
                                 </div>
                             </div>
@@ -47,11 +48,11 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
-                            <th class="center">Nombre de parte</th>
-                            <th class="center">Número de parte</th>
-                            <th class="center">Precio</th>
-                            <th class="center">Descripción</th>
-                            <th class="center">Acciones</th>
+                            <th class="center">Part name</th>
+                            <th class="center">Part number </th>
+                            <th class="center">Price</th>
+                            <th class="center">Description</th>
+                            <th class="center">Actions</th>
                         </tr>
                         </thead>
 
@@ -63,19 +64,21 @@
                                 <td class="center"> {{$part->price}} </td>
                                 <td class="center"> {{$part->description}} </td>
                                 <td>
+                                  <div class="">
                                     @if(userHasPermission("editar_catalogo_correlativos"))
-                                    <a href="{{  URL::route('parts.edit', $part->id) }}" title="Editar"
+                                    <a href="{{  URL::route('parts.edit', $part->id) }}" title="Edit"
                                        class="btn btn-circle btn-icon-only btn-info ">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_correlativos"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$part->name}}"
-                                       data-id="{{$part->id}}" title="Eliminar"
+                                       data-id="{{$part->id}}" title="Delete"
                                        class="btn btn-circle btn-icon-only red modalDelete">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -92,15 +95,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar correlativo</h4>
+                    <h4 class="modal-title">Delete part</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
 
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Ok</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -116,9 +119,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">El correlativo NO se puede eliminar si esta asociado a un activo o equipo.</div>
+                <div class="modal-body">The correlative can NOT be deleted if it is associated with an asset or equipment.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -135,8 +138,8 @@
     {!! Html::script("/assets/scripts/simplified_datatable.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liParts").addClass("active");
-            $("#liAssetsPrincipal").addClass("active");
+          $("#liAssets").addClass("active");
+          $("#liParts").addClass("active");
 
         });
 
@@ -144,7 +147,7 @@
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
-            var nameNode=document.createTextNode("¿Desea eliminar el correlativo seleccionado?");
+            var nameNode=document.createTextNode("Do you want to delete the selected correlative?");
             nodeName.appendChild(nameNode);
             $("#bodyDelete").empty();
             document.getElementById("bodyDelete").appendChild(nodeName);

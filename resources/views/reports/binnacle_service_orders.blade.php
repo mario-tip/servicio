@@ -24,7 +24,7 @@
                 <i class="fa fa-circle"></i>
             </li>--}}
             <li>
-                <a href="#">Bitácora de servicios</a>
+                <a href="#">Service log</a>
             </li>
         </ul>
     </div>
@@ -37,7 +37,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-green-700">Bitácora de servicios</span>
+                        <i class="icon-earphones-alt font-green-700"></i>
+                        <span class="caption-subject bold font-green-700">Service log</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -46,11 +47,11 @@
                         <div class="row">
                             <div class="col-md-4" id="dates_container">
                                 <div class="form-group col-md-8" id="dates_sub_container">
-                                    <label class="control-label">Fechas:</label>
+                                    <label class="control-label">Dates:</label>
                                     <div class="input-group input-medium date-picker input-daterange" data-date-format="dd-mm-yyyy">
-                                        <span class="input-group-addon">Desde</span>
+                                        <span class="input-group-addon">From </span>
                                         {!! Form::text('service_orders[start_date]', null, ['class' => 'form-control date-input', 'id' => 'from_date']) !!}
-                                        <span class="input-group-addon">Hasta</span>
+                                        <span class="input-group-addon">to</span>
                                         {!! Form::text('service_orders[end_date]', null, ['class' => 'form-control date-input', 'id' => 'to_date']) !!}
                                     </div>
                                 </div>
@@ -59,11 +60,11 @@
                         <div class="row">
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
-                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generar</button>
+                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generate</button>
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-binnacle-service-orders'])!!}
                                     <input type="hidden" id="data" name="data">
-                                    <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Descargar</button>
+                                    <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Download</button>
                                     {!! Form::close() !!}
                                 </div>
                             </div>
@@ -72,14 +73,14 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                             <tr>
-                                <th class="center">Folio</th>
-                                <th class="center">Cliente</th>
-                                <th class="center">Persona</th>
-                                <th class="center">Activo atendido</th>
-                                <th class="center">Fecha</th>
-                                <th class="center">Usuario</th>
-                                <th class="center">Ubicación</th>
-                                <th class="center">Operación</th>
+                                <th class="center">Sheet number</th>
+                                <th class="center">Customer</th>
+                                <th class="center">Person</th>
+                                <th class="center">Active attended</th>
+                                <th class="center">Date </th>
+                                <th class="center">User</th>
+                                <th class="center">Location</th>
+                                <th class="center">Operation</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -98,7 +99,7 @@
     {!! Html::script("/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js") !!}
     {!! Html::script("/assets/scripts/simplified_datatable.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
-    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js") !!}
+    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js") !!}
     {!! Html::script('/assets/scripts/binnacle_service_orders_report.js') !!}
     <script type="application/javascript">

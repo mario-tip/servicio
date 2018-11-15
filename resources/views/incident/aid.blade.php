@@ -15,7 +15,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/aid')!!}">Consulta y atención de incidencias</a>
+                <a href="{!!URL::to('/analytics_incident')!!}">Incidents</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{!!URL::to('/aid')!!}">Attention of incidents</a>
             </li>
         </ul>
     </div>
@@ -27,7 +31,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-green-600">Consulta y atención de incidencias</span>
+                        <i class=" icon-bubble font-green-600"></i>
+                        <span class="caption-subject bold font-green-600">Attention of incidents</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -44,16 +49,16 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
-                            <th class="center">Persona quien levanto la incidencia</th>
-                            <th class="center">Activo</th>
-                            <th class="center">Ubicación</th>
-                            <th class="center">Prioridad</th>
-                            <th class="center">Tipo de incidencia</th>
-                            <th class="center">Hora</th>
-                            <th class="center">Fecha</th>
-                            <th class="center">Técnico</th>
-                            <th class="center">Estatus</th>
-                            <th class="center">Acciones</th>
+                            <th class="center">who registered?</th>
+                            <th class="center">Asset</th>
+                            <th class="center">Location</th>
+                            <th class="center">Preference</th>
+                            <th class="center">Incident type</th>
+                            <th class="center">Hour</th>
+                            <th class="center">Date</th>
+                            <th class="center">Technical</th>
+                            <th class="center">Status</th>
+                            <th class="center">Actions</th>
                         </tr>
                         </thead>
 
@@ -65,16 +70,16 @@
                                 <td class="center"> {{($incident->asset)?$incident->asset->name:''}} </td>
                                 <td class="center"> {{$incident->location}} </td>
                                 @if($incident->priority == 0)
-                                    <td class="center"> Alta </td>
+                                    <td class="center"> High </td>
                                 @elseif($incident->priority == 1)
-                                    <td class="center"> Media </td>
+                                    <td class="center"> Medium </td>
                                 @else
-                                    <td class="center"> Baja </td>
+                                    <td class="center"> Low </td>
                                 @endif
                                 @if($incident->type == 0)
-                                    <td class="center"> Limpieza </td>
+                                    <td class="center"> Clean </td>
                                 @else
-                                    <td class="center"> Reparación </td>
+                                    <td class="center"> Repair </td>
                                 @endif
                                 <td class="center"> {{$incident->suggested_time}}  </td>
                                 <td class="center"> {{\Carbon\Carbon::parse($incident->suggested_date)->format('d-m-Y')}} </td>
@@ -83,7 +88,7 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("mostrar_consulta_atencion_incidencias"))
-                                    <a href="{!!URL::to('/incidents_datails/'.$incident->id)!!}" title="Ver detalle"
+                                    <a href="{!!URL::to('/incidents_datails/'.$incident->id)!!}" title="Show details"
                                        class="btn btn-circle btn-icon-only grey-silver ">
                                         <i class="fa fa-eye"></i>
                                     </a>

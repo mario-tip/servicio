@@ -18,14 +18,11 @@
 
   							</div>
   							<div class="desc">
-  								 Consulta y atención de incidencias
+  								 Attention of incidents
   							</div>
   						</div>
 						</a>
 					</div>
-
-
-
         @endif
 
         @if(userHasPermission("listar_catalogo_personas"))
@@ -39,7 +36,7 @@
 
                 </div>
                 <div class="desc">
-                   Reporte de incidencias
+                   Incident report
                 </div>
               </div>
             </a>

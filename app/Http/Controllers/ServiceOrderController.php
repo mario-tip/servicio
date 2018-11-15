@@ -67,7 +67,7 @@ class ServiceOrderController extends Controller
 
         try{
             ServiceOrder::create($service_order_data);
-            $request->session()->flash('message', 'Orden de servicio guardada correctamente');
+            $request->session()->flash('message', 'Service order saved correctly');
             return redirect('/service-orders');
         } catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());

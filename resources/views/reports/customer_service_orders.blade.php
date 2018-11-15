@@ -20,12 +20,9 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/reports')!!}">Reportes</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a>Servicio para clientes</a>
+                <a> Customer service </a>
             </li>
         </ul>
     </div>
@@ -39,7 +36,8 @@
 
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-green-400">Servicio para clientes</span>
+                        <i class=" icon-user-follow font-green-400"></i>
+                        <span class="caption-subject bold font-green-400"> Customer service </span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -48,11 +46,11 @@
                         <div class="row">
                             <div class="col-md-4" id="dates_container">
                                 <div class="form-group col-md-8" id="dates_sub_container">
-                                    <label class="control-label">Fechas:</label>
+                                    <label class="control-label">Date :</label>
                                     <div class="input-group input-medium date-picker input-daterange" data-date-format="dd-mm-yyyy">
-                                        <span class="input-group-addon">Desde</span>
+                                        <span class="input-group-addon">From </span>
                                         {!! Form::text('service_orders[start_date]', null, ['class' => 'form-control date-input', 'id' => 'from_date']) !!}
-                                        <span class="input-group-addon">Hasta</span>
+                                        <span class="input-group-addon">To </span>
                                         {!! Form::text('service_orders[end_date]', null, ['class' => 'form-control date-input', 'id' => 'to_date']) !!}
                                     </div>
                                 </div>
@@ -61,16 +59,16 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label form-label" for="service_order_customer_id"><span></span>Cliente: </label>
+                                    <label class="control-label form-label" for="service_order_customer_id"><span></span>Customer: </label>
                                     {!!Form::select('service_orders[customer_id]', $customers, null,
-                                    ['class' => 'bs-select form-control', 'id' => 'service_order_customer_id', 'title' => 'Seleccionar...']) !!}
+                                    ['class' => 'bs-select form-control', 'id' => 'service_order_customer_id', 'title' => 'Select...']) !!}
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label form-label" for="service_order_project_id"><span></span>Proyecto: </label>
+                                    <label class="control-label form-label" for="service_order_project_id"><span></span>Project: </label>
                                     {!!Form::select('service_orders[project_id]', $projects, null,
-                                    ['class' => 'bs-select form-control', 'id' => 'service_order_project_id', 'title' => 'Seleccionar...']) !!}
+                                    ['class' => 'bs-select form-control', 'id' => 'service_order_project_id', 'title' => 'Select...']) !!}
                                 </div>
                             </div>
                         </div>
@@ -78,11 +76,11 @@
                         <div class="row">
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
-                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generar</button>
+                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generate</button>
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-customer-service-orders'])!!}
                                     <input type="hidden" id="data" name="data">
-                                    <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Descargar</button>
+                                    <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Download</button>
                                     {!! Form::close() !!}
                                 </div>
                             </div>
@@ -93,13 +91,13 @@
                         <thead>
                             <tr>
                                 <th class="center">Folio</th>
-                                <th class="center">Cliente</th>
-                                <th class="center">Persona</th>
-                                <th class="center">Activo atendido</th>
-                                <th class="center">Fecha de atención</th>
-                                <th class="center">Técnico</th>
-                                <th class="center">Ubicación</th>
-                                <th class="center">Estatus</th>
+                                <th class="center">Customer</th>
+                                <th class="center">Person</th>
+                                <th class="center">Asset attended</th>
+                                <th class="center">Date of attention</th>
+                                <th class="center">Technical</th>
+                                <th class="center">Location</th>
+                                <th class="center">Status</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -118,7 +116,7 @@
     {!! Html::script("/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js") !!}
     {!! Html::script("/assets/scripts/simplified_datatable.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
-    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js") !!}
+    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
     {!! Html::script("/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js") !!}
     {!! Html::script("/assets/pages/scripts/components-bootstrap-select.min.js") !!}

@@ -16,12 +16,9 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+            
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a>Proveedores</a>
+                <a>Providers</a>
             </li>
         </ul>
     </div>
@@ -34,7 +31,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-blue-800">Catálogo de Proveedores</span>
+                        <i class="glyphicon glyphicon-briefcase font-blue-800"></i>
+                        <span class="caption-subject bold font-blue-800">Providers brochure</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -44,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_proveedores"))
-                                    <a href="{{URL::route('providers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nuevo proveedor</a>
+                                    <a href="{{URL::route('providers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add provider</a>
                                     @endif
                                 </div>
                             </div>
@@ -53,10 +51,10 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                             <tr>
-                                <th class="center">Nombre</th>
-                                <th class="center">Dirección</th>
-                                <th class="center">Teléfono</th>
-                                <th class="center">Acciones</th>
+                                <th class="center">Name</th>
+                                <th class="center">Address</th>
+                                <th class="center">Telephone</th>
+                                <th class="center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,12 +65,12 @@
                                 <td class="center">{{$provider->phone}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_proveedores"))
-                                    <a href="{{route('providers.edit', $provider->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('providers.edit', $provider->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_proveedores"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$provider->name}}" data-id="{{$provider->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-provider">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$provider->name}}" data-id="{{$provider->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-provider">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -91,13 +89,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar proveedor</h4>
+                    <h4 class="modal-title"> Delete provider </h4>
                 </div>
                 <div class="modal-body" id="bodyDelete"></div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteProvider()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteProvider()">Ok</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -113,9 +111,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">El proveedor no se puede eliminar, si está asociado a otros registros.</div>
+                <div class="modal-body">The provider can not be deleted, if it is associated with other records.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->

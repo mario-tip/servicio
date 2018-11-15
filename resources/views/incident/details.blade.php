@@ -20,11 +20,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/aid')!!}">Consulta y atención de incidencias</a>
+                <a href="{!!URL::to('/aid')!!}">Attention of incidents</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a>Detalle de incidencia</a>
+                <a>Incident detail</a>
             </li>
         </ul>
     </div>
@@ -36,7 +36,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Detalle de incidencia</span>
+                        <i class="fa fa-eye"></i>
+                        <span class="caption-subject bold">Incident detail</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -45,17 +46,17 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Persona quien levantó la incidencia:</b></label>
+                                        <label class="control-label"><b>who registered? :</b></label>
                                         <label class="control-label">{{$incident->full_name}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Tipo de servicio:</b></label>
+                                        <label class="control-label"><b>Service type :</b></label>
                                         @if($incident->type == 0)
-                                            <label class="control-label">Limpieza</label>
+                                            <label class="control-label">Clean</label>
                                         @else
-                                            <label class="control-label">Reparación</label>
+                                            <label class="control-label">Repair</label>
                                         @endif
                                     </div>
                                 </div>
@@ -63,13 +64,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Id de activo:</b></label>
+                                        <label class="control-label"><b>Asset ID:</b></label>
                                         <label class="control-label">{{($incident->asset)?$incident->asset->id:''}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Nombre de activo:</b></label>
+                                        <label class="control-label"><b>Asset name:</b></label>
                                         <label class="control-label">{{($incident->asset)?$incident->asset->name:''}}</label>
                                     </div>
                                 </div>
@@ -77,13 +78,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Ubicación:</b></label>
+                                        <label class="control-label"><b>Location:</b></label>
                                         <label class="control-label">{{$incident->location}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Marca:</b></label>
+                                        <label class="control-label"><b>Brand:</b></label>
                                         <label class="control-label">{{($incident->asset)?$incident->asset->brand:''}}</label>
                                     </div>
                                 </div>
@@ -91,13 +92,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Prioridad:</b></label>
+                                        <label class="control-label"><b>Preference:</b></label>
                                         @if($incident->priority == 0)
-                                            <label class="control-label">Alta</label>
+                                            <label class="control-label">High</label>
                                         @elseif($incident->priority == 1)
-                                            <label class="control-label">Media</label>
+                                            <label class="control-label">Medium</label>
                                         @else
-                                            <label class="control-label">Baja</label>
+                                            <label class="control-label">Low</label>
                                         @endif
                                     </div>
                                 </div>
@@ -111,13 +112,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Hora:</b></label>
+                                        <label class="control-label"><b>Hour :</b></label>
                                         <label class="control-label">{{$incident->time}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Estatus:</b></label>
+                                        <label class="control-label"><b>Status:</b></label>
                                         <label class="control-label">{{$incident->status}}</label>
                                     </div>
                                 </div>
@@ -125,7 +126,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Fecha:</b></label>
+                                        <label class="control-label"><b>Date:</b></label>
                                         <label class="control-label">{{$incident->date}}</label>
                                     </div>
                                 </div>
@@ -133,7 +134,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label textarea-label"><b>Descripción del problema:</b></label>
+                                        <label class="control-label textarea-label"><b>description of the problem :</b></label>
                                         <label class="control-label textarea-content">{{$incident->description}}</label>
                                     </div>
                                 </div>
@@ -141,7 +142,8 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Fecha de atención sugerida:</b></label>
+                                        <label class="control-label"><b>Suggested attention date :</b></label>
+
                                         <label class="control-label">{{$incident->suggested_date}}</label>
                                     </div>
                                 </div>
@@ -149,7 +151,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Evidencia:</b></label>
+                                        <label class="control-label"><b>Evidence:</b></label>
                                         <a href="#" title="Evidencia" class="thumbnail">
                                             <img src="{{'/'.$incident->evidence_file}}" style="max-width: 300px" alt="Evidence">
                                         </a>
@@ -159,8 +161,12 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Notas adicionales:</b></label>
-                                        <label class="control-label">{{$incident->notes}}</label>
+                                        <label class="control-label"><b>Notes:</b></label>
+                                        @if ($incident->notes)
+                                          <label class="control-label">{{$incident->notes}}</label>
+                                        @else
+                                          <label class="control-label">There aren't notes</label>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +178,7 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Detalle de atención</span>
+                        <span class="caption-subject bold">Detail of attention</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -181,7 +187,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Técnico:</b></label>
+                                        <label class="control-label"><b>Technical:</b></label>
                                         <label class="control-label">{{$incident->technician}}</label>
                                     </div>
                                 </div>
@@ -189,7 +195,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label textarea-label"><b>Comentarios:</b></label>
+                                        <label class="control-label textarea-label"><b>commentation :</b></label>
                                         <label class="control-label textarea-content">{{$incident->person_notes}}</label>
                                     </div>
                                 </div>
@@ -197,7 +203,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Partes afectadas:</b></label>
+                                        <label class="control-label"><b>Affected parties:</b></label>
                                         <ul class="list-group">
                                         @foreach($data as $d)
                                                 <li class="list-group-item">{{$d->part_number.' - '.$d->part_name}}</li>
@@ -209,7 +215,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Persona que autorizó el mantenimiento:</b></label>
+                                        <label class="control-label"><b>who registered maintenance? :</b></label>
                                         <label class="control-label">{{$incident->person}}</label>
                                     </div>
                                 </div>
@@ -217,7 +223,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Firma:</b></label>
+                                        <label class="control-label"><b>Signature:</b></label>
                                         <div>
                                             <a href="#" title="Firma" class="thumbnail">
                                                 <img src="{{$incident->signature}}" style="max-width: 500px" alt="Signature">
@@ -254,7 +260,9 @@
 
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liAid").addClass("active");
+            $("#liAnalitycs").addClass("active");
+            $("#liAnalyticsIncidents").addClass("active");
+
 
             $(".activos").css('border', 'none');
             $(".activos").css('background-color', '#fefeff');

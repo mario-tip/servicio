@@ -14,7 +14,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/actives')!!}">Activos</a>
+                <a href="{!!URL::to('/actives')!!}">Assets</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
