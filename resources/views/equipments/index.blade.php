@@ -17,7 +17,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/equipments')!!}">Equipos</a>
+                <a href="{!!URL::to('/equipments')!!}">Equipments</a>
             </li>
         </ul>
     </div>
@@ -30,7 +30,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-blue-300">Catálogo de tipos de equipo prueba </span>
+                        <i class="glyphicon glyphicon-barcode font-blue-300"></i>
+                        <span class="caption-subject bold font-blue-300">Equipments brochure </span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -40,7 +41,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_tipo_equipo"))
-                                    <a href="{{URL::route('equipments.create')}}" class="btn btn-circle btn-success "><i class="fa fa-plus"></i> Nuevo Equipo</a>
+                                    <a href="{{URL::route('equipments.create')}}" class="btn btn-circle btn-success "><i class="fa fa-plus"></i> New Equipment</a>
 
                                     @endif
                                 </div>
@@ -50,8 +51,8 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                             <tr>
-                                <th class="center">Nombre de equipo</th>
-                                <th class="center">Acciones</th>
+                                <th class="center">Name equipment</th>
+                                <th class="center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,12 +63,12 @@
                               <td>
                                 <div class="center_items">
                                   @if(userHasPermission("editar_tipo_equipo"))
-                                  <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                  <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                       <i class="fa fa-edit"></i>
                                   </a>
                                   @endif
                                   @if(userHasPermission("eliminar_tipo_equipo"))
-                                  <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-equipment">
+                                  <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-equipment">
                                       {{-- <i class="fa fa-times"></i> --}}
                                       <i class="fa fa-trash-o"></i>
                                   </a>
@@ -89,15 +90,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar equipo</h4>
+                    <h4 class="modal-title">Delete equipment</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
                     <div id="modal_message"></div>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteEquipment()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteEquipment()">Ok</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -113,9 +114,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">El equipo NO se puede eliminar si está asociada a un activo.</div>
+                <div class="modal-body">The equipment CAN NOT be deleted if it is associated with an asset.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->

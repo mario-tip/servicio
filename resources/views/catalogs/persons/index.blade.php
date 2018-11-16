@@ -17,12 +17,9 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a>Personas</a>
+                <a>People</a>
             </li>
         </ul>
     </div>
@@ -35,7 +32,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-blue-700">Catálogo de personas</span>
+                        <i class="glyphicon glyphicon-user font-blue-700"></i>
+                        <span class="caption-subject bold font-blue-700">People Brochure</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -45,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_personas"))
-                                    <a href="{{URL::route('persons.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nueva persona</a>
+                                    <a href="{{URL::route('persons.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New person</a>
                                     @endif
                                 </div>
                             </div>
@@ -54,11 +52,11 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                             <tr>
-                                <th class="center">Nombre</th>
-                                <th class="center">Apellido paterno</th>
-                                <th class="center">Apellido materno</th>
-                                <th class="center">Correo electrónico</th>
-                                <th class="center">Acciones</th>
+                                <th class="center">Name</th>
+                                <th class="center">Last name</th>
+                                <th class="center">Mother's surname</th>
+                                <th class="center">E-mail</th>
+                                <th class="center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -71,12 +69,12 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_personas"))
-                                    <a href="{{route('persons.edit', $person->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('persons.edit', $person->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_personas"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$person->name}}" data-id="{{$person->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-person">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$person->name}}" data-id="{{$person->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-person">
                                         <i class="fa fa-times"></i>
                                     </a>
                                     @endif
@@ -96,13 +94,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar persona</h4>
+                    <h4 class="modal-title">Delete person</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete"></div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal" onclick="deletePerson()">Aceptar</button>
-                    <button type="button" class="btn red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn green-meadow" data-dismiss="modal" onclick="deletePerson()">Ok</button>
+                    <button type="button" class="btn red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -118,9 +116,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">La persona no se puede eliminar, si está asociado a un activo.</div>
+                <div class="modal-body">The person can not be eliminated, if it is associated with an asset.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -146,7 +144,7 @@
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
-            var nameNode=document.createTextNode("¿Seguro que desea eliminar la persona?");
+            var nameNode=document.createTextNode("Are you sure delete the person ?");
             nodeName.appendChild(nameNode);
             $("#bodyDelete").empty();
             document.getElementById("bodyDelete").appendChild(nodeName);

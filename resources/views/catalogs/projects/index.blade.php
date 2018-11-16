@@ -16,12 +16,9 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a>Proyectos</a>
+                <a>Projects</a>
             </li>
         </ul>
     </div>
@@ -34,7 +31,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-blue-400">Proyectos</span>
+                        <i class="glyphicon glyphicon-blackboard font-blue-400"></i>
+                        <span class="caption-subject bold font-blue-400">Projects</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -44,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_proyectos"))
-                                    <a href="{{URL::route('projects.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nuevo proyecto</a>
+                                    <a href="{{URL::route('projects.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New project</a>
                                     @endif
                                 </div>
                             </div>
@@ -53,9 +51,9 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
-                            <th class="center">Nombre de proyecto</th>
-                            <th class="center">Descripción</th>
-                            <th class="center">Acciones</th>
+                            <th class="center">Project name </th>
+                            <th class="center">Description</th>
+                            <th class="center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -66,12 +64,12 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_proyectos"))
-                                    <a href="{{route('projects.edit', $project->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('projects.edit', $project->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                       <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_proyectos"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$project->name}}" data-id="{{$project->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-project">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$project->name}}" data-id="{{$project->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-project">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -91,15 +89,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar proyecto</h4>
+                    <h4 class="modal-title">Delete project</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
 
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteProject()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteProject()">Ok</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -115,7 +113,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">El projecto NO se puede eliminar si está asociado a un activo.</div>
+                <div class="modal-body">The project CAN NOT be deleted if it is associated with an asset.</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
                 </div>
@@ -143,7 +141,7 @@
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
-            var nameNode=document.createTextNode("¿Seguro que desea eliminar el proyecto?");
+            var nameNode=document.createTextNode("Are you sure delete project?");
             nodeName.appendChild(nameNode);
             $("#bodyDelete").empty();
             document.getElementById("bodyDelete").appendChild(nodeName);

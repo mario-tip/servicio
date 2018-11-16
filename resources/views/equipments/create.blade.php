@@ -17,11 +17,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/equipments')!!}">Equipos</a>
+                <a href="{!!URL::to('/equipments')!!}">Equipments</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="#">Nuevo Equipo</a>
+                <a href="#">New equipment</a>
             </li>
         </ul>
     </div>
@@ -35,7 +35,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Nuevo equipo</span>
+                        <i class="fa fa-plus font-blue-300"> </i>
+                        <span class="caption-subject bold font-blue-300"> New equipment </span>
                     </div>
                 </div>
                 @include("equipments.forms.form")
@@ -51,13 +52,15 @@
     {!! Html::script("/assets/pages/scripts/table-datatables-scroller.min.js") !!}
     {!! Html::script("/assets/scripts/jquery.number.js") !!}
     {!! Html::script("/assets/global/plugins/select2/js/select2.full.min.js") !!}
-    {!! Html::script("/assets/global/plugins/select2/js/i18n/es.js") !!}
+    {!! Html::script("/assets/global/plugins/select2/js/i18n/eu.js") !!}
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     {!! Html::script("/assets/scripts/equipment_form.js") !!}
 
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liEquipments").addClass("active");
+            $("#liTools").addClass("active");
+
         });
         /*Deshabilitamos todas las teclas de refresh*/
 /*        document.onkeydown = function(ev) {

@@ -19,14 +19,14 @@ class ProviderRequest extends FormRequest
     public function messages()
     {
         return [
-            'provider.name.required' => 'El nombre es requerido',
-            'provider.phone.size' => 'El teléfono debe contener 10 dígitos',
-            'provider.zip_code.size' => 'El código postal debe contener 5 dígitos',
-            'provider.email.required' => 'El correo electrónico es requerido',
-            'provider.email.email' => 'El formato de correo electrónico es incorrecto',
-            'provider.state_id.required' => 'El estado es requerido',
-            'provider.contact_phone.size' => 'El teléfono del contacto debe contener 10 dígitos',
-            'provider.contact_email.email' => 'El formato de correo electrónico del contacto es incorrecto',
+            'provider.name.required' => 'The name is required',
+            'provider.phone.size' => 'The phone must contain 10 digits',
+            'provider.zip_code.size' => 'The zip code must contain 5 digits',
+            'provider.email.required' => 'The E-mail is required',
+            'provider.email.email' => 'The E-mail format is incorrect',
+            'provider.state_id.required' => 'The state is required',
+            'provider.contact_phone.size' => "The contact's phone must contain 10 digits",
+            'provider.contact_email.email' => "The contact's email format is incorrect",
         ];
     }
 

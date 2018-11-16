@@ -58,7 +58,7 @@ class ProviderController extends Controller
     {
         try{
             Provider::create($request->get('provider'));
-            $request->session()->flash('message', 'Proveedor creado de manera correcta');
+            $request->session()->flash('message', 'Provider successfully created');
             return redirect()->route('providers.index');
         }catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -104,7 +104,7 @@ class ProviderController extends Controller
         try{
             $provider->fill($request->get('provider'));
             $provider->save();
-            $request->session()->flash('message', 'Proveedor actualizado de manera correcta');
+            $request->session()->flash('message', 'Successfully updated provider');
             return redirect()->route('providers.index');
         }catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -130,7 +130,7 @@ class ProviderController extends Controller
         else {
             try {
                 $provider->delete();
-                Session::flash('message', 'Proveedor eliminado correctamente');
+                Session::flash('message', 'Successfully eliminated provider');
                 return response()->json(['errors' => false]);
             }catch(\Exception $e) {
                 $response['errors'] = true;

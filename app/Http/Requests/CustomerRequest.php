@@ -19,9 +19,9 @@ class CustomerRequest extends FormRequest
     public function messages()
     {
         return [
-            'customer.idcustomer.required' => 'El id es requerido',
-            'customer.name.required' => 'El nombre es requerido',
-            'customer.type.required' => 'El tipo es requerido'
+            'customer.idcustomer.required' => 'The ID is required ',
+            'customer.name.required' => 'The name is required ',
+            'customer.type.required' => 'The type is required '
         ];
     }
 

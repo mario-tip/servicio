@@ -16,12 +16,9 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a>Ubicaciones</a>
+                <a>Location</a>
             </li>
         </ul>
     </div>
@@ -34,7 +31,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-blue-600">Ubicaciones</span>
+                        <i class="glyphicon glyphicon-map-marker font-blue-600"></i>
+                        <span class="caption-subject bold font-blue-600">Locations</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -44,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_ubicaciones"))
-                                    <a href="{{URL::route('locations.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nueva ubicación</a>
+                                    <a href="{{URL::route('locations.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New location</a>
                                     @endif
                                 </div>
                             </div>
@@ -53,10 +51,10 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
-                            <th class="center">Descripción</th>
-                            <th class="center">Edifico</th>
+                            <th class="center">Description</th>
+                            <th class="center">Building</th>
                             <th class="center">Area</th>
-                            <th class="center">Acciones</th>
+                            <th class="center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -68,12 +66,12 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_ubicaciones"))
-                                    <a href="{{route('locations.edit', $location->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('locations.edit', $location->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_ubicaciones"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$location->name}}" data-id="{{$location->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-location">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$location->name}}" data-id="{{$location->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-location">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -93,15 +91,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar ubicación</h4>
+                    <h4 class="modal-title">Delete location</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
 
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Ok</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -117,7 +115,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">La ubicación NO se puede eliminar si está asociada a un activo.</div>
+                <div class="modal-body">The location CAN NOT be deleted if it is associated with an asset.</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
                 </div>
@@ -144,7 +142,7 @@
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
-            var nameNode=document.createTextNode("¿Seguro que desea eliminar la ubicación?");
+            var nameNode=document.createTextNode("Are you sure delete the location ?");
             nodeName.appendChild(nameNode);
             $("#bodyDelete").empty();
             document.getElementById("bodyDelete").appendChild(nodeName);

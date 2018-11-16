@@ -50,7 +50,7 @@ class ProjectController extends Controller
     {
         try{
             Project::create($request->get('project'));
-            $request->session()->flash('message', 'Proyecto creado correctamente');
+            $request->session()->flash('message', 'Project created successfully');
             return redirect()->route('projects.index');
         }catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -95,7 +95,7 @@ class ProjectController extends Controller
         try {
             $project->fill($request->get('project'));
             $project->save();
-            $request->session()->flash('message', 'Proyecto actualizado correctamente');
+            $request->session()->flash('message', 'Project update successfully');
             return redirect()->route('projects.index');
         }catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -120,7 +120,7 @@ class ProjectController extends Controller
         } else {
             try {
                 $project->delete();
-                Session::flash('message', 'Proyecto eliminado correctamente');
+                Session::flash('message', 'Project delete successfully');
                 return response()->json(['errors' => false]);
             }catch(\Exception $e) {
                 $response['errors'] = true;

@@ -39,9 +39,9 @@ class Customer extends Model
     public function getTypeWord()
     {
         $types = [
-            '1' => 'Compañia',
-            '2' => 'Persona',
-            '3' => 'Contrato'
+            '1' => 'Company',
+            '2' => 'Person',
+            '3' => 'Contract'
         ];
         return $types[$this->type];
     }

@@ -20,20 +20,20 @@ class PersonRequest extends FormRequest
     public function messages()
     {
         return [
-            'person.name.required' => 'El nombre es requerido',
-            'person.father_last_name.required' => 'El apellido paterno es requerido',
-            'person.mother_last_name.required' => 'El apellido materno es requerido',
-            'person.department_id.required' => 'El departamento es requerido',
-            'person.address.required' => 'La dirección 1 es requerida',
-            'person.phone.required' => 'El teléfono es requerido',
-            'person.phone.size' => 'El teléfono debe contener 10 dígitos',
-            'person.state_id.required' => 'El estado es requerido',
-            'person.email.required' => 'El correo es requerido',
-            'person.email.email' => 'El formato del correo es incorrecto',
-            'person.email.unique' => 'El correo ya existe',
-            'person.city.required' => 'La ciudad es requerida',
-            'person.zip_code.required' => 'El código postal es requerido',
-            'person.zip_code.size' => 'El código postal debe contener 5 dígitos',
+            'person.name.required' => 'The name is required',
+            'person.father_last_name.required' => 'The last name is required',
+            'person.mother_last_name.required' => "The mother's surname is required",
+            'person.department_id.required' => 'The department is required',
+            'person.address.required' => 'Address 1 is required',
+            'person.phone.required' => 'The phone is required',
+            'person.phone.size' => 'The phone must contain 10 digits',
+            'person.state_id.required' => 'The state is required',
+            'person.email.required' => 'Mail is required',
+            'person.email.email' => 'The format of the email is incorrect',
+            'person.email.unique' => 'The email already exists',
+            'person.city.required' => 'The city is required',
+            'person.zip_code.required' => 'The zip code is required',
+            'person.zip_code.size' => 'The postal code must contain 5 digits',
         ];
     }
 

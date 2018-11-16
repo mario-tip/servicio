@@ -16,9 +16,9 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
-            
+
             <li>
-                <a>Providers</a>
+                <a>Provider</a>
             </li>
         </ul>
     </div>
@@ -53,7 +53,7 @@
                             <tr>
                                 <th class="center">Name</th>
                                 <th class="center">Address</th>
-                                <th class="center">Telephone</th>
+                                <th class="center">Telephono</th>
                                 <th class="center">Actions</th>
                             </tr>
                         </thead>
@@ -139,7 +139,7 @@
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
-            var nameNode=document.createTextNode("¿Seguro que desea eliminar el proveedor?");
+            var nameNode=document.createTextNode("Are you sure you want to delete the provider?");
             nodeName.appendChild(nameNode);
             $("#bodyDelete").empty();
             document.getElementById("bodyDelete").appendChild(nodeName);

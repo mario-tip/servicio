@@ -14,16 +14,13 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
+                <a href="{{route('providers.index')}}">Suppliers</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{route('providers.index')}}">Proveedores</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a href="#">Editar proveedor</a>
+                <a href="#">Edit supplier</a>
             </li>
         </ul>
     </div>
@@ -37,7 +34,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Editar proveedor</span>
+                      <i class="icon-pencil font-blue"></i>
+                        <span class="caption-subject bold font-blue">Edit supplier</span>
                     </div>
                 </div>
                 @include("catalogs.providers.forms.form")
@@ -53,7 +51,10 @@
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liCatalogs").addClass("active");
+            $("#liTools").addClass("active");
+            $("#liSuppliers").addClass("active");
+
         });
+
     </script>
 @endsection

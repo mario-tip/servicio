@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12 form-group-container">
                     <div class="form-group">
-                        <label class="control-label" for="customer_idcustomer"><span>*</span>ID: </label>
+                        <label class="control-label" for="customer_idcustomer"><span>*</span>ID : </label>
                         {!! Form::text('customer[idcustomer]', $customer->idcustomer, ['class' => 'form-control',
                         'id' => 'customer_idcustomer', 'onkeypress' => 'return validateInput(event, 2)',
                         'maxlength' => '9']) !!}
@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-12 form-group-container">
                     <div class="form-group">
-                        <label class="control-label" for="customer_name"><span>*</span>Nombre: </label>
+                        <label class="control-label" for="customer_name"><span>*</span>Name : </label>
                         {!! Form::text('customer[name]', $customer->name, ['class' => 'form-control',
                         'id' => 'customer_name']) !!}
                     </div>
@@ -23,9 +23,9 @@
             <div class="row">
                 <div class="col-md-12 form-group-container">
                     <div class="form-group">
-                        <label class="control-label" for="customer_type"><span>*</span>Tipo: </label>
+                        <label class="control-label" for="customer_type"><span>*</span>Type : </label>
                         {!!Form::select('customer[type]', $requirements['types'], $customer->type,
-                        ['class' => 'bs-select form-control', 'id' => 'customer_type', 'title' => 'Seleccionar...']) !!}
+                        ['class' => 'bs-select form-control', 'id' => 'customer_type', 'title' => 'Select...']) !!}
                     </div>
                 </div>
             </div>
@@ -33,6 +33,6 @@
     </div>
 </div>
 <div class="form-actions col-sm-offset-5">
-    <button class="btn btn-circle green-meadow" id="save_customer">Guardar</button>
-    <a class="btn btn-circle red" href="{{route('customers.index')}}">Cancelar</a>
+    <button class="btn btn-circle green-meadow" id="save_customer">Save</button>
+    <a class="btn btn-circle red" href="{{route('customers.index')}}">Cancel</a>
 </div>

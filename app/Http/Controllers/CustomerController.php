@@ -40,7 +40,7 @@ class CustomerController extends Controller
     private function getRequirements()
     {
         return [
-            'types' => ['1' => 'Compañia', '2' => 'Persona', '3' => 'Contrato']
+            'types' => ['1' => 'Company', '2' => 'Person', '3' => 'Contract']
         ];
     }
 

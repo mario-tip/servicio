@@ -13,16 +13,13 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
+                <a href="{{route('locations.index')}}">Locations</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{route('locations.index')}}">Ubicaciones</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a href="#">Editar ubicación</a>
+                <a href="#">Edit location</a>
             </li>
         </ul>
     </div>
@@ -36,7 +33,8 @@
         <div class="portlet light portlet-fit bordered">
             <div class="portlet-title">
                 <div class="caption">
-                    <span class="caption-subject bold">Editar ubicación</span>
+                    <i class="icon-pencil font-blue"></i>
+                    <span class="caption-subject bold font-blue">Edit location </span>
                 </div>
             </div>
             @include("catalogs.locations.forms.form")

@@ -14,16 +14,13 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
+                <a href="{{route('persons.index')}}">Person</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{route('persons.index')}}">Personas</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a href="#">Nueva persona</a>
+                <a href="#">New person</a>
             </li>
         </ul>
     </div>
@@ -37,7 +34,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Nueva persona</span>
+                        <i class="fa fa-plus font-blue-700"></i>
+                        <span class="caption-subject bold font-blue-700">New person</span>
                     </div>
                 </div>
                 @include("catalogs.persons.forms.form")
@@ -53,7 +51,9 @@
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liCatalogs").addClass("active");
+            $("#liTools").addClass("active");
+            $("#liPeople").addClass("active");
+
         });
     </script>
 @endsection

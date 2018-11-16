@@ -18,10 +18,10 @@ class LocationRequest extends FormRequest
 
     public function messages() {
         return [
-            'location.description.required' => 'La descripción es requerida',
-            'location.address.required' => 'La dirección es requerida',
-            'location.building.required' => 'El edificio es requerido',
-            'location.floor.required' => 'El piso es requerido'
+            'location.description.required' => 'The description is required ',
+            'location.address.required' => 'The address is required',
+            'location.building.required' => 'The binding is required',
+            'location.floor.required' => 'The floor ir required '
         ];
     }
     /**

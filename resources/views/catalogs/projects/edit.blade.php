@@ -13,16 +13,13 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
+                <a href="{{route('locations.index')}}">Projects</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{route('locations.index')}}">Proyectos</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a href="#">Editar proyecto</a>
+                <a href="#">Edit project </a>
             </li>
         </ul>
     </div>
@@ -32,16 +29,31 @@
     <div class="row content_container">
         <div class="col-md-12" id="">
         {!! Form::model($project, ['route' => ['projects.update', $project->id], 'method' => 'PUT', 'id' => 'project_form']) !!}
-        @include("catalogs.projects.forms.form")
+
+        <!-- BEGIN NEW LOCATION PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-pencil font-blue"></i>
+                        <span class="caption-subject bold font-blue">Edit Project</span>
+                    </div>
+                </div>
+                @include("catalogs.projects.forms.form")
+            </div>
+            <!-- END NEW LOCATION PORTLET-->
         {!! Form::close() !!}
         </div>
     </div>
+
+
 @endsection
 @section("scripts")
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liCatalogs").addClass("active");
+            $("#liTools").addClass("active");
+            $("#liProjects").addClass("active");
+
         });
     </script>
 @endsection

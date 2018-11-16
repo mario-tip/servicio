@@ -13,35 +13,56 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
+                <a href="{{route('projects.index')}}">Projects</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{route('projects.index')}}">Proyectos</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a href="#">Nueva proyecto</a>
+                <a href="#">New project</a>
             </li>
         </ul>
     </div>
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+
+  <div class="row content_container">
+      <div class="col-md-12" id="">
+      {!! Form::open(['route' => 'projects.store', 'method' => 'POST', 'id' => 'project_form']) !!}
+      <!-- BEGIN NEW LOCATION PORTLET-->
+          <div class="portlet light portlet-fit bordered">
+              <div class="portlet-title">
+                  <div class="caption">
+                      <i class="fa fa-plus font-blue-400"></i>
+                      <span class="caption-subject bold font-blue-400">New Project</span>
+                  </div>
+              </div>
+              @include("catalogs.projects.forms.form")
+          </div>
+          <!-- END NEW LOCATION PORTLET-->
+      {!! Form::close() !!}
+      </div>
+  </div>
+
+
+    {{-- <div class="row content_container">
         <div class="col-md-12" id="">
         {!! Form::open(['route' => 'projects.store', 'method' => 'POST', 'id' => 'project_form']) !!}
         @include("catalogs.projects.forms.form")
         {!! Form::close() !!}
         </div>
-    </div>
+    </div> --}}
+
 @endsection
 @section("scripts")
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liCatalogs").addClass("active");
+            $("#liTools").addClass("active");
+            $("#liProjects").addClass("active");
+
+
         });
     </script>
 @endsection

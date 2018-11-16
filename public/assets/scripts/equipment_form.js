@@ -19,7 +19,7 @@ $(document).ready(function(){
             cache: true
         },
         language: "es",
-        placeholder: "Introduce un nombre",
+        placeholder: "Insert name",
         minimumInputLength: 3,
     });
     $('.currency-format').number(true, 2);

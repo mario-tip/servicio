@@ -16,12 +16,9 @@
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
+
             <li>
-                <a href="{!!URL::to('/catalogs')!!}">Catalogos</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <a>Clientes</a>
+                <a>Customers</a>
             </li>
         </ul>
     </div>
@@ -34,7 +31,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold font-blue-500">Clientes</span>
+                        <i class="glyphicon glyphicon-shopping-cart font-blue-500"></i>
+                        <span class="caption-subject bold font-blue-500">Customers</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -44,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_clientes"))
-                                    <a href="{{URL::route('customers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Nuevo cliente</a>
+                                    <a href="{{URL::route('customers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New Customer</a>
                                     @endif
                                 </div>
                             </div>
@@ -53,10 +51,10 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
-                            <th class="center">ID de cliente</th>
-                            <th class="center">Nombre</th>
-                            <th class="center">Tipo</th>
-                            <th class="center">Acciones</th>
+                            <th class="center">Customer ID </th>
+                            <th class="center">Name</th>
+                            <th class="center">Type</th>
+                            <th class="center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -67,12 +65,12 @@
                                 <td class="center"> {{$customer->getTypeWord()}}</td>
                                 <td>
                                     @if(userHasPermission("editar_catalogo_clientes"))
-                                    <a href="{{route('customers.edit', $customer->id) }}" title="Editar" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('customers.edit', $customer->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_clientes"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$customer->name}}" data-id="{{$customer->id}}" title="Eliminar" class="btn btn-circle btn-icon-only red delete-customer">
+                                    <a href="#basic" data-toggle="modal" data-name="{{$customer->name}}" data-id="{{$customer->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-customer">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                     @endif
@@ -91,15 +89,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Eliminar cliente</h4>
+                    <h4 class="modal-title">Delete customer</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
 
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteCustomer()">Aceptar</button>
-                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancelar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteCustomer()">Ok</button>
+                    <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -115,9 +113,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">El cliente NO se puede eliminar si está asociada a un activo.</div>
+                <div class="modal-body">The customer CAN NOT be deleted if it is associated with an asset.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -142,7 +140,7 @@
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
-            var nameNode=document.createTextNode("¿Seguro que desea eliminar el cliente?");
+            var nameNode=document.createTextNode("Are you sure the delete customer?");
             nodeName.appendChild(nameNode);
             $("#bodyDelete").empty();
             document.getElementById("bodyDelete").appendChild(nodeName);

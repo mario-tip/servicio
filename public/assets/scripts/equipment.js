@@ -2,7 +2,7 @@ $(".delete-equipment").click(function(){
     equipment_id = $(this).data('id');
     var name = $(this).data("name");
     var nodeName=document.createElement("p");
-    var nameNode=document.createTextNode("¿Seguro que desea eliminar el equipo " + name + "?");
+    var nameNode=document.createTextNode("Are you sure delete  " + name + "?");
     nodeName.appendChild(nameNode);
     $("#bodyDelete").empty();
     document.getElementById("bodyDelete").appendChild(nodeName);

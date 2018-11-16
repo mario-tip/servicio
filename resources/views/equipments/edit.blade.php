@@ -21,7 +21,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="#">Editar Equipo</a>
+                <a href="#">Edit equipment</a>
             </li>
         </ul>
     </div>
@@ -36,7 +36,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Editar equipo</span>
+                        <i class="icon-pencil font-blue"></i>
+                        <span class="caption-subject bold font-blue">Edit Equipment</span>
                     </div>
                 </div>
             @include("equipments.forms.form")
@@ -52,13 +53,16 @@
     {!! Html::script("/assets/pages/scripts/table-datatables-scroller.min.js") !!}
     {!! Html::script("/assets/scripts/jquery.number.js") !!}
     {!! Html::script("/assets/global/plugins/select2/js/select2.full.min.js") !!}
-    {!! Html::script("/assets/global/plugins/select2/js/i18n/es.js") !!}
+    {!! Html::script("/assets/global/plugins/select2/js/i18n/eu.js") !!}
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     {!! Html::script("/assets/scripts/equipment_form.js") !!}
 
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liEquipments").addClass("active");
+            $("#liTools").addClass("active");
+
+
         });
         /*Deshabilitamos todas las teclas de refresh*/
         document.onkeydown = function(ev) {

@@ -84,7 +84,7 @@ class EquipmentController extends Controller
 
         } else {
             $errors = [
-                'error_message' => 'Debes escribir la parte antes de agregarla'
+                'error_message' => 'You must write the part before adding it'
             ];
             $response['errors'] = true;
             $response['errors_fragment'] = \View::make('partials.request')->withErrors($errors)->render();
@@ -123,7 +123,7 @@ class EquipmentController extends Controller
         try {
             $equipment = Equipment::create($equipment_data);
             $equipment->parts()->attach($parts);
-            $request->session()->flash('message', 'Equipo guardado correctamente');
+            $request->session()->flash('message', 'Equipment saved successfully');
             return response()->json(['errors' => false]);
         } catch (\Exception $e) {
             $response = [
@@ -137,7 +137,7 @@ class EquipmentController extends Controller
     private function validateInputs($form_data)
     {
         $messages = [
-            'name.required' => 'El nombre del equipo es requerido'
+            'name.required' => 'The equipment name is required'
         ];
 
         $validator = Validator::make($form_data, [
@@ -200,7 +200,7 @@ class EquipmentController extends Controller
             $equipment->fill($equipment_data);
             $equipment->parts()->sync($parts);
             $equipment->save();
-            $request->session()->flash('message', 'Equipo actualizado correctamente');
+            $request->session()->flash('message', 'Equipment update successfully');
             return response()->json(['errors' => false]);
         } catch (\Exception $e) {
             $response = [
@@ -230,7 +230,7 @@ class EquipmentController extends Controller
             try {
                 $equipment->parts()->detach();
                 $equipment->delete();
-                Session::flash('message', 'Equipo eliminado exitosamente');
+                Session::flash('message', 'Equipment delete successfully');
                 return response()->json(['errors' => false]);
             }catch(\Exception $e){
                 $response['errors'] = true;

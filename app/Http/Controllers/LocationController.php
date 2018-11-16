@@ -51,7 +51,7 @@ class LocationController extends Controller
     {
         try{
             Location::create($request->get('location'));
-            $request->session()->flash('message', 'Ubicación guardada correctamente');
+            $request->session()->flash('message', 'Location saved successfully');
             return redirect()->route('locations.index');
         }catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -96,7 +96,7 @@ class LocationController extends Controller
         try{
             $location->fill($request->get('location'));
             $location->save();
-            $request->session()->flash('message', 'Ubicación actualizada correctamente');
+            $request->session()->flash('message', 'Location update successfully');
             return redirect()->route('locations.index');
         }catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -121,7 +121,7 @@ class LocationController extends Controller
         } else {
             try {
                 $location->delete();
-                Session::flash('message', 'Ubicación eliminada correctamente');
+                Session::flash('message', 'Location delete successfully');
                 return response()->json(['errors' => false]);
             }catch(\Exception $e) {
                 $response['errors'] = true;

@@ -19,8 +19,8 @@ class ProjectRequest extends FormRequest
     public function messages()
     {
         return [
-            'project.name.required' => 'El nombre es requerido',
-            'project.description.required' => 'La descripción es requerida'
+            'project.name.required' => 'The name is required',
+            'project.description.required' => 'The description is required'
         ];
     }
     /**

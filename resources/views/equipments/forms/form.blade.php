@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12 form-group-container">
                     <div class="form-group">
-                        <label class="control-label" for="equipment_name"><span>*</span>Nombre de equipo: </label>
+                        <label class="control-label" for="equipment_name"><span>*</span>Equipment name: </label>
                         {!! Form::text('equipment[name]', $equipment->name, ['class' => 'form-control',
                         'id' => 'equipment_name']) !!}
                     </div>
@@ -13,9 +13,9 @@
             <div class="row">
                 <div class="col-md-12 form-group-container">
                     <div class="select2-group">
-                        <label class="control-label" for="equipment_parts"><span></span>Agregar partes: </label>
+                        <label class="control-label" for="equipment_parts"><span></span>Add part: </label>
                         <select id="part_select" class="form-control select2"></select>
-                        <a class="btn btn-circle green-meadow" id="add_part">Agregar</a>
+                        <a class="btn btn-circle green-meadow" id="add_part">Add</a>
                     </div>
                 </div>
             </div>
@@ -24,11 +24,11 @@
                     <table class="table table-striped table-bordered table-hover" id="datatable_parts">
                         <thead>
                             <tr>
-                                <th>Nombre de parte</th>
-                                <th>Número de parte</th>
-                                <th>Precio</th>
-                                <th>Descripción</th>
-                                <th>Acciones</th>
+                                <th>Name part</th>
+                                <th>Number part</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,6 +60,6 @@
 </div>
 
 <div class="form-actions col-sm-offset-5">
-    <button class="btn btn-circle green-meadow" id="save_equipment">Guardar</button>
-    <a class="btn btn-circle red" href="{!!URL::route('equipments.index')!!}">Cancelar</a>
+    <button class="btn btn-circle green-meadow" id="save_equipment">Save </button>
+    <a class="btn btn-circle red" href="{!!URL::route('equipments.index')!!}">Cancel</a>
 </div>
