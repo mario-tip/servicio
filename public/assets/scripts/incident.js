@@ -40,12 +40,13 @@ function getIncidentParts() {
                 $('#equipment_parts_length').val(response.asset_parts.length);
                 $('#equipment_parts_container').html(response.incident_parts_table_view);
                 $('#datatable_parts').DataTable({
+
                     "scrollY": "350px",
                     "scrollCollapse": true,
                     "paging": false,
                     "bInfo": false,
                     "language": {
-                        "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                        "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/English.json"
                     }
                 });
             }

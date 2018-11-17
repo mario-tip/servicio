@@ -15,7 +15,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/incidents')!!}">Event log </a>
+              <a href="{!!URL::to('/incidents')!!}">Event log </a>
             </li>
         </ul>
     </div>

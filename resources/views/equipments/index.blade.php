@@ -116,7 +116,7 @@
                 </div>
                 <div class="modal-body">The equipment CAN NOT be deleted if it is associated with an asset.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn green-meadow" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn green-meadow btn-circle" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->
