@@ -36,7 +36,7 @@ $('#incidents_filters_form').submit(function(e){
                         ],
                         "bFilter": false,
                         "language": {
-                            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
+                            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/English.json"
                         }
                     }
                 );

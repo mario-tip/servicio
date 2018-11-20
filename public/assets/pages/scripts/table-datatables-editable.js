@@ -50,8 +50,8 @@ var TableDatatablesEditable = function () {
         var oTable = table.dataTable({
 
             // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
-            // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
-            // So when dropdowns used the scrollable div should be removed. 
+            // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js).
+            // So when dropdowns used the scrollable div should be removed.
             //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
 
             "lengthMenu": [
@@ -69,6 +69,27 @@ var TableDatatablesEditable = function () {
 
             "language": {
                 "lengthMenu": " _MENU_ records"
+                "sEmptyTable":     "No data available in table",
+              	"sInfo":           "Showing _START_ to _END_ of _TOTAL_ entries",
+              	"sInfoEmpty":      "Showing 0 to 0 of 0 entries",
+              	"sInfoFiltered":   "(filtered from _MAX_ total entries)",
+              	"sInfoPostFix":    "",
+              	"sInfoThousands":  ",",
+              	"sLengthMenu":     "Show _MENU_ entries",
+              	"sLoadingRecords": "Loading...",
+              	"sProcessing":     "Processing...",
+              	"sSearch":         "Search:",
+              	"sZeroRecords":    "No matching records found",
+              	"oPaginate": {
+              		"sFirst":    "First",
+              		"sLast":     "Last",
+              		"sNext":     "Next",
+              		"sPrevious": "Previous"
+              	},
+              	"oAria": {
+              		"sSortAscending":  ": activate to sort column ascending",
+              		"sSortDescending": ": activate to sort column descending"
+              	}
             },
             "columnDefs": [{ // set default column settings
                 'orderable': true,
@@ -101,7 +122,7 @@ var TableDatatablesEditable = function () {
                     oTable.fnDeleteRow(nEditing); // cancel
                     nEditing = null;
                     nNew = false;
-                    
+
                     return;
                 }
             }
@@ -140,7 +161,7 @@ var TableDatatablesEditable = function () {
         table.on('click', '.edit', function (e) {
             e.preventDefault();
             nNew = false;
-            
+
             /* Get the row as a parent of the link that was clicked on */
             var nRow = $(this).parents('tr')[0];
 

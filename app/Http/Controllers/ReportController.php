@@ -197,10 +197,10 @@ class ReportController extends Controller
     {
         if(userHasPermission("generar_reporte_servicio")):
             $customers =  Customer::getSelectCustomers()->toArray();
-            $customers[0] = 'Todos';
+            $customers[0] = 'All';/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Cambiame
             ksort($customers);
             $projects = Project::getSelectProjects()->toArray();
-            $projects[0] = 'Todos';
+            $projects[0] = 'All';
             ksort($projects);
             return view('reports.customer_service_orders', compact('customers', 'projects'));
         else:

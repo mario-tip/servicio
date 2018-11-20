@@ -23,6 +23,7 @@ $('#asset_id').change(function (e) {
 var equipment_parts_length = null;
 
 function getIncidentParts() {
+    console.log('hola que hacse');
     var asset_id = $('#asset_id').val();
 
     if(asset_id != '') {

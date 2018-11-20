@@ -77,8 +77,7 @@ Route::post('/reports/generate-incidents', ['as' => 'reports.generate-incidents'
     'uses' => 'ReportController@generateIncidents']);
 Route::post('/reports/export-incidents', ['as' => 'reports.export-incidents',
     'uses' => 'ReportController@exportIncidents']);
-Route::post('/reports/generate-customer-service-orders', ['as' => 'reports.generate-customer-service-orders',
-    'uses' => 'ReportController@generateCustomerServiceOrders']);
+Route::post('/reports/generate-customer-service-orders', ['as' => 'reports.generate-customer-service-orders','uses' => 'ReportController@generateCustomerServiceOrders']);
 Route::post('/reports/export-customer-service-orders', ['as' => 'reports.export-customer-service-orders',
     'uses' => 'ReportController@exportCustomerServiceOrders']);
 

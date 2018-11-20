@@ -54,7 +54,7 @@ function getIncidentParts() {
                 "paging": false,
                 "bInfo": false,
                 "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/English.json"
                 }
             });
             $('.currency-format').number(true, 2);

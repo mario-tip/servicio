@@ -159,7 +159,9 @@ class ServiceOrder extends Model
                 ->leftJoin('customers', 'assets.customer_id', '=', 'customers.id');
 
         $query = self::addCustomerServiceOrdersFilters($query, $filters);
-        return $query->get();
+        $test=$query->get();
+        // dd($test);
+        return $test;
     }
 
     /*Agrega los filtros que lleguen en el request*/
