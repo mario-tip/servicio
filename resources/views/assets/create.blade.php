@@ -53,12 +53,12 @@
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
                                             <label class="control-label" for="asset_adquisition_date_container"><span>*</span>Date of purchase: </label>
-                                            <div class="date-picker-container">
-                                                <div class="input-medium date date-picker" data-date-format="dd-mm-yyyy" id="asset_adquisition_date_container">  {{--Removed class input-group, and data-date-start-date="+0d"--}}
+                                            <div class="date-picker-container" >
+                                                <div class="input-medium date date-picker" data-date-format="dd-mm-yyyy" >  {{--Removed class input-group, and data-date-start-date="+0d"--}}
                                                     {!! Form::text('asset[adquisition_date]', $asset->adquisition_date, ['class' => 'form-control',
                                                     'id' => 'asset_adquisition_date', 'readonly']) !!}
                                                     <span class="input-group-btn">
-                                                        <button class="btn default" type="button">
+                                                        <button id="asset_adquisition_date_container" class="btn default" type="button">
                                                             <i class="fa fa-calendar"></i>
                                                         </button>
                                                     </span>

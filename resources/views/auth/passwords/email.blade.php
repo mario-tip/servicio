@@ -48,13 +48,13 @@
     <!-- BEGIN FORGOT PASSWORD FORM -->
     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
         {{ csrf_field() }}
-        <h3>¿Olvidaste tu contraseña?</h3>
-        <p> Ingrese su dirección de correo electrónico a continuación para restablecer su contraseña. </p>
+        <h3>Reset your password</h3>
+        <p> Enter your email address and we will send you a link to reset your password. </p>
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <div class="input-icon">
                 <i class="fa fa-envelope"></i>
-                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Correo electrónico" name="email" value="{{ old('email') }}" required/> </div>
+                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Enter your email address" name="email" value="{{ old('email') }}" required/> </div>
             @if ($errors->has('email'))
                 <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -63,8 +63,8 @@
         </div>
 
         <div class="form-actions">
-            <a href="{{ url('/login') }}" id="back-btn" class="uppercase btn red btn-outline">Regresar</a>
-            <button type="submit" class="uppercase btn green pull-right"> Enviar </button>
+            <a href="{{ url('/login') }}" id="back-btn" class="uppercase btn red btn-outline">Back</a>
+            <button type="submit" class="uppercase btn green pull-right"> Send </button>
         </div>
     </form>
     <!-- END FORGOT PASSWORD FORM -->

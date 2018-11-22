@@ -2,7 +2,11 @@ var token = $('input[name="_token"]').val();
 
 $('#customer_service_orders_filters_form').submit(function(e){
     e.preventDefault();
+
+    console.log($(this));
     var serialized_form = $(this).serialize();
+
+
     $.ajax({
         url: '/reports/generate-customer-service-orders',
         method: 'POST',
@@ -13,6 +17,7 @@ $('#customer_service_orders_filters_form').submit(function(e){
             $('#sample_editable_1').DataTable().clear().destroy();
             if(response.errors == false) {
                 var data = response.results;
+                console.log(data);
                 $('#sample_editable_1').DataTable(
                     {"data":data,
                         "columns":[

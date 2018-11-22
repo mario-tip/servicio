@@ -79,6 +79,7 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
+
         $asset_data = $request->get('asset');
         $validator = $this->validateInputs($asset_data, 'POST');
 
@@ -91,16 +92,23 @@ class AssetController extends Controller
         }
 
         $asset_data = $this->formatFormData($asset_data);
+        // dd(response()->json($asset_data));
 
         $locations = [];
         $locations[$asset_data['location_id']] = ['status' => '1'];
         $equipment_parts = $request->get('equipment_parts');
 
         try {
+            // dd(response()->json($asset_data));
+
             $asset = Asset::create($asset_data);
+
+            // dd($asset);
+            // var_dump($asset);
+
             $asset->parts()->attach($equipment_parts);
             $asset->locations()->attach($locations);
-            $request->session()->flash('message', 'Activo guardado correctamente');
+            $request->session()->flash('message', 'Asset saved successfully');
             return response()->json(['errors' => false]);
         } catch (\Exception $e) {
             $response = [
@@ -118,7 +126,7 @@ class AssetController extends Controller
             'name.required' => 'The name of the asset is required',
             'model.required' => 'The asset model is required',
             'unique' => 'The model already exists',
-            'condition.required' => 'The condition of the asset is required',
+            'condition.required' => 'The state of the asset is required',
             'serial.required' => 'The serial number of the asset is required',
             'status.required' => 'The status of the asset is required',
             'brand.required' => 'The brand of the asset is required',
@@ -164,9 +172,24 @@ class AssetController extends Controller
     /*formateando algunos datos del form para guardarlos en la db*/
     private function formatFormData($asset_data) {
         $asset_data['cost'] =  str_replace(',', '', $asset_data['cost']);
+
+
         $asset_data['adquisition_date'] = $this->date2SQLFormat($asset_data['adquisition_date']);
         $asset_data['expires_date'] = $this->date2SQLFormat($asset_data['expires_date']);
         $asset_data['maintenance_date'] = $this->date2SQLFormat($asset_data['maintenance_date']);
+
+        $asset_data['project_id'] = intval($asset_data['project_id']);
+        $asset_data['provider_id'] = intval($asset_data['provider_id']);
+        $asset_data['customer_id'] = intval($asset_data['customer_id']);
+        $asset_data['subcategory_id'] = intval($asset_data['subcategory_id']);
+        $asset_data['equipment_id'] = intval($asset_data['equipment_id']);
+
+
+
+
+
+
+
 
         return $asset_data;
     }

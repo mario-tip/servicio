@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
+use DB;
 
 
 class ReportController extends Controller
@@ -211,12 +212,34 @@ class ReportController extends Controller
     /*Genera los resultados con los filtros aplicados*/
     public function generateCustomerServiceOrders(Request $request)
     {
+        // dd($request);
         if(userHasPermission("generar_reporte_servicio")):
             $response = ['errors' => false];
             $filters = $request->get('service_orders');
+            // dd($filters);
+            // $filters['project_id'] = intval($filters['project_id']);
+
+            // echo $filters['project_id'];
             try {
                 $results = ServiceOrder::generateCustomerServiceOrders($filters);
+
+                // $results = ServiceOrder::join('incidents', 'incidents.folio', '=', 'service_order.folio')
+                //                         ->join('assets', 'assets.id', '=', 'incidents.asset_id')
+                //                         ->join('projects', 'projects.id','=', 'assets.project_id')
+                //                         ->where('projects.id','=', $filters['project_id'])
+                //                         ->get();
+
+                // dd ($results);
+
+                // $results = DB::select( DB::raw("SELECT projects.`name`,assets.id,incidents.folio,service_order.id,service_order.folio from assets
+                //   INNER JOIN projects ON assets.project_id = projects.id
+                //   INNER JOIN incidents ON assets.id = incidents.asset_id
+                //   INNER JOIN service_order ON incidents.folio = service_order.folio
+                //   WHERE projects.id = 7") );
+
+
                 $response['results'] = $results;
+
             }catch(\Exception $e) {
                 $response['errors'] = true;
                 $response['errors_fragment'] = \View::make('partials.request')->withErrors([$e->getMessage()])->render();

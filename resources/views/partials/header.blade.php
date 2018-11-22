@@ -32,7 +32,7 @@
                             <li>
                                 <a href="{{ url('/logout') }}" role="button" tabindex="0" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                    <i class="icon-key"></i> Cerrar sesión
+                                    <i class="icon-key"></i> Sign out
                                 </a>
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}

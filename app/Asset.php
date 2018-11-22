@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Asset extends Model
 {
-    
+
     /**
      * The database table used by the model.
      *
@@ -21,9 +21,28 @@ class Asset extends Model
      * @var array
      */
     protected $fillable = [
-        'asset_custom_id', 'model', 'name', 'serial', 'brand', 'adquisition_date', 'barcode', 'cost', 'condition',
-        'status', 'person_id', 'expires_date', 'description', 'purchase_order', 'maintenance_date', 'notes',
-        'provider_id', 'deleted_at', 'subcategory_id', 'customer_id', 'equipment_id', 'project_id'
+        'asset_custom_id',
+        'project_id',
+        'model',
+        'name',
+        'serial',
+        'brand',
+        'adquisition_date',
+        'barcode',
+        'cost',
+        'condition',
+        'status',
+        'person_id',
+        'expires_date',
+        'description',
+        'purchase_order',
+        'maintenance_date',
+        'notes',
+        'provider_id',
+        'deleted_at',
+        'subcategory_id',
+        'customer_id',
+        'equipment_id',
     ];
 
 
@@ -92,10 +111,12 @@ class Asset extends Model
     public function getMaintenanceDateAttribute($value) {
         return isset($value) ? Carbon::parse($value)->format('d-m-Y') : null;
     }
-    public function setProjectIdAttribute($value)
-    {
-        if($value == '') {
-            $this->attributes['project_id'] = null;
-        }
-    }
+
+    // public function setProjectIdAttribute($value)
+    // {
+    //     var_dump("Quiere entrar a hacer nulo el project ID");
+    //     if($value == '') {
+    //         $this->attributes['project_id'] = null;
+    //     }
+    // }
 }
