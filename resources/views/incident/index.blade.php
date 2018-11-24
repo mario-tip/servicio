@@ -54,14 +54,23 @@
                             <th class="center">Location</th>
                             <th class="center">Preference</th>
                             <th class="center">Type</th>
-                            <th class="center">Hour</th>
-                            <th class="center">Date</th>
+                            <th class="center">Start date </th>
+                            <th class="center">Start Hour</th>
+                            <th class="center">End Date</th>
+                            <th class="center">End Hour</th>
+
+
                             {{--<th class="center">Estatus</th>--}}
                             <th class="center">Actions</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                          <div class="">
+                            @php
+                              // dd($incidents);
+                            @endphp
+                          </div>
                         @foreach($incidents as $incident)
                             <tr>
                                 <td class="center"> {{($incident->person)?$incident->person->name:''}} </td>
@@ -73,19 +82,33 @@
                                     @endforeach
                                 </td>
                                 @if($incident->priority == 0)
-                                    <td class="center"> Alta </td>
+                                    <td class="center"> High </td>
                                 @elseif($incident->priority == 1)
-                                    <td class="center"> Media </td>
+                                    <td class="center"> Medium </td>
                                 @else
-                                    <td class="center"> Baja </td>
+                                    <td class="center"> Low </td>
                                 @endif
                                 @if($incident->type == 0)
-                                    <td class="center"> Clean  </td>
+                                    <td class="center"> Cleaning  </td>
                                 @else
                                     <td class="center"> Repair </td>
                                 @endif
+
+                                <td class="center">
+                                   {{($incident->created_at)?$incident->created_at->toDateString():''}}
+                                </td>
+
+                                <td class="center">
+                                   {{($incident->created_at)?$incident->created_at->format('H:i:s'):''}}
+                                </td>
+
+                                <td class="center"> {{\Carbon\Carbon::parse($incident->suggested_date)->format('Y-m-d') }}
+                                </td>
+
                                 <td class="center"> {{$incident->suggested_time}}  </td>
-                                <td class="center"> {{\Carbon\Carbon::parse($incident->suggested_date)->format('d-m-Y')}} </td>
+
+
+
                                 {{--<td class="center">  </td>--}}
                                 <td>
                                   <div>

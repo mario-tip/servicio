@@ -146,10 +146,17 @@ class ServiceOrder extends Model
     /**START CUSTOMER SERVICE ORDERS**/
     public static function generateCustomerServiceOrders($filters)
     {
-        $query = self::select('service_order.folio AS folio', 'customers.name AS customer', 'persons.name AS person',
-                'assets.name AS asset', DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
-                'users.name AS technician', 'locations.address AS location',
-                DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pendiente' ELSE 'Atendido' END) AS status"))
+        $query = self::select('service_order.folio AS folio',
+                              'customers.name AS customer',
+                              'persons.name AS person',
+                              'assets.name AS asset',
+
+                              DB::raw('incidents.created_at AS date_incident'),//Fecha de levantamiento de la incidencia
+
+                              DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
+                              'users.name AS technician', 'locations.address AS location',
+
+                              DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pendiente' ELSE 'Atendido' END) AS status"))
                 ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
                 ->join('assets', 'assets.id', '=', 'incidents.asset_id')
                 ->leftJoin('inventory', 'assets.id', '=', 'inventory.asset_id')
@@ -161,8 +168,40 @@ class ServiceOrder extends Model
         $query = self::addCustomerServiceOrdersFilters($query, $filters);
         $test=$query->get();
         // dd($test);
-        return $test;
+
+        $queryReturn = self::calculate($test);
+
+        return $queryReturn;
     }
+
+    public static function calculate($query_cal)
+    {
+
+      // dd (gettype($query_cal));
+
+      // global $query_cal; //evita array_push() expects parameter 1 to be array, object given
+      foreach ($query_cal as $key => $value) {
+        if ($value['resolution_date']) {
+
+          $dateResolution = Carbon::parse($value['resolution_date']);
+          $dateIncident = Carbon::parse($value['date_incident']);
+          $lengthOfAd = $dateResolution->diffInHours($dateIncident);
+        }else {
+          $lengthOfAd= null;
+        }
+        $value['time_request'] = $lengthOfAd;
+      }
+
+      // $query_cal->append('cuarto');
+
+
+      // $query_cal->append('cuarto');
+      // $query_cal->offsetSet('grupo', array('g1', 'g2'));
+      // dd($query_cal);
+      return $query_cal;
+
+    }
+
 
     /*Agrega los filtros que lleguen en el request*/
     private static function addCustomerServiceOrdersFilters($query, $filters)

@@ -25,12 +25,9 @@ $('#customer_service_orders_filters_form').submit(function(e){
                             {data:"customer"},
                             {data:"person"},
                             {data:"asset"},
-                            {
-                                data:"resolution_date",
-                                render: function(d){
-                                    return (moment(d).isValid()) ? moment(d).format("DD-MM-YYYY HH:mm") : '';
-                                }
-                            },
+                            {data:"date_incident"},
+                            {data:"resolution_date"},
+                            {data:"time_request"},
                             {data:"technician"},
                             {data:"location"},
                             {data:"status"},

@@ -97,7 +97,7 @@ class IncidentController extends Controller
             $evidence_file->move(public_path().'/images/incidents/',$fileLogo);
         }
 
-        Session::flash('message', 'Incidencia creada correctamente.');
+        Session::flash('message', 'Incident saved successfully.');
         return Redirect::to('/incidents');
     }
 
@@ -187,7 +187,7 @@ class IncidentController extends Controller
             }
         }
 
-        Session::flash('message', 'Incidencia actualizada correctamente.');
+        Session::flash('message', 'Incident update successfully.');
         return Redirect::to('/incidents');
     }
 
@@ -213,7 +213,7 @@ class IncidentController extends Controller
             $incident->parts()->detach();
             $incident->delete();
 
-            Session::flash('message', 'Incidence deleted successfully.');
+            Session::flash('message', 'Incident deleted successfully.');
 
             $data = false;
         }else{
@@ -228,7 +228,7 @@ class IncidentController extends Controller
     public function getIncidents(){
         if(userHasPermission("listar_consulta_atencion_incidencias")):
         $incidents = Incident::all();
-
+        // dd($incidents);
         foreach($incidents as $incident){
             $asset = Asset::find($incident->asset_id);
             $location = $asset->locations()->select('locations.address', 'locations.building', 'locations.floor')->get();

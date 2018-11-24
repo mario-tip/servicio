@@ -53,8 +53,8 @@ class Incident extends Model
     public static function getTypeWord($key)
     {
         $incident_types = [
-            '0' => 'Limpieza',
-            '1' => 'Reparación'
+            '0' => 'Clean ',
+            '1' => 'Repair'
         ];
         return $incident_types[$key];
     }
@@ -62,9 +62,9 @@ class Incident extends Model
     public static function getPriorityWord($key)
     {
         $incident_priorities = [
-            '0' => 'Baja',
-            '1' => 'Media',
-            '2' => 'Alta'
+            '0' => 'Low',
+            '1' => 'Medium',
+            '2' => 'High'
         ];
         return $incident_priorities[$key];
     }

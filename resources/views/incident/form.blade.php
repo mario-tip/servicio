@@ -12,7 +12,7 @@
             <div class="form-group">
                 <label for="name" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Service type:</label>
                 <div class="col-sm-7">
-                    {!! Form::select('type', array('0'=>'Limpieza','1'=>'Reparación'), null, ['class' => 'bs-select form-control', 'id' => 'type', 'title' => 'Select...']) !!}
+                    {!! Form::select('type', array('0'=>'Cleaning','1'=>'Repair'), null, ['class' => 'bs-select form-control', 'id' => 'type', 'title' => 'Select...']) !!}
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
     <div class="form-group">
         <label for="name" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Preference:</label>
         <div class="col-sm-7">
-            {!! Form::select('priority', array('0'=>'Alta', '1'=>'Media', '2'=>'Baja'), null, ['class' => 'bs-select form-control', 'id' => 'priority', 'title' => 'Select...']) !!}
+            {!! Form::select('priority', array('0'=>'High', '1'=>'Medium', '2'=>'Low'), null, ['class' => 'bs-select form-control', 'id' => 'priority', 'title' => 'Select...']) !!}
         </div>
     </div>
 

@@ -94,7 +94,9 @@
                                 <th class="center">Customer</th>
                                 <th class="center">Person</th>
                                 <th class="center">Asset attended</th>
+                                <th class="center">Date of start</th>
                                 <th class="center">Date of attention</th>
+                                <th class="center">Time request (Hours)</th>
                                 <th class="center">Technical</th>
                                 <th class="center">Location</th>
                                 <th class="center">Status</th>
