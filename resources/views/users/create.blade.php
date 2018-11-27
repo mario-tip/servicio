@@ -1,5 +1,6 @@
 @extends("layouts.master")
 @section("styles")
+  {!! Html::style("/assets/css/asset.css") !!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
 @endsection
 
@@ -34,7 +35,7 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    {!! Form::open(['route' => 'users.store', 'method' => 'POST', 'class' => 'form-horizontal', 'files' => true]) !!}
+                    {!! Form::open(['route' => 'users.store', 'method' => 'POST', 'class' => '', 'files' => true]) !!}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                         @include("users.forms.form")
                     {!!Form::close()!!}

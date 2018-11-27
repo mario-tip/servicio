@@ -14,7 +14,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/users')!!}">Users3</a>
+                <a href="{!!URL::to('/users')!!}">Users</a>
             </li>
         </ul>
     </div>
