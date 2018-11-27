@@ -12,11 +12,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/users')!!}">Usuarios</a>
+                <a href="{!!URL::to('/users')!!}">Users</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/users/create')!!}">Nuevo Usuario</a>
+                <a href="{!!URL::to('/users/create')!!}">New user</a>
             </li>
         </ul>
     </div>
@@ -29,7 +29,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Nuevo usuario</span>
+                        <i class="fa fa-plus font-blue-200"></i>
+                        <span class="caption-subject bold font-blue-200">New user</span>
                     </div>
                 </div>
                 <div class="portlet-body">

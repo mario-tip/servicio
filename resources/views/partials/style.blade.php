@@ -6,6 +6,8 @@
 {!! Html::style('assets/global/plugins/simple-line-icons/simple-line-icons.min.css') !!}
 {!! Html::style('assets/global/plugins/bootstrap/css/bootstrap.min.css') !!}
 {!! Html::style('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
+{!! Html::style('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') !!}
+
         <!-- END GLOBAL MANDATORY STYLES -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->

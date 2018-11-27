@@ -93,7 +93,7 @@
                     <h4 class="modal-title">Delete equipment</h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
-                    <div id="modal_message"></div>
+                    {{-- <div id="modal_message"></div> --}}
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">

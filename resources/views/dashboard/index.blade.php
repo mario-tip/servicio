@@ -329,10 +329,19 @@
 
                 <a href="{!!URL::to('/equipments')!!}">
                   <div class="tile bg-blue-300 minizoom">
-
                     <div class="tile-object">
                       <div class="text-center">
                         <h4><strong>Equipments</strong></h4>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                <a href="{!!URL::to('/users')!!}">
+                  <div class="tile bg-blue-200 minizoom">
+                    <div class="tile-object">
+                      <div class="text-center">
+                        <h4><strong>Users</strong></h4>
                       </div>
                     </div>
                   </div>

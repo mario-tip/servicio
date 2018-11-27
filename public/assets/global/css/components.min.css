@@ -99,8 +99,18 @@ body,h1,h2,h3,h4,h5,h6{font-family:"Open Sans",sans-serif}.bold.btn,.sbold.btn{l
       background: #4FC3F7 !important;
   }
 
+
+
   .font-blue-300 {
     color: #4FC3F7 !important;
+  }
+
+  .bg-blue-200 {
+      background: #81D4FA !important;
+  }
+
+  .font-blue-200 {
+    color: #81D4FA !important;
   }
 
   /* Color indigo */

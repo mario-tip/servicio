@@ -11,6 +11,8 @@
 {!! Html::script('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') !!}
 {!! Html::script('assets/global/plugins/jquery.blockui.min.js') !!}
 {!! Html::script('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
+{!! Html::script('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') !!}
+
         <!-- END CORE PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
