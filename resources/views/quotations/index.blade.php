@@ -72,7 +72,12 @@
                                 <td class="center">{{$quotation->name}}</td>
                                 <td class="center currency-format">{{$quotation->getTotalPrice()}}</td>
                                 <td class="center" id="quotation_description_td">{{$quotation->description}}</td>
-                                <td class="center">{{$quotation->getAuthorizationWord()}}</td>
+                                <td class="center">
+                                  <span class="label label-sm {{
+                                     (($quotation->getAuthorizationWord()=='Pending') ? 'label-info' : ($quotation->getAuthorizationWord()=='Authorized') ? 'label-success' : 'label-info')}}">
+                                    {{$quotation->getAuthorizationWord()}}
+                                  </span>
+                                  </td>
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_cotizacion_servicios"))

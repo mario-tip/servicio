@@ -94,7 +94,8 @@ class QuotationController extends Controller
             if($request->file('quotation_file') != null) {
                 $this->saveFile($file, $filename);
             }
-            $request->session()->flash('message', 'Cotización de servicio guardada correctamente');
+            // $request->session()->flash('message', 'Cotización de servicio guardada exitosamente');
+            $request->session()->flash('message', 'Service budget saved successfully');
             return response()->json($response);
         } catch (\Exception $e) {
             $response = [

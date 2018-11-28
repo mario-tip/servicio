@@ -13,7 +13,7 @@ var TableDatatablesEditable = function () {
 
             // Or you can use remote translation file
             "language": {
-                url: '//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json'
+                url: '//cdn.datatables.net/plug-ins/1.10.16/i18n/English.json'
             },
 
             // set the initial value

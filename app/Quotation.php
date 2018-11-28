@@ -18,7 +18,14 @@ class Quotation extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'quotation_file', 'authorization', 'comments', 'authorization_file', 'incident_id'];
+    protected $fillable = ['name',
+                          'description',
+                          'quotation_file',
+                          'authorization',
+                          'comments',
+                          'authorization_file',
+                          'incident_id'
+                        ];
 
     public function parts()
     {
@@ -39,10 +46,11 @@ class Quotation extends Model
     public function getAuthorizationWord()
     {
         $authorizations = [
-            '0' => 'Pendiente',
-            '1' => 'Si',
-            '2' => 'No',
-            '3' => 'Cancelada'
+                    // <span class="label label-sm label-info">Pending</span>
+            '0' => 'Pending',
+            '1' => 'Authorized',
+            '2' => 'Canceled',
+            '3' => 'Canceled'
         ];
         return $authorizations[$this->authorization];
     }
