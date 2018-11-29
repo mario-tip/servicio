@@ -22,8 +22,19 @@ class ServiceOrder extends Model
      * @var array
      */
     protected $fillable = [
-        'folio', 'date', 'time', 'notes', 'type', 'status', 'signature', 'resolution_date', 'resolution_time',
-        'comments', 'type_id', 'user_id', 'person_id'
+        'folio',
+        'date',
+        'time',
+        'notes',
+        'type',
+        'status',
+        'signature',
+        'resolution_date',
+        'resolution_time',
+        'comments',
+        'type_id',
+        'user_id',
+        'person_id'
     ];
 
     public function serviceable()
@@ -60,16 +71,16 @@ class ServiceOrder extends Model
     public function getIncidentTypeWord()
     {
         $incidents = [
-            '0' => 'Incidencia',
-            '1' => 'Mantenimiento'
+            '0' => 'Incident',
+            '1' => 'Maintenance'
         ];
         return $incidents[$this->type];
     }
     public function getStatusWord()
     {
         $incidents = [
-            '0' => 'Pendiente',
-            '1' => 'Atendido'
+            '0' => 'Pending',
+            '1' => 'Attended'
         ];
         return $incidents[$this->type];
     }
@@ -80,7 +91,7 @@ class ServiceOrder extends Model
         $query = self::select('service_order.folio AS folio', 'customers.name AS customer', 'persons.name AS person',
                 'assets.name AS asset', DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
                 'users.name AS technician', 'locations.address AS location',
-                DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pendiente' ELSE 'Atendido' END) AS status"))
+                DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pending' ELSE 'Attended' END) AS status"))
                 ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
                 ->join('assets', 'assets.id', '=', 'incidents.asset_id')
                 ->leftJoin('inventory', 'assets.id', '=', 'inventory.asset_id')
@@ -119,7 +130,7 @@ class ServiceOrder extends Model
                 'persons.name AS person', 'assets.name AS asset_name',
                 DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
                 'users.name AS technician', 'locations.address AS location',
-                DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pendiente' ELSE 'Atendido' END) AS status"))
+                DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pending' ELSE 'Attended' END) AS status"))
                 ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
                 ->join('assets', 'assets.id', '=', 'incidents.asset_id')
                 ->leftJoin('inventory', 'assets.id', '=', 'inventory.asset_id')
@@ -156,7 +167,7 @@ class ServiceOrder extends Model
                               DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
                               'users.name AS technician', 'locations.address AS location',
 
-                              DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pendiente' ELSE 'Atendido' END) AS status"))
+                              DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pending' ELSE 'Attended' END) AS status"))
                 ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
                 ->join('assets', 'assets.id', '=', 'incidents.asset_id')
                 ->leftJoin('inventory', 'assets.id', '=', 'inventory.asset_id')
@@ -223,7 +234,7 @@ class ServiceOrder extends Model
         $query = self::select('service_order.folio AS folio', 'customers.name AS customer', 'persons.name AS person',
                 'assets.name AS asset', DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
                 'users.name AS technician', 'locations.address AS location',
-                DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pendiente' ELSE 'Atendido' END) AS status"))
+                DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pending' ELSE 'Attended' END) AS status"))
                 ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
                 ->join('assets', 'assets.id', '=', 'incidents.asset_id')
                 ->leftJoin('inventory', 'assets.id', '=', 'inventory.asset_id')

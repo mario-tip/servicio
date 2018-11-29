@@ -70,11 +70,17 @@
                                 <td class="center"> {{($incident->asset)?$incident->asset->name:''}} </td>
                                 <td class="center"> {{$incident->location}} </td>
                                 @if($incident->priority == 0)
-                                    <td class="center"> High </td>
+                                  <td class="center">
+                                    <span class="label label-sm label-hazard">High</span>
+                                  </td>
                                 @elseif($incident->priority == 1)
-                                    <td class="center"> Medium </td>
+                                  <td class="center">
+                                    <span class="label label-sm label-danger">Medium</span>
+                                  </td>
                                 @else
-                                    <td class="center"> Low </td>
+                                  <td class="center">
+                                    <span class="label label-sm label-warning">Low</span>
+                                  </td>
                                 @endif
                                 @if($incident->type == 0)
                                     <td class="center"> Clean </td>
@@ -84,7 +90,13 @@
                                 <td class="center"> {{$incident->suggested_time}}  </td>
                                 <td class="center"> {{\Carbon\Carbon::parse($incident->suggested_date)->format('d-m-Y')}} </td>
                                 <td class="center"> {{$incident->technician}} </td>
-                                <td class="center"> {{$incident->status}} </td>
+                                <td class="center">
+                                  @if ($incident->status == "Pending")
+                                    <span class="label label-sm label-info">{{$incident->status}}</span>
+                                  @else
+                                    <span class="label label-sm label-success">{{$incident->status}}</span>
+                                  @endif
+                                </td>
                                 <td>
                                   <div>
                                     @if(userHasPermission("mostrar_consulta_atencion_incidencias"))

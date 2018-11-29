@@ -82,11 +82,17 @@
                                     @endforeach
                                 </td>
                                 @if($incident->priority == 0)
-                                    <td class="center"> High </td>
+                                    <td class="center">
+                                      <span class="label label-sm label-hazard">High</span>
+                                    </td>
                                 @elseif($incident->priority == 1)
-                                    <td class="center"> Medium </td>
+                                    <td class="center">
+                                      <span class="label label-sm label-danger">Medium</span> 
+                                    </td>
                                 @else
-                                    <td class="center"> Low </td>
+                                    <td class="center">
+                                      <span class="label label-sm label-warning">Low</span>
+                                    </td>
                                 @endif
                                 @if($incident->type == 0)
                                     <td class="center"> Cleaning  </td>

@@ -52,7 +52,7 @@
                         <thead>
                         <tr>
                             <th class="center">Sheet number</th>
-                            <th class="center">Active</th>
+                            <th class="center">Asset</th>
                             <th class="center">Location</th>
                             <th class="center">Incident type</th>
                             <th class="center">Sheet number</th>
@@ -72,7 +72,17 @@
                                 <td class="center"> {{!empty($service_order->incident) ? \App\Incident::getTypeWord($service_order->incident->type) : null}} </td>
                                 <td class="center"> {{$service_order->time}} </td>
                                 <td class="center"> {{$service_order->date}} </td>
-                                <td class="center"> {{$service_order->getStatusWord()}} </td>
+                                <td class="center">
+                                  @if ($service_order->getStatusWord() == "Pending")
+                                    <span class="label label-sm label-info">
+                                      {{$service_order->getStatusWord()}}
+                                    </span>
+                                  @else
+                                    <span class="label label-sm label-success">
+                                      {{$service_order->getStatusWord()}}
+                                    </span>
+                                  @endif
+                                </td>
                                 <td>
                                   <div>
                                     <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">

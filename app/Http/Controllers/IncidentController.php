@@ -252,7 +252,7 @@ class IncidentController extends Controller
                 if($order->status == 0)
                     $incident->status = 'Pending';
                 else{
-                    $incident->status = 'Served';
+                    $incident->status = 'Attended';
                 }
             }else{
                 $incident->technician = '';
@@ -322,7 +322,7 @@ class IncidentController extends Controller
                 if($order->status == 0)
                     $incident->status = 'Pending';
                 else{
-                    $incident->status = 'Served';
+                    $incident->status = 'Attended';
                 }
 
                 $incident->person_notes = $order->notes;

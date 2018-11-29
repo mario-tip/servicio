@@ -28,7 +28,17 @@ $('#binnacle_service_orders_filters_form').submit(function(e){
                             },
                             {data:"technician"},
                             {data:"location"},
-                            {data:"status"},
+                            {
+                                data:"status",
+                                render : function(data){
+                                  if (data=="Pending") {
+                                    return '<span class="label label-sm label-info">'+ data +'</span>'
+                                  }else{
+                                    return '<span class="label label-sm label-success">'+ data +'</span>'
+                                  }
+
+                                }
+                            },
                         ],
                         "order":[
                             [1,'asc']

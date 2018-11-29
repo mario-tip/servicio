@@ -80,7 +80,7 @@
                                 <th class="center">Date </th>
                                 <th class="center">User</th>
                                 <th class="center">Location</th>
-                                <th class="center">Operation</th>
+                                <th class="center">Status</th>
                             </tr>
                         </thead>
                         <tbody></tbody>

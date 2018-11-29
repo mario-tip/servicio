@@ -70,13 +70,23 @@
                             <tr>
                                 <td class="center">{{$quotation->incident->asset->name}}</td>
                                 <td class="center">{{$quotation->name}}</td>
-                                <td class="center currency-format">{{$quotation->getTotalPrice()}}</td>
+                                <td class="center currency-format"> {{$quotation->getTotalPrice()}}</td>
                                 <td class="center" id="quotation_description_td">{{$quotation->description}}</td>
                                 <td class="center">
-                                  <span class="label label-sm {{
-                                     (($quotation->getAuthorizationWord()=='Pending') ? 'label-info' : ($quotation->getAuthorizationWord()=='Authorized') ? 'label-success' : 'label-info')}}">
-                                    {{$quotation->getAuthorizationWord()}}
-                                  </span>
+
+                                  @if ($quotation->getAuthorizationWord()=='Pending')
+                                    <span class="label label-sm label-info">
+                                      {{$quotation->getAuthorizationWord()}}
+                                    </span>
+                                  @elseif ($quotation->getAuthorizationWord()=='Authorized')
+                                    <span class="label label-sm label-success">
+                                      {{$quotation->getAuthorizationWord()}}
+                                    </span>
+                                  @else
+                                    <span class="label label-sm label-danger">
+                                      {{$quotation->getAuthorizationWord()}}
+                                    </span>
+                                  @endif
                                   </td>
                                 <td>
                                   <div>
