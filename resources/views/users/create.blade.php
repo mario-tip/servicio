@@ -1,7 +1,10 @@
 @extends("layouts.master")
 @section("styles")
-  {!! Html::style("/assets/css/asset.css") !!}
-    {{--{!! Html::style("/assets/css/main.css") !!}--}}
+    {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
+    {!! Html::style("/assets/css/asset.css") !!}
+
+
+
 @endsection
 
 @section('breadcrumb')
@@ -46,11 +49,17 @@
     </div>
 @endsection
 @section("scripts")
+
+    {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
+
+    {!! Html::script("/assets/pages/scripts/components-bootstrap-select.min.js") !!}
+
     {!! Html::script("/assets/scripts/validateFields.js") !!}
 
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liUsr").addClass("active");
+          $("#liTools").addClass("active");
+          $("#liUsers").addClass("active");
         });
     </script>
 @endsection

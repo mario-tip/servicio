@@ -40,536 +40,312 @@
                     </div>
                 </div>
                 <div class="portlet-body">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+  										<div class="portlet red-hazard box">
+  											<div class="portlet-title">
 
-                  <div class="col-md-6 col-sm-12">
-										<div class="portlet red-hazard box">
-											<div class="portlet-title">
+  												<div class="caption">
+  													<i class="icon-magnifier"></i>Order Details
+  												</div>
+  											</div>
+  											<div class="portlet-body">
+  												<div class="row static-info">
+  													<div class="col-md-5 name">Order # :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->folio}} <span class="label label-success label-sm">
+  														Email confirmation was sent </span>
+  													</div>
+  												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Who registered :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->person->name}}
+  													</div>
+  												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Asset ID :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->asset->asset_custom_id}}
+  													</div>
+  												</div>
 
-												<div class="caption">
-													<i class="icon-magnifier"></i>Order Details
-												</div>
-											</div>
-											<div class="portlet-body">
-												<div class="row static-info">
-													<div class="col-md-5 name">Order # :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->folio}} <span class="label label-success label-sm">
-														Email confirmation was sent </span>
-													</div>
-												</div>
-                        <div class="row static-info">
-													<div class="col-md-5 name">Who registered :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->person->name}}
-													</div>
-												</div>
-                        <div class="row static-info">
-													<div class="col-md-5 name">Asset ID :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->asset->asset_custom_id}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Asset name :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->asset->name}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Asset name :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->asset->name}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Brand :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->asset->brand}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Brand :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->asset->brand}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Serie :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->asset->serial}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Serie :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->asset->serial}}
-													</div>
-												</div>
-
-												<div class="row static-info">
-													<div class="col-md-5 name">
-														 Order Date :
-													</div>
-													<div class="col-md-7 value">
-														 {{$service_order->date}}
-													</div>
-												</div>
-                        <div class="row static-info">
-													<div class="col-md-5 name">
-														 Order Time :
-													</div>
-													<div class="col-md-7 value">
-														  {{$service_order->time}}
-													</div>
-												</div>
+  												<div class="row static-info">
+  													<div class="col-md-5 name">
+  														 Order Date :
+  													</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->date}}
+  													</div>
+  												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">
+  														 Order Time :
+  													</div>
+  													<div class="col-md-7 value">
+  														  {{$service_order->time}}
+  													</div>
+  												</div>
 
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Suggested attention date :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->suggested_date}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Suggested attention date :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->suggested_date}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Suggested attention hour :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->suggested_time}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Suggested attention hour :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->suggested_time}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Service type :</div>
-													<div class="col-md-7 value">
-														 {{App\Incident::getTypeWord($service_order->incident->type)}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Service type :</div>
+  													<div class="col-md-7 value">
+  														 {{App\Incident::getTypeWord($service_order->incident->type)}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">
-														 Order Status:
-													</div>
-													<div class="col-md-7 value">
-                            @if ($service_order->getStatusWord() == "Pending")
-                              <span class="label label-sm label-info">
-  														{{$service_order->getStatusWord()}} </span>
-                            @else
-                              <span class="label label-sm label-success">
-  														{{$service_order->getStatusWord()}} </span>
-                            @endif
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">
+  														 Order Status:
+  													</div>
+  													<div class="col-md-7 value">
+                              @if ($service_order->getStatusWord() == "Pending")
+                                <span class="label label-sm label-info">
+    														{{$service_order->getStatusWord()}} </span>
+                              @else
+                                <span class="label label-sm label-success">
+    														{{$service_order->getStatusWord()}} </span>
+                              @endif
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Priority :</div>
-													<div class="col-md-7 value">
-                            @if (\App\Incident::getPriorityWord($service_order->incident->priority) == "High")
-                              <span class="label label-sm label-hazard">
-                                {{\App\Incident::getPriorityWord($service_order->incident->priority)}}
-                              </span>
-                            @elseif (\App\Incident::getPriorityWord($service_order->incident->priority)== "Medium")
-                              <span class="label label-sm label-danger">
-                                {{\App\Incident::getPriorityWord($service_order->incident->priority)}}
-                              </span>
-                            @else
-                              <span class="label label-sm label-warning">
-                                {{\App\Incident::getPriorityWord($service_order->incident->priority)}}
-                              </span>
-                            @endif
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Priority :</div>
+  													<div class="col-md-7 value">
+                              @if (\App\Incident::getPriorityWord($service_order->incident->priority) == "High")
+                                <span class="label label-sm label-hazard">
+                                  {{\App\Incident::getPriorityWord($service_order->incident->priority)}}
+                                </span>
+                              @elseif (\App\Incident::getPriorityWord($service_order->incident->priority)== "Medium")
+                                <span class="label label-sm label-danger">
+                                  {{\App\Incident::getPriorityWord($service_order->incident->priority)}}
+                                </span>
+                              @else
+                                <span class="label label-sm label-warning">
+                                  {{\App\Incident::getPriorityWord($service_order->incident->priority)}}
+                                </span>
+                              @endif
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Location :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->asset->locations[0]->address}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Location :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->asset->locations[0]->address}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Description :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->incident->description}}
-													</div>
-												</div>
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Description :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->incident->description}}
+  													</div>
+  												</div>
 
-                        <div class="row static-info">
-													<div class="col-md-5 name">Evidence :</div>
-													<div class="col-md-7 value">
-                            <div class="row">
-                                <div class="col-md-12 form-group-container">
-                                    <div class="form-group">
-                                        <?php
-                                        $mime_array = App\Quotation::getFileMime(public_path($service_order->incident->evidence_file));
-                                        ?>
-                                        @if($mime_array == null)
-                                            <h2 class="file-not-found">Not found file </h2>
-                                        @else
-                                            <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
-                                            @if($file_type == 'image')
-                                                <img src="{{'/' . $service_order->incident->evidence_file}}" class="incident-image img-responsive" alt="">
-                                            @else
-                                                <div id="icon_file_container">
-                                                    <a href="{{'/' . $service_order->incident->evidence_file}}" download>
-                                                        <img class="file-type-icon "
-                                                             src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
-                                                        </br>Download
-                                                    </a>
-                                                </div>
-                                            @endif
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-													</div>
-												</div>
-
-                        <div class="row static-info">
-													<div class="col-md-5 name">Additional notes :</div>
-													<div class="col-md-7 value">
-														 {{$service_order->notes}}
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-                  <div class="col-md-6 col-sm-12">
-										<div class="portlet blue-hoki box">
-											<div class="portlet-title">
-												<div class="caption">
-													<i class="fa fa-cogs"></i>Attention detail
-												</div>
-												<div class="actions">
-													<a href="#" class="btn btn-default btn-sm">
-													<i class="fa fa-pencil"></i> Edit </a>
-												</div>
-											</div>
-											<div class="portlet-body">
-												<div class="row static-info">
-													<div class="col-md-5 name">
-														 Customer Name:
-													</div>
-													<div class="col-md-7 value">
-														 Jhon Doe
-													</div>
-												</div>
-												<div class="row static-info">
-													<div class="col-md-5 name">
-														 Email:
-													</div>
-													<div class="col-md-7 value">
-														 jhon@doe.com
-													</div>
-												</div>
-												<div class="row static-info">
-													<div class="col-md-5 name">
-														 State:
-													</div>
-													<div class="col-md-7 value">
-														 New York
-													</div>
-												</div>
-												<div class="row static-info">
-													<div class="col-md-5 name">
-														 Phone Number:
-													</div>
-													<div class="col-md-7 value">
-														 12234389
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-                  <div class="horizontal-form">
-                      <div class="form-body">
-                          <div class="row">
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Who registered: </label>
-                                      <label class="control-label"><strike>{{$service_order->incident->person->name}}</strike> </label>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label"> Service type : </label>
-                                      <label class="control-label">{{App\Incident::getTypeWord($service_order->incident->type)}}</label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Asset ID : </label>
-                                      <label class="control-label">{{$service_order->incident->asset->asset_custom_id}}</label>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Asset name : </label>
-                                      <label class="control-label">{{$service_order->incident->asset->name}}</label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label  show-label">Location: </label>
-                                      <label class="control-label">{{$service_order->incident->asset->locations[0]->address}}</label>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Brand : </label>
-                                      <label class="control-label">{{$service_order->incident->asset->brand}}</label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Priority: </label>
-                                      <label class="control-label">{{\App\Incident::getPriorityWord($service_order->incident->priority)}}</label>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Serie: </label>
-                                      <label class="control-label">{{$service_order->incident->asset->serial}}</label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Hour: </label>
-                                      <label class="control-label">{{$service_order->time}}</label>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Status: </label>
-                                      <label class="control-label">{{$service_order->getStatusWord()}}</label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Date: </label>
-                                      <label class="control-label">{{$service_order->date}}</label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-9 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label textarea-label">Description Problem : </label>
-                                      <div class="incident-description">
-                                          {{$service_order->incident->description}}
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label">Suggested attention date : </label>
-                                      <label class="control-label">
-                                          {{$service_order->incident->suggested_date}}
-                                          {{$service_order->incident->suggested_time}}
-                                      </label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label">Evidence: </label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12 form-group-container">
-                                  <div class="form-group">
-                                      <?php
-                                      $mime_array = App\Quotation::getFileMime(public_path($service_order->incident->evidence_file));
-                                      ?>
-                                      @if($mime_array == null)
-                                          <h2 class="file-not-found">Not found file </h2>
-                                      @else
-                                          <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
-                                          @if($file_type == 'image')
-                                              <img src="{{'/' . $service_order->incident->evidence_file}}" class="incident-image" alt="">
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Evidence :</div>
+  													<div class="col-md-7 value">
+                              <div class="row">
+                                  <div class="col-md-12 form-group-container">
+                                      <div class="form-group">
+                                          <?php
+                                          $mime_array = App\Quotation::getFileMime(public_path($service_order->incident->evidence_file));
+                                          ?>
+                                          @if($mime_array == null)
+                                              <h2 class="file-not-found">Not found file </h2>
                                           @else
-                                              <div id="icon_file_container">
-                                                  <a href="{{'/' . $service_order->incident->evidence_file}}" download>
-                                                      <img class="file-type-icon"
-                                                           src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
-                                                      </br>Download
-                                                  </a>
-                                              </div>
+                                              <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
+                                              @if($file_type == 'image')
+                                                  <img src="{{'/' . $service_order->incident->evidence_file}}" class="incident-image img-responsive" alt="">
+                                              @else
+                                                  <div id="icon_file_container">
+                                                      <a href="{{'/' . $service_order->incident->evidence_file}}" download>
+                                                          <img class="file-type-icon "
+                                                               src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
+                                                          </br>Download
+                                                      </a>
+                                                  </div>
+                                              @endif
                                           @endif
-                                      @endif
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-9 form-group-container">
-                                  <div class="form-group">
-                                      <label class="control-label show-label textarea-label">Additional notes : </label>
-                                      <div class="incident-description">
-                                          {{$service_order->notes}}
                                       </div>
                                   </div>
                               </div>
-                          </div>
-                      </div>
+  													</div>
+  												</div>
+
+                          <div class="row static-info">
+  													<div class="col-md-5 name">Additional notes :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->notes}}
+  													</div>
+  												</div>
+
+  											</div>
+  										</div>
+  									</div>
+
+                    <div class="col-md-6 col-sm-12">
+  										<div class="portlet green-meadow box">
+  											<div class="portlet-title">
+  												<div class="caption">
+  													<i class="icon-earphones-alt"></i>Attention detail
+  												</div>
+  											</div>
+  											<div class="portlet-body">
+  												<div class="row static-info">
+  													<div class="col-md-5 name">
+  														 Technician :
+  													</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->technician->name}}
+  													</div>
+  												</div>
+  												<div class="row static-info">
+  													<div class="col-md-5 name">
+  														 Comments:
+  													</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->comments}}
+  													</div>
+  												</div>
+  												<div class="row static-info">
+  													<div class="col-md-5 name">
+  														 {{$service_order->getIncidentTypeWord()}} <a href="#"></a>uthorized by :
+  													</div>
+  													<div class="col-md-7 value">
+  														 {{!is_null($service_order->authorizer) ? $service_order->authorizer->name : null}}
+  													</div>
+  												</div>
+  												<div class="row static-info">
+  													<div class="col-md-5 name">
+  														 Signature:
+  													</div>
+  													<div class="col-md-7 value">
+                              <div class="row">
+                               <div class="col-md-12 form-group-container">
+                                   <div class="form-group">
+                                       @if(is_null($service_order->signature))
+                                           <h2 class="file-not-found">Service order without signature </h2>
+                                       @else
+                                           <img src="{{'/' . $service_order->signature}}" class=" img-responsive incident-image" alt="">
+                                       @endif
+                                   </div>
+                               </div>
+                             </div>
+  													</div>
+  												</div>
+  											</div>
+  										</div>
+  									</div>
                   </div>
-                </div>
-            </div>
-            <!-- END SHOW SERVICE ORDER PORTLET-->
 
-            <!-- BEGIN ATENTION DETAILS PORTLET-->
-           <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-eye"></i>
-                        <span class="caption-subject bold">Attention detail </span>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="horizontal-form">
-                        <div class="form-body">
-                            <div class="row">
-                               <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label show-label">Technician : </label>
-                                        <label class="control-label">{{$service_order->technician->name}}</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Comments: </label>
-                                        <div class="incident-description">
-                                            {{$service_order->comments}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label show-label">authorized by {{$service_order->getIncidentTypeWord()}}: </label>
-                                        <label class="control-label">
-                                            {{!is_null($service_order->authorizer) ? $service_order->authorizer->name : null}}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Signature: </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 form-group-container">
-                                    <div class="form-group">
-                                        @if(is_null($service_order->signature))
-                                            <h2 class="file-not-found">Service order without signature </h2>
-                                        @else
-                                            <img src="{{'/' . $service_order->signature}}" class="incident-image" alt="">
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END ATENTION DETAILS PORTLET-->
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+  										<div class="portlet grey-gallery box">
+  											<div class="portlet-title">
 
-            <!-- BEGIN ATENTION DETAILS PORTLET-->
-            <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-eye"></i>
-                        <span class="caption-subject bold">Service quote detail</span>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="horizontal-form">
-                        <div class="form-body">
-                            <!-- La orden de servicio tiene una cotización asociada -->
-                            @if(!is_null($service_order->quotation))
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label show-label">Quote name : </label>
-                                        <label class="control-label">
-                                            {{$service_order->quotation->name}}
-                                        </label>
-                                    </div>
+  												<div class="caption">
+  													<i class="icon-magnifier"></i>Service quote detail
+  												</div>
+  											</div>
+  											<div class="portlet-body">
+                          @if(!is_null($service_order->quotation))
+                            <div class="row static-info">
+    													<div class="col-md-5 name">Quote name : </div>
+    													<div class="col-md-7 value">{{$service_order->quotation->name}}</div>
+    												</div>
+
+                            <div class="row static-info">
+    													<div class="col-md-5 name">Description :</div>
+    													<div class="col-md-7 value">
+    														 {{$service_order->quotation->description}}
+    													</div>
+    												</div>
+
+                            <div class="row static-info">
+    													<div class="col-md-5 name">Status :</div>
+    													<div class="col-md-7 value">
+    														 {{$service_order->quotation->getAuthorizationWord()}}
+    													</div>
+    												</div>
+
+                            <div class="row static-info">
+    													<div class="col-md-5 name">File quotation :</div>
+    													<div class="col-md-7 value">
+                                <div class="row">
+                                 <div class="col-md-12 form-group-container">
+                                     <div class="form-group">
+                                         <?php
+                                         $mime_array = App\Quotation::getFileMime(public_path($service_order->quotation->quotation_file));
+                                         ?>
+                                         @if($mime_array == null)
+                                             <h2 class="file-not-found">Not foun file </h2>
+                                         @else
+                                             <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
+                                             @if($file_type == 'image')
+                                                 <img src="{{$service_order->quotation->quotation_file}}" class="incident-image" alt="">
+                                             @else
+                                                 <div id="icon_file_container">
+                                                     <a href="{{$service_order->quotation->quotation_file}}" download>
+                                                         <img class="file-type-icon"
+                                                              src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
+                                                         </br>Download
+                                                     </a>
+                                                 </div>
+                                             @endif
+                                         @endif
+                                     </div>
+                                 </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Description: </label>
-                                        <div class="incident-description">
-                                            {{$service_order->quotation->description}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label show-label">Status: </label>
-                                        <label class="control-label">
-                                            {{$service_order->quotation->getAuthorizationWord()}}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">File quotation: </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 form-group-container">
-                                    <div class="form-group">
-                                        <?php
-                                        $mime_array = App\Quotation::getFileMime(public_path($service_order->quotation->quotation_file));
-                                        ?>
-                                        @if($mime_array == null)
-                                            <h2 class="file-not-found">Not foun file </h2>
-                                        @else
-                                            <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
-                                            @if($file_type == 'image')
-                                                <img src="{{$service_order->quotation->quotation_file}}" class="incident-image" alt="">
-                                            @else
-                                                <div id="icon_file_container">
-                                                    <a href="{{$service_order->quotation->quotation_file}}" download>
-                                                        <img class="file-type-icon"
-                                                             src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
-                                                        </br>Download
-                                                    </a>
-                                                </div>
-                                            @endif
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label show-label textarea-label">Authorization comments : </label>
-                                        <div class="incident-description">
-                                            {{$service_order->quotation->comments}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- La orden de servicio no tiene una cotización asociada -->
-                            @else
-                                <h2 class="quotation-not-found">The service has no quotation  </h2>
-                            @endif
-                            <div class="row">
+    													</div>
+    												</div>
+
+                            <div class="row static-info">
+  													<div class="col-md-5 name">Authorization comments :</div>
+  													<div class="col-md-7 value">
+  														 {{$service_order->quotation->comments}}
+  													</div>
+  												</div>
+                          @else
+                          <h2 class="quotation-not-found">The service has no quotation</h2>
+                          @endif
+                          <div class="row">
                                 <div class="col-md-12 form-group-container">
                                     <div class="form-group">
                                         <label class="control-label">Incident parts : </label>
@@ -598,11 +374,13 @@
                                 </div>
                                 <!-- End Table parts -->
                             </div>
-                        </div>
-                    </div>
+  											</div>
+  										</div>
+  									</div>
+                  </div>
                 </div>
             </div>
-            <!-- END ATENTION DETAILS PORTLET-->
+            <!-- END SHOW SERVICE ORDER PORTLET-->
         </div>
     </div>
 @endsection

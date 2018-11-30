@@ -29,6 +29,12 @@
                     </div>
                 </div>
             </div>
+            <div class="">
+              @php
+                echo $customer->type;
+                echo gettype ($customer->type);
+              @endphp
+            </div>
         </div>
     </div>
 </div>

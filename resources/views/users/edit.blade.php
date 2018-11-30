@@ -1,5 +1,6 @@
 @extends("layouts.master")
 @section("styles")
+  {!! Html::style("/assets/css/asset.css") !!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
 @endsection
 
@@ -8,15 +9,15 @@
         @include('partials.request')
         <ul class="page-breadcrumb">
             <li>
-                <a href="{!!URL::to('/')!!}">Inicio</a>
+                <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/users')!!}">Usuarios</a>
+                <a href="{!!URL::to('/users')!!}">Users</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a>Editar usuario</a>
+                <a>Edit user</a>
             </li>
         </ul>
     </div>
@@ -29,11 +30,12 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Editar usuario</span>
+                        <i class="icon-pencil font-blue-200"></i>
+                        <span class="caption-subject bold font-blue-200">Edit user</span>
                     </div>
                 </div>
                 <div class="portlet-body">
-                    {!! Form::open(['class' => 'form-horizontal', 'files' => true]) !!}
+                    {!! Form::open(['class' => '', 'files' => true]) !!}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                         @include("users.forms.form")
                     {!!Form::close()!!}
@@ -49,7 +51,8 @@
 
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liUsr").addClass("active");
+          $("#liTools").addClass("active");
+          $("#liUsers").addClass("active");
         });
     </script>
 @endsection

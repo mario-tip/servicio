@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role_user;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Input;
@@ -49,8 +50,16 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        User::create($request->all());
-        Session::flash('message', '¡Usuario creado correctamente!');
+        // dd($request->all());
+        $user =  User::create($request->all());
+
+        $data['role_id'] = $user->is_central;
+        $data['user_id'] = $user->id;
+
+        $role = Role_user::make($data);
+        $role->save();
+
+        Session::flash('message', 'User saved successfully!');
         return Redirect::to('/users');
     }
 
@@ -89,7 +98,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->fill($request->all());
         $user->save();
-        Session::flash('message', '¡Usuario actualizado correctamente!');
+        Session::flash('message', 'User updated successfully!');
         return Redirect::to('/users');
     }
 
@@ -102,7 +111,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        Session::flash('message', '¡Usuario eliminado correctamente!');
+        Session::flash('message', 'User deleted successfully!');
     }
 
     public function searchEmail(Request $request){
