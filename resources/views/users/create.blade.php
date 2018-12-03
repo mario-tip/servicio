@@ -2,9 +2,6 @@
 @section("styles")
     {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
     {!! Html::style("/assets/css/asset.css") !!}
-
-
-
 @endsection
 
 @section('breadcrumb')

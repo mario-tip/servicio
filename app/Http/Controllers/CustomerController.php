@@ -97,6 +97,7 @@ class CustomerController extends Controller
      */
     public function update(CustomerRequest $request, Customer $customer)
     {
+        dd($customer);
         try {
             $customer->fill($request->get('customer'));
             $customer->save();

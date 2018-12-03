@@ -23,14 +23,14 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $password_rule = '';
-        if ($this->method() == 'POST')
-            $password_rule = 'required';
-        return [
-            'name' => 'required',
-            'email' => 'required|unique:users,email,' . $this->id,
-            'password' => 'min:8|' . $password_rule,
-            'username' => 'required',
-        ];
+        // $password_rule = '';
+        // if ($this->method() == 'POST')
+        //     $password_rule = 'required';
+        // return [
+        //     'name' => 'required',
+        //     'email' => 'required|unique:users,email,' . $this->id,
+        //     'password' => 'min:8|' . $password_rule,
+        //     'username' => 'required',
+        // ];
     }
 }

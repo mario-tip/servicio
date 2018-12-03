@@ -1,7 +1,9 @@
 @extends("layouts.master")
 @section("styles")
+
+  {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
   {!! Html::style("/assets/css/asset.css") !!}
-    {{--{!! Html::style("/assets/css/main.css") !!}--}}
+
 @endsection
 
 @section('breadcrumb')
@@ -26,6 +28,7 @@
 @section("page-content")
     <div class="row content_container">
         <div class="col-md-12">
+          {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'id' => 'user_form']) !!}
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
@@ -35,18 +38,18 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    {!! Form::open(['class' => '', 'files' => true]) !!}
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-                        @include("users.forms.form")
-                    {!!Form::close()!!}
+                  @include("users.forms.form")
                 </div>
             </div>
             <!-- END EXAMPLE TABLE PORTLET-->
+          {!!Form::close()!!}
         </div>
     </div>
 @endsection
 
 @section("scripts")
+    {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
+    {!! Html::script("/assets/pages/scripts/components-bootstrap-select.min.js") !!}
     {!! Html::script("/assets/scripts/validateFields.js") !!}
 
     <script type="application/javascript">

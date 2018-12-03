@@ -4,7 +4,7 @@ $("#email").keyup(function(e){
 
     if(value !== ''){
         if(!value.match(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)){
-            $('#alertEmail').html('Correo electrónico inválido.');
+            $('#alertEmail').html('Email invalid.');
             $('#send').attr('disabled',true);
         }else{
             $('#alertEmail').html('');
@@ -20,7 +20,7 @@ $("#email").keyup(function(e){
                         $('.alertEmail').html('');
                         $('#send').attr('disabled',false);
                     }else{
-                        $('#alertEmail').html('El correo electrónico ya existe.');
+                        $('#alertEmail').html('The email already exists.');
                         $('#send').attr('disabled',true);
                     }
                 }
@@ -60,4 +60,3 @@ function validateInput(event, id) {
         return false;
     }
 }
-

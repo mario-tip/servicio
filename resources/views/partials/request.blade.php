@@ -3,6 +3,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>
             @foreach($errors->all() as $error)
+                {{-- <li>ña</li> --}}
                 <li>{!!$error!!}</li>
             @endforeach
         </ul>
