@@ -196,7 +196,7 @@
                                               @else
                                                   <div id="icon_file_container">
                                                       <a href="{{'/' . $service_order->incident->evidence_file}}" download>
-                                                          <img class="file-type-icon "
+                                                          <img class="file-type-icon  "
                                                                src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
                                                           </br>Download
                                                       </a>
@@ -319,7 +319,7 @@
                                          @else
                                              <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
                                              @if($file_type == 'image')
-                                                 <img src="{{$service_order->quotation->quotation_file}}" class="incident-image" alt="">
+                                                 <img src="{{$service_order->quotation->quotation_file}}" class="incident-image  img-responsive" alt="">
                                              @else
                                                  <div id="icon_file_container">
                                                      <a href="{{$service_order->quotation->quotation_file}}" download>

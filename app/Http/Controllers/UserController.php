@@ -56,13 +56,16 @@ class UserController extends Controller
             'email' => 'required|unique:users,email',
             'password' => 'required|min:8',
             'username' => 'required',
+            'type_user' => 'required',
         ];
         $this->validate($request,$rule);
 
         // dd($request->all());
+        $request['is_central'] = 0;
+
         $user =  User::create($request->all());
 
-        $data['role_id'] = $user->is_central;
+        $data['role_id'] = $user->type_user;
         $data['user_id'] = $user->id;
 
         $role = Role_user::make($data);
@@ -120,13 +123,13 @@ class UserController extends Controller
           ];
       }
 
-
           $this->validate($request,$rule);
 
-
-          // dd($user);
           $user->fill($request->all());
           $user->save();
+
+          Role_user::where('user_id', $user->id)->update(['role_id' => $user->type_user]);
+
           Session::flash('message', 'User updated successfully!');
           return Redirect::to('/users');
 

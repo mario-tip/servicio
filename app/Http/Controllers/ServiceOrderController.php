@@ -60,15 +60,18 @@ class ServiceOrderController extends Controller
      */
     public function store(ServiceOrderRequest $request)
     {
+
         $service_order_data = $request->get('service_order');
+
         $service_order_data['date'] = AssetController::date2SQLFormat($service_order_data['date']);
         $service_order_data['type'] = '0';
         $service_order_data['status'] = '0';
 
         try{
-            ServiceOrder::create($service_order_data);
+            $serviceOrderTemp = ServiceOrder::create($service_order_data);
+            // dd($serviceOrderTemp->technician['email']);
             $request->session()->flash('message', 'Service order saved correctly');
-            return redirect('/service-orders');
+            // return redirect('/service-orders');
         } catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
         }

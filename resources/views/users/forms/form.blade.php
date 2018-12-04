@@ -35,14 +35,14 @@
             <div class="row">
               <div class="col-md-6 form-group-container">
                   <div class="form-group">
-                      <label class="" for="address"><span>*</span>Address : </label>
+                      <label class="" for="address">Address : </label>
                       {!!Form::text('address',null,['class'=>'form-control', 'placeholder'=>'Insert address', 'autocomplete'=>"off", 'onkeypress'=>'validateInput(event, 1)'])!!}
                   </div>
               </div>
               <div class="col-md-6 form-group-container">
                 <div class="form-group">
-                    <label class="" for="is_central"><span>*</span>Type user : </label>
-                      {!! Form::select('is_central', array('1'=>'Administrator','2'=>'Technical','3'=>'Customer','4'=>'Person'), null, ['class' => 'bs-select form-control', 'id' => 'is_central', 'title' => 'Select...']) !!}
+                    <label class="" for="type_user"><span>*</span>Type user : </label>
+                      {!! Form::select('type_user', array('1'=>'Administrator','2'=>'Technical','3'=>'Customer','4'=>'Person'), null, ['class' => 'bs-select form-control', 'id' => 'type_user', 'title' => 'Select...']) !!}
                 </div>
               </div>
             </div>

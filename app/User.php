@@ -28,6 +28,7 @@ class User extends Authenticatable
         'email',
         'address',
         'is_central',
+        'type_user',
 
     ];
 

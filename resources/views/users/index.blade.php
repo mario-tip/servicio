@@ -48,6 +48,7 @@
                             <th class="center">Name </th>
                             <th class="center">Email</th>
                             <th class="center">Name user</th>
+                            <th class="center">User type </th>
                             <th class="center">Actions</th>
                         </tr>
                         </thead>
@@ -58,12 +59,30 @@
                                 <td class="center"> {{$user->name}} </td>
                                 <td class="center"> {{$user->email}} </td>
                                 <td class="center"> {{$user->username}} </td>
+                                @if ($user->type_user == 1)
+                                  <td class="center"><span class="btn default green-seagreen-stripe">Administrator</span></td>
+                                @endif
+
+                                @if ($user->type_user == 2)
+                                  <td class="center"><span class="btn default blue-stripe">Technical</span></td>
+                                @endif
+
+                                @if ($user->type_user == 3)
+                                  <td class="center"><span class="btn default yellow-casablanca-stripe">Customer</span></td>
+                                @endif
+
+                                @if ($user->type_user == 4)
+                                  <td class="center"><span class="btn default red-thunderbird-stripe">Person</span></td>
+                                @endif
+
+
+
                                 <td >
                                   <div class="center_items">
-                                      <a href="{{  URL::route('users.edit', $user->id) }}" title="Edit" class="btn btn-icon-only blue circle">
+                                      <a href="{{URL::route('users.edit', $user->id) }}" title="Edit" class="btn btn-icon-only blue circle">
                                           <i class="fa fa-edit"></i>
                                       </a>
-                                      <a href="#basic" data-toggle="modal" data-name="{{$user->name}}" data-id="{{$user->id}}" title="Delete" class="btn btn-icon-only red circle">
+                                      <a href="#basic" data-toggle="modal" data-name="{{$user->name}}" data-id="{{$user->id}}" title="Delete" class="btn btn-icon-only red circle modalDelete">
                                           <i class="fa fa-trash-o"></i>
                                       </a>
                                     </div>
@@ -112,6 +131,7 @@
         });
 
         $(".modalDelete").click(function(){
+
             id = $(this).data("id");
             var name = $(this).data("name");
             var nodeName=document.createElement("p");
