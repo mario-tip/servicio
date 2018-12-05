@@ -1,8 +1,3 @@
-@slot ('header') 
-    @component ('mail::header', ['url' => config ('app.url') ]) 
-        Título del encabezado 
-    @endcomponent 
-@endslot
 
 @component('mail::message')
 {{-- {{ dd($orderService) }} --}}
