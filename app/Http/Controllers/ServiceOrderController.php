@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ServiceOrderRequest;
+use App\User;
+
+use App\Person;
+use App\Incident;
 use App\ServiceOrder;
 use Illuminate\Http\Request;
-use App\Incident;
-use App\Person;
-use App\User;
+use App\Mail\OrderServiceMail;
+
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ServiceOrderRequest;
+
+
 
 class ServiceOrderController extends Controller
 {
@@ -70,8 +76,12 @@ class ServiceOrderController extends Controller
         try{
             $serviceOrderTemp = ServiceOrder::create($service_order_data);
             // dd($serviceOrderTemp->technician['email']);
+            // $request->notify(new AsignedOrder($serviceOrderTemp->technician['email'])) ;
+            // return (new Mailable())->to($serviceOrderTemp->technician['email']);
+            
+            Mail::to($serviceOrderTemp->technician['email'])->send(new OrderServiceMail($serviceOrderTemp));
             $request->session()->flash('message', 'Service order saved correctly');
-            // return redirect('/service-orders');
+            return redirect('/service-orders');
         } catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
         }
