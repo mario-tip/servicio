@@ -23,33 +23,42 @@
             <!-- END SIDEBAR TOGGLER BUTTON -->
             @if(!user_can())
 
-                @if(userHasPermission("listar_tipo_equipo"))
+                @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio") )
                 <li id="liHelpDesk" class="nav-item">
                     <a  class="nav-link nav-toggle">
                       <i class="icon-earphones-alt"></i>
                       <span class="title not-select ">Help Desk</span>
                     </a>
                     <ul class="sub-menu">
+
+                      @if(userHasPermission("listar_registro_incidencias") )
         							<li id="liIncidents" class="nav-item">
         								<a href="{!!URL::to('/incidents')!!}">
         								<i class="icon-fire"></i>
         								Incidents</a>
-        							</li>
+                      </li>
+                      @endif
+                      @if(userHasPermission("listar_consulta_servicio") )
         							<li id="liServiceOrders" class="nav-item" >
         								<a href="{!!URL::to('/help_service')!!}" class="nav-link nav-toggle">
         								<i class="icon-call-in"></i>
         								Service</a>
-        							</li>
+                      </li>
+                      @endif
+                      @if(userHasPermission("crear_mantenimiento_programado") )
         							<li id="liMaintenances" class="nav-item">
         								<a href="{!!URL::to('/maintenances')!!}" class="nav-link nav-toggle">
         								<i class="icon-wrench"></i>
                         Maintenance</a>
-        							</li>
+                      </li>
+                      @endif
+                      @if(userHasPermission("listar_problemas") )
         							<li id="liProblems" class="nav-item">
         								<a href="{!!URL::to('/problems')!!}" class="nav-link nav-toggle">
         								<i class="icon-bell"></i>
         								Problems</a>
-        							</li>
+                      </li>
+                      @endif
         						</ul>
                   </li>
                 </li>

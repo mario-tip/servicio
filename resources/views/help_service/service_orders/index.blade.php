@@ -48,6 +48,9 @@
                             </div>
                         </div>
                     </div>--}}
+                    <div>
+                            {{-- {{$service_orders->technician}} --}}
+                    </div>
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
@@ -58,6 +61,7 @@
                             <th class="center">Sheet number</th>
                             <th class="center">Hour</th>
                             <th class="center">Date </th>
+                            <th class="center">Technical </th>
                             <th class="center">Status</th>
                             <th class="center">Actions</th>
                         </tr>
@@ -72,6 +76,7 @@
                                 <td class="center"> {{!empty($service_order->incident) ? \App\Incident::getTypeWord($service_order->incident->type) : null}} </td>
                                 <td class="center"> {{$service_order->time}} </td>
                                 <td class="center"> {{$service_order->date}} </td>
+                                <td class="center"> Jose </td>
                                 <td class="center">
                                   @if ($service_order->getStatusWord() == "Pending")
                                     <span class="label label-sm label-info">

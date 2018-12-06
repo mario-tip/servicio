@@ -30,6 +30,7 @@ class OrderServiceMail extends Mailable
     public function build()
     {
         return $this->from(['address' => 'no-reply@eeo.com.mx', 'name' => 'Notification'])
-                    ->markdown('notifications.sendEmail');
+                    ->markdown('notifications.sendEmail')
+                    ->subject('Hardware Service Desk!');
     }
 }

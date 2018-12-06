@@ -7,28 +7,25 @@
 @endsection
 @section('page-content')
     <div class="row">
-        @if(userHasPermission("listar_catalogo_proveedores"))
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-						<a class="dashboard-stat bg-red-700 red-thunderbird" href="{!!URL::to('/quotations')!!}">
-  						<div class="visual">
-  							<i class="fa fa-money"></i>
-  						</div>
-  						<div class="details">
-  							<div class="number">
+        @if(userHasPermission("mostrar_cotizacion_servicios"))
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat bg-red-700 red-thunderbird" href="{!!URL::to('/quotations')!!}">
+                <div class="visual">
+                    <i class="fa fa-money"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
 
-  							</div>
-  							<div class="desc">
-  								 Service Quotation
-  							</div>
-  						</div>
-						</a>
-					</div>
-
-
-
+                    </div>
+                    <div class="desc">
+                        Service Quotation
+                    </div>
+                </div>
+                </a>
+            </div>
         @endif
 
-        @if(userHasPermission("listar_catalogo_personas"))
+        @if(userHasPermission("mostrar_consulta_servicio"))
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a class="dashboard-stat red-thunderbird bg-red-700" href="{!!URL::to('/service-orders')!!}">
               <div class="visual">

@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/servicio_altatec/public'),
+    'url' => env('APP_URL', 'http://service.altatec.com.mx/service-orders'),
 
     /*
     |--------------------------------------------------------------------------
