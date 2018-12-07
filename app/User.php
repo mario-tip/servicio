@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -77,4 +78,10 @@ class User extends Authenticatable
                 ->leftJoin('roles', 'roles.id', '=', 'role_user.role_id')
                 ->where('roles.name', 'tecnico')->get()->pluck('name', 'id');
     }
+
+    //Funcion que filtra las ordenes de servicio de el usuario logueado 
+    public function getOrders(){
+        return $this->hasMany(ServiceOrder::class,'user_id','id');
+    }
+    
 }

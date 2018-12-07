@@ -16,7 +16,7 @@
             </li>
 
             <li>
-                <a href="{{route('customers.index')}}">Clientes</a>
+                <a href="{{route('customers.index')}}">Customers</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>

@@ -51,7 +51,7 @@ class PartController extends Controller
 
         $part = Part::create($data);
 
-        Session::flash('message', 'Parte creada correctamente.');
+        Session::flash('message', 'Part created successfully.');
         return Redirect::to('/parts');
     }
 
@@ -97,7 +97,7 @@ class PartController extends Controller
         $part = Part::find($id);
         $part->update($data);
 
-        Session::flash('message', 'Parte actualizada correctamente.');
+        Session::flash('message', 'Part updated successfully.');
         return Redirect::to('/parts');
     }
 
@@ -113,7 +113,7 @@ class PartController extends Controller
 
         if($part->assets()->count() == 0 && $part->equipments()->count() == 0) {
             $part->delete();
-            Session::flash('message', 'Parte eliminada correctamente.');
+            Session::flash('message', 'Part deleted successfully.');
             $data = false;
         } else {
             $data = true;

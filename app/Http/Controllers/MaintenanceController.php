@@ -79,7 +79,7 @@ class MaintenanceController extends Controller
         $service_order->user_id = $data['user_id'];
         $service_order->save();
 
-        Session::flash('message', 'Mantenimiento creado correctamente.');
+        Session::flash('message', 'Maintenance created succesfully.');
         return Redirect::to('/maintenances');
     }
 
@@ -199,7 +199,7 @@ class MaintenanceController extends Controller
             $service_order->save();
         }
 
-        Session::flash('message', 'Incidencia actualizada correctamente.');
+        Session::flash('message', 'Incident update succesfully.');
         return Redirect::to('/maintenances');
     }
 

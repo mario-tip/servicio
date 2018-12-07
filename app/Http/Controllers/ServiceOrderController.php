@@ -33,16 +33,16 @@ class ServiceOrderController extends Controller
         // dd($request);
         $user = $request->user();
         // dd($user->type_user);
-        // if ($user->type_user ) {
-            # code...
-        // } else {
-            # code...
-        // }
+       
         
 
         if(userHasPermission("listar_consulta_servicio")) {
-             
-            $service_orders = ServiceOrder::all();
+            if ($user->type_user == 2 ) {
+                // dd($user->getOrders);
+                $service_orders = $user->getOrders;
+            } else {
+                $service_orders = ServiceOrder::all();
+            }
             
             return view('help_service.service_orders.index', compact('service_orders'));
         }

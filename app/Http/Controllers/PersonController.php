@@ -78,7 +78,7 @@ class PersonController extends Controller
             $person_data['user_id'] = $user->id;*/
             Person::create($person_data);
             //$person->notifyCreatedUser($person_data['email'], $password);
-            $request->session()->flash('message', 'Persona creada correctamente');
+            $request->session()->flash('message', 'Person created successfully');
             return redirect()->route('persons.index');
          } catch(\Exception $e) {
              return redirect()->back()->withErrors($e->getMessage());
@@ -130,7 +130,7 @@ class PersonController extends Controller
         try {
             $person->fill($person_data)->save();
             //$person->user->fill($user_data)->save();
-            $request->session()->flash('message', 'Persona actualizada correctamente');
+            $request->session()->flash('message', 'Person updated successfully');
             return redirect()->route('persons.index');
         }catch(\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
@@ -159,7 +159,7 @@ class PersonController extends Controller
                 $user_id = $person->user->id;*/
                 $person->delete();
                 //User::destroy($user_id);
-                Session::flash('message', 'Persona eliminada correctamente');
+                Session::flash('message', 'Person deleted successfully');
                 return response()->json(['errors' => false]);
             }catch(\Exception $e) {
                 $response['errors'] = true;
