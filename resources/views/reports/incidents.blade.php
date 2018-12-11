@@ -50,7 +50,7 @@
                                 <div class="form-group col-md-8" id="dates_sub_container">
                                     <label class="control-label">Date:</label>
                                     <div class="input-group input-medium date-picker input-daterange" data-date-format="dd-mm-yyyy">
-                                        <span class="input-group-addon" style="position: relative; z-index: 9999999999999999999999">From</span>
+                                        <span class="input-group-addon">From</span>
                                         <!--'position' => 'relative', 'z-index' => '99999999999999'-->
                                         {!! Form::text('incidents[start_date]', null, ['class' => 'form-control date-input', 'id' => 'from_date']) !!}
                                         <span class="input-group-addon">To</span>

@@ -47,7 +47,10 @@
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     <script type="application/javascript">
         $(document).ready(function(){
-            $("#liCatalogs").addClass("active");
+            $("#liTools").addClass("active");
+            $("#liLocations").addClass("active");
+
+
         });
     </script>
 @endsection

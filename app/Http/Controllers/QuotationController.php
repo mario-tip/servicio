@@ -82,7 +82,7 @@ class QuotationController extends Controller
             if($incident_parts == false) {
                 $response['errors'] = true;
                 $response['errors_fragment'] = \View::make('partials.request')
-                    ->withErrors(['msg' => 'Debes especificar un precio para cada parte seleccionada'])->render();
+                    ->withErrors(['msg' => 'Specify a price for each selected part'])->render();
                 return $response;
             }
 

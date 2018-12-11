@@ -18,7 +18,7 @@
             </li>
 
             <li>
-                <a>Provider</a>
+                <a>Suppliers</a>
             </li>
         </ul>
     </div>
@@ -32,7 +32,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="glyphicon glyphicon-briefcase font-blue-800"></i>
-                        <span class="caption-subject bold font-blue-800">Providers brochure</span>
+                        <span class="caption-subject bold font-blue-800">Suppliers brochure</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -42,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_proveedores"))
-                                    <a href="{{URL::route('providers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add provider</a>
+                                    <a href="{{URL::route('providers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add supplier</a>
                                     @endif
                                 </div>
                             </div>

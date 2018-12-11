@@ -47,7 +47,8 @@
 
 table tbody tr #quotation_description_td {
   width: 33%;
-  text-align: justify; }
+  /* text-align: justify;  */
+}
 
 /*# sourceMappingURL=quotation.css.map */
 #authorization_form > div:nth-child(3){
@@ -61,4 +62,9 @@ table tbody tr #quotation_description_td {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.center{
+  text-align: center;
 }

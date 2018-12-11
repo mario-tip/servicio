@@ -266,7 +266,7 @@ class AssetController extends Controller
             $asset->parts()->sync($equipment_parts);
             $asset->locations()->sync($locations);
             $asset->save();
-            $request->session()->flash('message', 'Activo actualizado correctamente');
+            $request->session()->flash('message', 'Asset updated successfully');
             return response()->json(['errors' => false]);
         } catch (\Exception $e) {
             $response = [

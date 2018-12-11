@@ -40,8 +40,10 @@ class ServiceOrderController extends Controller
             if ($user->type_user == 2 ) {
                 // dd($user->getOrders);
                 $service_orders = $user->getOrders;
+                // dd(service_orders);
             } else {
                 $service_orders = ServiceOrder::all();
+                // dd($service_orders);
             }
             
             return view('help_service.service_orders.index', compact('service_orders'));
