@@ -741,6 +741,15 @@ class APIController extends Controller
                 $service_order->person_id = $person_id;
                 $service_order->save();
 
+                //Aqui vamos a enviar el correo de que el servicio (Mantenimiento, incidencia) fue realizado con exito 
+                // echo "Hola mundo";
+                // return $service_aux;
+                // echo "<script type=\"text/javascript\">alert(\"Fotos guardadas\");</script>";  
+
+                // DB::table('log')->insert([
+                //     "texto" => $service_order->user; 
+                // ]);
+        
                 if (!empty($parts)) {
                     if ($service_order->type == 0) {
                         $incident = Incident::find($service_order->type_id);

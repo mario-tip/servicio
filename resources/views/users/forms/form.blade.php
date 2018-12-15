@@ -42,7 +42,7 @@
               <div class="col-md-6 form-group-container">
                 <div class="form-group">
                     <label class="" for="type_user"><span>*</span>Type user : </label>
-                      {!! Form::select('type_user', array('1'=>'Administrator','2'=>'Technical','3'=>'Customer','4'=>'Person'), null, ['class' => 'bs-select form-control', 'id' => 'type_user', 'title' => 'Select...']) !!}
+                      {!! Form::select('type_user', array('1'=>'Administrator', '5'=>'Supervisor','2'=>'Technical','3'=>'Customer','4'=>'Person'), null, ['class' => 'bs-select form-control', 'id' => 'type_user', 'title' => 'Select...']) !!}
                 </div>
               </div>
             </div>
@@ -52,7 +52,6 @@
                 // echo $user->is_central;
                 // echo gettype ($user->is_central);
               @endphp
-
             </div>
         </div>
     </div>

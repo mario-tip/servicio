@@ -16,18 +16,19 @@ $('#tickets_filters_form').submit(function(e){
                 $('#sample_editable_1').DataTable(
                     {"data":data,
                         "columns":[
-                            {data:"folio"},
-                            {data:"customer"},
-                            {data:"person"},
-                            {data:"asset"},
+                            {data:"folio", className: 'dt-body-center'},
+                            {data:"customer", className: 'dt-body-center'},
+                            {data:"person" ,className: 'dt-body-center'},
+                            {data:"asset", className: 'dt-body-center'},
                             {
                                 data:"resolution_date",
                                 render: function(d){
                                     return (moment(d).isValid()) ? moment(d).format("DD-MM-YYYY HH:mm") : '';
-                                }
+                                },
+                                className: 'dt-body-center'
                             },
-                            {data:"technician"},
-                            {data:"location"},
+                            {data:"technician", className: 'dt-body-center'},
+                            {data:"location" , className: 'dt-body-center'},
                             {
                                 data:"status",
                                 render : function(data){
@@ -37,7 +38,8 @@ $('#tickets_filters_form').submit(function(e){
                                     return '<span class="label label-sm label-success">'+ data +'</span>'
                                   }
 
-                                }
+                                },
+                                className: 'dt-body-center'
                             },
                         ],
                         "order":[

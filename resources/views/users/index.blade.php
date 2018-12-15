@@ -75,7 +75,9 @@
                                   <td class="center"><span class="btn default red-thunderbird-stripe">Person</span></td>
                                 @endif
 
-
+                                @if ($user->type_user == 5)
+                                  <td class="center"><span class="btn default yellow-lemon-stripe">Supervisor</span></td>
+                                @endif
 
                                 <td >
                                   <div class="center_items">

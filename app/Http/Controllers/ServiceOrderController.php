@@ -9,11 +9,10 @@ use App\Incident;
 use App\ServiceOrder;
 use Illuminate\Http\Request;
 use App\Mail\OrderServiceMail;
-
+use App\Mail\sendUserMail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ServiceOrderRequest;
-
 
 
 class ServiceOrderController extends Controller
@@ -33,8 +32,6 @@ class ServiceOrderController extends Controller
         // dd($request);
         $user = $request->user();
         // dd($user->type_user);
-       
-        
 
         if(userHasPermission("listar_consulta_servicio")) {
             if ($user->type_user == 2 ) {
@@ -80,6 +77,8 @@ class ServiceOrderController extends Controller
      */
     public function store(ServiceOrderRequest $request)
     {
+        $user = $request->user();
+        // dd($user->email);
 
         $service_order_data = $request->get('service_order');
 
@@ -94,6 +93,8 @@ class ServiceOrderController extends Controller
             // return (new Mailable())->to($serviceOrderTemp->technician['email']);
             
             Mail::to($serviceOrderTemp->technician['email'])->send(new OrderServiceMail($serviceOrderTemp));
+            Mail::to($user->email)->send(new sendUserMail($serviceOrderTemp));
+
             $request->session()->flash('message', 'Service order saved correctly');
             return redirect('/service-orders');
         } catch(\Exception $e) {

@@ -17,6 +17,12 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 Route::resource('/users', 'UserController');
+
+Route::resource('/roles', 'RoleController');
+// Route::get('/users/roles', 'RoleController@index');
+
+// Route::get('/users/roles', ['as' => 'Role.index', 'uses' => 'RoleController@index']);
+
 Route::post('searchEmail', 'UserController@searchEmail');
 
 //Assets

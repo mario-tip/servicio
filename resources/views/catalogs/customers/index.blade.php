@@ -64,16 +64,18 @@
                                 <td class="center"> {{$customer->name}}</td>
                                 <td class="center"> {{$customer->getTypeWord()}}</td>
                                 <td>
-                                    @if(userHasPermission("editar_catalogo_clientes"))
-                                    <a href="{{route('customers.edit', $customer->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    @endif
-                                    @if(userHasPermission("eliminar_catalogo_clientes"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$customer->name}}" data-id="{{$customer->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-customer">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                    @endif
+                                    <div>
+                                        @if(userHasPermission("editar_catalogo_clientes"))
+                                        <a href="{{route('customers.edit', $customer->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        @endif
+                                        @if(userHasPermission("eliminar_catalogo_clientes"))
+                                        <a href="#basic" data-toggle="modal" data-name="{{$customer->name}}" data-id="{{$customer->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-customer">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                        @endif
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

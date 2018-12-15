@@ -21,15 +21,15 @@ $('#customer_service_orders_filters_form').submit(function(e){
                 $('#sample_editable_1').DataTable(
                     {"data":data,
                         "columns":[
-                            {data:"folio"},
-                            {data:"customer"},
-                            {data:"person"},
-                            {data:"asset"},
-                            {data:"date_incident"},
-                            {data:"resolution_date"},
-                            {data:"time_request"},
-                            {data:"technician"},
-                            {data:"location"},
+                            {data:"folio",className: 'dt-body-center'},
+                            {data:"customer",className: 'dt-body-center'},
+                            {data:"person",className: 'dt-body-center'},
+                            {data:"asset",className: 'dt-body-center'},
+                            {data:"date_incident",className: 'dt-body-center'},
+                            {data:"resolution_date",className: 'dt-body-center'},
+                            {data:"time_request",className: 'dt-body-center'},
+                            {data:"technician",className: 'dt-body-center'},
+                            {data:"location",className: 'dt-body-center'},
                             {
                                 data:"status",
                                 render : function(data){
@@ -39,7 +39,8 @@ $('#customer_service_orders_filters_form').submit(function(e){
                                     return '<span class="label label-sm label-success">'+ data +'</span>'
                                   }
 
-                                }
+                                },
+                                className: 'dt-body-center'
                             },
                         ],
                         "order":[

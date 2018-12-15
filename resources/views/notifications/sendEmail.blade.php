@@ -1,6 +1,5 @@
 
 @component('mail::message')
-{{-- {{ dd($orderService) }} --}}
 # Notifications service order
 
 You have a new service order, click on the following link
@@ -18,5 +17,5 @@ Show service order
 @endcomponent
 
 Thanks, {{$orderService->technician['name']}} <br>
-{{-- {{ config('app.name') }} --}}
+
 @endcomponent

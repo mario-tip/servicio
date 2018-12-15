@@ -82,7 +82,8 @@ class ServiceOrder extends Model
             '0' => 'Pending',
             '1' => 'Attended'
         ];
-        return $incidents[$this->type];
+        
+        return $incidents[$this->status];
     }
 
     /**STAR TECHNICIAN TICKETS**/

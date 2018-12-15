@@ -28,6 +28,7 @@
                     <a  class="nav-link nav-toggle">
                       <i class="icon-earphones-alt"></i>
                       <span class="title not-select ">Help Desk</span>
+                      <span class="selected"></span>
                     </a>
                     <ul class="sub-menu">
 
@@ -69,6 +70,7 @@
                   <a class="nav-link nav-toggle">
                       <i class="icon-screen-desktop"></i>
                       <span class="title not-select ">Assets</span>
+                      <span class="selected"></span>
                   </a>
                   <ul class="sub-menu">
                     <li id="liAssetsList" class="nav-item">
@@ -107,6 +109,7 @@
                     <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                       <i class="icon-graph"></i>
                       <span class="title not-select ">Analytics</span>
+                      <span class="selected"></span>
                     </a>
                     <ul class="sub-menu">
                       <li id="liServiceOrdersBinnacle" class="nav-item">
@@ -140,6 +143,7 @@
                     <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                         <i class=" icon-settings"></i>
                         <span class="title not-select ">Admin panel </span>
+                        <span class="selected"></span>
                     </a>
                     <ul class="sub-menu">
                       <li id="liSuppliers" class="nav-item">
@@ -177,6 +181,11 @@
                         <i class="glyphicon glyphicon-sunglasses"></i>
                         Users</a>
                       </li>
+                      <li id="liRoles" class="nav-item">
+                          <a href="{!!URL::to('/roles')!!}" class="nav-link nav-toggle">
+                          <i class=" icon-users"></i>
+                          Roles</a>
+                        </li>
                     </ul>
                 </li>
                 @endif

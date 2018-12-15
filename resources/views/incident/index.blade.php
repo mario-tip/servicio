@@ -58,10 +58,13 @@
                             <th class="center">Start Hour</th>
                             <th class="center">End Date</th>
                             <th class="center">End Hour</th>
-
-
-                            {{--<th class="center">Estatus</th>--}}
-                            <th class="center">Actions</th>
+                            @if ( 
+                            userHasPermission("editar_registro_incidencias") || 
+                            userHasPermission("eliminar_registro_incidencias") || 
+                            userHasPermission("generar_orden_servicio"))
+                                <th class="center">Actions</th>   
+                            @endif
+                            
                         </tr>
                         </thead>
 
@@ -113,33 +116,35 @@
 
                                 <td class="center"> {{$incident->suggested_time}}  </td>
 
+                                @if ( 
+                                userHasPermission("editar_registro_incidencias") || 
+                                userHasPermission("eliminar_registro_incidencias") || 
+                                userHasPermission("generar_orden_servicio") )
+                                    <td>
+                                    <div>
+                                        @if(userHasPermission("editar_registro_incidencias"))
+                                        <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Edit"
+                                        class="btn btn-circle btn-icon-only btn-info ">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        @endif
+                                        @if(userHasPermission("eliminar_registro_incidencias"))
+                                        <a href="#basic" data-toggle="modal" data-name="{{$incident->name}}"
+                                        data-id="{{$incident->id}}" title="Delete"
+                                        class="btn btn-circle btn-icon-only red modalDelete">
+                                            <i class="fa  fa-trash-o"></i>
+                                        </a>
+                                        @endif
 
-
-                                {{--<td class="center">  </td>--}}
-                                <td>
-                                  <div>
-                                    @if(userHasPermission("editar_registro_incidencias"))
-                                    <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Edit"
-                                       class="btn btn-circle btn-icon-only btn-info ">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    @endif
-                                    @if(userHasPermission("eliminar_registro_incidencias"))
-                                    <a href="#basic" data-toggle="modal" data-name="{{$incident->name}}"
-                                       data-id="{{$incident->id}}" title="Delete"
-                                       class="btn btn-circle btn-icon-only red modalDelete">
-                                        <i class="fa  fa-trash-o"></i>
-                                    </a>
-                                    @endif
-
-                                    @if(userHasPermission("generar_orden_servicio"))
-                                    <a href="{{url('service-orders/create/' . $incident->id)}}" title="Generate service order"
-                                       class="btn btn-circle btn-icon-only green-meadow ">
-                                        <i class="fa fa-file-text-o"></i>
-                                    </a>
-                                    @endif
-                                  </div>
-                                </td>
+                                        @if(userHasPermission("generar_orden_servicio"))
+                                        <a href="{{url('service-orders/create/' . $incident->id)}}" title="Generate service order"
+                                        class="btn btn-circle btn-icon-only green-meadow ">
+                                            <i class="fa fa-file-text-o"></i>
+                                        </a>
+                                        @endif
+                                    </div>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
