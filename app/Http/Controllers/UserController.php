@@ -50,7 +50,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-      // dd($request);
+    //   dd("entro store users");
       $rule= [
             'name' => 'required',
             'email' => 'required|unique:users,email',

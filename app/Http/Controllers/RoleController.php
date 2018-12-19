@@ -43,6 +43,11 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $rule= [
+            'name' => 'required'
+        ];
+        $this->validate($request,$rule);
+        dd($request->all());
         return "hola Store";
     }
 

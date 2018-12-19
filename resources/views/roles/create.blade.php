@@ -3,6 +3,8 @@
     {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
     {!! Html::style("/assets/css/asset.css") !!}
     {!!Html::style("/assets/global/plugins/icheck/skins/all.css")!!}
+    {{-- {!!Html::style("/assets/global/plugins/jstree/dist/themes/default/style.min.css")!!} --}}
+
 @endsection
 
 @section('breadcrumb')
@@ -36,7 +38,7 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    {!! Form::open(['route' => 'roles.store', 'method' => 'POST', 'class' => '', 'files' => true]) !!}
+                    {!! Form::open(['route' => 'roles.store', 'method' => 'POST', 'class' => 'form-horizontal', 'files' => true]) !!}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                         @include("roles.forms.form")
                     {!!Form::close()!!}
@@ -52,11 +54,15 @@
     {!! Html::script("/assets/pages/scripts/components-bootstrap-select.min.js") !!}
     {!! Html::script("/assets/scripts/validateFields.js") !!}
     {!! Html::script("/assets/global/plugins/icheck/icheck.min.js") !!}
+    {{-- {!! Html::script("/assets/global/plugins/jstree/dist/jstree.min.js") !!} --}}
+
 
     <script type="application/javascript">
         $(document).ready(function(){
           $("#liTools").addClass("active");
           $("#liRoles").addClass("active");
+
+          
         });
     </script>
 @endsection

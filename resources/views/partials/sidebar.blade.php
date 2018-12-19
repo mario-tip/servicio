@@ -169,7 +169,7 @@
                       <li id="liProjects" class="nav-item">
                         <a href="{{route('projects.index')}}" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-blackboard"></i>
-                        Proyects</a>
+                        Projects</a>
                       </li>
                       <li id="liEquipments" class="nav-item">
                         <a href="{!!URL::to('/equipments')!!}" class="nav-link nav-toggle">
