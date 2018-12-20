@@ -19,9 +19,10 @@
                                 <span class="caption-subject font-green-sharp bold uppercase">Permissions</span>
                             </div>
                             <ul class="nav nav-tabs">
+                               
                                 <li class="active">
                                     <a href="#portlet_tab_1_1" data-toggle="tab" aria-expanded="true">
-                                    help desk </a>
+                                    Help desk </a>
                                 </li>
                                 <li class="">
                                     <a href="#portlet_tab_1_2" data-toggle="tab" aria-expanded="false">
@@ -39,204 +40,151 @@
                         </div>
                         <div class="portlet-body form">
                             <div class="tab-content">
+
                                 <div class="tab-pane active" id="portlet_tab_1_1">
                                     <div class="skin skin-minimal ">        
-                                        {{-- <form class="form-horizontal" role="form" > estas lineas fueron comentadas para el formulario llegara al controlador  --}} 
-                                            <div class="form-body col-md-3">
-                                                <div class="form-group">
-                                                    <label class=" col-md-4 control-label">Incidents</label>
-                                                    <div class="input-group">
-                                                        <div class="icheck-list">
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="listar_registro_incidencias" 
-                                                                    @if(is_array(old('permissions')) && in_array('listar_registro_incidencias', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
+                                    {{-- <form class="form-horizontal" role="form" > estas lineas fueron comentadas para el formulario llegara al controlador  --}} 
+                                        @foreach ($categories as $category)
+                                            @if ( $category->module_category == 1 )
+                                               
+                                                @if( $category->id == 4 ) <div class="row"> @endif 
+                                                    <div class="form-body col-md-3">
+                                                        <div class="form-group">
+                                                            <label class=" col-md-4 control-label">{{ $category->display_name}}</label>
+                                                            
+                                                            <div class="input-group">
+                                                                <div class="icheck-list">
+                                                                    
+{{-- <input type="checkbox" name="departments[]" value="{{ $item->id }}" {{ in_array($item->id, old('departments', [])) ? 'checked' : '' }}> --}}
 
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div> Show list 
-                                                            </label>
-
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="crear_registro_incidencias" 
-                                                                    @if(is_array(old('permissions')) && in_array('crear_registro_incidencias', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div> Create 
-                                                            </label>
-
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="editar_registro_incidencias" 
-                                                                    @if(is_array(old('permissions')) && in_array('editar_registro_incidencias', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div> Edit 
-                                                            </label>
-
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="eliminar_registro_incidencias" 
-                                                                    @if(is_array(old('permissions')) && in_array('eliminar_registro_incidencias', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div> Delete 
-                                                            </label>
-
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="generar_orden_servicios" 
-                                                                    @if(is_array(old('permissions')) && in_array('generar_orden_servicios', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div>Order service
-                                                            </label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-body col-md-3">
-                                                <div class="form-group">
-                                                    <label class=" col-md-4 control-label">Quotation Service</label>
-                                                    <div class="input-group">
-                                                        <div class="icheck-list">
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="listar_cotizacion_servicios" 
-                                                                    @if(is_array(old('permissions')) && in_array('listar_cotizacion_servicios', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div>Show list 
-                                                            </label>
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="crear_cotizacion_servicios" 
-                                                                    @if(is_array(old('permissions')) && in_array('crear_cotizacion_servicios', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div> Show list 
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {{-- </form> --}}
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="portlet_tab_1_2">
-                                    <div class="skin skin-minimal">
-                                        {{-- <form role="form" class="form-horizontal"> --}}
-                                            <div class="form-body col-md-3">
-                                                <div class="form-group">
-                                                    <label class=" col-md-4 control-label">Asset list </label>
-                                                    <div class="input-group">
-                                                        <div class="icheck-list">
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>Show list  </label>
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey checked" style="position: relative;"><input type="checkbox" checked="" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Create </label>
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Edit  </label>
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Show  </label>
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Update Firmware  </label>
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> History Firmware  </label>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                            <div class="form-body col-md-3">
-                                                    <div class="form-group">
-                                                        <label class=" col-md-4 control-label">Asset list </label>
-                                                        <div class="input-group">
-                                                            <div class="icheck-list">
-                                                                <label>
-                                                                <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>Show list  </label>
-                                                                <label>
-                                                                <div class="icheckbox_flat-grey checked" style="position: relative;"><input type="checkbox" checked="" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Create </label>
-                                                                <label>
-                                                                <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Edit  </label>
-                                                                <label>
-                                                                <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Show  </label>
-                                                                <label>
-                                                                <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Update Firmware  </label>
-                                                                <label>
-                                                                <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> History Firmware  </label>
+                                                                    @foreach ($permissions as $permission)
+                                                                            @if ($permission->category_permission_id == $category->id )
+                                                                                {{-- <div>{{$permission->name}}</div> --}}
+                                                                                <label>
+                                                                                    <div class="icheckbox_flat-grey " style="position: relative;">
+                                                                                        
+                                                                                        <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id ,old('permissions_arr',[])) ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
+                
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                                                        </ins>
+                                                                                    </div> {{$permission->display_name}}
+                                                                                    
+                                                                                </label>
+                                                                            @endif
+                                                                    @endforeach
+                                                                    
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
-                                                </div>
-                                        {{-- </form> --}}
+                                                    </div>
+                                                @if( $category->id == 4  ) </div>  @endif 
+                                            @endif
+                                        @endforeach
+                                    {{-- </form> --}}
                                     </div>
                                 </div>
+
+                                <div class="tab-pane" id="portlet_tab_1_2">
+                                    <div class="skin skin-minimal">
+                                    {{-- <form role="form" class="form-horizontal"> --}}
+                                        @foreach ($categories as $category)
+                                            @if ( $category->module_category == 2 )
+                                                <div class="form-body col-md-3">
+                                                    <div class="form-group">
+                                                        <label class=" col-md-4 control-label">{{ $category->display_name}}</label>
+                                                        <div class="input-group">
+                                                            <div class="icheck-list">
+
+                                                                @foreach ($permissions as $permission)
+                                                                    @if ($permission->category_permission_id == $category->id )
+                                                                        {{-- <div>{{$permission->name}}</div> --}}
+                                                                        <label>
+                                                                            <div class="icheckbox_flat-grey " style="position: relative;">
+                                                                                <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id ,old('permissions_arr',[])) ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
+
+                                                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                                                </ins>
+                                                                            </div> {{$permission->display_name}}
+                                                                        </label>
+                                                                    @endif
+                                                                @endforeach
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>  
+                                            @endif
+                                        @endforeach  
+                                    </div>
+                                    {{-- </form> --}}
+                                    
+                                </div>
+
                                 <div class="tab-pane" id="portlet_tab_1_3">
-                                    <div class="skin skin-flat">
+                                    <div class="skin skin-minimal">
                                         {{-- <form role="form " > --}}
-                                            <div class="form-body">
-                                                <div class="form-group ">
-                                                    <label>Checkbox List</label>
-                                                    <div class="input-group">
-                                                        <div class="icheck-list">
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Checkbox 1 </label>
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey checked" style="position: relative;"><input type="checkbox" checked="" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Checkbox 2 </label>
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Checkbox 3 </label>
+                                        @foreach ($categories as $category)
+                                            @if ( $category->module_category == 3 )
+                                                <div class="form-body col-md-3">
+                                                    <div class="form-group">
+                                                        <label class=" col-md-4 control-label">{{ $category->display_name}}</label>
+                                                        <div class="input-group">
+                                                            <div class="icheck-list">
+                                                                @foreach ($permissions as $permission)
+                                                                    @if ($permission->category_permission_id == $category->id )
+                                                                        <label>
+                                                                            <div class="icheckbox_flat-grey " style="position: relative;">
+                                                                                <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id ,old('permissions_arr',[])) ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
+
+                                                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                                                </ins>
+                                                                            </div> {{$permission->display_name}}
+                                                                        </label>
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </div>  
+                                            @endif
+                                        @endforeach  
                                         {{-- </form> --}}
                                     </div>
                                 </div>
+
                                 <div class="tab-pane" id="portlet_tab_1_4">
-                                    <div class="skin skin-line">
-                                        {{-- <form role="form"> --}}
-                                            <div class="form-body">
+                                    <div class="skin skin-minimal">
+                                    {{-- <form role="form"> --}}
+                                    @foreach ($categories as $category)
+                                        @if ( $category->module_category == 4 )
+                                            <div class="form-body col-md-3">
                                                 <div class="form-group">
-                                                    <label>Checkbox List</label>
+                                                    <label class=" col-md-4 control-label">{{ $category->display_name}}</label>
                                                     <div class="input-group">
                                                         <div class="icheck-list">
+                                                            @foreach ($permissions as $permission)
+                                                                @if ($permission->category_permission_id == $category->id )
+                                                                    {{-- <div>{{$permission->name}}</div> --}}
+                                                                    <label>
+                                                                        <div class="icheckbox_flat-grey " style="position: relative;">
+                                                                            <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id ,old('permissions_arr',[])) ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
 
-                                                            <label>
-                                                                <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                    <input name="permissions[]" value="Permiso4" 
-                                                                    @if(is_array(old('permissions')) && in_array('Permiso4', old('permissions'))) checked @endif 
-                                                                    type="checkbox"  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
-                                                                    </ins>
-                                                                </div> Checkbox 2 
-                                                            </label>
-
-
-                                                            <label>
-                                                            <div class="icheckbox_flat-grey" style="position: relative;"><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Checkbox 3 </label>
+                                                                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                                            </ins>
+                                                                        </div> {{$permission->display_name}}
+                                                                    </label>
+                                                                @endif
+                                                            @endforeach
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        {{-- </form> --}}
+                                            </div>  
+                                        @endif
+                                    @endforeach  
+                                    {{-- </form> --}}
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

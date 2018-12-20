@@ -14,7 +14,8 @@ class Categories_permission extends Model
 
     public function permissions()
     {
-        return $this->hasMany('App\Permission');
+        // return $this->hasMany('App\Permission');
+        return $this->hasMany(Permissions::class,'category_id','id');
     }
 
 }

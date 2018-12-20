@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Role;
+use App\Categories_permission;
+use App\Permission;
 use Illuminate\Support\Facades\Session;
+
 
 
 class RoleController extends Controller
@@ -30,9 +33,13 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('roles.create');
+        
+        $categories = Categories_permission::all();
+        $permissions = Permission::all();
+        // dd($permissions);
+        return view('roles.create', compact('categories','permissions'));
     }
 
     /**
@@ -47,8 +54,17 @@ class RoleController extends Controller
             'name' => 'required'
         ];
         $this->validate($request,$rule);
-        dd($request->all());
-        return "hola Store";
+        // dd($request->all());
+        $request['display_name'] = ucwords($request->name);
+
+        dd($request->permissions_arr);
+
+        $role =  Role::create($request->all());
+        foreach ($request->permissions_arr as $key => $value) {
+            # code...
+        }
+        // dd($role);
+
     }
 
     /**
