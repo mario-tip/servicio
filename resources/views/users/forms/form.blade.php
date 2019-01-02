@@ -46,13 +46,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="">
-              @php
-                // echo $user->is_central;
-                // echo gettype ($user->is_central);
-              @endphp
-            </div>
         </div>
     </div>
 </div>

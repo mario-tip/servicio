@@ -1,7 +1,7 @@
 @extends("layouts.master")
 @section("styles")
     {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
-    {!! Html::style("/assets/css/asset.css") !!}
+    {!! Html::style("/assets/css/roles.css") !!}
     {!!Html::style("/assets/global/plugins/icheck/skins/all.css")!!}
     {{-- {!!Html::style("/assets/global/plugins/jstree/dist/themes/default/style.min.css")!!} --}}
 

@@ -55,8 +55,6 @@
                                                             <div class="input-group">
                                                                 <div class="icheck-list">
                                                                     
-{{-- <input type="checkbox" name="departments[]" value="{{ $item->id }}" {{ in_array($item->id, old('departments', [])) ? 'checked' : '' }}> --}}
-
                                                                     @foreach ($permissions as $permission)
                                                                             @if ($permission->category_permission_id == $category->id )
                                                                                 {{-- <div>{{$permission->name}}</div> --}}

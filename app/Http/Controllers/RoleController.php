@@ -1,11 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Role;
 use App\Categories_permission;
 use App\Permission;
+use App\Permission_role;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
+
+
+
 use Illuminate\Support\Facades\Session;
 
 
@@ -53,17 +60,29 @@ class RoleController extends Controller
         $rule= [
             'name' => 'required'
         ];
+
         $this->validate($request,$rule);
-        // dd($request->all());
+        
         $request['display_name'] = ucwords($request->name);
 
-        dd($request->permissions_arr);
-
         $role =  Role::create($request->all());
+
+        // dd($role->id);
+        
         foreach ($request->permissions_arr as $key => $value) {
-            # code...
-        }
-        // dd($role);
+
+             DB::table('permission_role')->insert([
+                'permission_id' => $value,
+                'role_id' => $role->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                
+            ]); 
+         }
+        
+        Session::flash('message', 'Role saved successfully!');
+        return Redirect::to('/roles');
+        // dd($permission);
 
     }
 
@@ -86,7 +105,26 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        return "Hola edit ";
+        
+        $role = Role::findOrFail($id);     
+        
+        $permissions_active = DB::table('permissions')
+            ->join('permission_role', 'permissions.id', '=', 'permission_role.permission_id')
+            ->select('permissions.*')
+            ->where('permission_role.role_id', '=', $role->id )
+            ->get();
+        
+        $categories = Categories_permission::all();
+        $permissions = Permission::all();
+
+        foreach ($permissions as $key => $permission) {
+            foreach ($permissions_active as $key => $permission_active) {
+                if ($permission->name == $permission_active->name  ){
+                    $permission['active'] = true;
+                }
+            }
+        }
+    return view('roles.edit', compact('permissions_active','role','categories','permissions'));
     }
 
     /**
@@ -98,7 +136,41 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rule= [
+            'name' => 'required'
+        ];
+
+        $this->validate($request,$rule);
+        // dd($id);
+
+        $permissions = DB::table('permissions')
+            ->join('permission_role', 'permissions.id', '=', 'permission_role.permission_id')
+            ->select('permissions.*')
+            ->where('permission_role.role_id', '=', $id )
+            ->get();
+
+        // dd($permissions);
+
+        dd($request->permissions_arr);
+
+        foreach ($permissions as $key => $permission) {
+            foreach ($request->permissions_arr as $key => $permission_arr) {
+                if ($permission->id == $permission_arr ){
+                    
+                }else {
+                    $data ['permission'] = $permission_arr;
+                }
+            }
+        }
+
+        dd($data);
+
+        // dd($request->all());
+        // dd("hola mundo");
+
+
+
+
     }
 
     /**
