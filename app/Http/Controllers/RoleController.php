@@ -26,8 +26,10 @@ class RoleController extends Controller
         $this->middleware('auth');
     }
     /**
-     * Display a listing of the resource.
+     * Muestra todos los roles existentes en el sistema.
      *
+     * Se recuperan todos los roles y se pasan como parametro a la vista asignada (roles.index).
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -38,21 +40,24 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Se va a crear un nuevo rol con los permisos que sean asignados.
+     * 
+     * Se recuperan las categorias por las que se agruparon los permisos, se recuperan todos los permisos y se pasan como parametros a la vista asignada 
      *
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
     {
-        
         $categories = Categories_permission::all();
         $permissions = Permission::all();
-        // dd($permissions);
         return view('roles.create', compact('categories','permissions'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Guarda el nuevo role.
+     * 
+     * Se valida que el nombre del role sea requerido, se pone en mayusculas el campo display_name del role, y se guarda el nuevo role, se hace un ciclo foreach para guardar los permisos para ese nuevo role y se notifica que el role fue guardado exitosamente y al final se redirecciona a la pantalla index.
+     *
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -68,23 +73,19 @@ class RoleController extends Controller
         $request['display_name'] = ucwords($request->name);
 
         $role =  Role::create($request->all());
-
-        // dd($role->id);
         
         foreach ($request->permissions_arr as $key => $value) {
-
              DB::table('permission_role')->insert([
                 'permission_id' => $value,
                 'role_id' => $role->id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                
             ]); 
          }
         
         Session::flash('message', 'Role saved successfully!');
         return Redirect::to('/roles');
-        // dd($permission);
+        
 
     }
 
@@ -100,16 +101,16 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra la interfaz para editar el role.
      *
+     * Se busca el role que vamos a editar, se recuperan los permisos que ya tiene ese role, se recuperan las categorias de los permisos y asi tambien todos los permisos, se ejecuta un ciclo foreach para sabe cuales son los permisos de el role a editar y se pasan a la vista para poder saber cuales son los checks a habilitar.
+     * 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        
-        $role = Role::findOrFail($id);     
-        
+        $role = Role::findOrFail($id);
         $permissions_active = DB::table('permissions')
             ->join('permission_role', 'permissions.id', '=', 'permission_role.permission_id')
             ->select('permissions.*')
@@ -130,22 +131,22 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza el role.
+     * 
+     * Se valida que el nombre sea requerido, y se actuliza el nombre del role, se declaran dos arreglos para controlar los permisos, el ciclo foreach inserta los $id de todos los permisos, el segundo for each inserta los $id de los permisos que ya estan activos en ese role que viene en el $request, el arreglo $adds contiene los $id de los permisos los cuales se van a insertar, el arreglo $deletes contiene los $id de los permisos que van a eliminarse de ese role, y el tercer ciclo foreach se ejecuta y se insertan los permisos el cuarto ciclo foreach elimina uno por uno los permisos que fueron removidos de ese role, para finalizar se notifica que el role fue actualizado exitosamente y se redirecciona a la pagina para seguir editando otros roles.  
      *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-
-        // dd($request->all());
         $rule= [
             'name' => 'required'
         ];
 
         $this->validate($request,$rule);
-        // dd($id);
 
         Role::findOrFail($id)->update($request->all());
 
@@ -154,7 +155,6 @@ class RoleController extends Controller
             ->select('permissions.*')
             ->where('permission_role.role_id', '=', $id )  
             ->get();
-
 
         $data = array();
         $data2 = array();
@@ -168,15 +168,10 @@ class RoleController extends Controller
             array_push ( $data2 ,$aux); 
         }
 
-        // dd($data2);
-
         $adds = array_diff($data2,$data); //este array contiene los permisos a insertar.
-        // dd($add);
         $deletes = array_diff($data,$data2); //este array contiene los permisos a eliminar 
-        // dd($delete);
 
         foreach ($adds as $key => $add) {
-            // var_dump($add);
             DB::table('permission_role')->insert([
                'permission_id' => $add,
                'role_id' => $id,
@@ -191,16 +186,15 @@ class RoleController extends Controller
                                         ->where('role_id', '=', $id)
                                         ->delete();
         }
-
-
-
         
         Session::flash('message', 'Roll update successfully!');
         return Redirect::to('/roles');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Se eliminan los roles.
+     * 
+     * Se recupera el rol que vamos a eliminar, se recuperan todos los usuarios, el ciclo foreach busca si el role pertenece a un usuario, la condicion ($data) sabemos si el role pertenece a un usuario en caso de ser verdad no se puede eliminar el role, en caso contrario se elimina el role y todos los permisos que le pertenecen a el mismo, se notifica que el role fue eliminado y se retorna la bandera para saber si se elimino o no.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -209,7 +203,8 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $users = User::all();
-        $data = false;
+
+        $data = false; //variable auxiliar funciona como bandera 
         foreach ($users as $key => $user) {
             if ($user->type_user == $id) {
                 $data = true;
@@ -228,5 +223,8 @@ class RoleController extends Controller
 
         return response()->json(['success' => $data]);
     }
+
+
+    
 
 }
