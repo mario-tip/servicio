@@ -60,7 +60,7 @@
                             @foreach($roles as $role)
                             <tr>
                                 <td class="center">{{$role->id}}</td>
-                                <td class="center">{{$role->display_name}}</td>
+                                <td class="center">{{$role->name}}</td>
                                 <td >
                                     <div class="center_items">
                                         <a href="{{URL::route('roles.edit', $role->id) }}" title="Edit" class="btn btn-icon-only blue circle">
@@ -84,15 +84,32 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Delete user </h4>
+                    <h4 class="modal-title">Delete role </h4>
                 </div>
                 <div class="modal-body" id="bodyDelete">
 
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                    <button type="button" class="btn green-meadow circle" data-dismiss="modal" onclick="deleteUser()">Ok</button>
+                    <button type="button" class="btn green-meadow circle" data-dismiss="modal" onclick="deleteRole()">Ok</button>
                     <button type="button" class="btn red circle" data-dismiss="modal"></i>Cancel</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" id="basic2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">The role can NOT be deleted if it is associated with an user.</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -128,18 +145,25 @@
             document.getElementById("bodyDelete").appendChild(nodeName);
         });
 
-        function deleteUser(){
+        function deleteRole(){
             var token = $("#token").val();
 
             $.ajax({
-                url: "users/"+id+"",
+                url: "roles/"+id+"",
                 headers: {'X-CSRF-TOKEN': token},
                 type: "DELETE",
-                success: function() {
-                    window.location = "/users";
-                    $("#message").fadeIn();
+                success: function(data) {
+                    if(data['success'] == true) {
+                        $('#basic').hide();
+                        $('#basic2').modal('toggle');
+                    }else if(data['success'] == false){
+                        window.location = "/roles";
+                        $("#message").fadeIn();
+
+                    }
                 }
             });
         }
+
     </script>
 @endsection

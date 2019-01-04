@@ -15,7 +15,7 @@
                     <div class="portlet light">
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
-                                <i class="icon-globe font-green-sharp"></i>
+                                <i class="fa fa-unlock-alt font-green-sharp"></i>
                                 <span class="caption-subject font-green-sharp bold uppercase">Permissions</span>
                             </div>
                             <ul class="nav nav-tabs">
@@ -65,7 +65,7 @@
                 
                                                                                         <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                                         </ins>
-                                                                                    </div> {{$permission->display_name}}
+                                                                                    </div> {{$permission->name_english}}
                                                                                     
                                                                                 </label>
                                                                             @endif
@@ -102,7 +102,7 @@
 
                                                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                                 </ins>
-                                                                            </div> {{$permission->display_name}}
+                                                                            </div> {{$permission->name_english}}
                                                                         </label>
                                                                     @endif
                                                                 @endforeach
@@ -136,7 +136,7 @@
 
                                                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                                 </ins>
-                                                                            </div> {{$permission->display_name}}
+                                                                            </div> {{$permission->name_english}}
                                                                         </label>
                                                                     @endif
                                                                 @endforeach
@@ -169,7 +169,7 @@
 
                                                                             <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                             </ins>
-                                                                        </div> {{$permission->display_name}}
+                                                                        </div> {{$permission->name_english}}
                                                                     </label>
                                                                 @endif
                                                             @endforeach

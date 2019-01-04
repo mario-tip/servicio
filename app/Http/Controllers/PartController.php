@@ -110,7 +110,7 @@ class PartController extends Controller
     public function destroy($id)
     {
         $part = Part::find($id);
-
+        
         if($part->assets()->count() == 0 && $part->equipments()->count() == 0) {
             $part->delete();
             Session::flash('message', 'Part deleted successfully.');

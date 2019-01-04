@@ -359,6 +359,16 @@
                     </div>
                   </a>
 
+                  <a href="{!!URL::to('/roles')!!}">
+                    <div class="tile bg-blue-200 minizoom">
+                      <div class="tile-object">
+                        <div class="text-center">
+                          <h4><strong>Roles</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+
                 </div>
               </div>
             </div>

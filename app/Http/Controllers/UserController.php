@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Role_user;
+use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Input;
@@ -29,6 +30,18 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $roles = Role::all();
+        
+        foreach ($users as $key => $user) {
+            foreach ($roles as $key => $role) {
+                if ($user->type_user == $role->id) {
+                    $user['name_role'] = $role->name;
+                }
+            }
+            
+        }
+        
+        
         return view('users.index', compact('users'));
     }
 
@@ -39,7 +52,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        foreach ($roles as $key => $role) {
+            $roles_aux[$role->id] = $role->name;
+          }
+          
+        return view('users.create',compact('roles_aux'));
     }
 
     /**
@@ -95,7 +113,14 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.edit', compact('user'));
+
+        $roles = Role::all();
+        foreach ($roles as $key => $role) {
+            $roles_aux[$role->id] = $role->name;
+          }
+
+        
+        return view('users.edit', compact('user','roles_aux'));
     }
 
     /**
@@ -143,6 +168,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        // dd($id);
         User::destroy($id);
         Session::flash('message', 'User deleted successfully!');
     }

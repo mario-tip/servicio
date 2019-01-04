@@ -5,6 +5,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Role;
+use App\User;
 use App\Categories_permission;
 use App\Permission;
 use App\Permission_role;
@@ -32,6 +33,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
+       
         return view('roles.index', compact('roles'));
     }
 
@@ -136,6 +138,8 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        // dd($request->all());
         $rule= [
             'name' => 'required'
         ];
@@ -143,34 +147,56 @@ class RoleController extends Controller
         $this->validate($request,$rule);
         // dd($id);
 
+        Role::findOrFail($id)->update($request->all());
+
         $permissions = DB::table('permissions')
             ->join('permission_role', 'permissions.id', '=', 'permission_role.permission_id')
             ->select('permissions.*')
-            ->where('permission_role.role_id', '=', $id )
+            ->where('permission_role.role_id', '=', $id )  
             ->get();
 
-        // dd($permissions);
 
-        dd($request->permissions_arr);
+        $data = array();
+        $data2 = array();
 
         foreach ($permissions as $key => $permission) {
-            foreach ($request->permissions_arr as $key => $permission_arr) {
-                if ($permission->id == $permission_arr ){
-                    
-                }else {
-                    $data ['permission'] = $permission_arr;
-                }
-            }
+            array_push ( $data , $permission->id );
         }
 
-        dd($data);
+        foreach ($request->permissions_arr as $key => $permission_arr) {
+            $aux = intval($permission_arr);
+            array_push ( $data2 ,$aux); 
+        }
 
-        // dd($request->all());
-        // dd("hola mundo");
+        // dd($data2);
+
+        $adds = array_diff($data2,$data); //este array contiene los permisos a insertar.
+        // dd($add);
+        $deletes = array_diff($data,$data2); //este array contiene los permisos a eliminar 
+        // dd($delete);
+
+        foreach ($adds as $key => $add) {
+            // var_dump($add);
+            DB::table('permission_role')->insert([
+               'permission_id' => $add,
+               'role_id' => $id,
+               'created_at' => Carbon::now(),
+               'updated_at' => Carbon::now(),
+               
+           ]); 
+        }
+
+        foreach ($deletes as $key => $delete) {
+            DB::table('permission_role')->where('permission_id', '=', $delete)
+                                        ->where('role_id', '=', $id)
+                                        ->delete();
+        }
 
 
 
-
+        
+        Session::flash('message', 'Roll update successfully!');
+        return Redirect::to('/roles');
     }
 
     /**
@@ -181,6 +207,26 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::find($id);
+        $users = User::all();
+        $data = false;
+        foreach ($users as $key => $user) {
+            if ($user->type_user == $id) {
+                $data = true;
+            }else{
+                
+            }
+        }
+        
+        if ($data) {
+            
+        }else{
+            $role->delete();
+            DB::table('permission_role')->where('role_id', '=', $id)->delete();
+            Session::flash('message', 'Role deleted successfully.');
+        }
+
+        return response()->json(['success' => $data]);
     }
+
 }

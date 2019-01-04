@@ -48,7 +48,7 @@
                                         <div class="col-md-12 form-group-container">
                                             <div class="form-group">
                                                 <label class="control-label" for="name"> <span class="required" aria-required="true"> * </span>Name: </label>
-                                                {!!Form::text('name',$role->display_name,['class'=>'form-control', 'placeholder'=>'Insert name', 'autocomplete'=>"off", 'onkeypress'=>'validateInput(event, 1)', 'id'=>'name'])!!}
+                                                {!!Form::text('name',$role->name,['class'=>'form-control', 'placeholder'=>'Insert name', 'autocomplete'=>"off", 'onkeypress'=>'validateInput(event, 1)', 'id'=>'name'])!!}
                                             </div>
                                         </div>
                                     </div>
@@ -119,7 +119,7 @@
                                                                                                         <div class="icheckbox_flat-grey " style="position: relative;">
                                                                                                             <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
                                                                                                             class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
-                                                                                                        </div> {{$permission->display_name}}
+                                                                                                        </div> {{$permission->name_english}}
                                                                                                     </label>
                                                                                                 @endif
                                                                                              @endforeach
@@ -151,7 +151,7 @@
                                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
                                                                                                         <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
                                                                                                         class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
-                                                                                                    </div> {{$permission->display_name}}
+                                                                                                    </div> {{$permission->name_english}}
                                                                                                 </label>
                                                                                             @endif
                                                                                         @endforeach
@@ -183,7 +183,7 @@
                                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
                                                                                                         <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
                                                                                                         class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
-                                                                                                    </div> {{$permission->display_name}}
+                                                                                                    </div> {{$permission->name_english}}
                                                                                                 </label>
                                                                                             @endif
                                                                                         @endforeach
@@ -214,7 +214,7 @@
                                                                                                 <div class="icheckbox_flat-grey " style="position: relative;">
                                                                                                     <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
                                                                                                     class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
-                                                                                                </div> {{$permission->display_name}}
+                                                                                                </div> {{$permission->name_english}}
                                                                                             </label>
                                                                                         @endif
                                                                                     @endforeach

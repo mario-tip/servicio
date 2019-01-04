@@ -59,25 +59,9 @@
                                 <td class="center"> {{$user->name}} </td>
                                 <td class="center"> {{$user->email}} </td>
                                 <td class="center"> {{$user->username}} </td>
-                                @if ($user->type_user == 1)
-                                  <td class="center"><span class="btn default green-seagreen-stripe">Administrator</span></td>
-                                @endif
-
-                                @if ($user->type_user == 2)
-                                  <td class="center"><span class="btn default blue-stripe">Technical</span></td>
-                                @endif
-
-                                @if ($user->type_user == 3)
-                                  <td class="center"><span class="btn default yellow-casablanca-stripe">Customer</span></td>
-                                @endif
-
-                                @if ($user->type_user == 4)
-                                  <td class="center"><span class="btn default red-thunderbird-stripe">Person</span></td>
-                                @endif
-
-                                @if ($user->type_user == 5)
-                                  <td class="center"><span class="btn default yellow-lemon-stripe">Supervisor</span></td>
-                                @endif
+                                
+                                <td class="center"><span class="btn default green-seagreen-stripe">{{$user->name_role}}</span></td>
+                        
 
                                 <td >
                                   <div class="center_items">
@@ -111,6 +95,23 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
                     <button type="button" class="btn green-meadow circle" data-dismiss="modal" onclick="deleteUser()">Ok</button>
                     <button type="button" class="btn red circle" data-dismiss="modal"></i>Cancel</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" id="basic2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">The correlative can NOT be deleted if it is associated with an asset or equipment.</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Ok</button>
                 </div>
             </div>
             <!-- /.modal-content -->
