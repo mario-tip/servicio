@@ -23,7 +23,9 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Muestra todos los usuarios.
+     * 
+     * Se recuperan todos los usuarios, se recuperan todos los roles, en un ciclo foreach se asignan el nombre del role al que pertenece para que en el index.php  se muestre dependiendo el role 
      *
      * @return \Illuminate\Http\Response
      */
@@ -41,7 +43,6 @@ class UserController extends Controller
             
         }
         
-        
         return view('users.index', compact('users'));
     }
 
@@ -52,12 +53,21 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
-        foreach ($roles as $key => $role) {
-            $roles_aux[$role->id] = $role->name;
+        $roles_aux = Role::all();
+
+        foreach ($roles_aux as $key => $role) {
+            $roles[$role->id] = $role->name;
           }
-          
-        return view('users.create',compact('roles_aux'));
+        $users_aux = User::all();
+
+        foreach ($users_aux as $key => $user) {
+            if($user->type_user == 1){
+               $users[$user->id] = $user->name;
+            }
+            
+          }
+
+        return view('users.create',compact('roles','users'));
     }
 
     /**
@@ -68,7 +78,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-    //   dd("entro store users");
+    //   dd($request->all());
       $rule= [
             'name' => 'required',
             'email' => 'required|unique:users,email',
@@ -80,6 +90,12 @@ class UserController extends Controller
 
         // dd($request->all());
         $request['is_central'] = 0;
+
+        if ($request['admin_incident']) {
+            
+        }else{
+            $request['admin_incident'] = 0;
+        }
 
         $user =  User::create($request->all());
 
@@ -112,15 +128,22 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user_edit = User::find($id);
 
-        $roles = Role::all();
-        foreach ($roles as $key => $role) {
-            $roles_aux[$role->id] = $role->name;
+        $roles_aux = Role::all();
+        foreach ($roles_aux as $key => $role) {
+            $roles[$role->id] = $role->name;
+          }
+        $users_aux = User::all();
+
+        foreach ($users_aux as $key => $user) {
+            if($user->type_user == 1){
+               $users[$user->id] = $user->name;
+            }
+            
           }
 
-        
-        return view('users.edit', compact('user','roles_aux'));
+        return view('users.edit', compact('user_edit','roles','users'));
     }
 
     /**

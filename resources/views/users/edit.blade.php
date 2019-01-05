@@ -28,7 +28,7 @@
 @section("page-content")
     <div class="row content_container">
         <div class="col-md-12">
-          {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'id' => 'user_form']) !!}
+          {!! Form::model($user_edit, ['route' => ['users.update', $user_edit->id], 'method' => 'PUT', 'id' => 'user_form']) !!}
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">

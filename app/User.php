@@ -30,6 +30,7 @@ class User extends Authenticatable
         'address',
         'is_central',
         'type_user',
+        'admin_incident',
 
     ];
 
@@ -82,6 +83,10 @@ class User extends Authenticatable
     //Funcion que filtra las ordenes de servicio de el usuario logueado 
     public function getOrders(){
         return $this->hasMany(ServiceOrder::class,'user_id','id');
+    }
+
+    public function getIncidents(){
+        return $this->hasMany(Incident::class,'user_id','id');
     }
     
 }

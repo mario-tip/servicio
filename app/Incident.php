@@ -20,8 +20,17 @@ class Incident extends Model
      * @var array
      */
     protected $fillable = [
-        'folio', 'type', 'description', 'suggested_date', 'suggested_time', 'priority', 'evidence_file', 'notes',
-        'asset_id', 'person_id'
+        'folio', 
+        'type', 
+        'description', 
+        'suggested_date', 
+        'suggested_time', 
+        'priority', 
+        'evidence_file', 
+        'notes',
+        'asset_id', 
+        'person_id',
+        'user_id',
     ];
 
     public function asset()
@@ -43,7 +52,7 @@ class Incident extends Model
     {
         return $this->belongsToMany('App\Part', 'incident_part', 'incident_id', 'part_id');
     }
-
+    
     /*Accessors*/
     public function getSuggestedDateAttribute($value)
     {

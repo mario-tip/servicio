@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
-use App\Incident;
 use App\Person;
+use App\Incident;
 use App\Quotation;
-use App\ServiceOrder;
 use Carbon\Carbon;
+use App\ServiceOrder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use App\Mail\IncidentMailUser;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Input;
+use App\Http\Requests\IncidentRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use App\Http\Requests\IncidentRequest;
 
 class IncidentController extends Controller
 {
@@ -24,10 +26,18 @@ class IncidentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if(userHasPermission("listar_registro_incidencias")) {
-            $incidents = Incident::all();
+            $user = $request->user();
+
+            if ($user->type_user != 1 ) {
+                $incidents = $user->getIncidents; 
+            } else {
+                $incidents = Incident::all();  
+            }
+
+            
             return view('incident.index', compact('incidents'));
         }
         return \redirect()->back();
@@ -76,14 +86,22 @@ class IncidentController extends Controller
             $data['folio'] =  $data['folio'].$val;
         }else{
             $value = Incident::all();
-            $aux = $value->last()->id+1;
+            $aux = $value->last()->id + 1;
 
             $data['folio'] =  $data['folio'].$aux;
         }
 
         $data['evidence_file'] = $fileLogo;
 
+        $user = $request->user();//se recupera el usuario en sesion para asignar el id a la incidencia.
+       
+        $data['user_id'] = $user->id;
+
         $incident = Incident::create($data);
+
+        //Disparar el correo de notificacion de que la incidencia fue guardada y esta en epera para que el admin de AOC Programador(Nuevo) asigne la incidencia a un tecnico
+        $asset = Asset::find($incident->asset_id); //se busca el activo de la incidencia.
+        Mail::to($user->email)->send(new IncidentMailUser($incident,$asset,$user));
 
         if(!empty($parts)){
             $incident->parts()->attach($parts);
