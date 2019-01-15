@@ -58,14 +58,11 @@ class UserController extends Controller
         foreach ($roles_aux as $key => $role) {
             $roles[$role->id] = $role->name;
           }
-        $users_aux = User::all();
+        $users = User::all();
 
-        foreach ($users_aux as $key => $user) {
-            if($user->type_user == 1){
-               $users[$user->id] = $user->name;
-            }
-            
-          }
+        // foreach ($users_aux as $key => $user) {
+        //     $users[$user->id] = $user->name;
+        // }
 
         return view('users.create',compact('roles','users'));
     }
@@ -88,7 +85,7 @@ class UserController extends Controller
         ];
         $this->validate($request,$rule);
 
-        // dd($request->all());
+        dd($request->all());
         $request['is_central'] = 0;
 
         if ($request['admin_incident']) {

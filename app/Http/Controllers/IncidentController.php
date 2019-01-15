@@ -8,8 +8,10 @@ use App\Incident;
 use App\Quotation;
 use Carbon\Carbon;
 use App\ServiceOrder;
+use App\User;
 use Illuminate\Http\Request;
 use App\Mail\IncidentMailUser;
+use App\Mail\IncidentMailAdmin;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -100,8 +102,15 @@ class IncidentController extends Controller
         $incident = Incident::create($data);
 
         //Disparar el correo de notificacion de que la incidencia fue guardada y esta en epera para que el admin de AOC Programador(Nuevo) asigne la incidencia a un tecnico
-        $asset = Asset::find($incident->asset_id); //se busca el activo de la incidencia.
+        $asset = Asset::findOrFail($incident->asset_id); //se busca el activo de la incidencia.
+        $user_admin_incident = User::findOrFail($user->admin_incident);
+
+        // dd($user_admin_incident->email);
+
         Mail::to($user->email)->send(new IncidentMailUser($incident,$asset,$user));
+        Mail::to($user_admin_incident->email)->send(new IncidentMailAdmin($incident,$asset,$user,$user_admin_incident));
+
+       
 
         if(!empty($parts)){
             $incident->parts()->attach($parts);
