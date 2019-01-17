@@ -103,15 +103,24 @@ class IncidentController extends Controller
 
         //Disparar el correo de notificacion de que la incidencia fue guardada y esta en epera para que el admin de AOC Programador(Nuevo) asigne la incidencia a un tecnico
         $asset = Asset::findOrFail($incident->asset_id); //se busca el activo de la incidencia.
-        $user_admin_incident = User::findOrFail($user->admin_incident);
 
-        // dd($user_admin_incident->email);
+        // se valida si el usuario tiene activo el permiso para recibir notificaciones.
+        if($user->active_notification == 1){
+            Mail::to($user->email)->send(new IncidentMailUser($incident,$asset,$user));
+        }
 
-        Mail::to($user->email)->send(new IncidentMailUser($incident,$asset,$user));
-        Mail::to($user_admin_incident->email)->send(new IncidentMailAdmin($incident,$asset,$user,$user_admin_incident));
-
-       
-
+        // se recuperan todos los usuarios a los que se les va a notificar el registro de la incidencia. 
+        $users_send = DB::table('users')
+        ->join('user_notification', 'users.id', '=', 'user_notification.notification_id')
+        ->select('users.*')
+        ->where('user_notification.user_id', '=', $user->id)
+        ->get();
+        
+        // En el siguiente foreach se envian correos segun el numero de usuarios a notificar.
+        foreach ($users_send as $key => $user_send) {
+            Mail::to($user_send->email)->send(new IncidentMailAdmin($incident,$asset,$user,$user_send));
+        }
+        
         if(!empty($parts)){
             $incident->parts()->attach($parts);
         }

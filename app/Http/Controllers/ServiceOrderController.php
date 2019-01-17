@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\User;
-
 use App\Person;
 use App\Incident;
 use App\ServiceOrder;
@@ -92,8 +92,23 @@ class ServiceOrderController extends Controller
             // $request->notify(new AsignedOrder($serviceOrderTemp->technician['email'])) ;
             // return (new Mailable())->to($serviceOrderTemp->technician['email']);
             
-            Mail::to($serviceOrderTemp->technician['email'])->send(new OrderServiceMail($serviceOrderTemp));
-            Mail::to($user->email)->send(new sendUserMail($serviceOrderTemp));
+            if($user->active_notification_order){
+                Mail::to($user->email)->send(new sendUserMail($serviceOrderTemp));
+            }
+           
+            $users_send = DB::table('users')
+                ->join('user_notification_order', 'users.id', '=', 'user_notification_order.notification_order_id')
+                ->select('users.*')
+                ->where('user_notification_order.user_id', '=', $user->id)
+                ->get();
+            
+            // dd($users_send);
+
+            foreach ($users_send as $key => $user_send) {
+                Mail::to($user_send->email)->send(new OrderServiceMail($serviceOrderTemp));
+            }
+            
+            
 
             $request->session()->flash('message', 'Service order saved correctly');
             return redirect('/service-orders');

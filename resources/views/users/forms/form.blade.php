@@ -62,8 +62,8 @@
                     <div class="portlet light">
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
-                                <i class="fa fa-unlock-alt font-green-sharp"></i>
-                                <span class="caption-subject font-green-sharp bold uppercase">Notifications</span>
+                                <i class="fa fa-envelope-o font-green-sharp"></i>
+                                <span class="caption-subject font-green-sharp bold uppercase">Notifications incidents </span>
                             </div>
                            
                         </div>
@@ -75,8 +75,8 @@
                                         <div class="row">
                                             <div class="col-md-6 form-group-container">  
                                                 <div class="form-group"> 
-                                                    <label for="" class="control-label col-md-3">Notifications</label>
-                                                    <input type="checkbox" class="make-switch" checked data-on-color="info" data-off-color="success" name="notific" value="true">
+                                                    <label for="" class="control-label col-md-3">Notifications incidents</label>
+                                                    <input type="checkbox" class="make-switch" data-on-color="info" data-off-color="success" name="active_notification" value="true" >
                                                 </div>
                                             </div>
 
@@ -89,7 +89,7 @@
                                                                 <label>
                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
                                                                         
-                                                                        <input type="checkbox" name="userAdmin[]" value="{{$user->id}}" {{in_array($user->id ,old('userAdmin',[])) ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
+                                                                        <input type="checkbox" name="notifications[]" value="{{$user->id}}" {{in_array($user->id ,old('notifications',[])) ? 'checked' : '' }}  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
 
                                                                         <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                         </ins>
@@ -107,7 +107,111 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>  
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="fa fa-envelope-o font-green-sharp"></i>
+                                <span class="caption-subject font-green-sharp bold uppercase">Notifications Service order</span>
+                            </div>
+                           
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="tab-content">
+
+                                <div class="tab-pane active" id="portlet_tab_1_1">
+                                    <div class="skin skin-minimal "> 
+                                        <div class="row">
+                                            <div class="col-md-6 form-group-container">  
+                                                <div class="form-group"> 
+                                                    <label for="" class="control-label col-md-3">Notifications service order</label>
+                                                    <input type="checkbox" class="make-switch" data-on-color="info" data-off-color="success" name="active_notification_order" value="true" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 form-group-container">  
+                                                <div class="form-group"> 
+                                                    <label class="control-label col-md-3">With copy to: </label>
+                                                    <div class="input-group">
+                                                        <div class="icheck-list">
+                                                            @foreach ($users as $user)
+                                                                <label >
+                                                                    <div class="icheckbox_flat-grey " style="position: relative;">
+                                                                        
+                                                                        <input type="checkbox" name="notifications_order[]" value="{{$user->id}}" {{in_array($user->id ,old('notifications_order',[])) ? 'checked' : '' }}  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
+
+                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                                        </ins>
+                                                                    </div> {{$user->name}}
+                                                                </label>
+                                                            @endforeach
+                                                        </div>  
+                                                    </div>   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="fa fa-envelope-o font-green-sharp"></i>
+                                <span class="caption-subject font-green-sharp bold uppercase">Notifications finished service</span>
+                            </div>
+                           
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="tab-content">
+
+                                <div class="tab-pane active" id="portlet_tab_1_1">
+                                    <div class="skin skin-minimal "> 
+                                        <div class="row">
+                                            <div class="col-md-6 form-group-container">  
+                                                <div class="form-group"> 
+                                                    <label for="" class="control-label col-md-3">Notifications finished service</label>
+                                                    <input type="checkbox" class="make-switch" data-on-color="info" data-off-color="success" name="active_notification_end" value="true" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 form-group-container">  
+                                                <div class="form-group"> 
+                                                    <label class="control-label col-md-3">With copy to: </label>
+                                                    <div class="input-group">
+                                                        <div class="icheck-list">
+                                                            @foreach ($users as $user)
+                                                                <label >
+                                                                    <div class="icheckbox_flat-grey " style="position: relative;">
+                                                                        
+                                                                        <input type="checkbox" name="notifications_end[]" value="{{$user->id}}" {{in_array($user->id ,old('notifications_end',[])) ? 'checked' : '' }}  class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
+
+                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                                        </ins>
+                                                                    </div> {{$user->name}}
+                                                                </label>
+                                                            @endforeach
+                                                        </div>  
+                                                    </div>   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

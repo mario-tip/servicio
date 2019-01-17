@@ -52,23 +52,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        {{-- @php
-                                            // dd($permissions_active)
-
-                                            foreach ($permissions_active as $value) {
-                                                // echo $value->name;
-                                                foreach ($permissions as $key => $value_ax) {
-
-                                                   if ($value_ax->name == $value->name){
-                                                        echo $value_ax->name;
-                                                        echo "--";
-                                                        echo "yes";
-                                                   } 
-                                                }
-                                            }
-                                        @endphp --}}
-                                    </div>
+                                   
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="portlet light">

@@ -76,8 +76,8 @@ class RoleController extends Controller
         
         foreach ($request->permissions_arr as $key => $value) {
              DB::table('permission_role')->insert([
-                'permission_id' => $value,
                 'role_id' => $role->id,
+                'permission_id' => $value,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]); 

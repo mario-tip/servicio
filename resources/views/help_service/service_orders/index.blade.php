@@ -77,6 +77,7 @@
                                 <td class="center"> {{$service_order->time}} </td>
                                 <td class="center"> {{$service_order->date}} </td>
                                 <td class="center"> {{$service_order->technician->name }}</td>
+                                
                                 <td class="center">
                                   @if ($service_order->getStatusWord() == "Pending")
                                     <span class="label label-sm label-info">

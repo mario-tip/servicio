@@ -30,7 +30,9 @@ class User extends Authenticatable
         'address',
         'is_central',
         'type_user',
-        'admin_incident',
+        'active_notification',
+        'active_notification_order',
+        'active_notification_end'
 
     ];
 

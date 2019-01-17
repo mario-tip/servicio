@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Asset;
-use App\Customer;
-use App\Equipment;
-use App\Incident;
-use App\Maintenance;
 use App\Person;
-use App\Resolution;
-use App\ServiceOrder;
+use App\Customer;
+use App\Incident;
+use App\Equipment;
 use Carbon\Carbon;
+use App\Resolution;
+use App\Maintenance;
+use App\ServiceOrder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Auth;
+use App\Mail\ServiceOrderEnd;
 use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
-use App\User;
 
 class APIController extends Controller
 {
@@ -699,7 +701,7 @@ class APIController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function resolution()
+    public function resolution(Request $request)
     {
         try {
             if (Input::has('service_order_id') || Input::has('person_id') || Input::has('parts') ||
@@ -741,13 +743,36 @@ class APIController extends Controller
                 $service_order->person_id = $person_id;
                 $service_order->save();
 
+                
+                // DB::table('log')->insert([
+                //     "texto" => $service_order
+                // ]);
+
+                // dd("hola");
                 //Aqui vamos a enviar el correo de que el servicio (Mantenimiento, incidencia) fue realizado con exito 
-                // echo "Hola mundo";
-                // return $service_aux;
-                // echo "<script type=\"text/javascript\">alert(\"Fotos guardadas\");</script>";  
+                $user = $request->user(); 
+
+                $users_send = DB::table('users')
+                ->join('user_notification_end', 'users.id', '=', 'user_notification_end.notification_end_id')
+                ->select('users.*')
+                ->where('user_notification_end.user_id', '=', $user->id)
+                ->get();
+
+                
+                if($user->active_notification_end){
+                    Mail::to($user->email)->send(new ServiceOrderEnd($service_order));
+                }
+
+                foreach ($users_send as $key => $user_send) {
+                    Mail::to($user_send->email)->send(new ServiceOrderEnd($service_order));
+                }
 
                 // DB::table('log')->insert([
-                //     "texto" => $service_order->user; 
+                //     "texto" => $user
+                // ]);
+
+                // DB::table('log')->insert([
+                //     "texto" => $users_send
                 // ]);
         
                 if (!empty($parts)) {
@@ -782,6 +807,7 @@ class APIController extends Controller
             return response()->json(['error' => true, 'message' => 'Acceso no autorizado', 'code' => 401]);
         } catch (\Exception $ex) {
             DB::rollBack();
+                
             return response()->json(['error' => true, 'message' => $ex->getMessage(), 'code' => 500]);
         }
     }
