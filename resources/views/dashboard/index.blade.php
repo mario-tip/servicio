@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section("styles")
-
+    
     {!! Html::style("/assets/css/dashboard.css") !!}
 @endsection
 
@@ -380,14 +380,15 @@
   </div>
 
   <div class="row">
-    {!! $chart->render() !!}
+   
   </div>
 
 @endsection
 
 @section("scripts")
-<script>
 
+<script>
+  
   // document.getElementById("incidents_tile").style.color = "blue";
 
   document.getElementById("incidents_tile").addEventListener("click", function( event ) {
@@ -397,5 +398,6 @@
     // document.getElementById("rebote").style.color = "blue";
   }, false);
 
+  
 </script>
 @endsection
