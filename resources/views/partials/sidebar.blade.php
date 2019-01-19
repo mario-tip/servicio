@@ -185,7 +185,7 @@
                           <a href="{!!URL::to('/roles')!!}" class="nav-link nav-toggle">
                           <i class=" icon-users"></i>
                           Roles</a>
-                        </li>
+                      </li>
                     </ul>
                 </li>
                 @endif
