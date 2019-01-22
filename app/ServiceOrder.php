@@ -32,6 +32,7 @@ class ServiceOrder extends Model
         'resolution_date',
         'resolution_time',
         'comments',
+        'priority',
         'type_id',
         'user_id',
         'person_id'
@@ -82,7 +83,7 @@ class ServiceOrder extends Model
             '0' => 'Pending',
             '1' => 'Attended'
         ];
-        
+
         return $incidents[$this->status];
     }
 

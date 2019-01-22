@@ -34,6 +34,7 @@
             {!! Form::open(['route' => 'service-orders.store', 'method' => 'POST']) !!}
             {!! Form::hidden('service_order[type_id]', $incident->id) !!}
             {!! Form::hidden('service_order[folio]', $incident->folio) !!}
+            {!! Form::hidden('service_order[priority]', $incident->priority) !!}
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">

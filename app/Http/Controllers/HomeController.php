@@ -136,14 +136,17 @@ class HomeController extends Controller
 
     //funcion que retorna el promedio de una prioridad  Baja=0  Media=1  ALta=2
     public function getResolutionProm($type_resolution){
+        $incidents_all = array();
         $orders_service = ServiceOrder::where('status',1)
                                             ->get();
         foreach ($orders_service as $key => $order_service) {
             $incidents = Incident::where('folio',$order_service->folio)
                                         ->get();
+            array_push($incidents_all,$incidents);
         }
+        // dd($incidents_all);
         $response = 0;
-                                            // dd($orders_service);
+
         return $response;
     }
 
