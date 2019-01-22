@@ -380,16 +380,45 @@
   </div>
 
   <div class="row">
-    {!! $chart->container() !!}
+    {{-- {!! $chart->container() !!} --}}
+  </div>
+
+  <div class="row">
+      {{-- {!! $chart_line->container() !!} --}}
+  </div>
+
+  <div class="row">
+      {{-- {!! $chart_pie->container() !!} --}}
+  </div>
+
+
+  <div class="row">
+      {!! $chart_technician->container() !!} 
+  </div>
+
+  <div class="row">
+      {!! $resolution->container() !!} 
   </div>
 
 @endsection
 
 @section("scripts")
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script> 
-{!! $chart->script() !!}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" charset="utf-8"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/fusioncharts@3.12.2/fusioncharts.js" charset="utf-8"></script>
 
+
+{!! $chart->script() !!}
+{!! $chart_line->script() !!}
+
+{!! $chart_pie->script() !!}
+
+{!! $chart_pie_hig->script() !!} 
+
+{!! $chart_technician->script() !!}
+
+{!! $resolution->script() !!}
 <script>
   
   // document.getElementById("incidents_tile").style.color = "blue";

@@ -46,7 +46,7 @@
         								Service</a>
                       </li>
                       @endif
-                      @if(userHasPermission("crear_mantenimiento_programado") )
+                      @if(userHasPermission("listar_mantenimientos") )
         							<li id="liMaintenances" class="nav-item">
         								<a href="{!!URL::to('/maintenances')!!}" class="nav-link nav-toggle">
         								<i class="icon-wrench"></i>
