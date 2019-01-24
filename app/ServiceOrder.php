@@ -32,7 +32,6 @@ class ServiceOrder extends Model
         'resolution_date',
         'resolution_time',
         'comments',
-        'priority',
         'type_id',
         'user_id',
         'person_id'
@@ -46,6 +45,13 @@ class ServiceOrder extends Model
     public function incident()
     {
         return $this->hasOne('App\Incident', 'id', 'type_id');
+
+    }
+
+    public function maintenance()
+    {
+        return $this->hasOne('App\Maintenance', 'id', 'type_id');
+        
     }
 
     public function technician()
@@ -83,7 +89,7 @@ class ServiceOrder extends Model
             '0' => 'Pending',
             '1' => 'Attended'
         ];
-
+        
         return $incidents[$this->status];
     }
 

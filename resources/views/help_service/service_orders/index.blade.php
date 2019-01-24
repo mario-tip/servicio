@@ -67,13 +67,31 @@
                         </tr>
                         </thead>
                         <tbody>
+                                @php
+                                // dd($service_orders[8]->maintenance->asset->name);
+                            @endphp
                         @foreach($service_orders as $service_order)
+                        
                             <tr>
                                 <td class="center"> {{$service_order->folio}} </td>
-                                <td class="center"> {{!empty($service_order->incident) ? $service_order->incident->asset->name : null}} </td>
+                                @if($service_order->type == 0)
+                                <td class="center"> {{!empty($service_order->incident) ? $service_order->incident->asset->name : null}} </td>                              
+                                @else
+                                <td class="center"> {{!empty($service_order->maintenance) ? $service_order->maintenance->asset->name : null}} </td>
+                                @endif
+
+                                @if($service_order->type == 0)
                                 <td class="center"> {{!empty($service_order->incident) ? $service_order->incident->asset->locations[0]->address : null}} </td>
+                                @else
+                                <td class="center"> {{!empty($service_order->maintenance) ? $service_order->maintenance->asset->locations[0]->address : null}} </td>
+                                @endif
+
                                 <td class="center"> {{$service_order->getIncidentTypeWord()}} </td>
+                                @if($service_order->type == 0)
                                 <td class="center"> {{!empty($service_order->incident) ? \App\Incident::getTypeWord($service_order->incident->type) : null}} </td>
+                                @else
+                                <td class="center"> {{!empty($service_order->maintenance) ? \App\Maintenance::getTypeWord($service_order->maintenance->type) : null}} </td>
+                                @endif
                                 <td class="center"> {{$service_order->time}} </td>
                                 <td class="center"> {{$service_order->date}} </td>
                                 <td class="center"> {{$service_order->technician->name }}</td>

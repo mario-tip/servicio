@@ -379,6 +379,14 @@
     @endif
   </div>
 
+  <div class="row content_container">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit bordered">
+          {!! $chart_technician->container() !!}
+        </div>
+    </div>
+  </div>
+
   <div class="row">
     {{-- {!! $chart->container() !!} --}}
   </div>
@@ -393,11 +401,23 @@
 
 
   <div class="row">
-      {!! $chart_technician->container() !!} 
+      {{-- {!! $chart_technician->container() !!}  --}}
   </div>
 
-  <div class="row">
-      {!! $resolution->container() !!} 
+  <div class="row content_container">
+    <div class="col-md-12">
+      <div class="portlet light portlet-fit bordered">
+        {!! $resolution->container() !!} 
+      </div>
+    </div>
+  </div>
+
+  <div class="row content_container">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit bordered">
+          {!! $tickets->container() !!}
+        </div>
+    </div>
   </div>
 
 @endsection
@@ -409,7 +429,8 @@
 <script src="https://cdn.jsdelivr.net/npm/fusioncharts@3.12.2/fusioncharts.js" charset="utf-8"></script>
 
 
-{!! $chart->script() !!}
+{{-- {!! $chart->script() !!} --}}
+
 {!! $chart_line->script() !!}
 
 {!! $chart_pie->script() !!}
@@ -419,6 +440,8 @@
 {!! $chart_technician->script() !!}
 
 {!! $resolution->script() !!}
+
+{!! $tickets->script() !!}
 <script>
   
   // document.getElementById("incidents_tile").style.color = "blue";

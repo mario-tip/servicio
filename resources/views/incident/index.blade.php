@@ -86,7 +86,7 @@
                                 </td>
                                 @if($incident->priority == 0)
                                     <td class="center">
-                                      <span class="label label-sm label-hazard">High</span>
+                                      <span class="label label-sm label-warning">Low</span>
                                     </td>
                                 @elseif($incident->priority == 1)
                                     <td class="center">
@@ -94,7 +94,7 @@
                                     </td>
                                 @else
                                     <td class="center">
-                                      <span class="label label-sm label-warning">Low</span>
+                                      <span class="label label-sm label-hazard">High</span>
                                     </td>
                                 @endif
                                 @if($incident->type == 0)

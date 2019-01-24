@@ -20,11 +20,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/maintenances')!!}">Administración de mantenimientos programados</a>
+                <a href="{!!URL::to('/maintenances')!!}">Administration of scheduled maintenance</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a>Editar mantenimiento</a>
+                <a>Edit maintenance</a>
             </li>
         </ul>
     </div>
@@ -36,7 +36,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Editar mantenimiento</span>
+                        <i class="fa fa-pencil font-blue"></i>
+                        <span class="caption-subject bold font-blue">Edit maintenance</span>
                     </div>
                 </div>
                 <div class="portlet-body">

@@ -52,7 +52,7 @@ class MaintenanceController extends Controller
         // Valores por default
         $data['type'] = 0;
         $data['is_periodical'] = false;
-
+        // dd($data);
         $maintenance = Maintenance::create($data);
 
         $folio = '';
@@ -97,14 +97,15 @@ class MaintenanceController extends Controller
 
         $service_order = ServiceOrder::where('type', '=', 1)
             ->where('type_id', '=', $maintenance->id)->first();
+            // dd(['estas es la orden de servicio'=>$service_order]);
 
-        if(count($service_order)>0){
+        if($service_order != null){
             $person = Person::find($service_order->person_id);
 
             $maintenance->folio = $service_order->folio;
             $maintenance->person_notes = $service_order->notes;
 
-            if(count($person)>0){
+            if($person != null){
                 $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
             }else{
                 $maintenance->person_name = '';
@@ -113,7 +114,10 @@ class MaintenanceController extends Controller
             $name = $service_order->technician()->select('users.username')->first();
             $maintenance->technician = $name->username;
 
-            $maintenance->signature = '/'.$service_order->signature;
+            if($service_order->signature){
+                $maintenance->signature = '/'.$service_order->signature;
+            }
+            
         }else{
             $maintenance->folio = '';
             $maintenance->person_notes = '';
@@ -137,7 +141,7 @@ class MaintenanceController extends Controller
         $service_order = ServiceOrder::where('type', '=', 1)
             ->where('type_id', '=', $id)->first();
 
-        if(count($service_order)>0){
+        if($service_order != null){
             $maintenance->user_id = $service_order->user_id;
         }else{
             $maintenance->user_id = '';
@@ -157,7 +161,7 @@ class MaintenanceController extends Controller
     {
         $data = $request->all();
 
-        var_dump($data);
+        // var_dump($data);
 
         $maintenance = Maintenance::find($id);
 
@@ -168,38 +172,40 @@ class MaintenanceController extends Controller
 
         $service_order = ServiceOrder::where('type', '=', 1)
             ->where('type_id', '=', $id)->first();
-
-        if(count($service_order)==0){
-            $folio = '';
-            $total = count(ServiceOrder::where('type', 1)->get());
-            if($total==0){
-                $val = 1;
-
-                $folio =  'EEOM-'.$val;
+        if($service_order){
+            if($service_order->count()==0){
+                $folio = '';
+                $total = count(ServiceOrder::where('type', 1)->get());
+                if($total==0){
+                    $val = 1;
+    
+                    $folio =  'EEOM-'.$val;
+                }else{
+                    $value = ServiceOrder::where('type', 1)->get();
+                    $aux = $value->last()->id+1;
+    
+                    $folio =  'EEOM-'.$aux;
+                }
+    
+                $new_service_order = new ServiceOrder();
+                $new_service_order->folio = $folio;
+                $new_service_order->date = $data['maintenance_date'];
+                $new_service_order->time = $data['maintenance_time'];
+                $new_service_order->type = 1;
+                $new_service_order->status = 0;
+                $new_service_order->type_id = $maintenance->id;
+                $new_service_order->user_id = $data['user_id'];
+                $new_service_order->save();
             }else{
-                $value = ServiceOrder::where('type', 1)->get();
-                $aux = $value->last()->id+1;
-
-                $folio =  'EEOM-'.$aux;
+                $service_order->date = $data['maintenance_date'];
+                $service_order->time = $data['maintenance_time'];
+                $service_order->user_id = $data['user_id'];
+                $service_order->save();
             }
-
-            $new_service_order = new ServiceOrder();
-            $new_service_order->folio = $folio;
-            $new_service_order->date = $data['maintenance_date'];
-            $new_service_order->time = $data['maintenance_time'];
-            $new_service_order->type = 1;
-            $new_service_order->status = 0;
-            $new_service_order->type_id = $maintenance->id;
-            $new_service_order->user_id = $data['user_id'];
-            $new_service_order->save();
-        }else{
-            $service_order->date = $data['maintenance_date'];
-            $service_order->time = $data['maintenance_time'];
-            $service_order->user_id = $data['user_id'];
-            $service_order->save();
         }
+        
 
-        Session::flash('message', 'Incident update succesfully.');
+        Session::flash('message', 'Maintenance update succesfully.');
         return Redirect::to('/maintenances');
     }
 
@@ -234,8 +240,8 @@ class MaintenanceController extends Controller
             foreach ($maintenances as $maintenance){
                 $service_order = ServiceOrder::where('type', '=', 1)
                     ->where('type_id', '=', $maintenance->id)->first();
-
-                if(count($service_order)>0){
+                      // dd($service_order);
+                if($service_order != null ){
                     $maintenance->pending = 0;
                     $maintenance->folio = $service_order->folio;
                 }else{

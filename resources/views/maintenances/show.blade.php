@@ -20,11 +20,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{!!URL::to('/maintenances')!!}">Administración de mantenimientos programados</a>
+                <a href="{!!URL::to('/maintenances')!!}">Administration of scheduled maintenance</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a>Detalle de mantenimiento</a>
+                <a>Detail maintenance</a>
             </li>
         </ul>
     </div>
@@ -36,7 +36,8 @@
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <span class="caption-subject bold">Detalle de mantenimiento {{$maintenance->folio}}</span>
+                            <i class="fa fa-eye"></i>
+                        <span class="caption-subject bold">Detail maintenance {{$maintenance->folio}}</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -45,7 +46,7 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    <a href="{{ URL::route('maintenances.edit', $maintenance->id) }}" class="btn btn-circle green-meadow"><i class="fa fa-edit"></i> Editar mantenimiento</a>
+                                    <a href="{{ URL::route('maintenances.edit', $maintenance->id) }}" class="btn btn-circle blue"><i class="fa fa-edit"></i> Edit maintenance</a>
                                 </div>
                             </div>
                         </div>
@@ -55,13 +56,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Id de activo:</label>
+                                        <label class="control-label">Asset id :</label>
                                         <label class="control-label">{{$asset->id}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Nombre de activo:</label>
+                                        <label class="control-label">Asset name :</label>
                                         <label class="control-label">{{$asset->name}}</label>
                                     </div>
                                 </div>
@@ -75,7 +76,7 @@
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Fecha:</label>
+                                        <label class="control-label">Date:</label>
                                         <label class="control-label">{{$maintenance->maintenance_date.' - '.$maintenance->maintenance_time}}</label>
                                     </div>
                                 </div>
@@ -83,13 +84,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Técnico:</label>
+                                        <label class="control-label">Technician:</label>
                                         <label class="control-label">{{$maintenance->technician}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Descripción:</label>
+                                        <label class="control-label">Description:</label>
                                         <label class="control-label">{{$maintenance->notes}}</label>
                                     </div>
                                 </div>
@@ -97,7 +98,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Comentarios:</label>
+                                        <label class="control-label">Comments:</label>
                                         <label class="control-label">{{$maintenance->person_notes}}</label>
                                     </div>
                                 </div>
@@ -105,15 +106,17 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label textarea-label">Persona que autorizó el mantenimiento:</label>
+                                        <label class="control-label textarea-label">Who registered?</label>
                                         <label class="control-label textarea-content">{{$maintenance->person_name}}</label>
                                     </div>
                                 </div>
                             </div>
+                            
+                            @if($maintenance->signature)
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Firma:</b></label>
+                                        <label class="control-label"><b>Signature:</b></label>
                                         <div>
                                             <a href="#" title="Firma" class="thumbnail">
                                                 <img src="{{$maintenance->signature}}" style="max-width: 500px" alt="Signature">
@@ -122,6 +125,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -150,7 +154,9 @@
 
     <script type="application/javascript">
         $(document).ready(function(){
+            $("#liHelpDesk").addClass("active");
             $("#liMaintenances").addClass("active");
+
 
             $(".activos").css('border', 'none');
             $(".activos").css('background-color', '#fefeff');

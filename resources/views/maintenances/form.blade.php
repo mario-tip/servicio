@@ -4,7 +4,7 @@
             <div class="form-group">
                 <label for="name" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Search asset :</label>
                 <div class="col-sm-7">
-                    <select name="filter" id="filter" class="form-control asset"></select>
+                    <select name="asset" id="asset" class="form-control asset"></select>
                     <input type="hidden" name="asset_id" id="asset_id">
                 </div>
             </div>
@@ -77,18 +77,18 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="search" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Technician:</label>
+                <label for="technician" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Technician:</label>
                 <div class="col-sm-7">
-                    <select name="search" id="search" class="form-control technician"></select>
+                    <select name="technician" id="technician" class="form-control technician"></select>
                     <input type="hidden" name="user_id" id="user_id">
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="notes" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Description:</label>
+                <label for="description" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Description:</label>
                 <div class="col-sm-7">
-                    {!!Form::textarea('notes',null,['class'=>'form-control', 'placeholder'=>'', 'autocomplete'=>"off", 'id'=>'notes'])!!}
+                    {!!Form::textarea('description',null,['class'=>'form-control', 'placeholder'=>'', 'autocomplete'=>"off", 'id'=>'description'])!!}
                 </div>
             </div>
         </div>

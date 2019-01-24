@@ -345,6 +345,10 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
     public static $classMap = array (
         'App\\Asset' => __DIR__ . '/../..' . '/app/Asset.php',
         'App\\Categories_permission' => __DIR__ . '/../..' . '/app/categories_permission.php',
+        'App\\Charts\\SampleChart' => __DIR__ . '/../..' . '/app/Charts/SampleChart.php',
+        'App\\Charts\\SampleChart2' => __DIR__ . '/../..' . '/app/Charts/SampleChart2.php',
+        'App\\Charts\\SampleChartFusion' => __DIR__ . '/../..' . '/app/Charts/SampleChartFusion.php',
+        'App\\Charts\\SampleChartHig' => __DIR__ . '/../..' . '/app/Charts/SampleChartHig.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Customer' => __DIR__ . '/../..' . '/app/Customer.php',
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',

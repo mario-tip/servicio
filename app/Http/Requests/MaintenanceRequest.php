@@ -26,21 +26,21 @@ class MaintenanceRequest extends FormRequest
         switch($this->method()) {
             case 'POST':
                 return [
-                    'filter' => 'required',
+                    'asset' => 'required',
                     'maintenance_date' => 'required',
                     'maintenance_time' => 'required',
-                    'search' => 'required',
-                    'notes' => 'required',
+                    'technician' => 'required',
+                    'description' => 'required',
                 ];
                 break;
 
             case 'PUT':
                 return [
-                    'filter' => 'required',
+                    'asset' => 'required',
                     'maintenance_date' => 'required',
                     'maintenance_time' => 'required',
-                    'search' => 'required',
-                    'notes' => 'required',
+                    'technician' => 'required',
+                    'description' => 'required',
                 ];
                 break;
         }

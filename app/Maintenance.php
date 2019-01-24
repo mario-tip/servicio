@@ -19,7 +19,16 @@ class Maintenance extends Model
      * @var array
      */
     protected $fillable = [
-        'type', 'is_periodical', 'notes', 'maintenance_date', 'is_annual', 'is_monthly', 'is_biweekly', 'asset_id', 'person_id', 'maintenance_time'
+        'type', 
+        'is_periodical', 
+        'notes', 
+        'maintenance_date', 
+        'is_annual', 
+        'is_monthly', 
+        'is_biweekly', 
+        'asset_id', 
+        'person_id', 
+        'maintenance_time'
     ];
 
     public function asset()
@@ -35,5 +44,23 @@ class Maintenance extends Model
     public function services()
     {
         return $this->morphMany('App\ServiceOrder', 'serviceable', 'type','type_id');
+    }
+
+    public static function getTypeWord($key)
+    {
+        $maintenance_types = [
+            '0' => 'Clean ',
+            '1' => 'Repair'
+        ];
+        return $maintenance_types[$key];
+    }
+    public static function getPriorityWord($key)
+    {
+        $maintenance_priorities = [
+            '0' => 'Low',
+            '1' => 'Medium',
+            '2' => 'High'
+        ];
+        return $maintenance_priorities[$key];
     }
 }
