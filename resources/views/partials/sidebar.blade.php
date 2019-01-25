@@ -53,13 +53,13 @@
                         Maintenance</a>
                       </li>
                       @endif
-                      @if(userHasPermission("listar_problemas") )
+                      {{-- @if(userHasPermission("listar_problemas") )
         							<li id="liProblems" class="nav-item">
         								<a href="{!!URL::to('/problems')!!}" class="nav-link nav-toggle">
         								<i class="icon-bell"></i>
         								Problems</a>
                       </li>
-                      @endif
+                      @endif --}}
         						</ul>
                   </li>
                 </li>
@@ -78,18 +78,18 @@
                       <i class=" icon-list"></i>
                       Asset List</a>
                     </li>
-                    <li id="" class="nav-item" >
+                    {{-- <li id="" class="nav-item" >
                       <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                       <i class="icon-layers"></i>
                       Asset Groups</a>
-                    </li>
+                    </li> --}}
 
                     <li id="liParts" class="nav-item">
                       <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
                       <i class="icon-frame"></i>
                       Parts brochure</a>
                     </li>
-                    <li id="" class="nav-item">
+                    {{-- <li id="" class="nav-item">
                       <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                       <i class="icon-check"></i>
                       Asset active </a>
@@ -98,7 +98,7 @@
                       <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                       <i class="icon-close"></i>
                       Asset inactive </a>
-                    </li>
+                    </li> --}}
                   </ul>
                 </li>
                 @endif

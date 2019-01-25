@@ -148,7 +148,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
-
+                                    <div class="form-group">
+                                        <label class="control-label">Barcode: </label>
+                                        <label class="control-label">{{$asset->barcode }}</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -40,10 +40,12 @@
                         <span class="caption-subject bold font-blue">Edit maintenance</span>
                     </div>
                 </div>
+                <div>@php
+                    // dd($maintenance);
+                @endphp</div>
                 <div class="portlet-body">
                     {!! Form::model($maintenance,['route' => ['maintenances.update', $maintenance->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'files' => true]) !!}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-
                         @include("maintenances.form")
                     {!!Form::close()!!}
                 </div>
@@ -80,7 +82,7 @@
                 success: (function(response) {
                     $(response).each(function (key, value) {
                         console.log(value.id);
-                        $('#filter').append("" +
+                        $('#asset').append("" +
                             "<option value='"+value.id+"' selected>"+value.text+"</option>"
                         ).change();
 
@@ -107,7 +109,7 @@
                                 async: false,
                                 success: function(user) {
                                     console.log(user);
-                                    $('#search').append("" +
+                                    $('#technician').append("" +
                                         "<option value='"+user[0].id+"' selected>"+user[0].name+"</option>"
                                     ).change();
                                     console.log('Técnico: ' + $('#user_id').val());

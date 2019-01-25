@@ -30,7 +30,7 @@ class MaintenanceRequest extends FormRequest
                     'maintenance_date' => 'required',
                     'maintenance_time' => 'required',
                     'technician' => 'required',
-                    'description' => 'required',
+                    'notes' => 'required',
                 ];
                 break;
 
@@ -40,7 +40,7 @@ class MaintenanceRequest extends FormRequest
                     'maintenance_date' => 'required',
                     'maintenance_time' => 'required',
                     'technician' => 'required',
-                    'description' => 'required',
+                    'notes' => 'required',
                 ];
                 break;
         }

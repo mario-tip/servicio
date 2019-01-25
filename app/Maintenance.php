@@ -54,13 +54,5 @@ class Maintenance extends Model
         ];
         return $maintenance_types[$key];
     }
-    public static function getPriorityWord($key)
-    {
-        $maintenance_priorities = [
-            '0' => 'Low',
-            '1' => 'Medium',
-            '2' => 'High'
-        ];
-        return $maintenance_priorities[$key];
-    }
+   
 }

@@ -46,6 +46,8 @@ class MaintenanceController extends Controller
     {
         $data = $request->all();
 
+        // dd($data = $request->all());
+
         $data['maintenance_date'] = Input::has('maintenance_date')?Carbon::parse($data['maintenance_date'])->format('Y-m-d'):'';
         $data['maintenance_time'] = Input::has('maintenance_time')?Carbon::parse($data['maintenance_time'])->format('H:i:s'):'';
 
@@ -146,7 +148,7 @@ class MaintenanceController extends Controller
         }else{
             $maintenance->user_id = '';
         }
-
+        // dd($maintenance);
         return view('maintenances.edit', compact('maintenance'));
     }
 

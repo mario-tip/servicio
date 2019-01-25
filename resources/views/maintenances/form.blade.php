@@ -86,9 +86,9 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="description" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Description:</label>
+                <label for="notes" class="col-md-3 control-label"><span class="required" aria-required="true"> * </span> Notes:</label>
                 <div class="col-sm-7">
-                    {!!Form::textarea('description',null,['class'=>'form-control', 'placeholder'=>'', 'autocomplete'=>"off", 'id'=>'description'])!!}
+                    {!!Form::textarea('notes',null,['class'=>'form-control', 'placeholder'=>'', 'autocomplete'=>"off", 'id'=>'notes'])!!}
                 </div>
             </div>
         </div>

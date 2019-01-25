@@ -117,7 +117,7 @@
     <div class="form-group">
         <label for="name" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Preference :</label>
         <div class="col-sm-7">
-            {!! Form::select('priority', array('0'=>'High', '1'=>'Medium', '2'=>'Low'), null, ['class' => 'bs-select form-control', 'id' => 'priority', 'title' => 'Select...']) !!}
+            {!! Form::select('priority', array('0'=>'Low', '1'=>'Medium', '2'=>'Hig'), null, ['class' => 'bs-select form-control', 'id' => 'priority', 'title' => 'Select...']) !!}
         </div>
     </div>
 
@@ -133,7 +133,13 @@
 			<div class="col-sm-7">
 				<div class="fileinput fileinput-new" data-provides="fileinput">
 					<div class="fileinput-new thumbnail" >
-						<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+                        
+                        @if(isset($incident))
+                            <img src="http://service.altatec.com.mx/{{$incident->evidence_file}}" alt=""/>
+                        @else
+                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+                        @endif
+                        
 					</div>
 					<div class="fileinput-preview fileinput-exists thumbnail" >
 					</div>
@@ -143,7 +149,7 @@
 						Select image </span>
 						<span class="fileinput-exists">
 						Change </span>
-						<input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox"/>
+						<input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" />
 						</span>
 						<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
 						Remove </a>

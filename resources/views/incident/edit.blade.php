@@ -41,6 +41,9 @@
                         <span class="caption-subject bold font-blue">Edit incident</span>
                     </div>
                 </div>
+                @php
+                    // dd($incident);
+                @endphp
                 <div class="portlet-body">
                     {!! Form::model($incident,['route' => ['incidents.update', $incident->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'files' => true]) !!}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
