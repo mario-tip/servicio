@@ -164,7 +164,7 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_customer_id">Customer: </label>
+                                            <label class="control-label" for="asset_customer_id"><span>*</span>Customer: </label>
                                             {!!Form::select('asset[customer_id]', $dependencies['customers'], $asset->customer_id, ['class' => 'bs-select form-control', 'id' => 'asset_customer_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_project_id"><span></span>Project: </label>
+                                            <label class="control-label" for="asset_project_id"><span>*</span>Project: </label>
                                             {!! Form::select('asset[project_id]', $dependencies['projects'], $asset->project_id, ['class' => 'bs-select form-control', 'id' => 'asset_project_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>

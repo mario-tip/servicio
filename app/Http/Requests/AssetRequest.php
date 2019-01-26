@@ -36,7 +36,8 @@ class AssetRequest extends FormRequest
             'asset.barcode' => 'required',
             'asset.subcategory_id' => 'required',
             /*'asset_parts' => 'required|array|min:1',*/
-            'asset.maintenance_date' => 'required'
+            'asset.maintenance_date' => 'required',
+            // 'asset.asset_customer_id' => 'required' 
         ];
     }
 
@@ -54,7 +55,8 @@ class AssetRequest extends FormRequest
             'asset.barcode.required' => 'El código de barras es requerido',
             'asset.subcategory_id.required' => 'LA subcategoria es requerida',
             /*'asset_parts.required' => 'Las partes del activo son requeridas',*/
-            'asset.maintenance_date.required' => 'La fecha de mantenimiento es requerida'
+            'asset.maintenance_date.required' => 'La fecha de mantenimiento es requerida',
+            // 'asset.asset_customer_id.required' => ''
         ];
     }
 }

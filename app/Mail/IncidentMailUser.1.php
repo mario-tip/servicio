@@ -7,18 +7,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class copyServiceOrder extends Mailable
+class IncidentMailUser extends Mailable
 {
     use Queueable, SerializesModels;
-    public $orderService;
+    public $incident, $asset, $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($orderService)
+    public function __construct( $incident, $asset, $user)
     {
-        $this->orderService = $orderService;
+        $this->incident = $incident;
+        $this->asset = $asset;
+        $this->user = $user;
     }
 
     /**
@@ -29,7 +31,7 @@ class copyServiceOrder extends Mailable
     public function build()
     {
         return $this->from(['address' => 'no-reply@eeo.com.mx', 'name' => 'Notification'])
-                    ->markdown('notifications.sendEmail')
-                    ->subject('Hardware Service Desk!');
+                    ->markdown('notifications.incidentMailUser')
+                    ->subject('Hardware Service Desk');
     }
 }

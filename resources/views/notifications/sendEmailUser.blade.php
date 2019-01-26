@@ -3,7 +3,7 @@
 
 # Notifications service order
 
-The allocation of the incident was a successfully
+The service order was created successfully
 # Service order detail:
 
 @component('mail::table')

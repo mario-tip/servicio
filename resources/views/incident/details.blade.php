@@ -94,11 +94,11 @@
                                     <div class="form-group">
                                         <label class="control-label"><b>Preference:</b></label>
                                         @if($incident->priority == 0)
-                                            <label class="control-label">High</label>
+                                            <label class="control-label">Low</label>
                                         @elseif($incident->priority == 1)
                                             <label class="control-label">Medium</label>
                                         @else
-                                            <label class="control-label">Low</label>
+                                            <label class="control-label">High</label>
                                         @endif
                                     </div>
                                 </div>
@@ -109,11 +109,14 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                // dd($incident);
+                            @endphp
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Hour :</b></label>
-                                        <label class="control-label">{{$incident->time}}</label>
+                                        <label class="control-label"><b>Start hour :</b></label>
+                                        <label class="control-label">{{($incident->created_at)?$incident->created_at->format('H:i:s'):''}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
@@ -126,8 +129,8 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>Date:</b></label>
-                                        <label class="control-label">{{$incident->date}}</label>
+                                        <label class="control-label"><b>Start date:</b></label>
+                                        <label class="control-label">{{($incident->created_at)?$incident->created_at->toDateString():''}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -139,15 +142,27 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                // dd($incident);
+                            @endphp
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
                                         <label class="control-label"><b>Suggested attention date :</b></label>
 
-                                        <label class="control-label">{{$incident->suggested_date}}</label>
+                                        <label class="control-label">{{\Carbon\Carbon::parse($incident->suggested_date)->format('Y-m-d') }}</label>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                    <div class="col-md-6 form-group-container">
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Suggested attention hour :</b></label>
+    
+                                            <label class="control-label">{{$incident->suggested_time}}</label>
+                                        </div>
+                                    </div>
+                                </div>
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
@@ -220,6 +235,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @if ($incident->signature)
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -232,6 +248,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
+                            
+
                         </div>
                     </div>
                 </div>

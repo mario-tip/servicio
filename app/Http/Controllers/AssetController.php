@@ -138,7 +138,8 @@ class AssetController extends Controller
             'cost.required' => 'The price is required',
             'person_id.required' => 'The person is required',
             'description.required' => 'The description is required',
-            'customer_id.required' => 'The customer is required'
+            'customer_id.required' => 'The customer is required',
+            'project_id.required' =>  'The project is required',
         ];
 
         $validations = [
@@ -158,11 +159,12 @@ class AssetController extends Controller
             'cost' => 'required',
             'person_id' => 'required',
             'description' => 'required',
-            /*'customer_id' => 'required'*/
+            'customer_id' => 'required',
+            'project_id' => 'required'
         ];
 
         if($method == 'POST') $validations['model'] = 'required|unique:assets';
-
+                                             
         $validator = Validator::make($form_data, $validations, $messages);
 
         return $validator;
@@ -172,8 +174,6 @@ class AssetController extends Controller
     /*formateando algunos datos del form para guardarlos en la db*/
     private function formatFormData($asset_data) {
         $asset_data['cost'] =  str_replace(',', '', $asset_data['cost']);
-
-
         $asset_data['adquisition_date'] = $this->date2SQLFormat($asset_data['adquisition_date']);
         $asset_data['expires_date'] = $this->date2SQLFormat($asset_data['expires_date']);
         $asset_data['maintenance_date'] = $this->date2SQLFormat($asset_data['maintenance_date']);
@@ -183,13 +183,6 @@ class AssetController extends Controller
         $asset_data['customer_id'] = intval($asset_data['customer_id']);
         $asset_data['subcategory_id'] = intval($asset_data['subcategory_id']);
         $asset_data['equipment_id'] = intval($asset_data['equipment_id']);
-
-
-
-
-
-
-
 
         return $asset_data;
     }

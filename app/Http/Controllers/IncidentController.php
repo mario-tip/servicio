@@ -368,11 +368,11 @@ class IncidentController extends Controller
             }else{
                 $incident->technician = '';
                 $incident->person = '';
-                $incident->status = '';
+                $incident->status = 'Pending';
                 $incident->person_notes = '';
                 $incident->date = '';
                 $incident->time = '';
-                $incident->signature = '#';
+                $incident->signature = '';
             }
 
             return view('incident.details', compact('incident', 'data'));

@@ -110,7 +110,8 @@ class ServiceOrderController extends Controller
             
 
             foreach ($users_send as $key => $user_send) {
-                Mail::to($user_send->email)->send(new OrderServiceMail($serviceOrderTemp,$user_send));
+                // Mail::to($user_send->email)->send(new copyServiceOrder($serviceOrderTemp,$user_send));
+                Mail::to($user_send->email)->send(new sendUserMail($serviceOrderTemp));
             }
             
             

@@ -184,7 +184,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+
+                            {{-- <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Picture : </label>
@@ -192,13 +193,15 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="asset-images-carousel" style="margin: 0 auto">
                                     @foreach($asset->images as $image)
                                     <img src="{{Config::get('constants.assets_system_url') . $image->path}}"/>
                                     @endforeach
                                 </div>
-                            </div>
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>

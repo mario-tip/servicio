@@ -71,7 +71,7 @@
                         <tbody>
                           <div class="">
                             @php
-                              // dd($incidents);
+                            //   dd($incidents);
                             @endphp
                           </div>
                         @foreach($incidents as $incident)
