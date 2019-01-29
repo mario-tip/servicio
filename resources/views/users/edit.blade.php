@@ -86,19 +86,19 @@
                                 <div class="form-group">
                                     <label class="" for="type_user"><span>*</span>Type user : </label>
                                       {{-- {!! Form::select('type_user', array('1'=>'Administrator', '5'=>'Supervisor','2'=>'Technical','3'=>'Customer','4'=>'Person'), null, ['class' => 'bs-select form-control', 'id' => 'type_user', 'title' => 'Select...']) !!} --}}
-                                      {!! Form::select('type_user', $roles , null, ['class' => 'bs-select form-control', 'id' => 'type_user', 'title' => 'Select...']) !!}
+                                      {!! Form::select('type_user', $dependencies['roles'] , null, ['class' => 'bs-select form-control', 'id' => 'type_user', 'title' => 'Select...']) !!}
                                 </div>
                               </div>
                             </div>
                 
-                            {{-- <div class="row">
+                            <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="" for="admin_incident"><span>*</span>Incidents administrator : </label>
-                                        {!! Form::select('admin_incident', $users , null, ['class' => 'bs-select form-control', 'id' => 'admin_incident', 'title' => 'Select...']) !!}
+                                        <label class="control-label" for="customer_id"><span>*</span>Customer: </label>
+                                        {!!Form::select('customer_id', $dependencies['customers'], null, ['class' => 'bs-select form-control', 'id' => 'customer_id', 'title' => 'Select...']) !!}
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                 
                             <div class="row">
                                 <div class="col-md-12">

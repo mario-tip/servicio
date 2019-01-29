@@ -350,29 +350,29 @@
     													<div class="col-md-5 name">File quotation :</div>
     													<div class="col-md-7 value">
                                 <div class="row">
-                                 <div class="col-md-12 form-group-container">
-                                     <div class="form-group">
-                                         <?php
-                                         $mime_array = App\Quotation::getFileMime(public_path($service_order->quotation->quotation_file));
-                                         ?>
-                                         @if($mime_array == null)
-                                             <h2 class="file-not-found">Not foun file </h2>
-                                         @else
-                                             <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
-                                             @if($file_type == 'image')
-                                                 <img src="{{$service_order->quotation->quotation_file}}" class="incident-image  img-responsive" alt="">
-                                             @else
-                                                 <div id="icon_file_container">
-                                                     <a href="{{$service_order->quotation->quotation_file}}" download>
-                                                         <img class="file-type-icon"
-                                                              src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
-                                                         </br>Download
-                                                     </a>
-                                                 </div>
-                                             @endif
-                                         @endif
-                                     </div>
-                                 </div>
+                                    <div class="col-md-12 form-group-container">
+                                        <div class="form-group">
+                                            <?php
+                                            $mime_array = App\Quotation::getFileMime(public_path($service_order->quotation->quotation_file));
+                                            ?>
+                                            @if($mime_array == null)
+                                                <h2 class="file-not-found">Not foun file </h2>
+                                            @else
+                                                <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
+                                                @if($file_type == 'image')
+                                                    <img src="{{$service_order->quotation->quotation_file}}" class="incident-image  img-responsive" alt="">
+                                                @else
+                                                    <div id="icon_file_container">
+                                                        <a href="{{$service_order->quotation->quotation_file}}" download>
+                                                            <img class="file-type-icon"
+                                                                src="{{'/images/file_type_icons/' . App\Quotation::getFileTypeIcon($file_extension) . '.png'}}"/>
+                                                            </br>Download
+                                                        </a>
+                                                    </div>
+                                                @endif
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
     													</div>
     												</div>

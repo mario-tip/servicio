@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use DB;
-use App\User;
-use App\Role_user;
 use App\Role;
+use App\User;
+use App\Customer;
+use App\Role_user;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -54,20 +55,26 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $roles_aux = Role::all();
 
-        foreach ($roles_aux as $key => $role) {
-            $roles[$role->id] = $role->name;
-          }
+    {
+        $dependencies = $this->getDependenciesData();
+      
         $users = User::all();
 
-        // foreach ($users_aux as $key => $user) {
-        //     $users[$user->id] = $user->name;
-        // }
+        // return view('users.create',compact('roles','users','customers','dependencies'));
+        return view('users.create',compact('dependencies','users'));
 
-        return view('users.create',compact('roles','users'));
     }
+
+    /*Obtiene las dependencias del asset, para los select del form*/
+    private function getDependenciesData() {
+        return [
+            
+            'customers' => Customer::all()->pluck('name', 'id'),
+            'roles' => Role::all()->pluck('name', 'id'),
+        ];
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -84,6 +91,7 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'username' => 'required|unique:users',
             'type_user' => 'required',
+            'customer_id' => 'required',
         ];
         $this->validate($request,$rule);
 
@@ -181,10 +189,8 @@ class UserController extends Controller
     {
         $user_edit = User::find($id);
 
-        $roles_aux = Role::all();
-        foreach ($roles_aux as $key => $role) {
-            $roles[$role->id] = $role->name;
-          }
+        $dependencies = $this->getDependenciesData();
+
         $users = User::all();
 
         // 1 usuarios activos para notificar incidencias
@@ -243,7 +249,7 @@ class UserController extends Controller
             
         //   }
 
-        return view('users.edit', compact('user_edit','roles','users','users_active','users_active_order'));
+        return view('users.edit', compact('user_edit','roles','users','users_active','users_active_order','dependencies'));
     }
 
     /**
@@ -263,12 +269,14 @@ class UserController extends Controller
               'name' => 'required',
               'email' => 'required|email|exists:users',
               'username' => 'required',
+              'customer_id' => 'required',
           ];
       }else {
         $rule= [
               'name' => 'required',
               'email' => 'required|email|unique:users,email',
               'username' => 'required',
+              'customer_id' => 'required',
           ];
       }
 

@@ -172,6 +172,7 @@ class QuotationController extends Controller
     {
         if(userHasPermission("editar_cotizacion_servicios")) {
             $quotation = Quotation::find($id);
+            // dd($quotation);
             return view('quotations.edit', compact('quotation'));
         }
         return redirect()->back();
@@ -211,7 +212,7 @@ class QuotationController extends Controller
             }
 
         } else {$incident_parts = [];}
-
+        // dd($form_data);
         $quotation = Quotation::find($id);
         $current_quotation_file = $quotation->quotation_file;
 

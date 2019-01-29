@@ -401,6 +401,7 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         'App\\Mail\\IncidentMailUser' => __DIR__ . '/../..' . '/app/Mail/IncidentMailUser.1.php',
         'App\\Mail\\OrderServiceMail' => __DIR__ . '/../..' . '/app/Mail/OrderServiceMail.php',
         'App\\Mail\\ServiceOrderEnd' => __DIR__ . '/../..' . '/app/Mail/ServiceOrderEnd.php',
+        'App\\Mail\\copyServiceOrder' => __DIR__ . '/../..' . '/app/Mail/copyServiceOrder.php',
         'App\\Mail\\sendUserMail' => __DIR__ . '/../..' . '/app/Mail/sendUserMail.php',
         'App\\Maintenance' => __DIR__ . '/../..' . '/app/Maintenance.php',
         'App\\Part' => __DIR__ . '/../..' . '/app/Part.php',

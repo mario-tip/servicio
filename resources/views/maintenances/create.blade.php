@@ -81,23 +81,24 @@
                     delay: 250,
                     headers : {'X-CSRF-TOKEN': '{{csrf_token()}}'},
                     processResults: function (data) {
-                        var id = data[0].id;
 
-                        $('#asset_id').val(id);
-
-                        $.ajax({
-                            type: 'GET',
-                            url: '/getDataAsset/'+id,
-                            dataType: 'json',
-                            async: false,
-                            success: function(asset) {
-                                console.log(asset);
-                                $('#asset_custom_id').val(asset[0].asset_custom_id);
-                                $('#asset_name').val(asset[0].name);
-                                $('#serial').val(asset[0].serial);
-                            }
-                        });
-
+                        if(data.length>0){
+                            var id = data[0].id;
+                            $('#asset_id').val(id);
+                            $.ajax({
+                                type: 'GET',
+                                url: '/getDataAsset/'+id,
+                                dataType: 'json',
+                                async: false,
+                                success: function(asset) {
+                                    console.log(asset);
+                                    $('#asset_custom_id').val(asset[0].asset_custom_id);
+                                    $('#asset_name').val(asset[0].name);
+                                    $('#serial').val(asset[0].serial);
+                                }
+                            });
+                        }
+                        
                         return {
                             results: data
                         };

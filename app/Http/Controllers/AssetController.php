@@ -53,6 +53,7 @@ class AssetController extends Controller
             $dependencies = $this->getDependenciesData();
             $asset = new Asset;
             $location_id = null;
+            // dd($dependencies);
             return view("assets.create", compact('dependencies', 'asset', 'location_id'));
         }
         return redirect()->back();

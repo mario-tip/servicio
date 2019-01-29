@@ -508,8 +508,16 @@ class IncidentController extends Controller
         $keyword = $request->input('q');
 
         if($request->ajax()){
+
+            $user = $request->user();
+
+            // DB::table('log')->insert([
+            //     "texto" => $user
+            // ]);
+
             $data = Asset::select('id','name AS text')
                 ->where('name','like','%'.$keyword.'%')
+                ->where('customer_id', '=', $user->customer_id)
                 ->get();
             return response()->json($data);
         }

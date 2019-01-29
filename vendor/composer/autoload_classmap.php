@@ -64,6 +64,7 @@ return array(
     'App\\Mail\\IncidentMailUser' => $baseDir . '/app/Mail/IncidentMailUser.1.php',
     'App\\Mail\\OrderServiceMail' => $baseDir . '/app/Mail/OrderServiceMail.php',
     'App\\Mail\\ServiceOrderEnd' => $baseDir . '/app/Mail/ServiceOrderEnd.php',
+    'App\\Mail\\copyServiceOrder' => $baseDir . '/app/Mail/copyServiceOrder.php',
     'App\\Mail\\sendUserMail' => $baseDir . '/app/Mail/sendUserMail.php',
     'App\\Maintenance' => $baseDir . '/app/Maintenance.php',
     'App\\Part' => $baseDir . '/app/Part.php',

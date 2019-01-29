@@ -32,7 +32,8 @@ class User extends Authenticatable
         'type_user',
         'active_notification',
         'active_notification_order',
-        'active_notification_end'
+        'active_notification_end',
+        'customer_id'
 
     ];
 
