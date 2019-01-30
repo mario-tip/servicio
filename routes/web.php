@@ -57,7 +57,10 @@ Route::resource('/service-orders', 'ServiceOrderController');
 // analytics_incidents
 
 Route::get('/analytics_incident', function () {
-    return view('analytics_incident.index');
+    if(userHasPermission("listar_consulta_atencion_incidencias") || userHasPermission("generar_reporte_incidencias")){
+        return view('analytics_incident.index');
+    }
+    return redirect()->back();
 });
 
 

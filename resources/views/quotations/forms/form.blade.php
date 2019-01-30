@@ -62,7 +62,7 @@
                         $mime_array = App\Quotation::getFileMime(public_path($quotation->quotation_file));
                         ?>
                         @if($mime_array == null)
-                            <h2 class="file-not-found">Not foun file </h2>
+                            <h2 class="file-not-found">Not found file </h2>
                         @else
                             <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
                             @if($file_type == 'image')

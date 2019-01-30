@@ -7,7 +7,7 @@
 @endsection
 @section('page-content')
     <div class="row">
-        @if(userHasPermission("mostrar_cotizacion_servicios"))
+        @if(userHasPermission("listar_cotizacion_servicios"))
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <a class="dashboard-stat bg-red-700 red-thunderbird" href="{!!URL::to('/quotations')!!}">
                 <div class="visual">
@@ -25,7 +25,7 @@
             </div>
         @endif
 
-        @if(userHasPermission("mostrar_consulta_servicio"))
+        @if(userHasPermission("listar_consulta_servicio"))
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a class="dashboard-stat red-thunderbird bg-red-700" href="{!!URL::to('/service-orders')!!}">
               <div class="visual">

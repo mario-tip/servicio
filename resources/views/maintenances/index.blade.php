@@ -43,7 +43,9 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    @if(userHasPermission("crear_mantenimientos") )  
                                     <a href="{{URL::route('maintenances.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add maintenance</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

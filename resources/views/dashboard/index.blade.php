@@ -9,7 +9,7 @@
 
   <div id="dashboard" class="row ">
 
-    @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio"))
+    @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio"  ) || userHasPermission("listar_mantenimientos") ||userHasPermission("listar_cotizacion_servicios") )
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
         <!-- BEGIN Portlet PORTLET-->
         <div class="portlet">
@@ -33,7 +33,6 @@
           </div>
           <div class="portlet-body" style="display:none" >
             <div class="tiles">
-
               @if(userHasPermission("listar_registro_incidencias") )
               <a href="{!!URL::to('/incidents')!!}">
                 <div id="rebote" class="tile bg-red-800 minizoom ">
@@ -45,7 +44,7 @@
                 </div>
               </a>
               @endif
-              @if(userHasPermission("listar_consulta_servicio") )  
+              @if(userHasPermission("listar_consulta_servicio") || userHasPermission("listar_cotizacion_servicios"))  
                 <a href="{!!URL::to('/help_service')!!}">
                   <div class="tile bg-red-700 minizoom">
 
@@ -57,7 +56,7 @@
                   </div>
                 </a>
               @endif
-              @if(userHasPermission("crear_mantenimiento_programado") )  
+              @if(userHasPermission("listar_mantenimientos"))  
                 <a href="{!!URL::to('maintenances')!!}">
                   <div class="tile bg-red-600 minizoom">
 
@@ -69,7 +68,8 @@
                   </div>
                 </a>
               @endif
-              @if(userHasPermission("listar_problemas") )
+
+              {{-- @if(userHasPermission("listar_problemas") )
                 <a href="{!!URL::to('/problems')!!}">
                   <div class="tile bg-red-500 minizoom">
 
@@ -80,7 +80,7 @@
                     </div>
                   </div>
                 </a>
-              @endif
+              @endif --}}
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
     @endif
 
 
-    @if(userHasPermission('listar_captura_info'))
+    @if(userHasPermission('listar_captura_info') || userHasPermission('listar_catalogo_correlativos'))
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
         <!-- BEGIN Portlet PORTLET-->
         <div class="portlet ">
@@ -115,60 +115,61 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
               <div class="portlet-body">
                 <div class="tiles">
+                  @if(userHasPermission("listar_captura_info") )
                   <a href="{!!URL::to('/actives')!!}">
-                      <div class="tile bg-cian-700 minizoom">
-
-                          <div class="tile-object">
-                              <div class="text-center">
-                                  <h4> <strong> Asset List </strong> </h4>
-                              </div>
-                          </div>
+                    <div class="tile bg-cian-700 minizoom">
+                      <div class="tile-object">
+                        <div class="text-center">
+                          <h4> <strong> Asset List </strong> </h4>
+                        </div>
                       </div>
+                    </div>
                   </a>
+                  @endif
 
-                    <a href="{!!URL::to('/actives')!!}">
-                        <div class="tile bg-cian-600 minizoom">
-
-                            <div class="tile-object">
-                                <div class="text-center">
-                                    <h4> <strong> Asset Groups </strong> </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="{!!URL::to('/parts')!!}">
-                        <div class="tile bg-cian-500 minizoom">
-
-                            <div class="tile-object">
-                                <div class="text-center">
-                                    <h4> <strong>Parts brochure </strong> </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="{!!URL::to('/service-orders')!!}">
-                      <div class="tile bg-cian-400 minizoom">
-
-                        <div class="tile-object">
-                          <div class="text-center">
-                            <h4><strong>Asset Active</strong></h4>
-                          </div>
+                  {{-- @if(userHasPermission("listar_captura_info") )
+                  <a href="{!!URL::to('/actives')!!}">
+                    <div class="tile bg-cian-600 minizoom">
+                      <div class="tile-object">
+                        <div class="text-center">
+                          <h4> <strong> Asset Groups </strong> </h4>
                         </div>
                       </div>
-                    </a>
+                    </div>
+                  </a>
+                  @endif --}}
 
-                    <a href="{!!URL::to('/service-orders')!!}">
-                      <div class="tile bg-cian-300 minizoom">
-
-                        <div class="tile-object">
-                          <div class="text-center">
-                            <h4><strong>Asset inactive</strong></h4>
-                          </div>
+                  @if(userHasPermission("listar_catalogo_correlativos") )
+                  <a href="{!!URL::to('/parts')!!}">
+                    <div class="tile bg-cian-600 minizoom">
+                      <div class="tile-object">
+                        <div class="text-center">
+                          <h4> <strong>Parts brochure </strong> </h4>
                         </div>
                       </div>
-                    </a>
+                    </div>
+                  </a>
+                  @endif
+
+                  {{-- <a href="{!!URL::to('/service-orders')!!}">
+                    <div class="tile bg-cian-400 minizoom">
+                      <div class="tile-object">
+                        <div class="text-center">
+                          <h4><strong>Asset Active</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </a> --}}
+
+                  {{-- <a href="{!!URL::to('/service-orders')!!}">
+                    <div class="tile bg-cian-300 minizoom">
+                      <div class="tile-object">
+                        <div class="text-center">
+                          <h4><strong>Asset inactive</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </a> --}}
 
                 </div>
               </div>
@@ -179,86 +180,87 @@
       </div>
     @endif
 
-    @if(userHasPermission("listar_tipo_equipo"))
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-        <!-- BEGIN Portlet PORTLET-->
-        <div class="portlet ">
-          <div id="flex_icon" class="portlet-title">
-            <div class="caption tools">
-              <div class="tiles expand" >
-                <a href="" >
-                  <div class="tile bg-green-900 minizoom">
-                    <div class="tile-body">
-                      <i class="icon-graph"></i>
+    @if(userHasPermission("generar_consulta_bitacora") || userHasPermission("descargar_consulta_bitacora") || userHasPermission("listar_consulta_atencion_incidencias") || userHasPermission("mostrar_consulta_atencion_incidencias") || userHasPermission("generar_reporte_incidencias") || userHasPermission("exportar_reporte_incidencias") || userHasPermission("generar_reporte_tickets") ||userHasPermission("exportar_reporte_tickets") || userHasPermission("generar_reporte_servicio") || userHasPermission("exportar_reporte_servicio")) 
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+      <!-- BEGIN Portlet PORTLET-->
+      <div class="portlet ">
+        <div id="flex_icon" class="portlet-title">
+          <div class="caption tools">
+            <div class="tiles expand" >
+              <a href="" >
+                <div class="tile bg-green-900 minizoom">
+                  <div class="tile-body">
+                    <i class="icon-graph"></i>
+                  </div>
+                  <div class="tile-object">
+                    <div class="text-center">
+                      <h4> <strong>Analytics</strong> </h4>
                     </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portlet-body" style="display:none">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <div class="portlet-body">
+              <div class="tiles">
+
+                @if(userHasPermission("listar_captura_info") )
+                <a href="{!!route('reports.binnacle-service-orders')!!}">
+                  <div class="tile bg-green-700 minizoom">
                     <div class="tile-object">
                       <div class="text-center">
-                        <h4> <strong>Analytics</strong> </h4>
+                        <h4> <strong> Services </strong> </h4>
                       </div>
                     </div>
                   </div>
                 </a>
-              </div>
-            </div>
-          </div>
-          <div class="portlet-body" style="display:none">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-              <div class="portlet-body">
-                <div class="tiles">
-                  <a href="{!!route('reports.binnacle-service-orders')!!}">
-                      <div class="tile bg-green-700 minizoom">
+                @endif
+                <a href="{!!URL::to('/analytics_incident')!!}">
+                  <div class="tile bg-green-600  minizoom">
 
-                          <div class="tile-object">
-                              <div class="text-center">
-                                  <h4> <strong> Services </strong> </h4>
-                              </div>
-                          </div>
-                      </div>
-                  </a>
-
-                  <a href="{!!URL::to('/analytics_incident')!!}">
-                    <div class="tile bg-green-600  minizoom">
-
-                      <div class="tile-object">
-                        <div class="text-center">
-                          <h4> <strong>Incidents </strong> </h4>
-                        </div>
+                    <div class="tile-object">
+                      <div class="text-center">
+                        <h4> <strong>Incidents </strong> </h4>
                       </div>
                     </div>
-                  </a>
+                  </div>
+                </a>
 
-                  <a href="{{route('reports.technician-tickets')}}">
-                    <div class="tile bg-green-500 minizoom">
+                <a href="{{route('reports.technician-tickets')}}">
+                  <div class="tile bg-green-500 minizoom">
 
-                      <div class="tile-object">
-                        <div class="text-center">
-                          <h4><strong>User Tikets</strong></h4>
-                        </div>
+                    <div class="tile-object">
+                      <div class="text-center">
+                        <h4><strong>User Tikets</strong></h4>
                       </div>
                     </div>
-                  </a>
+                  </div>
+                </a>
 
-                  <a href="{{route('reports.customer-service-orders')}}">
-                      <div class="tile bg-green-400  minizoom">
+                <a href="{{route('reports.customer-service-orders')}}">
+                    <div class="tile bg-green-400  minizoom">
 
-                          <div class="tile-object">
-                              <div class="text-center">
-                                  <h4> <strong>Customer Serv. </strong> </h4>
-                              </div>
-                          </div>
-                      </div>
-                  </a>
+                        <div class="tile-object">
+                            <div class="text-center">
+                                <h4> <strong>Customer Serv. </strong> </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
 
-                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- END Portlet PORTLET-->
       </div>
+      <!-- END Portlet PORTLET-->
+    </div>
     @endif
 
-    @if(userHasPermission("listar_tipo_equipo"))
+    @if(userHasPermission("listar_catalogo_proveedores") || userHasPermission("listar_catalogo_personas") || userHasPermission("listar_catalogo_ubicaciones") || userHasPermission("listar_catalogo_clientes") || userHasPermission("listar_catalogo_proyectos") || userHasPermission("listar_usuarios") || userHasPermission("listar_tipo_equipo") || userHasPermission("listar_roles")) 
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
         <!-- BEGIN Portlet PORTLET-->
         <div class="portlet ">
@@ -333,7 +335,7 @@
 
                       <div class="tile-object">
                         <div class="text-center">
-                          <h4><strong>Proyects</strong></h4>
+                          <h4><strong>Projects</strong></h4>
                         </div>
                       </div>
                     </div>

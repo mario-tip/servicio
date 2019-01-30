@@ -58,7 +58,9 @@
                             <th class="center">Date</th>
                             <th class="center">Technical</th>
                             <th class="center">Status</th>
+                            @if(userHasPermission("mostrar_consulta_atencion_incidencias")) 
                             <th class="center">Actions</th>
+                            @endif 
                         </tr>
                         </thead>
 
@@ -97,16 +99,16 @@
                                     <span class="label label-sm label-success">{{$incident->status}}</span>
                                   @endif
                                 </td>
+                                @if(userHasPermission("mostrar_consulta_atencion_incidencias"))
                                 <td>
                                   <div>
-                                    @if(userHasPermission("mostrar_consulta_atencion_incidencias"))
                                     <a href="{!!URL::to('/incidents_datails/'.$incident->id)!!}" title="Show details"
                                        class="btn btn-circle btn-icon-only grey-silver ">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    @endif
                                   </div>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

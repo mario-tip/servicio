@@ -63,13 +63,12 @@
                             <th class="center">Date </th>
                             <th class="center">Technical </th>
                             <th class="center">Status</th>
-                            <th class="center">Actions</th>
+                            @if(userHasPermission("mostrar_consulta_servicio") )  
+                                <th class="center">Actions</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
-                                @php
-                                // dd($service_orders[8]->maintenance->asset->name);
-                            @endphp
                         @foreach($service_orders as $service_order)
                         
                             <tr>
@@ -107,6 +106,8 @@
                                     </span>
                                   @endif
                                 </td>
+
+                                @if(userHasPermission("mostrar_consulta_servicio") ) 
                                 <td>
                                   <div>
                                     <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">
@@ -114,6 +115,7 @@
                                     </a>
                                   </div>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

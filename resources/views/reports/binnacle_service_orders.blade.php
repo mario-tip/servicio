@@ -60,11 +60,15 @@
                         <div class="row">
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
+                                    @if(userHasPermission('generar_consulta_bitacora'))
                                     <button type="submit" class="btn btn-circle blue" id="generate_report">Generate</button>
+                                    @endif
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-binnacle-service-orders'])!!}
                                     <input type="hidden" id="data" name="data">
+                                    @if(userHasPermission('descargar_consulta_bitacora'))
                                     <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Download</button>
+                                    @endif
                                     {!! Form::close() !!}
                                 </div>
                             </div>

@@ -34,9 +34,14 @@ class RoleController extends Controller
      */
     public function index()
     {
+        if(userHasPermission("listar_roles")) {
+
         $roles = Role::all();
        
         return view('roles.index', compact('roles'));
+
+        }
+        return \redirect()->back();
     }
 
     /**
@@ -163,9 +168,11 @@ class RoleController extends Controller
             array_push ( $data , $permission->id );
         }
 
-        foreach ($request->permissions_arr as $key => $permission_arr) {
-            $aux = intval($permission_arr);
-            array_push ( $data2 ,$aux); 
+        if($request->permissions_arr){
+            foreach ($request->permissions_arr as $key => $permission_arr) {
+                $aux = intval($permission_arr); 
+                array_push ( $data2 ,$aux); 
+            }
         }
 
         $adds = array_diff($data2,$data); //este array contiene los permisos a insertar.

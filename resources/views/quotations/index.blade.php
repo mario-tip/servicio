@@ -62,7 +62,9 @@
                                 <th class="center">Price</th>
                                 <th class="center">Description</th>
                                 <th class="center">Status</th>
+                                @if(userHasPermission("editar_cotizacion_servicios") || userHasPermission("mostrar_cotizacion_servicios") ||userHasPermission("cancelar_cotizacion_servicios") || userHasPermission("cambiar_estatus_cotizacion_servicios") )
                                 <th class="center">Actions</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -87,7 +89,8 @@
                                       {{$quotation->getAuthorizationWord()}}
                                     </span>
                                   @endif
-                                  </td>
+                                </td>
+                                @if(userHasPermission("editar_cotizacion_servicios") || userHasPermission("mostrar_cotizacion_servicios") ||userHasPermission("cancelar_cotizacion_servicios") || userHasPermission("cambiar_estatus_cotizacion_servicios") )
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_cotizacion_servicios"))
@@ -115,6 +118,7 @@
                                     @endif
                                   </div>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

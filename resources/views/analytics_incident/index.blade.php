@@ -7,7 +7,7 @@
 @endsection
 @section('page-content')
     <div class="row">
-        @if(userHasPermission("listar_catalogo_proveedores"))
+        @if(userHasPermission("listar_consulta_atencion_incidencias"))
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<a class="dashboard-stat bg-green-600 red-thunderbird" href="{!!URL::to('/aid')!!}">
   						<div class="visual">
@@ -25,7 +25,7 @@
 					</div>
         @endif
 
-        @if(userHasPermission("listar_catalogo_personas"))
+        @if(userHasPermission("generar_reporte_incidencias"))
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a class="dashboard-stat red-thunderbird bg-green-600" href="{{route('reports.incidents')}}">
               <div class="visual">

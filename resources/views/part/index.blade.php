@@ -52,7 +52,9 @@
                             <th class="center">Part number </th>
                             <th class="center">Price</th>
                             <th class="center">Description</th>
+                            @if(userHasPermission("editar_catalogo_correlativos") || userHasPermission("eliminar_catalogo_correlativos"))
                             <th class="center">Actions</th>
+                            @endif
                         </tr>
                         </thead>
 
@@ -63,6 +65,7 @@
                                 <td class="center"> {{$part->number}} </td>
                                 <td class="center"> {{$part->price}} </td>
                                 <td class="center"> {{$part->description}} </td>
+                                @if(userHasPermission("editar_catalogo_correlativos") || userHasPermission("eliminar_catalogo_correlativos"))
                                 <td>
                                   <div class="">
                                     @if(userHasPermission("editar_catalogo_correlativos"))
@@ -80,6 +83,7 @@
                                     @endif
                                   </div>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
