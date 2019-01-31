@@ -56,7 +56,9 @@
                                 <th class="center">Last name</th>
                                 <th class="center">Mother's surname</th>
                                 <th class="center">E-mail</th>
+                                @if(userHasPermission("editar_catalogo_personas") || userHasPermission("eliminar_catalogo_personas"))
                                 <th class="center">Action</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -66,6 +68,7 @@
                                 <td class="center">{{$person->father_last_name}}</td>
                                 <td class="center">{{$person->mother_last_name}}</td>
                                 <td class="center">{{$person->email}}</td>
+                                @if(userHasPermission("editar_catalogo_personas") || userHasPermission("eliminar_catalogo_personas"))
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_personas"))
@@ -75,11 +78,12 @@
                                     @endif
                                     @if(userHasPermission("eliminar_catalogo_personas"))
                                     <a href="#basic" data-toggle="modal" data-name="{{$person->name}}" data-id="{{$person->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-person">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-trash"></i>
                                     </a>
                                     @endif
                                   </div>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

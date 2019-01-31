@@ -37,7 +37,9 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    @if(userHasPermission("crear_usuarios"))
                                     <a href="{{URL::route('users.create')}}" class="btn green circle"><i class="fa fa-plus"></i> New user </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -49,7 +51,9 @@
                             <th class="center">Email</th>
                             <th class="center">Name user</th>
                             <th class="center">User type </th>
+                            @if(userHasPermission("editar_usuarios") || userHasPermission("mostrar_usuarios") || userHasPermission("eliminar_usuarios"))
                             <th class="center">Actions</th>
+                            @endif
                         </tr>
                         </thead>
 
@@ -59,20 +63,23 @@
                                 <td class="center"> {{$user->name}} </td>
                                 <td class="center"> {{$user->email}} </td>
                                 <td class="center"> {{$user->username}} </td>
-                                
                                 <td class="center"><span class="btn default green-seagreen-stripe">{{$user->name_role}}</span></td>
-                        
-
+                                @if(userHasPermission("editar_usuarios") || userHasPermission("mostrar_usuarios") || userHasPermission("eliminar_usuarios"))
                                 <td >
                                   <div class="center_items">
-                                      <a href="{{URL::route('users.edit', $user->id) }}" title="Edit" class="btn btn-icon-only blue circle">
+                                    @if(userHasPermission("editar_usuarios"))
+                                        <a href="{{URL::route('users.edit', $user->id) }}" title="Edit" class="btn btn-icon-only blue circle">
                                           <i class="fa fa-edit"></i>
-                                      </a>
-                                      <a href="#basic" data-toggle="modal" data-name="{{$user->name}}" data-id="{{$user->id}}" title="Delete" class="btn btn-icon-only red circle modalDelete">
+                                        </a>
+                                    @endif
+                                    @if(userHasPermission("eliminar_usuarios"))
+                                        <a href="#basic" data-toggle="modal" data-name="{{$user->name}}" data-id="{{$user->id}}" title="Delete" class="btn btn-icon-only red circle modalDelete">
                                           <i class="fa fa-trash-o"></i>
-                                      </a>
+                                        </a>
+                                    @endif
                                     </div>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

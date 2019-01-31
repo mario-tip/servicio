@@ -23,7 +23,7 @@
             <!-- END SIDEBAR TOGGLER BUTTON -->
             @if(!user_can())
 
-              @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio") || userHasPermission("listar_mantenimientos") )
+              @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio") || userHasPermission("listar_mantenimientos") || userHasPermission("listar_cotizacion_servicios"))
               <li id="liHelpDesk" class="nav-item">
                   <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                     <i class="icon-earphones-alt"></i>
@@ -39,7 +39,7 @@
                       Incidents</a>
                     </li>
                     @endif
-                    @if(userHasPermission("listar_consulta_servicio") )
+                    @if(userHasPermission("listar_consulta_servicio") || userHasPermission("listar_cotizacion_servicios")) 
                     <li id="liServiceOrders" class="nav-item" >
                       <a href="{!!URL::to('/help_service')!!}" class="nav-link nav-toggle">
                       <i class="icon-call-in"></i>
@@ -201,7 +201,7 @@
                   </li>
                   @endif
 
-                  @if(userHasPermission("listar_usuarios"))
+                  @if(userHasPermission("listar_tipo_equipo"))
                   <li id="liEquipments" class="nav-item">
                     <a href="{!!URL::to('/equipments')!!}" class="nav-link nav-toggle">
                     <i class="glyphicon glyphicon-barcode"></i>
@@ -209,7 +209,7 @@
                   </li>
                   @endif
 
-                  @if(userHasPermission("listar_tipo_equipo"))
+                  @if(userHasPermission("listar_usuarios"))
                   <li id="liUsers" class="nav-item">
                     <a href="{!!URL::to('/users')!!}" class="nav-link nav-toggle">
                     <i class="glyphicon glyphicon-sunglasses"></i>

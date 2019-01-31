@@ -23,7 +23,11 @@ class MaintenanceController extends Controller
      */
     public function index()
     {
-        return view('maintenances.index');
+
+        if(userHasPermission("listar_mantenimientos")):
+            return view('maintenances.index');
+        endif;
+        return redirect()->back();
     }
 
     /**
@@ -33,7 +37,9 @@ class MaintenanceController extends Controller
      */
     public function create()
     {
-        return view('maintenances.create');
+        
+            return view('maintenances.create');
+        
     }
 
     /**
@@ -93,41 +99,47 @@ class MaintenanceController extends Controller
      */
     public function show($id)
     {
-        $maintenance = Maintenance::find($id);
+        if(userHasPermission("mostrar_mantenimientos")):
+            $maintenance = Maintenance::find($id);
 
-        $asset = Asset::find($maintenance->asset_id);
+            $asset = Asset::find($maintenance->asset_id);
 
-        $service_order = ServiceOrder::where('type', '=', 1)
-            ->where('type_id', '=', $maintenance->id)->first();
-            // dd(['estas es la orden de servicio'=>$service_order]);
+            $service_order = ServiceOrder::where('type', '=', 1)
+                ->where('type_id', '=', $maintenance->id)->first();
+                // dd(['estas es la orden de servicio'=>$service_order]);
 
-        if($service_order != null){
-            $person = Person::find($service_order->person_id);
+            if($service_order != null){
+                $person = Person::find($service_order->person_id);
 
-            $maintenance->folio = $service_order->folio;
-            $maintenance->person_notes = $service_order->notes;
+                $maintenance->folio = $service_order->folio;
+                $maintenance->person_notes = $service_order->notes;
 
-            if($person != null){
-                $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
+                if($person != null){
+                    $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
+                }else{
+                    $maintenance->person_name = '';
+                }
+
+                $name = $service_order->technician()->select('users.username')->first();
+                $maintenance->technician = $name->username;
+
+                if($service_order->signature){
+                    $maintenance->signature = '/'.$service_order->signature;
+                }
+                
             }else{
+                $maintenance->folio = '';
+                $maintenance->person_notes = '';
                 $maintenance->person_name = '';
+                $maintenance->signature = '';
             }
 
-            $name = $service_order->technician()->select('users.username')->first();
-            $maintenance->technician = $name->username;
-
-            if($service_order->signature){
-                $maintenance->signature = '/'.$service_order->signature;
-            }
+            return view('maintenances.show', compact('maintenance', 'asset'));
+        else:
+            Session::flash('message', 'You dont have permissions.');
+            return redirect()->back();
             
-        }else{
-            $maintenance->folio = '';
-            $maintenance->person_notes = '';
-            $maintenance->person_name = '';
-            $maintenance->signature = '';
-        }
-
-        return view('maintenances.show', compact('maintenance', 'asset'));
+        endif;
     }
 
     /**
@@ -138,18 +150,23 @@ class MaintenanceController extends Controller
      */
     public function edit($id)
     {
-        $maintenance = Maintenance::find($id);
+        if(userHasPermission("editar_mantenimientos")):
+            $maintenance = Maintenance::find($id);
 
-        $service_order = ServiceOrder::where('type', '=', 1)
-            ->where('type_id', '=', $id)->first();
+            $service_order = ServiceOrder::where('type', '=', 1)
+                ->where('type_id', '=', $id)->first();
 
-        if($service_order != null){
-            $maintenance->user_id = $service_order->user_id;
-        }else{
-            $maintenance->user_id = '';
-        }
-        // dd($maintenance);
-        return view('maintenances.edit', compact('maintenance'));
+            if($service_order != null){
+                $maintenance->user_id = $service_order->user_id;
+            }else{
+                $maintenance->user_id = '';
+            }
+            // dd($maintenance);
+
+            return view('maintenances.edit', compact('maintenance'));
+        else:
+            return redirect()->back();
+        endif;
     }
 
     /**

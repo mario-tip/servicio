@@ -54,7 +54,9 @@
                             <th class="center">Description</th>
                             <th class="center">Building</th>
                             <th class="center">Area</th>
+                            @if(userHasPermission("editar_catalogo_ubicaciones") || userHasPermission("eliminar_catalogo_ubicaciones"))
                             <th class="center">Actions</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -63,6 +65,7 @@
                                 <td class="center"> {{$location->description}}</td>
                                 <td class="center"> {{$location->building}}</td>
                                 <td class="center"> {{$location->area}}</td>
+                                @if(userHasPermission("editar_catalogo_ubicaciones") || userHasPermission("eliminar_catalogo_ubicaciones"))
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_ubicaciones"))
@@ -77,6 +80,7 @@
                                     @endif
                                   </div>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

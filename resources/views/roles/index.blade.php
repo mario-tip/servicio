@@ -42,7 +42,9 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    @if(userHasPermission("crear_roles"))
                                     <a href="{{URL::route('roles.create')}}" class="btn green circle"><i class="fa fa-plus"></i> New roll </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -52,7 +54,9 @@
                             <tr>
                                 <th class="center">ID</th>
                                 <th class="center">Name</th>
+                                @if(userHasPermission("editar_roles") || userHasPermission("mostrar_roles") || userHasPermission("eliminar_roles"))
                                 <th class="center">Actions</th>
+                                @endif
                             </tr>
                         </thead>
 
@@ -61,16 +65,22 @@
                             <tr>
                                 <td class="center">{{$role->id}}</td>
                                 <td class="center">{{$role->name}}</td>
+                                @if(userHasPermission("editar_roles") || userHasPermission("mostrar_roles") || userHasPermission("eliminar_roles"))
                                 <td >
                                     <div class="center_items">
+                                        @if(userHasPermission("editar_roles"))
                                         <a href="{{URL::route('roles.edit', $role->id) }}" title="Edit" class="btn btn-icon-only blue circle">
                                             <i class="fa fa-edit"></i>
                                         </a>
+                                        @endif
+                                        @if(userHasPermission("eliminar_roles"))
                                         <a href="#basic" data-toggle="modal" data-name="{{$role->name}}" data-id="{{$role->id}}" title="Delete" class="btn btn-icon-only red circle modalDelete">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
+                                        @endif
                                     </div>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

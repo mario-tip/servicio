@@ -286,9 +286,9 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
               <div class="portlet-body">
                 <div class="tiles">
+                  @if(userHasPermission("listar_catalogo_proveedores"))
                   <a href="{{route('providers.index')}}">
                     <div class="tile bg-blue-800 minizoom">
-
                       <div class="tile-object">
                         <div class="text-center">
                           <h4> <strong> Suppliers  </strong> </h4>
@@ -296,7 +296,8 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
+                  @if(userHasPermission("listar_catalogo_personas"))
                   <a href="{{route('persons.index')}}" >
                     <div class="tile bg-blue-700 minizoom">
 
@@ -307,7 +308,8 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
+                  @if(userHasPermission("listar_catalogo_ubicaciones"))
                   <a href="{{route('locations.index')}}" >
                     <div class="tile bg-blue-600 minizoom">
 
@@ -318,7 +320,8 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
+                  @if(userHasPermission("listar_catalogo_clientes"))
                   <a href="{{route('customers.index')}}">
                     <div class="tile bg-blue-500 minizoom">
 
@@ -329,7 +332,8 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
+                  @if(userHasPermission("listar_catalogo_proyectos"))
                   <a href="{{route('projects.index')}}">
                     <div class="tile bg-blue-400 minizoom">
 
@@ -340,7 +344,8 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
+                  @if(userHasPermission("listar_tipo_equipo"))
                   <a href="{!!URL::to('/equipments')!!}">
                     <div class="tile bg-blue-300 minizoom">
                       <div class="tile-object">
@@ -350,7 +355,8 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
+                  @if(userHasPermission("listar_usuarios"))
                   <a href="{!!URL::to('/users')!!}">
                     <div class="tile bg-blue-200 minizoom">
                       <div class="tile-object">
@@ -360,7 +366,8 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
+                  @if(userHasPermission("listar_roles"))
                   <a href="{!!URL::to('/roles')!!}">
                     <div class="tile bg-blue-200 minizoom">
                       <div class="tile-object">
@@ -370,7 +377,7 @@
                       </div>
                     </div>
                   </a>
-
+                  @endif
                 </div>
               </div>
             </div>
@@ -380,7 +387,7 @@
       </div>
     @endif
   </div>
-
+  @if(userHasPermission("listar_roles"))
   <div class="row content_container">
     <div class="col-md-12">
         <div class="portlet light portlet-fit bordered">
@@ -388,6 +395,7 @@
         </div>
     </div>
   </div>
+  @endif
 
   <div class="row">
     {{-- {!! $chart->container() !!} --}}

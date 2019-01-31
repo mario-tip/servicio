@@ -45,8 +45,11 @@ class UserController extends Controller
             }
             
         }
-        
-        return view('users.index', compact('users'));
+
+        if(userHasPermission("listar_usuarios")) {
+            return view('users.index', compact('users'));
+        }
+        return redirect()->back();
     }
 
     /**
@@ -58,16 +61,15 @@ class UserController extends Controller
 
     {
         $dependencies = $this->getDependenciesData();
-      
         $users = User::all();
-
         // return view('users.create',compact('roles','users','customers','dependencies'));
         return view('users.create',compact('dependencies','users'));
 
     }
 
-    /*Obtiene las dependencias del asset, para los select del form*/
-    private function getDependenciesData() {
+
+     /*Obtiene las dependencias del asset, para los select del form*/
+     private function getDependenciesData() {
         return [
             
             'customers' => Customer::all()->pluck('name', 'id'),
@@ -91,7 +93,6 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'username' => 'required|unique:users',
             'type_user' => 'required',
-            'customer_id' => 'required',
         ];
         $this->validate($request,$rule);
 
@@ -191,6 +192,7 @@ class UserController extends Controller
 
         $dependencies = $this->getDependenciesData();
 
+        
         $users = User::all();
 
         // 1 usuarios activos para notificar incidencias
@@ -269,14 +271,12 @@ class UserController extends Controller
               'name' => 'required',
               'email' => 'required|email|exists:users',
               'username' => 'required',
-              'customer_id' => 'required',
           ];
       }else {
         $rule= [
               'name' => 'required',
               'email' => 'required|email|unique:users,email',
               'username' => 'required',
-              'customer_id' => 'required',
           ];
       }
 

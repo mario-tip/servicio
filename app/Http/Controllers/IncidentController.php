@@ -514,11 +514,19 @@ class IncidentController extends Controller
             // DB::table('log')->insert([
             //     "texto" => $user
             // ]);
-
-            $data = Asset::select('id','name AS text')
+            if ($user->type_user ==  1) {
+                $data = Asset::select('id','name AS text')
+                ->where('name','like','%'.$keyword.'%')
+                
+                ->get();
+            } else {
+                $data = Asset::select('id','name AS text')
                 ->where('name','like','%'.$keyword.'%')
                 ->where('customer_id', '=', $user->customer_id)
                 ->get();
+            }
+            
+            
             return response()->json($data);
         }
     }

@@ -76,11 +76,15 @@
                         <div class="row">
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
+                                    @if(userHasPermission("generar_reporte_servicio"))
                                     <button type="submit" class="btn btn-circle blue" id="generate_report">Generate</button>
+                                    @endif
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-customer-service-orders'])!!}
                                     <input type="hidden" id="data" name="data">
+                                    @if(userHasPermission("exportar_reporte_servicio"))
                                     <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Download</button>
+                                    @endif
                                     {!! Form::close() !!}
                                 </div>
                             </div>

@@ -42,7 +42,6 @@
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_tipo_equipo"))
                                     <a href="{{URL::route('equipments.create')}}" class="btn btn-circle btn-success "><i class="fa fa-plus"></i> New Equipment</a>
-
                                     @endif
                                 </div>
                             </div>
@@ -52,29 +51,32 @@
                         <thead>
                             <tr>
                                 <th class="center">Name equipment</th>
+                                @if(userHasPermission("editar_tipo_equipo") || userHasPermission("editar_tipo_equipo") )
                                 <th class="center">Actions</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($equipments as $equipment)
                             <tr>
-                              <td class="center"> {{$equipment->name}} </td>
+                                <td class="center"> {{$equipment->name}} </td>
 
-                              <td>
-                                <div class="center_items">
-                                  @if(userHasPermission("editar_tipo_equipo"))
-                                  <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
-                                      <i class="fa fa-edit"></i>
-                                  </a>
-                                  @endif
-                                  @if(userHasPermission("eliminar_tipo_equipo"))
-                                  <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-equipment">
-                                      {{-- <i class="fa fa-times"></i> --}}
-                                      <i class="fa fa-trash-o"></i>
-                                  </a>
-                                  @endif
-                                </div>
-                              </td>
+                                @if(userHasPermission("editar_tipo_equipo") || userHasPermission("editar_tipo_equipo") )
+                                <td>
+                                    <div class="center_items">
+                                    @if(userHasPermission("editar_tipo_equipo"))
+                                    <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    @endif
+                                    @if(userHasPermission("eliminar_tipo_equipo"))
+                                    <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-equipment">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                    @endif
+                                    </div>
+                                </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

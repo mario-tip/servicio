@@ -54,7 +54,9 @@
                             <th class="center">Customer ID </th>
                             <th class="center">Name</th>
                             <th class="center">Type</th>
+                            @if(userHasPermission("editar_catalogo_clientes") || userHasPermission("eliminar_catalogo_clientes"))
                             <th class="center">Actions</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -63,6 +65,7 @@
                                 <td class="center"> {{$customer->idcustomer}}</td>
                                 <td class="center"> {{$customer->name}}</td>
                                 <td class="center"> {{$customer->getTypeWord()}}</td>
+                                @if(userHasPermission("editar_catalogo_clientes") || userHasPermission("eliminar_catalogo_clientes"))
                                 <td>
                                     <div>
                                         @if(userHasPermission("editar_catalogo_clientes"))
@@ -77,6 +80,7 @@
                                         @endif
                                     </div>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

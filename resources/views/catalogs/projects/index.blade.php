@@ -53,7 +53,9 @@
                         <tr>
                             <th class="center">Project name </th>
                             <th class="center">Description</th>
+                            @if(userHasPermission("editar_catalogo_proyectos") || userHasPermission("eliminar_catalogo_proyectos"))
                             <th class="center">Actions</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -61,6 +63,7 @@
                             <tr>
                                 <td class="center"> {{$project->name}}</td>
                                 <td class="center"> {{$project->description}}</td>
+                                @if(userHasPermission("editar_catalogo_proyectos") || userHasPermission("eliminar_catalogo_proyectos"))
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_proyectos"))
@@ -75,6 +78,7 @@
                                     @endif
                                   </div>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

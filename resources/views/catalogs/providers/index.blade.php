@@ -54,7 +54,9 @@
                                 <th class="center">Name</th>
                                 <th class="center">Address</th>
                                 <th class="center">Telephono</th>
+                                @if(userHasPermission("editar_catalogo_proveedores") ||userHasPermission("eliminar_catalogo_proveedores") )
                                 <th class="center">Actions</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -63,6 +65,7 @@
                                 <td class="center">{{$provider->name}}</td>
                                 <td class="center">{{$provider->address}}</td>
                                 <td class="center">{{$provider->phone}}</td>
+                                @if(userHasPermission("editar_catalogo_proveedores") ||userHasPermission("eliminar_catalogo_proveedores") )
                                 <td>
                                     @if(userHasPermission("editar_catalogo_proveedores"))
                                     <a href="{{route('providers.edit', $provider->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
@@ -75,6 +78,7 @@
                                     </a>
                                     @endif
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
