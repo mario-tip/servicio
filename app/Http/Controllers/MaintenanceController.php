@@ -37,9 +37,9 @@ class MaintenanceController extends Controller
      */
     public function create()
     {
-        
+
             return view('maintenances.create');
-        
+
     }
 
     /**
@@ -114,8 +114,11 @@ class MaintenanceController extends Controller
                 $maintenance->folio = $service_order->folio;
                 $maintenance->person_notes = $service_order->notes;
 
+
+
                 if($person != null){
                     $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
+                    // dd($maintenance);
                 }else{
                     $maintenance->person_name = '';
                 }
@@ -126,7 +129,7 @@ class MaintenanceController extends Controller
                 if($service_order->signature){
                     $maintenance->signature = '/'.$service_order->signature;
                 }
-                
+
             }else{
                 $maintenance->folio = '';
                 $maintenance->person_notes = '';
@@ -138,7 +141,7 @@ class MaintenanceController extends Controller
         else:
             Session::flash('message', 'You dont have permissions.');
             return redirect()->back();
-            
+
         endif;
     }
 
@@ -197,15 +200,15 @@ class MaintenanceController extends Controller
                 $total = count(ServiceOrder::where('type', 1)->get());
                 if($total==0){
                     $val = 1;
-    
+
                     $folio =  'EEOM-'.$val;
                 }else{
                     $value = ServiceOrder::where('type', 1)->get();
                     $aux = $value->last()->id+1;
-    
+
                     $folio =  'EEOM-'.$aux;
                 }
-    
+
                 $new_service_order = new ServiceOrder();
                 $new_service_order->folio = $folio;
                 $new_service_order->date = $data['maintenance_date'];
@@ -222,7 +225,7 @@ class MaintenanceController extends Controller
                 $service_order->save();
             }
         }
-        
+
 
         Session::flash('message', 'Maintenance update succesfully.');
         return Redirect::to('/maintenances');

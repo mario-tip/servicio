@@ -113,7 +113,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             @if($maintenance->signature)
                             <div class="row">
                                 <div class="col-md-6">
