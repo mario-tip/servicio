@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use App\Permission;
@@ -11,16 +10,14 @@ class Role extends Model
 
     protected $fillable = [
         'name',
-        'display_name', 
+        'display_name',
         'description'];
 
-    public function user()
-    {
-        return $this->belongsToMany('App\User', 'role_user', 'user_id', 'role_id');
+    public function user(){
+        return $this->belongsToMany(User::class, 'role_user', 'user_id', 'role_id');
     }
 
-    public function permissions()
-    {
+    public function permissions(){
         return $this->belongsToMany(Permission::class, 'permission_role', 'role_id', 'permission_id');
     }
 }

@@ -6,45 +6,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quotation extends Model
 {
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'quotations';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['name',
-                          'description',
-                          'quotation_file',
-                          'authorization',
-                          'comments',
-                          'authorization_file',
-                          'incident_id'
-                        ];
+    protected $fillable = [
+      'name',
+      'description',
+      'quotation_file',
+      'authorization',
+      'comments',
+      'authorization_file',
+      'incident_id'
+    ];
 
-    public function parts()
-    {
-        return $this->belongsToMany('App\Part', 'quotation_part', 'quotation_id', 'part_id')
+    public function parts(){
+        return $this->belongsToMany(Part::class, 'quotation_part', 'quotation_id', 'part_id')
             ->withPivot('price');
     }
 
-    public function getTotalPrice()
-    {
+    public function getTotalPrice(){
         return $this->parts()->sum('quotation_part.price');
     }
 
-    public function incident()
-    {
-        return $this->belongsTo('App\Incident', 'incident_id', 'id');
+    public function incident(){
+        return $this->belongsTo(Incident::class, 'incident_id', 'id');
     }
 
-    public function getAuthorizationWord()
-    {
+    public function getAuthorizationWord(){
         $authorizations = [
                     // <span class="label label-sm label-info">Pending</span>
             '0' => 'Pending',
@@ -56,8 +43,7 @@ class Quotation extends Model
     }
 
     /*Obtiene el tipo o la extensión del archivo, $key=0:tipo, key=1:extension */
-    public static function getFileMime($filename)
-    {
+    public static function getFileMime($filename){
         try{
             return explode('/', mime_content_type($filename));
         } catch(\Exception $e) {
@@ -65,8 +51,7 @@ class Quotation extends Model
         }
     }
 
-    public static function getFileTypeIcon($key)
-    {
+    public static function getFileTypeIcon($key){
         $supported_extensions = [
             'pdf' => 'pdf',
             'msword' => 'doc',

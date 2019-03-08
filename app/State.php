@@ -8,8 +8,7 @@ class State extends Model
 {
     protected $table = 'states';
 
-    public static function getSelectStates()
-    {
+    public static function getSelectStates(){
         return self::all()->pluck('name', 'id');
     }
 }

@@ -11,20 +11,10 @@ use Session;
 
 class EquipmentController extends Controller
 {
-    /**
-     * EquipmentController constructor.
-     */
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    public function index(){
         if(userHasPermission("listar_tipo_equipo")) {
             $equipments = Equipment::all();
             return view('equipments.index', compact('equipments'));
@@ -32,13 +22,7 @@ class EquipmentController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create(){
         if(userHasPermission("crear_tipo_equipo")) {
             $equipment = new Equipment;
             return view('equipments.create', compact('equipment','parts'));
@@ -100,14 +84,7 @@ class EquipmentController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $equipment_data = $request->get('equipment');
         $validator = $this->validateInputs($equipment_data);
 
@@ -134,8 +111,7 @@ class EquipmentController extends Controller
         }
     }
 
-    private function validateInputs($form_data)
-    {
+    private function validateInputs($form_data){
         $messages = [
             'name.required' => 'The equipment name is required'
         ];
@@ -147,25 +123,7 @@ class EquipmentController extends Controller
         return $validator;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Equipment $equipment)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id){
         if(userHasPermission("editar_tipo_equipo")) {
             $equipment = Equipment::find($id);
             return view('equipments.edit', compact('equipment'));
@@ -173,15 +131,7 @@ class EquipmentController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $equipment_data = $request->get('equipment');
         $validator = $this->validateInputs($equipment_data);
 
@@ -210,15 +160,8 @@ class EquipmentController extends Controller
             return response()->json($response);
         }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    
+    public function destroy($id){
         $response = ['errors' => false];
         $equipment = Equipment::find($id);
 
