@@ -310,8 +310,7 @@ class Expectation implements ExpectationInterface
         if (empty($this->_expectedArgs) && !$this->_noArgsExpectation) {
             return true;
         }
-        $expected = is_array($this->_expectedArgs) ? count($this->_expectedArgs) : 0;
-        if (count($args) !== $expected) {
+        if (count($args) !== count($this->_expectedArgs)) {
             return false;
         }
         $argCount = count($args);

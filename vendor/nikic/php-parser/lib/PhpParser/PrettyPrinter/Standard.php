@@ -435,15 +435,7 @@ class Standard extends PrettyPrinterAbstract
     }
 
     protected function pExpr_Cast_Double(Cast\Double $node) {
-        $kind = $node->getAttribute('kind', Cast\Double::KIND_DOUBLE);
-        if ($kind === Cast\Double::KIND_DOUBLE) {
-            $cast = '(double)';
-        } elseif ($kind === Cast\Double::KIND_FLOAT) {
-            $cast = '(float)';
-        } elseif ($kind === Cast\Double::KIND_REAL) {
-            $cast = '(real)';
-        }
-        return $this->pPrefixOp(Cast\Double::class, $cast . ' ', $node->expr);
+        return $this->pPrefixOp(Cast\Double::class, '(double) ', $node->expr);
     }
 
     protected function pExpr_Cast_String(Cast\String_ $node) {
@@ -688,9 +680,7 @@ class Standard extends PrettyPrinterAbstract
     }
 
     protected function pStmt_Property(Stmt\Property $node) {
-        return (0 === $node->flags ? 'var ' : $this->pModifiers($node->flags))
-            . ($node->type ? $this->p($node->type) . ' ' : '')
-            . $this->pCommaSeparated($node->props) . ';';
+        return (0 === $node->flags ? 'var ' : $this->pModifiers($node->flags)) . $this->pCommaSeparated($node->props) . ';';
     }
 
     protected function pStmt_PropertyProperty(Stmt\PropertyProperty $node) {

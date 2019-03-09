@@ -31,7 +31,7 @@ class RequestContext
     private $httpPort;
     private $httpsPort;
     private $queryString;
-    private $parameters = [];
+    private $parameters = array();
 
     /**
      * @param string $baseUrl     The base URL

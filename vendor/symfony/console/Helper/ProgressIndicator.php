@@ -48,7 +48,7 @@ class ProgressIndicator
         }
 
         if (null === $indicatorValues) {
-            $indicatorValues = ['-', '\\', '|', '/'];
+            $indicatorValues = array('-', '\\', '|', '/');
         }
 
         $indicatorValues = array_values($indicatorValues);
@@ -239,25 +239,25 @@ class ProgressIndicator
 
     private static function initPlaceholderFormatters()
     {
-        return [
-            'indicator' => function (self $indicator) {
+        return array(
+            'indicator' => function (ProgressIndicator $indicator) {
                 return $indicator->indicatorValues[$indicator->indicatorCurrent % \count($indicator->indicatorValues)];
             },
-            'message' => function (self $indicator) {
+            'message' => function (ProgressIndicator $indicator) {
                 return $indicator->message;
             },
-            'elapsed' => function (self $indicator) {
+            'elapsed' => function (ProgressIndicator $indicator) {
                 return Helper::formatTime(time() - $indicator->startTime);
             },
             'memory' => function () {
                 return Helper::formatMemory(memory_get_usage(true));
             },
-        ];
+        );
     }
 
     private static function initFormats()
     {
-        return [
+        return array(
             'normal' => ' %indicator% %message%',
             'normal_no_ansi' => ' %message%',
 
@@ -266,6 +266,6 @@ class ProgressIndicator
 
             'very_verbose' => ' %indicator% %message% (%elapsed:6s%, %memory:6s%)',
             'very_verbose_no_ansi' => ' %message% (%elapsed:6s%, %memory:6s%)',
-        ];
+        );
     }
 }

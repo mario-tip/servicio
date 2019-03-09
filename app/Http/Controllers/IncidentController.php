@@ -1,12 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
-use App\User;
+
 use App\Asset;
 use App\Person;
 use App\Incident;
 use App\Quotation;
 use Carbon\Carbon;
 use App\ServiceOrder;
+use App\User;
 use Illuminate\Http\Request;
 use App\Mail\IncidentMailUser;
 use App\Mail\IncidentMailAdmin;
@@ -21,22 +23,35 @@ use Illuminate\Support\Facades\Redirect;
 
 class IncidentController extends Controller
 {
-    public function index(Request $request){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
         if(userHasPermission("listar_registro_incidencias")) {
             $user = $request->user();
 
             if ($user->type_user != 1 ) {
-                $incidents = $user->getIncidents;
+                $incidents = $user->getIncidents; 
             } else {
-                $incidents = Incident::all();
+                $incidents = Incident::all();  
             }
 
+            
             return view('incident.index', compact('incidents'));
         }
         return \redirect()->back();
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         if(userHasPermission("crear_registro_incidencias")) {
             $persons = Person::all();
             return view('incident.create')->with('persons', $persons);
@@ -44,7 +59,14 @@ class IncidentController extends Controller
         return \redirect()->back();
     }
 
-    public function store(IncidentRequest $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(IncidentRequest $request)
+    {
         $data = $request->all();
 
         if(!empty($data['parts'])){
@@ -74,7 +96,7 @@ class IncidentController extends Controller
         $data['evidence_file'] = $fileLogo;
 
         $user = $request->user();//se recupera el usuario en sesion para asignar el id a la incidencia.
-
+       
         $data['user_id'] = $user->id;
 
         $incident = Incident::create($data);
@@ -87,18 +109,18 @@ class IncidentController extends Controller
             Mail::to($user->email)->send(new IncidentMailUser($incident,$asset,$user));
         }
 
-        // se recuperan todos los usuarios a los que se les va a notificar el registro de la incidencia.
+        // se recuperan todos los usuarios a los que se les va a notificar el registro de la incidencia. 
         $users_send = DB::table('users')
         ->join('user_notification', 'users.id', '=', 'user_notification.notification_id')
         ->select('users.*')
         ->where('user_notification.user_id', '=', $user->id)
         ->get();
-
+        
         // En el siguiente foreach se envian correos segun el numero de usuarios a notificar.
         foreach ($users_send as $key => $user_send) {
             Mail::to($user_send->email)->send(new IncidentMailAdmin($incident,$asset,$user,$user_send));
         }
-
+        
         if(!empty($parts)){
             $incident->parts()->attach($parts);
         }
@@ -115,7 +137,25 @@ class IncidentController extends Controller
         return Redirect::to('/incidents');
     }
 
-    public function edit($id){
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         if(userHasPermission("editar_registro_incidencias")) {
             $incident = Incident::find($id);
             $persons = Person::all();
@@ -126,7 +166,15 @@ class IncidentController extends Controller
         return \redirect()->back();
     }
 
-    public function update(IncidentRequest $request, $id){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(IncidentRequest $request, $id)
+    {
         $data = $request->all();
 
         if(!empty($data['parts'])){
@@ -179,7 +227,14 @@ class IncidentController extends Controller
         return Redirect::to('/incidents');
     }
 
-    public function destroy($id){
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
         $status = Incident::select('service_order.status as service_status')
             ->join('assets', 'assets.id', '=', 'incidents.asset_id')
             ->join('persons', 'persons.id', '=', 'assets.person_id')
@@ -462,7 +517,7 @@ class IncidentController extends Controller
             if ($user->type_user ==  1) {
                 $data = Asset::select('id','name AS text')
                 ->where('name','like','%'.$keyword.'%')
-
+                
                 ->get();
             } else {
                 $data = Asset::select('id','name AS text')
@@ -470,13 +525,14 @@ class IncidentController extends Controller
                 ->where('customer_id', '=', $user->customer_id)
                 ->get();
             }
-
-
+            
+            
             return response()->json($data);
         }
     }
 
-    public function getDataAsset($id){
+    public function getDataAsset($id)
+    {
         $asset = Asset::find($id);
 
         $data = [];
@@ -506,7 +562,8 @@ class IncidentController extends Controller
         }
     }
 
-    public function getIncidentParts(Request $request){
+    public function getIncidentParts(Request $request)
+    {
         if($request->ajax()){
             $asset_parts = Asset::find($request->get('asset_id'))->parts;
             Log::debug('assets parts: '. $asset_parts);

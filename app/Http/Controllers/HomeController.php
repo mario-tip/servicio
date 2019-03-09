@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\User;
 use App\Incident;
 use Carbon\Carbon;
@@ -9,13 +11,27 @@ use Illuminate\Http\Request;
 use App\Charts\SampleChartHig;
 use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller {
 
-    public function __construct(){
+
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function index(){
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         // $today_users = User::whereDate('created_at', today())->count();
 
         $date_today0 = Carbon::now();
@@ -96,6 +112,10 @@ class HomeController extends Controller {
             array_push($close_dataset,$orders_count);
         }
 
+        // dd($close_dataset);
+
+        // dd($name_technicians);
+
         $chart_technician = new SampleChart;
         $chart_technician->labels($name_technicians);
         $chart_technician->dataset('Open', 'bar',$open_dataset)->backgroundColor('#9ad0f5'); //border #73bef1
@@ -121,14 +141,16 @@ class HomeController extends Controller {
         $resolution->options([
             'legend' => [ 'display' => true ],
             'fill' => true,
-            'title' => [ 'display' => true, 'text'=> 'Average resolution time by severity (Hours)', 'fontSize' => 26],
-
+            'title' => [ 'display' => true, 'text'=> 'Average resolution time by severity (Hours)', 'fontSize' => 26],   
+           
              ]);
 
         $incidents = Incident::all();
         $services = ServiceOrder::all();
-        $unsolved_service = ServiceOrder::where('status',0)->get();
-        $reolved_service = ServiceOrder::where('status',1)->get();
+        $unsolved_service = ServiceOrder::where('status',0)
+                                            ->get();
+        $reolved_service = ServiceOrder::where('status',1)
+                                            ->get();
 
         // dd($unsolved_service);
         $tickets = new SampleChart;
@@ -140,37 +162,40 @@ class HomeController extends Controller {
         $tickets->options([
             'legend' => [ 'display' => true ],
             'fill' => true,
-            'title' => [ 'display' => true, 'text'=> 'Incidents', 'fontSize' => 26] ]);
+            'title' => [ 'display' => true, 'text'=> 'Incidents', 'fontSize' => 26] ]); 
 
         return view('dashboard.index', compact('chart_line','chart_pie','chart_pie_hig','chart_technician','resolution','tickets'));
     }
 
     //funcion que retorna el promedio de una prioridad  Baja=0  Media=1  ALta=2
     public function getResolutionProm($priority){
-
-        // Consulta para saber las ordenes cerradas y con prioridad de acuerdo al parametro
-        $orders_service = ServiceOrder::select('service_order.folio AS folio','incidents.priority',
-                                    DB::raw('incidents.created_at AS date_incident'),
-                                    DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
-                                    DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pending' ELSE 'Attended' END) AS status"))
-                                    ->where(
-                                    [
-                                      ['service_order.status', '=', '1'],
-                                      ['incidents.priority', '=', $priority ],
-                                    ])
-                                    ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
-                                    ->get();
+       
+        // Consulta para saber las ordenes cerradas y con prioridad de acuerdo al parametro     
+        $orders_service = ServiceOrder::select('service_order.folio AS folio',
+                                                    'incidents.priority',
+                                                    DB::raw('incidents.created_at AS date_incident'),
+                                                    DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
+                                                    DB::raw("(CASE WHEN service_order.status = 0 THEN 'Pending' ELSE 'Attended' END) AS status")
+                                                )
+                                            ->where(
+                                                [
+                                                    ['service_order.status', '=', '1'],
+                                                    ['incidents.priority', '=', $priority ],
+                                                ]
+                                            )
+                                            ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
+                                            ->get();
         $timeAll = 0;
-
+                        
         $total_orders = count((array)$orders_service->all());
 
         foreach ($orders_service as $key => $order_service) {
         $dateResolution = Carbon::parse($order_service['resolution_date']);
         $dateIncident = Carbon::parse($order_service['date_incident']);
-        $lengthHours = $dateResolution->diffInHours($dateIncident);
+        $lengthHours = $dateResolution->diffInHours($dateIncident);   
         $timeAll += $lengthHours;
         }
-
+        
         if($total_orders == 0){
             $average = 0;
         }else{

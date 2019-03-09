@@ -81,9 +81,4 @@ class LegacyTestListener extends \PHPUnit_Framework_TestSuite implements \PHPUni
     public function endTest(\PHPUnit_Framework_Test $test, $time)
     {
     }
-
-    public static function warning($message)
-    {
-        return parent::warning($message);
-    }
 }

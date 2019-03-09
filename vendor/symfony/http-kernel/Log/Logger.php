@@ -22,7 +22,7 @@ use Psr\Log\LogLevel;
  */
 class Logger extends AbstractLogger
 {
-    private static $levels = [
+    private static $levels = array(
         LogLevel::DEBUG => 0,
         LogLevel::INFO => 1,
         LogLevel::NOTICE => 2,
@@ -31,7 +31,7 @@ class Logger extends AbstractLogger
         LogLevel::CRITICAL => 5,
         LogLevel::ALERT => 6,
         LogLevel::EMERGENCY => 7,
-    ];
+    );
 
     private $minLevelIndex;
     private $formatter;
@@ -57,7 +57,7 @@ class Logger extends AbstractLogger
         }
 
         $this->minLevelIndex = self::$levels[$minLevel];
-        $this->formatter = $formatter ?: [$this, 'format'];
+        $this->formatter = $formatter ?: array($this, 'format');
         if (false === $this->handle = \is_resource($output) ? $output : @fopen($output, 'a')) {
             throw new InvalidArgumentException(sprintf('Unable to open "%s".', $output));
         }
@@ -66,7 +66,7 @@ class Logger extends AbstractLogger
     /**
      * {@inheritdoc}
      */
-    public function log($level, $message, array $context = [])
+    public function log($level, $message, array $context = array())
     {
         if (!isset(self::$levels[$level])) {
             throw new InvalidArgumentException(sprintf('The log level "%s" does not exist.', $level));
@@ -90,7 +90,7 @@ class Logger extends AbstractLogger
     private function format($level, $message, array $context)
     {
         if (false !== strpos($message, '{')) {
-            $replacements = [];
+            $replacements = array();
             foreach ($context as $key => $val) {
                 if (null === $val || is_scalar($val) || (\is_object($val) && method_exists($val, '__toString'))) {
                     $replacements["{{$key}}"] = $val;

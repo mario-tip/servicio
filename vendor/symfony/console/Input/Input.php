@@ -29,8 +29,8 @@ abstract class Input implements InputInterface, StreamableInputInterface
 {
     protected $definition;
     protected $stream;
-    protected $options = [];
-    protected $arguments = [];
+    protected $options = array();
+    protected $arguments = array();
     protected $interactive = true;
 
     public function __construct(InputDefinition $definition = null)
@@ -48,8 +48,8 @@ abstract class Input implements InputInterface, StreamableInputInterface
      */
     public function bind(InputDefinition $definition)
     {
-        $this->arguments = [];
-        $this->options = [];
+        $this->arguments = array();
+        $this->options = array();
         $this->definition = $definition;
 
         $this->parse();

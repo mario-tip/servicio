@@ -1,20 +1,28 @@
 <?php
+
 namespace App\Http\Controllers;
-use App\Http\Requests\MaintenanceRequest;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Http\Request;
-use App\ServiceOrder;
-use App\Maintenance;
-use Carbon\Carbon;
-use App\Person;
+
 use App\Asset;
+use App\Http\Requests\MaintenanceRequest;
+use App\Maintenance;
+use App\Person;
+use App\ServiceOrder;
 use App\User;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
-class MaintenanceController extends Controller {
-
-    public function index(){
+class MaintenanceController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
 
         if(userHasPermission("listar_mantenimientos")):
             return view('maintenances.index');
@@ -22,21 +30,37 @@ class MaintenanceController extends Controller {
         return redirect()->back();
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
 
-        return view('maintenances.create');
+            return view('maintenances.create');
 
     }
 
-    public function store(MaintenanceRequest $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(MaintenanceRequest $request)
+    {
         $data = $request->all();
+
+        // dd($data = $request->all());
 
         $data['maintenance_date'] = Input::has('maintenance_date')?Carbon::parse($data['maintenance_date'])->format('Y-m-d'):'';
         $data['maintenance_time'] = Input::has('maintenance_time')?Carbon::parse($data['maintenance_time'])->format('H:i:s'):'';
 
+        // Valores por default
         $data['type'] = 0;
         $data['is_periodical'] = false;
-
+        // dd($data);
         $maintenance = Maintenance::create($data);
 
         $folio = '';
@@ -67,8 +91,14 @@ class MaintenanceController extends Controller {
         return Redirect::to('/maintenances');
     }
 
-    public function show($id){
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
         if(userHasPermission("mostrar_mantenimientos")):
             $maintenance = Maintenance::find($id);
 
@@ -76,22 +106,25 @@ class MaintenanceController extends Controller {
 
             $service_order = ServiceOrder::where('type', '=', 1)
                 ->where('type_id', '=', $maintenance->id)->first();
+                // dd(['estas es la orden de servicio'=>$service_order]);
 
             if($service_order != null){
                 $person = Person::find($service_order->person_id);
+
                 $maintenance->folio = $service_order->folio;
                 $maintenance->person_notes = $service_order->notes;
 
+
+
                 if($person != null){
                     $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
+                    // dd($maintenance);
                 }else{
                     $maintenance->person_name = '';
                 }
 
                 $name = $service_order->technician()->select('users.username')->first();
-
                 $maintenance->technician = $name->username;
-
 
                 if($service_order->signature){
                     $maintenance->signature = '/'.$service_order->signature;
@@ -112,7 +145,14 @@ class MaintenanceController extends Controller {
         endif;
     }
 
-    public function edit($id){
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         if(userHasPermission("editar_mantenimientos")):
             $maintenance = Maintenance::find($id);
 
@@ -124,6 +164,7 @@ class MaintenanceController extends Controller {
             }else{
                 $maintenance->user_id = '';
             }
+            // dd($maintenance);
 
             return view('maintenances.edit', compact('maintenance'));
         else:
@@ -131,8 +172,18 @@ class MaintenanceController extends Controller {
         endif;
     }
 
-    public function update(MaintenanceRequest $request, $id){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(MaintenanceRequest $request, $id)
+    {
         $data = $request->all();
+
+        // var_dump($data);
 
         $maintenance = Maintenance::find($id);
 
@@ -175,8 +226,20 @@ class MaintenanceController extends Controller {
             }
         }
 
+
         Session::flash('message', 'Maintenance update succesfully.');
         return Redirect::to('/maintenances');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 
     public function findTechnician(Request $request){

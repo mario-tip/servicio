@@ -115,7 +115,7 @@ class NamespacedAttributeBag extends AttributeBag
                 return $array;
             }
 
-            $array[$parts[0]] = [];
+            $array[$parts[0]] = array();
 
             return $array;
         }
@@ -130,7 +130,7 @@ class NamespacedAttributeBag extends AttributeBag
                     return $null;
                 }
 
-                $array[$part] = [];
+                $array[$part] = array();
             }
 
             $array = &$array[$part];

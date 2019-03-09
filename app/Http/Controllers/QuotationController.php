@@ -1,21 +1,30 @@
 <?php
+
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Log;
+
 use Illuminate\Http\Request;
-use App\Quotation;
 use App\Incident;
+use Illuminate\Support\Facades\Log;
+use App\Quotation;
 use Validator;
+use File;
 use Storage;
 use Session;
-use File;
 
 class QuotationController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         if(userHasPermission("listar_cotizacion_servicios")) {
             $quotations = Quotation::all();
             return view('quotations.index', compact('quotations'));
@@ -23,7 +32,13 @@ class QuotationController extends Controller
         return redirect()->back();
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         if(userHasPermission("crear_cotizacion_servicios")) {
             $quotation = new Quotation;
             return view('quotations.create', compact('quotation'));
@@ -31,7 +46,14 @@ class QuotationController extends Controller
         return redirect()->back();
     }
 
-    public function store(Request $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $response = [
             'errors' => false,
             'errors_fragment' => ''
@@ -125,7 +147,14 @@ class QuotationController extends Controller
         return $validator;
     }
 
-    public function show($id){
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
         if(userHasPermission("mostrar_cotizacion_servicios")) {
             $quotation = Quotation::find($id);
             return view('quotations.show', compact('quotation'));
@@ -133,7 +162,14 @@ class QuotationController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id){
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         if(userHasPermission("editar_cotizacion_servicios")) {
             $quotation = Quotation::find($id);
             // dd($quotation);
@@ -142,7 +178,15 @@ class QuotationController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request, $id){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
         $response = [
             'errors' => false,
             'errors_fragment' => ''
@@ -204,7 +248,8 @@ class QuotationController extends Controller
     }
 
     /*Actualiza la cotización con el nuevo status datos de autorización*/
-    public function changeAuthorizationStatus(Request $request){
+    public function changeAuthorizationStatus(Request $request)
+    {
         if(userHasPermission("cambiar_estatus_cotizacion_servicios")):
             $response = [
                 'errors' => false,
@@ -276,8 +321,15 @@ class QuotationController extends Controller
         return $validator;
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     /*Cancelación de cotización*/
-    public function destroy(Request $request, $id){
+    public function destroy(Request $request, $id)
+    {
         if($request->ajax()) {
             $response = [
                 'errors' => false,

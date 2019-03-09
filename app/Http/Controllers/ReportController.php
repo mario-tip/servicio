@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Customer;
 use App\Project;
 use App\ServiceOrder;
@@ -8,6 +10,7 @@ use App\User;
 use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
 use DB;
+
 
 class ReportController extends Controller
 {

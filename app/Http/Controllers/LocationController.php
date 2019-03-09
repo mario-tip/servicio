@@ -1,16 +1,24 @@
 <?php
+
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Session;
+
 use App\Http\Requests\LocationRequest;
 use App\Location;
+use Illuminate\Support\Facades\Session;
 
-class LocationController extends Controller{
-
-    public function __construct(){
+class LocationController extends Controller
+{
+    public function __construct()
+    {
         $this->middleware('auth');
     }
-
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         if(userHasPermission("listar_catalogo_ubicaciones")) {
             $locations = Location::all();
             return view('catalogs.locations.index', compact('locations'));
@@ -18,7 +26,13 @@ class LocationController extends Controller{
         return redirect()->back();
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         if(userHasPermission("crear_catalogo_ubicaciones")) {
 
             $location = new Location();
@@ -27,7 +41,14 @@ class LocationController extends Controller{
         return redirect()->back();
     }
 
-    public function store(LocationRequest $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(LocationRequest $request)
+    {
         try{
             Location::create($request->get('location'));
             $request->session()->flash('message', 'Location saved successfully');
@@ -37,7 +58,25 @@ class LocationController extends Controller{
         }
     }
 
-    public function edit($id){
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Location $location)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         if(userHasPermission("editar_catalogo_ubicaciones")) {
             $location = Location::find($id);
             return view('catalogs.locations.edit', compact('location'));
@@ -45,7 +84,15 @@ class LocationController extends Controller{
         return redirect()->back();
     }
 
-    public function update(LocationRequest $request, Location $location){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function update(LocationRequest $request, Location $location)
+    {
         try{
             $location->fill($request->get('location'));
             $location->save();
@@ -56,7 +103,14 @@ class LocationController extends Controller{
         }
     }
 
-    public function destroy($id){
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
         $response = ['errors' => false];
         $location = Location::find($id);
 

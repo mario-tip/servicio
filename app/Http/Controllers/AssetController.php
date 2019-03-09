@@ -1,25 +1,40 @@
 <?php
+
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Subcategory;
+
+use App\Asset;
+use App\Customer;
 use App\Equipment;
-use Carbon\Carbon;
+use App\Person;
 use App\Provider;
 use App\Location;
-use App\Customer;
-use App\Person;
 use App\Project;
-use App\Asset;
+use App\Subcategory;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Validator;
 use Illuminate\Support\Facades\Log;
 
-class AssetController extends Controller {
 
-    public function __construct(){
+
+class AssetController extends Controller
+{
+
+    /**
+     * AssetController constructor.
+     */
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         if(userHasPermission('listar_captura_info')) {
             $assets = Asset::all();
             return view("assets.index", compact('assets'));
@@ -27,7 +42,13 @@ class AssetController extends Controller {
         return redirect()->back();
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         if(userHasPermission('crear_captura_info')) {
             $dependencies = $this->getDependenciesData();
             $asset = new Asset;
@@ -51,7 +72,14 @@ class AssetController extends Controller {
         ];
     }
 
-    public function store(Request $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
 
         $asset_data = $request->get('asset');
         $validator = $this->validateInputs($asset_data, 'POST');
@@ -137,7 +165,7 @@ class AssetController extends Controller {
         ];
 
         if($method == 'POST') $validations['model'] = 'required|unique:assets';
-
+                                             
         $validator = Validator::make($form_data, $validations, $messages);
 
         return $validator;
@@ -165,7 +193,14 @@ class AssetController extends Controller {
         return Carbon::parse($date)->format('Y-m-d');
     }
 
-    public function show($id){
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Asset  $asset
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
         if(userHasPermission('mostrar_captura_info')) {
             $asset = Asset::find($id);
             return view('assets.show', compact('asset'));
@@ -173,7 +208,14 @@ class AssetController extends Controller {
         return redirect()->back();
     }
 
-    public function edit($id){
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Asset  $asset
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         if(userHasPermission('editar_captura_info')) {
             $asset = Asset::find($id);
             $location_id = count($asset->locations) == 0 ? null : $asset->locations[0]->id;
@@ -183,7 +225,15 @@ class AssetController extends Controller {
         return redirect()->back();
     }
 
-    public function update(Request $request, $id){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Asset  $asset
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
         $asset_data = $request->get('asset');
         $validator = $this->validateInputs($asset_data, 'PUT');
 
@@ -227,11 +277,13 @@ class AssetController extends Controller {
      * @param  \App\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id){
+    public function destroy($id)
+    {
         /*No se elimina activo desde el sistema de soporte*/
     }
 
-    public function getEquipmentParts(Request $request){
+    public function getEquipmentParts(Request $request)
+    {
         if($request->ajax()) {
 
             $equipment_parts = Equipment::find($request->get('equipment_id'))

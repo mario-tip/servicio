@@ -8,7 +8,13 @@ use Session;
 
 class CustomerController extends Controller
 {
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         if(userHasPermission("listar_catalogo_clientes")) {
             $customers = Customer::all();
             return view('catalogs.customers.index', compact('customers'));
@@ -16,7 +22,13 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         if(userHasPermission("crear_catalogo_clientes")) {
             $customer = new Customer();
             $requirements = $this->getRequirements();
@@ -25,14 +37,21 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    private function getRequirements(){
+    private function getRequirements()
+    {
         return [
             'types' => ['1' => 'Company', '2' => 'Person', '3' => 'Contract']
         ];
     }
 
-
-    public function store(CustomerRequest $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CustomerRequest $request)
+    {
         try {
             Customer::create($request->get('customer'));
             $request->session()->flash('message', 'Customer created successfully');
@@ -42,16 +61,42 @@ class CustomerController extends Controller
         }
     }
 
-    public function edit($id){
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Customer $customer)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         if(userHasPermission("editar_catalogo_clientes")) {
-            $customer = Customer::findOrFail($id);
+            $customer = Customer::find($id);
             $requirements = $this->getRequirements();
             return view('catalogs.customers.edit', compact('customer', 'requirements'));
         }
         return redirect()->back();
     }
 
-    public function update(CustomerRequest $request, Customer $customer){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function update(CustomerRequest $request, Customer $customer)
+    {
         // dd($customer);
         try {
             $customer->fill($request->get('customer'));
@@ -63,8 +108,14 @@ class CustomerController extends Controller
         }
     }
 
-
-    public function destroy($id){
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
         $response = ['errors' => false];
         $customer = Customer::find($id);
 

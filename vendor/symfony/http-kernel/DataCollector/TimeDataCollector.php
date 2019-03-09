@@ -43,11 +43,11 @@ class TimeDataCollector extends DataCollector implements LateDataCollectorInterf
             $startTime = $request->server->get('REQUEST_TIME_FLOAT');
         }
 
-        $this->data = [
+        $this->data = array(
             'token' => $response->headers->get('X-Debug-Token'),
             'start_time' => $startTime * 1000,
-            'events' => [],
-        ];
+            'events' => array(),
+        );
     }
 
     /**
@@ -55,7 +55,7 @@ class TimeDataCollector extends DataCollector implements LateDataCollectorInterf
      */
     public function reset()
     {
-        $this->data = [];
+        $this->data = array();
 
         if (null !== $this->stopwatch) {
             $this->stopwatch->reset();

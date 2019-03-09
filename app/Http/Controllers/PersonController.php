@@ -1,21 +1,29 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PersonRequest;
 use App\Department;
 use App\Person;
 use App\User;
 use App\State;
+use App\Http\Requests\PersonRequest;
 use Session;
 
 class PersonController extends Controller
 {
 
+    /**
+     * PersonController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         if(userHasPermission("listar_catalogo_personas")) {
@@ -25,6 +33,11 @@ class PersonController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         if(userHasPermission("crear_catalogo_personas")) {
@@ -43,6 +56,12 @@ class PersonController extends Controller
         ];
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(PersonRequest $request)
     {
         $person_data = $request->get('person');
@@ -66,6 +85,23 @@ class PersonController extends Controller
          }
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Person  $person
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Person $person)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Person  $person
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         if(userHasPermission("editar_catalogo_personas")) {
@@ -76,6 +112,13 @@ class PersonController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Person  $person
+     * @return \Illuminate\Http\Response
+     */
     public function update(PersonRequest $request, Person $person)
     {
         $person_data = $request->get('person');
@@ -94,6 +137,12 @@ class PersonController extends Controller
         }
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Person  $person
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         $response = ['errors' => false];

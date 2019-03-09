@@ -47,23 +47,13 @@ class QuestionHelper extends Helper
         }
 
         if (!$input->isInteractive()) {
-            $default = $question->getDefault();
-
-            if (null !== $default && $question instanceof ChoiceQuestion) {
+            if ($question instanceof ChoiceQuestion) {
                 $choices = $question->getChoices();
 
-                if (!$question->isMultiselect()) {
-                    return isset($choices[$default]) ? $choices[$default] : $default;
-                }
-
-                $default = explode(',', $default);
-                foreach ($default as $k => $v) {
-                    $v = trim($v);
-                    $default[$k] = isset($choices[$v]) ? $choices[$v] : $v;
-                }
+                return $choices[$question->getDefault()];
             }
 
-            return $default;
+            return $question->getDefault();
         }
 
         if ($input instanceof StreamableInputInterface && $stream = $input->getStream()) {
@@ -191,7 +181,7 @@ class QuestionHelper extends Helper
         $message = $question->getQuestion();
 
         if ($question instanceof ChoiceQuestion) {
-            $maxWidth = max(array_map([$this, 'strlen'], array_keys($question->getChoices())));
+            $maxWidth = max(array_map(array($this, 'strlen'), array_keys($question->getChoices())));
 
             $messages = (array) $question->getQuestion();
             foreach ($question->getChoices() as $key => $value) {
@@ -448,7 +438,7 @@ class QuestionHelper extends Helper
         if (file_exists('/usr/bin/env')) {
             // handle other OSs with bash/zsh/ksh/csh if available to hide the answer
             $test = "/usr/bin/env %s -c 'echo OK' 2> /dev/null";
-            foreach (['bash', 'zsh', 'ksh', 'csh'] as $sh) {
+            foreach (array('bash', 'zsh', 'ksh', 'csh') as $sh) {
                 if ('OK' === rtrim(shell_exec(sprintf($test, $sh)))) {
                     self::$shell = $sh;
                     break;

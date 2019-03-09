@@ -1,19 +1,30 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Http\Requests\ProviderRequest;
-use Illuminate\Support\Facades\Log;
 use App\Provider;
 use App\State;
 use Session;
+use Illuminate\Support\Facades\Log;
 
 class ProviderController extends Controller
 {
-
-    public function __construct(){
+    /**
+     * ProviderController constructor.
+     */
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         if(userHasPermission("listar_catalogo_proveedores")) {
             $providers = Provider::all();
             return view('catalogs.providers.index', compact('providers'));
@@ -22,7 +33,13 @@ class ProviderController extends Controller
 
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         if(userHasPermission("crear_catalogo_proveedores")) {
             $provider = new Provider();
             $states = State::getSelectStates();
@@ -31,7 +48,14 @@ class ProviderController extends Controller
         return redirect()->back();
     }
 
-    public function store(ProviderRequest $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(ProviderRequest $request)
+    {
         try{
             Provider::create($request->get('provider'));
             $request->session()->flash('message', 'Provider successfully created');
@@ -41,7 +65,25 @@ class ProviderController extends Controller
         }
     }
 
-    public function edit($id){
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Provider  $provider
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Provider $provider)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Provider  $provider
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         if(userHasPermission("editar_catalogo_proveedores")) {
             $provider = Provider::find($id);
             $states = State::getSelectStates();
@@ -50,7 +92,15 @@ class ProviderController extends Controller
         return redirect()->back();
     }
 
-    public function update(ProviderRequest $request, Provider $provider){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Provider  $provider
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ProviderRequest $request, Provider $provider)
+    {
         try{
             $provider->fill($request->get('provider'));
             $provider->save();
@@ -61,7 +111,14 @@ class ProviderController extends Controller
         }
     }
 
-    public function destroy($id){
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Provider  $provider
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
         $response = ['errors' => false];
         $provider = Provider::find($id);
 

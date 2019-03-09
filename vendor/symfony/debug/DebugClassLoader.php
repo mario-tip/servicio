@@ -26,16 +26,16 @@ class DebugClassLoader
 {
     private $classLoader;
     private $isFinder;
-    private $loaded = [];
+    private $loaded = array();
     private static $caseCheck;
-    private static $checkedClasses = [];
-    private static $final = [];
-    private static $finalMethods = [];
-    private static $deprecated = [];
-    private static $internal = [];
-    private static $internalMethods = [];
-    private static $php7Reserved = ['int' => 1, 'float' => 1, 'bool' => 1, 'string' => 1, 'true' => 1, 'false' => 1, 'null' => 1];
-    private static $darwinCache = ['/' => ['/', []]];
+    private static $checkedClasses = array();
+    private static $final = array();
+    private static $finalMethods = array();
+    private static $deprecated = array();
+    private static $internal = array();
+    private static $internalMethods = array();
+    private static $php7Reserved = array('int' => 1, 'float' => 1, 'bool' => 1, 'string' => 1, 'true' => 1, 'false' => 1, 'null' => 1);
+    private static $darwinCache = array('/' => array('/', array()));
 
     public function __construct(callable $classLoader)
     {
@@ -95,7 +95,7 @@ class DebugClassLoader
 
         foreach ($functions as $function) {
             if (!\is_array($function) || !$function[0] instanceof self) {
-                $function = [new static($function), 'loadClass'];
+                $function = array(new static($function), 'loadClass');
             }
 
             spl_autoload_register($function);
@@ -125,14 +125,6 @@ class DebugClassLoader
     }
 
     /**
-     * @return string|null
-     */
-    public function findFile($class)
-    {
-        return $this->isFinder ? $this->classLoader[0]->findFile($class) ?: null : null;
-    }
-
-    /**
      * Loads the given class or interface.
      *
      * @param string $class The name of the class
@@ -146,14 +138,14 @@ class DebugClassLoader
         try {
             if ($this->isFinder && !isset($this->loaded[$class])) {
                 $this->loaded[$class] = true;
-                if (!$file = $this->classLoader[0]->findFile($class) ?: false) {
-                    // no-op
-                } elseif (\function_exists('opcache_is_script_cached') && @opcache_is_script_cached($file)) {
+                if ($file = $this->classLoader[0]->findFile($class) ?: false) {
+                    $wasCached = \function_exists('opcache_is_script_cached') && @opcache_is_script_cached($file);
+
                     require $file;
 
-                    return;
-                } else {
-                    require $file;
+                    if ($wasCached) {
+                        return;
+                    }
                 }
             } else {
                 \call_user_func($this->classLoader, $class);
@@ -220,21 +212,21 @@ class DebugClassLoader
 
     public function checkAnnotations(\ReflectionClass $refl, $class)
     {
-        $deprecations = [];
+        $deprecations = array();
 
         // Don't trigger deprecations for classes in the same vendor
         if (2 > $len = 1 + (\strpos($class, '\\') ?: \strpos($class, '_'))) {
             $len = 0;
             $ns = '';
         } else {
-            $ns = \str_replace('_', '\\', \substr($class, 0, $len));
+            $ns = \substr($class, 0, $len);
         }
 
         // Detect annotations on the class
         if (false !== $doc = $refl->getDocComment()) {
-            foreach (['final', 'deprecated', 'internal'] as $annotation) {
-                if (false !== \strpos($doc, $annotation) && preg_match('#\n\s+\* @'.$annotation.'(?:( .+?)\.?)?\r?\n\s+\*(?: @|/$)#s', $doc, $notice)) {
-                    self::${$annotation}[$class] = isset($notice[1]) ? preg_replace('#\.?\r?\n( \*)? *(?= |\r?\n|$)#', '', $notice[1]) : '';
+            foreach (array('final', 'deprecated', 'internal') as $annotation) {
+                if (false !== \strpos($doc, $annotation) && preg_match('#\n \* @'.$annotation.'(?:( .+?)\.?)?\r?\n \*(?: @|/$)#s', $doc, $notice)) {
+                    self::${$annotation}[$class] = isset($notice[1]) ? preg_replace('#\s*\r?\n \* +#', ' ', $notice[1]) : '';
                 }
             }
         }
@@ -258,13 +250,13 @@ class DebugClassLoader
             if (!isset(self::$checkedClasses[$use])) {
                 $this->checkClass($use);
             }
-            if (isset(self::$deprecated[$use]) && \strncmp($ns, \str_replace('_', '\\', $use), $len)) {
+            if (isset(self::$deprecated[$use]) && \strncmp($ns, $use, $len)) {
                 $type = class_exists($class, false) ? 'class' : (interface_exists($class, false) ? 'interface' : 'trait');
                 $verb = class_exists($use, false) || interface_exists($class, false) ? 'extends' : (interface_exists($use, false) ? 'implements' : 'uses');
 
                 $deprecations[] = sprintf('The "%s" %s %s "%s" that is deprecated%s.', $class, $type, $verb, $use, self::$deprecated[$use]);
             }
-            if (isset(self::$internal[$use]) && \strncmp($ns, \str_replace('_', '\\', $use), $len)) {
+            if (isset(self::$internal[$use]) && \strncmp($ns, $use, $len)) {
                 $deprecations[] = sprintf('The "%s" %s is considered internal%s. It may change without further notice. You should not use it from "%s".', $use, class_exists($use, false) ? 'class' : (interface_exists($use, false) ? 'interface' : 'trait'), self::$internal[$use], $class);
             }
         }
@@ -274,10 +266,10 @@ class DebugClassLoader
         }
 
         // Inherit @final and @internal annotations for methods
-        self::$finalMethods[$class] = [];
-        self::$internalMethods[$class] = [];
+        self::$finalMethods[$class] = array();
+        self::$internalMethods[$class] = array();
         foreach ($parentAndOwnInterfaces as $use) {
-            foreach (['finalMethods', 'internalMethods'] as $property) {
+            foreach (array('finalMethods', 'internalMethods') as $property) {
                 if (isset(self::${$property}[$use])) {
                     self::${$property}[$class] = self::${$property}[$class] ? self::${$property}[$use] + self::${$property}[$class] : self::${$property}[$use];
                 }
@@ -306,10 +298,10 @@ class DebugClassLoader
                 continue;
             }
 
-            foreach (['final', 'internal'] as $annotation) {
+            foreach (array('final', 'internal') as $annotation) {
                 if (false !== \strpos($doc, $annotation) && preg_match('#\n\s+\* @'.$annotation.'(?:( .+?)\.?)?\r?\n\s+\*(?: @|/$)#s', $doc, $notice)) {
-                    $message = isset($notice[1]) ? preg_replace('#\.?\r?\n( \*)? *(?= |\r?\n|$)#', '', $notice[1]) : '';
-                    self::${$annotation.'Methods'}[$class][$method->name] = [$class, $message];
+                    $message = isset($notice[1]) ? preg_replace('#\s*\r?\n \* +#', ' ', $notice[1]) : '';
+                    self::${$annotation.'Methods'}[$class][$method->name] = array($class, $message);
                 }
             }
         }
@@ -347,7 +339,7 @@ class DebugClassLoader
         if (0 === substr_compare($real, $tail, -$tailLen, $tailLen, true)
             && 0 !== substr_compare($real, $tail, -$tailLen, $tailLen, false)
         ) {
-            return [substr($tail, -$tailLen + 1), substr($real, -$tailLen + 1), substr($real, 0, -$tailLen + 1)];
+            return array(substr($tail, -$tailLen + 1), substr($real, -$tailLen + 1), substr($real, 0, -$tailLen + 1));
         }
     }
 
@@ -377,7 +369,7 @@ class DebugClassLoader
                 $k = $kDir;
                 $i = \strlen($dir) - 1;
                 while (!isset(self::$darwinCache[$k])) {
-                    self::$darwinCache[$k] = [$dir, []];
+                    self::$darwinCache[$k] = array($dir, array());
                     self::$darwinCache[$dir] = &self::$darwinCache[$k];
 
                     while ('/' !== $dir[--$i]) {

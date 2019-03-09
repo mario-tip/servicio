@@ -44,9 +44,9 @@ class MemcacheSessionHandler implements \SessionHandlerInterface
      *
      * @throws \InvalidArgumentException When unsupported options are passed
      */
-    public function __construct(\Memcache $memcache, array $options = [])
+    public function __construct(\Memcache $memcache, array $options = array())
     {
-        if ($diff = array_diff(array_keys($options), ['prefix', 'expiretime'])) {
+        if ($diff = array_diff(array_keys($options), array('prefix', 'expiretime'))) {
             throw new \InvalidArgumentException(sprintf('The following options are not supported "%s"', implode(', ', $diff)));
         }
 

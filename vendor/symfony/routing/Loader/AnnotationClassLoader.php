@@ -120,9 +120,11 @@ abstract class AnnotationClassLoader implements LoaderInterface
         }
 
         if (0 === $collection->count() && $class->hasMethod('__invoke')) {
-            $globals = $this->resetGlobals();
             foreach ($this->reader->getClassAnnotations($class) as $annot) {
                 if ($annot instanceof $this->routeAnnotationClass) {
+                    $globals['path'] = '';
+                    $globals['name'] = '';
+
                     $this->addRoute($collection, $annot, $globals, $class, $class->getMethod('__invoke'));
                 }
             }
@@ -210,7 +212,17 @@ abstract class AnnotationClassLoader implements LoaderInterface
 
     protected function getGlobals(\ReflectionClass $class)
     {
-        $globals = $this->resetGlobals();
+        $globals = array(
+            'path' => '',
+            'requirements' => array(),
+            'options' => array(),
+            'defaults' => array(),
+            'schemes' => array(),
+            'methods' => array(),
+            'host' => '',
+            'condition' => '',
+            'name' => '',
+        );
 
         if ($annot = $this->reader->getClassAnnotation($class, $this->routeAnnotationClass)) {
             if (null !== $annot->getName()) {
@@ -251,21 +263,6 @@ abstract class AnnotationClassLoader implements LoaderInterface
         }
 
         return $globals;
-    }
-
-    private function resetGlobals()
-    {
-        return [
-            'path' => '',
-            'requirements' => [],
-            'options' => [],
-            'defaults' => [],
-            'schemes' => [],
-            'methods' => [],
-            'host' => '',
-            'condition' => '',
-            'name' => '',
-        ];
     }
 
     protected function createRoute($path, $defaults, $requirements, $options, $host, $schemes, $methods, $condition)

@@ -40,7 +40,7 @@ class Store implements StoreInterface
             throw new \RuntimeException(sprintf('Unable to create the store directory (%s).', $this->root));
         }
         $this->keyCache = new \SplObjectStorage();
-        $this->locks = [];
+        $this->locks = array();
     }
 
     /**
@@ -54,7 +54,7 @@ class Store implements StoreInterface
             fclose($lock);
         }
 
-        $this->locks = [];
+        $this->locks = array();
     }
 
     /**
@@ -192,11 +192,11 @@ class Store implements StoreInterface
         }
 
         // read existing cache entries, remove non-varying, and add this one to the list
-        $entries = [];
+        $entries = array();
         $vary = $response->headers->get('vary');
         foreach ($this->getMetadata($key) as $entry) {
             if (!isset($entry[1]['vary'][0])) {
-                $entry[1]['vary'] = [''];
+                $entry[1]['vary'] = array('');
             }
 
             if ($entry[1]['vary'][0] != $vary || !$this->requestsMatch($vary, $entry[0], $storedEnv)) {
@@ -207,7 +207,7 @@ class Store implements StoreInterface
         $headers = $this->persistResponse($response);
         unset($headers['age']);
 
-        array_unshift($entries, [$storedEnv, $headers]);
+        array_unshift($entries, array($storedEnv, $headers));
 
         if (false === $this->save($key, serialize($entries))) {
             throw new \RuntimeException('Unable to store the metadata.');
@@ -236,13 +236,13 @@ class Store implements StoreInterface
         $modified = false;
         $key = $this->getCacheKey($request);
 
-        $entries = [];
+        $entries = array();
         foreach ($this->getMetadata($key) as $entry) {
             $response = $this->restoreResponse($entry[1]);
             if ($response->isFresh()) {
                 $response->expire();
                 $modified = true;
-                $entries[] = [$entry[0], $this->persistResponse($response)];
+                $entries[] = array($entry[0], $this->persistResponse($response));
             } else {
                 $entries[] = $entry;
             }
@@ -293,7 +293,7 @@ class Store implements StoreInterface
     private function getMetadata($key)
     {
         if (!$entries = $this->load($key)) {
-            return [];
+            return array();
         }
 
         return unserialize($entries);
@@ -464,7 +464,7 @@ class Store implements StoreInterface
     private function persistResponse(Response $response)
     {
         $headers = $response->headers->all();
-        $headers['X-Status'] = [$response->getStatusCode()];
+        $headers['X-Status'] = array($response->getStatusCode());
 
         return $headers;
     }
@@ -483,7 +483,7 @@ class Store implements StoreInterface
         unset($headers['X-Status']);
 
         if (null !== $body) {
-            $headers['X-Body-File'] = [$body];
+            $headers['X-Body-File'] = array($body);
         }
 
         return new Response($body, $status, $headers);
