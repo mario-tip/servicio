@@ -7,19 +7,8 @@ use Carbon\Carbon;
 
 class Asset extends Model
 {
-
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'assets';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'asset_custom_id',
         'project_id',

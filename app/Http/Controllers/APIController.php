@@ -743,14 +743,14 @@ class APIController extends Controller
                 $service_order->person_id = $person_id;
                 $service_order->save();
 
-                
+
                 // DB::table('log')->insert([
                 //     "texto" => $service_order
                 // ]);
 
                 // dd("hola");
-                //Aqui vamos a enviar el correo de que el servicio (Mantenimiento, incidencia) fue realizado con exito 
-                $user = $request->user(); 
+                //Aqui vamos a enviar el correo de que el servicio (Mantenimiento, incidencia) fue realizado con exito
+                $user = $request->user();
 
                 $users_send = DB::table('users')
                 ->join('user_notification_end', 'users.id', '=', 'user_notification_end.notification_end_id')
@@ -758,7 +758,7 @@ class APIController extends Controller
                 ->where('user_notification_end.user_id', '=', $user->id)
                 ->get();
 
-                
+
                 if($user->active_notification_end){
                     Mail::to($user->email)->send(new ServiceOrderEnd($service_order));
                 }
@@ -774,7 +774,7 @@ class APIController extends Controller
                 // DB::table('log')->insert([
                 //     "texto" => $users_send
                 // ]);
-        
+
                 if (!empty($parts)) {
                     if ($service_order->type == 0) {
                         $incident = Incident::find($service_order->type_id);
@@ -807,7 +807,7 @@ class APIController extends Controller
             return response()->json(['error' => true, 'message' => 'Acceso no autorizado', 'code' => 401]);
         } catch (\Exception $ex) {
             DB::rollBack();
-                
+
             return response()->json(['error' => true, 'message' => $ex->getMessage(), 'code' => 500]);
         }
     }
