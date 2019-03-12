@@ -18,23 +18,24 @@
     {!! Html::style('assets/global/css/components-rounded.min.css') !!}
     {!! Html::style('assets/global/css/plugins.min.css') !!}
     {!! Html::style('assets/pages/css/login2.css') !!}
+    {!! Html::style('assets/layouts/layout2/css/custom.css') !!}
 
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 
 <body class=" login">
 
-    <div class="logo">
+    {{-- <div class="logo">
       <a href="#">
         <img src="images/Logo_3.png" alt=""  style="height: 6em;"/>
       </a>
-    </div>
+    </div> --}}
 
     <div class="content">
         @yield('content')
     </div>
 
-    {{--<div class="copyright"> 2017 © Messoft Systems. </div>--}}
+    <div class="copyright"> @php echo date("Y"); @endphp &copy; Altatec de Occidente SA de CV </div>
 
     {!! Html::script('assets/global/plugins/respond.min.js') !!}
     {!! Html::script('assets/global/plugins/excanvas.min.js') !!}
