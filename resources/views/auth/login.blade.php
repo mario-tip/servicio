@@ -69,7 +69,7 @@
   <div class="panel-body">
     <div class="logo">
       <a href="#">
-        <img src="images/AntCMMS.png" alt="" style="height: 15em;" />
+        <img class="img-responsive" src="images/AntCMMS.png" alt="" style="width:220px; display: inherit;" />
       </a>
     </div>
     <form class="login-form" action="{{ url('/login') }}" method="post">
