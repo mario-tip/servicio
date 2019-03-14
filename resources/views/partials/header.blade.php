@@ -5,7 +5,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ url('/') }}">
-                <img src="{{ asset('/images/ANTCMMS_2.png') }}" class="img-responsive" style="width: 90px;" alt="logo" class="logo-default"/> </a>
+                <img src="{{ asset('/images/AntCMMS_2.png') }}" class="img-responsive" style="width: 90px;" alt="logo" class="logo-default"/> </a>
             {{-- <div class="menu-toggler sidebar-toggler">
                 <span></span>
             </div> --}}
