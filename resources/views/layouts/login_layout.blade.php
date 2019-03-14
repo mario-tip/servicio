@@ -20,7 +20,7 @@
     {!! Html::style('assets/pages/css/login2.css') !!}
     {!! Html::style('assets/layouts/layout2/css/custom.css') !!}
 
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="/images/AntCMMS.ico" />
 </head>
 
 <body class=" login">

@@ -3,14 +3,14 @@
 <!-- HEAD -->
 <head>
     <meta charset="utf-8"/>
-    <title>Altatec</title>
+    <title>Ant CMMS</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="Plataforma de servicio más grande de mundo"
           name="description"/>
     <meta content="" name="author"/>
-    <link rel="shortcut icon" href="{{ asset('icon_aoc.png') }}">
+    <link rel="shortcut icon" href="{{ asset('/images/AntCMMS.ico') }}">
 
     @include('partials.style')
     @yield('styles')
@@ -46,12 +46,12 @@
     <!-- END CONTAINER -->
 
     <!-- BEGIN FOOTER -->
-    <div class="page-footer">
+    {{-- <div class="page-footer">
         <div class="page-footer-inner"> @php echo date("Y");  @endphp &copy; Altatec de Occidente </div>
         <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>
         </div>
-    </div>
+    </div> --}}
     <!-- END FOOTER -->
 
 

@@ -5,10 +5,10 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ url('/') }}">
-                <img src="{{ asset('/images/logo2.png') }}" height="60" alt="logo" class="logo-default"/> </a>
-            <div class="menu-toggler sidebar-toggler">
+                <img src="{{ asset('/images/ANTCMMS_2.png') }}" class="img-responsive" style="width: 90px;" alt="logo" class="logo-default"/> </a>
+            {{-- <div class="menu-toggler sidebar-toggler">
                 <span></span>
-            </div>
+            </div> --}}
         </div>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->

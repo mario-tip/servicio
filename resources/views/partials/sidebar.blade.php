@@ -39,7 +39,7 @@
                       Incidents</a>
                     </li>
                     @endif
-                    @if(userHasPermission("listar_consulta_servicio") || userHasPermission("listar_cotizacion_servicios")) 
+                    @if(userHasPermission("listar_consulta_servicio") || userHasPermission("listar_cotizacion_servicios"))
                     <li id="liServiceOrders" class="nav-item" >
                       <a href="{!!URL::to('/help_service')!!}" class="nav-link nav-toggle">
                       <i class="icon-call-in"></i>
@@ -62,7 +62,7 @@
                     @endif --}}
                   </ul>
                 </li>
-              
+
               @endif
 
               @if(userHasPermission('listar_captura_info') || userHasPermission("listar_catalogo_correlativos"))
@@ -107,7 +107,7 @@
               </li>
               @endif
 
-              @if(userHasPermission("generar_consulta_bitacora") || userHasPermission("descargar_consulta_bitacora") || userHasPermission("listar_consulta_atencion_incidencias") || userHasPermission("mostrar_consulta_atencion_incidencias") || userHasPermission("generar_reporte_incidencias") || userHasPermission("exportar_reporte_incidencias") || userHasPermission("generar_reporte_tickets") ||userHasPermission("exportar_reporte_tickets") || userHasPermission("generar_reporte_servicio") || userHasPermission("exportar_reporte_servicio")) 
+              @if(userHasPermission("generar_consulta_bitacora") || userHasPermission("descargar_consulta_bitacora") || userHasPermission("listar_consulta_atencion_incidencias") || userHasPermission("mostrar_consulta_atencion_incidencias") || userHasPermission("generar_reporte_incidencias") || userHasPermission("exportar_reporte_incidencias") || userHasPermission("generar_reporte_tickets") ||userHasPermission("exportar_reporte_tickets") || userHasPermission("generar_reporte_servicio") || userHasPermission("exportar_reporte_servicio"))
               <li id="liAnalitycs" class="nav-item">
                   <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                     <i class="icon-graph"></i>
@@ -152,8 +152,8 @@
               </li>
               @endif
 
-              @if(userHasPermission("listar_catalogo_proveedores") || userHasPermission("listar_catalogo_personas") || userHasPermission("listar_catalogo_ubicaciones") || userHasPermission("listar_catalogo_clientes") || userHasPermission("listar_catalogo_proyectos") || userHasPermission("listar_usuarios") || userHasPermission("listar_tipo_equipo") || userHasPermission("listar_roles") ) 
-              
+              @if(userHasPermission("listar_catalogo_proveedores") || userHasPermission("listar_catalogo_personas") || userHasPermission("listar_catalogo_ubicaciones") || userHasPermission("listar_catalogo_clientes") || userHasPermission("listar_catalogo_proyectos") || userHasPermission("listar_usuarios") || userHasPermission("listar_tipo_equipo") || userHasPermission("listar_roles") )
+
               <li id="liTools" class="nav-item">
                 <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                     <i class=" icon-settings"></i>
