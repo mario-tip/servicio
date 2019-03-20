@@ -1,3 +1,9 @@
+.footer-sidebar {
+  position: fixed;
+  bottom: 0;
+  width: 7.2em;
+}
+
 /* ### LOG IN ### */
 .panel {
   margin-bottom: 22px;
@@ -163,6 +169,47 @@
   /* height: 80px !important; */
 }
 
+.displayLiDesktop {
+  display: inline !important;
+}
+
+.saludo {
+  color: #348AEE;
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
+.nombreVista {
+  float: left;
+  padding-bottom: 5px;
+  background: linear-gradient(90deg, #56ccf2, #2f80ed) left bottom transparent no-repeat;
+  background-size: 100% 3px;
+}
+
+.nombreVista::before {
+  position: absolute;
+  top: 80px;
+  left: 268px;
+  right: auto;
+  display: inline-block !important;
+  border-right: 43px solid transparent;
+  border-top: 21px solid #e0e0e0;
+  border-left: 43px solid transparent;
+  content: '';
+}
+
+.nombreVista::after {
+  position: absolute;
+  top: 79px;
+  left: 271px;
+  right: auto;
+  display: inline-block !important;
+  border-right: 40px solid transparent;
+  border-top: 20px solid #ffffff;
+  border-left: 40px solid transparent;
+  content: '';
+}
+
 /* ### END HEADER ### */
 /* ### DESKTOP ### */
 .bgDesktop {
@@ -187,6 +234,7 @@
 .flex_icon {
   display: flex !important;
   justify-content: center !important;
+  margin-top: 40px;
 }
 
 .decorationDesktop:hover {
@@ -228,31 +276,74 @@
   content: '' !important;
 }
 
-.dropdownDesktop > li {
+.dropdownDesktop>li {
   font-size: 1.25em;
 }
 
-.dropdownDesktop > li > a {
+.dropdownDesktop>li>a {
   padding: 15px 0px 15px 5px !important;
   color: #348aee !important;
 }
-.dropdownDesktop > li:hover > a {
+
+.dropdownDesktop>li:hover>a {
   background: #348aee !important;
   color: #ffffff !important;
 }
 
-.dropdownDesktop > li:hover > a > [class^=icon-], .dropdownDesktop > li:hover > a > [class*=" glyphicon-"] {
+.dropdownDesktop>li:hover>a>[class^=icon-], .dropdownDesktop>li:hover>a>[class*=" glyphicon-"] {
   color: #ffffff !important;
 }
 
-.dropdownDesktop > li:not(:first-child) > a {
+.dropdownDesktop>li:not(:first-child)>a {
   border-top: 1px solid #d8d8d8 !important;
 }
 
-.dropdownDesktop > li > a > [class^=icon-], .dropdownDesktop > li > a > [class*=" glyphicon-"] {
-    color: #348aee !important;
+.dropdownDesktop>li>a>[class^=icon-], .dropdownDesktop>li>a>[class*=" glyphicon-"] {
+  color: #348aee !important;
 }
 
-.dropdownDesktop > li > a > span {
-    margin: 0px 7px !important;
+.dropdownDesktop>li>a>span {
+  margin: 0px 7px !important;
+}
+
+.rowDesktop {
+  padding: 0 17.3em !important;
+}
+
+.rowDesktop2 {
+  padding: 5em 17.3em !important;
+}
+
+.tituloDesktop {
+  font-size: 1.5em;
+  color: #93c0f3;
+}
+
+.infoDesktop {
+  color: #93c0f3;
+  font-size: 1.3em;
+  font-weight: 100;
+  margin: 0.5em 0;
+}
+
+/* ### END DESKTOP ### */
+/* ### CLIMA ### */
+.wi {
+  color: #93c0f3;
+}
+
+.wi {
+  font-size: 2rem;
+}
+
+.degree {
+  position: relative;
+}
+
+.degree::after {
+  content: "°";
+  position: absolute;
+  top: -0.2rem;
+  left: auto;
+  color: #93c0f3;
 }

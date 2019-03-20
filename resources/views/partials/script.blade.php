@@ -56,6 +56,8 @@
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 {!! Html::script('assets/pages/scripts/dashboard.min.js') !!}
+{!! Html::script('assets/pages/scripts/custom.js') !!}
+{!! Html::script('assets/pages/scripts/clima.js') !!}
         <!-- END PAGE LEVEL SCRIPTS -->
 
 <!-- BEGIN THEME LAYOUT SCRIPTS -->

@@ -46,40 +46,40 @@
       <div id="flex_icon" class="portlet-title">
         <div class="caption tools">
           <div id="incidents_tile" class="tiles">
-              <li class="dropdown dropdown-user">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                  <div class="tile bgDesktop">
-                    <div class="tile-body">
-                      <i class="iconos-Help-DeskAzul"></i>
-                    </div>
+            <li class="dropdown dropdown-user">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <div class="tile bgDesktop">
+                  <div class="tile-body">
+                    <i class="iconos-Help-DeskAzul"></i>
                   </div>
-                </a>
-                <ul class="dropdownDesktop dropdown-menu dropdown-menu-default">
-                  @if(userHasPermission("listar_registro_incidencias") )
-                  <li>
-                    <a href="{!!URL::to('/incidents')!!}">
-                      <i class="icon-fire"></i>
-                      <span>Incidents</span>
-                    </a>
-                  </li>
-                  @endif
-                  @if(userHasPermission("listar_consulta_servicio") || userHasPermission("listar_cotizacion_servicios"))
-                  <li>
-                    <a href="{!!URL::to('/help_service')!!}">
-                      <i class="icon-call-in"></i>
-                      <span>Service</span>
-                    </a>
-                  </li>
-                  @endif
-                  @if(userHasPermission("listar_mantenimientos"))
-                  <li>
-                    <a href="{!!URL::to('maintenances')!!}">
-                      <i class="icon-wrench"></i>
-                      <span>Maintenance</span>
-                    </a>
-                  </li>
-                  @endif
-                </ul>
+                </div>
+              </a>
+              <ul class="dropdownDesktop dropdown-menu dropdown-menu-default">
+                @if(userHasPermission("listar_registro_incidencias") )
+                <li>
+                  <a href="{!!URL::to('/incidents')!!}">
+                    <i class="icon-fire"></i>
+                    <span>Incidents</span>
+                  </a>
+                </li>
+                @endif
+                @if(userHasPermission("listar_consulta_servicio") || userHasPermission("listar_cotizacion_servicios"))
+                <li>
+                  <a href="{!!URL::to('/help_service')!!}">
+                    <i class="icon-call-in"></i>
+                    <span>Service</span>
+                  </a>
+                </li>
+                @endif
+                @if(userHasPermission("listar_mantenimientos"))
+                <li>
+                  <a href="{!!URL::to('maintenances')!!}">
+                    <i class="icon-wrench"></i>
+                    <span>Maintenance</span>
+                  </a>
+                </li>
+                @endif
+              </ul>
           </div>
         </div>
       </div>
@@ -298,6 +298,25 @@
     <!-- END Portlet PORTLET-->
   </div>
   @endif
+</div>
+
+<div class="row rowDesktop">
+  <span class="tituloDesktop">Start</span>
+  <div id="fecha" class="infoDesktop"></div>
+  <div id="reloj" class="infoDesktop"></div>
+  <div class="infoDesktop">
+    <i class="wi wi-day-sunny"></i>
+    <span class="degree">0</span>
+    <span style="margin-left: 5px;" id="scaleP">C</span>
+    <p style="display: none;">Location</p>
+  </div>
+</div>
+
+<div class="row rowDesktop2">
+  <span class="tituloDesktop">Stats</span>
+  <div class="infoDesktop">Tickets vencidos: </div>
+  <div class="infoDesktop">Tickets abiertos: </div>
+  <div class="infoDesktop">Tickets en curso: </div>
 </div>
 
 {{-- @if(userHasPermission("listar_roles"))

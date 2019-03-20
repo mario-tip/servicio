@@ -12,7 +12,7 @@
         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
         <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true"
-            data-slide-speed="200" style="padding-top: 20px">
+            data-slide-speed="200" style="padding-top: 80px">
             <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
             <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
             <li class="sidebar-toggler-wrapper hide">
@@ -20,7 +20,9 @@
                     <span></span>
                 </div>
             </li>
+
             <!-- END SIDEBAR TOGGLER BUTTON -->
+            @if (\Request::route()->getName()!= "Dashboard")
             @if(!user_can())
 
               @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio") || userHasPermission("listar_mantenimientos") || userHasPermission("listar_cotizacion_servicios"))
@@ -224,7 +226,6 @@
                       Roles</a>
                   </li>
                   @endif
-
                 </ul>
               </li>
               @endif
@@ -236,6 +237,15 @@
                 </a>
             </li>
             @endif
+            @endif
+            <li class="nav-item footer-sidebar">
+              <a style="min-height: 1px;" href="{{ url('/logout') }}" role="button" tabindex="0" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out"></i>
+              </a>
+              <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+              </form>
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->

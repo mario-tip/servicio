@@ -1,6 +1,7 @@
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
-      type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css"/>
+
 {!! Html::style('assets/iconos/style.css') !!}
 {!! Html::style('assets/global/plugins/font-awesome/css/font-awesome.min.css') !!}
 {{-- {!! Html::style('assets/global/plugins/fontawesome-free-5.4.1/css/all.min.css') !!} --}}

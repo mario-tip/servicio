@@ -40,5 +40,6 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('get-asset-detail-by-barcode', 'APIController@getAssetDetailByBarcode');
 
         Route::get('logout', 'APIController@logout');
+
     });
 });

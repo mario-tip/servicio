@@ -14,7 +14,7 @@
 Auth::routes();
 
 // Ruta para home
-Route::get('/', 'HomeController@index');
+Route::get('/',['as'=>'Dashboard','uses'=>'HomeController@index']);
 
 Route::resource('/users', 'UserController');
 
