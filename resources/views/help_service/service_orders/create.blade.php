@@ -8,7 +8,7 @@
     {!! Html::style("/assets/css/service_order.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -25,23 +25,21 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row">
+    <div class="row paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             {!! Form::open(['route' => 'service-orders.store', 'method' => 'POST']) !!}
             {!! Form::hidden('service_order[type_id]', $incident->id) !!}
             {!! Form::hidden('service_order[folio]', $incident->folio) !!}
-            
+
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-bell font-green-meadow"></i>
-                        <span class="caption-subject bold font-green-meadow">Service order</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Service Order</p>
+
                 @include("help_service.service_orders.forms.form")
             </div>
         {!! Form::close() !!}
@@ -63,7 +61,8 @@
         $(document).ready(function(){
             $("#liHelpDesk").addClass("active");
             $("#liIncidents").addClass("active");
-
+            $(".activos").css('cursor', 'not-allowed');
+            
         });
     </script>
 @endsection

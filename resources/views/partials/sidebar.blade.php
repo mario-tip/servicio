@@ -26,7 +26,7 @@
             @if(!user_can())
 
               @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio") || userHasPermission("listar_mantenimientos") || userHasPermission("listar_cotizacion_servicios"))
-              <li id="liHelpDesk" class="nav-item">
+              <li class="nav-item">
                   <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                     <i class="icon-earphones-alt"></i>
                     <span class="title not-select ">Help Desk</span>

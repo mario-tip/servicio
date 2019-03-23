@@ -11,7 +11,7 @@
     {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -28,23 +28,21 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-pencil font-blue"></i>
-                        <span class="caption-subject bold font-blue">Edit incident</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
                 @php
                     // dd($incident);
                 @endphp
                 <div class="portlet-body">
+                  <p class="titleForm">Edit incident</p>
+
                     {!! Form::model($incident,['route' => ['incidents.update', $incident->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'files' => true]) !!}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 
@@ -135,7 +133,8 @@
             });
 
             $(".activos").css('border', 'none');
-            $(".activos").css('background-color', '#fefeff');
+            $(".activos").css('cursor', 'not-allowed');
+            $(".activos").css('background-color', '#f2f6f9');
             $(".activos").prop('readonly', true);
         });
 

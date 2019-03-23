@@ -9,7 +9,7 @@
     {!! Html::style("/assets/css/quotation.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         <div id="errors_container"></div>
         <ul class="page-breadcrumb">
@@ -26,21 +26,19 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row">
+    <div class="row paddingForm">
         <div class="col-md-12" id="quotation_form_subcontainer">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             {!! Form::open(['id' => 'quotation_form', 'data-method' => 'POST']) !!}
             <input type="hidden" id="quotation" data-id="{{$quotation->id}}"/>
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-call-in font-red-700"></i>
-                        <span class="caption-subject bold font-red-700">Add quotation service</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+                <p class="titleForm">Add quotation service</p>
+
                 @include("quotations.forms.form")
             </div>
         {!! Form::close() !!}

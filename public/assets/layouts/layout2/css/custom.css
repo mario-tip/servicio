@@ -23,7 +23,7 @@
   padding: 15px 50px;
 }
 
-.form-group {
+.login-form>.form-group {
   margin-bottom: 30px;
 }
 
@@ -346,4 +346,81 @@
   top: -0.2rem;
   left: auto;
   color: #93c0f3;
+}
+
+/* ### END CLIMA ### */
+/* ### FORMULARIOS ### */
+.paddingForm {
+  padding: 0em 14em !important;
+}
+
+.topForm {
+  background: #3a96ee;
+  padding: 0 !important;
+  min-height: 1em !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.titleForm {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 500;
+  color: #333333;
+}
+
+.bodyForm {
+  padding: 0px 7em !important;
+}
+
+.form-control .open>.dropdown-menu {
+  background: #f2f6f9 !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
+  border: 0px solid #f2f6f9 !important;
+}
+
+.form-control.open>.dropdown-menu {
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
+  border: 0px solid #f2f6f9 !important;
+  margin-top: 0px !important;
+}
+
+.btn-group.bootstrap-select.bs-select.form-control.open {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btnForm {
+  border-radius: 10px;
+}
+
+.btnFormSave {
+  background: #3a96ee;
+  color: #FFFFFFFF;
+  border-radius: 0px !important;
+  text-align: center;
+  font-size: 1.45em;
+  font-weight: 600;
+  padding: 0.1em 3em;
+}
+
+.btnFormSave:hover, .btnFormSave:focus, .btnFormCancel:hover, .btnFormCancel:focus {
+  color: #FFFFFFFF;
+}
+
+.btnFormCancel {
+  background: #e61826;
+  color: #FFFFFFFF;
+  border-radius: 0px !important;
+  text-align: center;
+  font-size: 1.45em;
+  font-weight: 600;
+  padding: 0.1em 3em;
+}
+
+.btnIconForm {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
