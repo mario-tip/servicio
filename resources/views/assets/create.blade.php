@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_cost"><span>*</span>Price: </label>
+                                            <label class="control-label" for="asset_cost"><span>*</span>Actual price: </label>
                                             {!! Form::text('asset[cost]', $asset->cost, ['class' => 'form-control', 'id' => 'asset_cost',
                                             'onkeypress' => 'return validateInput(event, 5)', 'placeholder' => '0.00']) !!}
                                         </div>
@@ -127,7 +127,7 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
-                                            <label class="control-label"><span>*</span>Loation: </label>
+                                            <label class="control-label"><span>*</span>Location: </label>
                                             {!!Form::select('asset[location_id]', $dependencies['locations'], $location_id, ['class' => 'bs-select form-control', 'id' => 'asset_location_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
                                             <label class="control-label textarea-label" for="asset_description"><span>*</span>Description: </label>
-                                            {!! Form::textarea('asset[description]', $asset->description, ['rows' => '10', 'class' => 'form-control', 'id' => 'asset_description']) !!}
+                                            {!! Form::textarea('asset[description]', $asset->description, ['rows' => '5', 'class' => 'form-control', 'id' => 'asset_description']) !!}
                                         </div>
                                     </div>
                                     <div class="col-md-6 form-group-container">
@@ -196,7 +196,102 @@
                                             {!! Form::select('asset[subcategory_id]', $dependencies['subcategories'], $asset->subcategory_id, ['class' => 'bs-select form-control', 'id' => 'asset_subcategory_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
+                                    <div class="col-md-6 form-group-container">
+                                      <div class="form-group">
+                                        <label class="control-label" for="asset_depreciation"><span>*</span>Deprecation: </label>
+                                        {!! Form::text('asset[depreciation]', $asset->depreciation,
+                                        [
+                                        'class' => 'form-control',
+                                        'id' => 'asset_depreciation',
+                                        'maxlength' => 3,
+                                        'placeholder' => '.%',
+                                        'max' => 100,
+                                        'onkeypress' => 'return validateInput(event, 5)'
+                                        ])!!}
+                                      </div>
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group-container">
+                                        <div class="form-group">
+                                            <label class="control-label" for="asset_quantity"><span>*</span>Quantity: </label>
+                                            {!! Form::text('asset[quantity]', $asset->quantity,[
+                                            'class' => 'form-control',
+                                            'id' => 'asset_quantity',
+                                            'maxlength' => 5,
+                                            'max' => 100,
+                                            'onkeypress' => 'return validateInput(event, 5)'
+                                            ])!!}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group-container">
+                                      <div class="form-group">
+                                        <label class="control-label" for="asset_rfid_code"><span>*</span>RFID Code: </label>
+                                        {!! Form::text('asset[rfid_code]', $asset->rfid_code,[
+                                        'class' => 'form-control',
+                                        'id' => 'rfid_code',
+                                        'maxlength' => 18,
+                                        ])!!}
+                                      </div>
+                                    </div>
+                                </div>
+                              <?php // IDEA: images and files  ?>
+                                <div class="row">
+                                  <div class="col-md-6 form-group-container">
+                                      <div class="form-group">
+                                          <label class="control-label textarea-label" for="quotation_file"><span id="span_quotation_file_required"></span>File: </label>
+                                          <div class="fileinput fileinput-new" data-provides="fileinput" id="quotation_file">
+                                              <div class="input-group input-large">
+                                                  <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                                      <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                      <span class="fileinput-filename"> </span>
+                                                  </div>
+                                                  <span class="input-group-addon btn default btn-file">
+                                                      <span class="fileinput-new"> Add </span>
+                                                      <span class="fileinput-exists"> Change </span>
+                                                      <input type="file" name="quotation_file" >
+
+                                                  </span>
+
+                                                  <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Delete </a>
+
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                    <div class="col-md-6 form-group-container">
+                                      <div class="form-group last">
+                                  			<label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Add image :</label>
+                                  			<div class="col-sm-7">
+                                  				<div class="fileinput fileinput-new" data-provides="fileinput">
+                                  					<div class="fileinput-new thumbnail" >
+
+                                               @if(isset($incident))
+                                                   <img src="http://service.altatec.com.mx/{{$incident->evidence_file}}" alt=""/>
+                                               @else
+                                                   <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+                                               @endif
+
+                                  					</div>
+                                  					<div class="fileinput-preview fileinput-exists thumbnail" >
+                                  					</div>
+                                  					<div>
+                                  						<span class="btn default btn-file">
+                                  						<span class="fileinput-new">
+                                  						Select image </span>
+                                  						<span class="fileinput-exists">
+                                  						Change </span>
+                                  						<input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" />
+                                  						</span>
+                                  						<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                  						Remove </a>
+                                  					</div>
+                                  				</div>
+                                  			</div>
+                                  		</div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -54,7 +54,8 @@
                                 <th class="center">Asset name</th>
                                 <th class="center">Model</th>
                                 <th class="center">Serial number</th>
-                                @if(userHasPermission("editar_captura_info") || userHasPermission("mostrar_captura_info") || userHasPermission("historial_firmware") )  
+                                <th class="center">Depreciation</th>
+                                @if(userHasPermission("editar_captura_info") || userHasPermission("mostrar_captura_info") || userHasPermission("historial_firmware") )
                                 <th class="center">Actions</th>
                                 @endif
                             </tr>
@@ -66,7 +67,8 @@
                                 <td class="center"> {{$asset->name}} </td>
                                 <td class="center"> {{$asset->model}} </td>
                                 <td class="center"> {{$asset->serial}} </td>
-                                @if(userHasPermission("editar_captura_info") || userHasPermission("mostrar_captura_info") || userHasPermission("historial_firmware") )  
+                                <td class="center"> {{$asset->depreciation}}</td>
+                                @if(userHasPermission("editar_captura_info") || userHasPermission("mostrar_captura_info") || userHasPermission("historial_firmware") )
                                 <td>
                                   <div class="center_items">
                                     @if(userHasPermission('editar_captura_info'))

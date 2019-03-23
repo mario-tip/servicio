@@ -53,6 +53,7 @@
                         <tr>
                             <th class="center">Project name </th>
                             <th class="center">Description</th>
+                            <th class="center">Assets</th>
                             @if(userHasPermission("editar_catalogo_proyectos") || userHasPermission("eliminar_catalogo_proyectos"))
                             <th class="center">Actions</th>
                             @endif
@@ -63,6 +64,7 @@
                             <tr>
                                 <td class="center"> {{$project->name}}</td>
                                 <td class="center"> {{$project->description}}</td>
+                                <td class="center">{{count($project->assets)}}</td>
                                 @if(userHasPermission("editar_catalogo_proyectos") || userHasPermission("eliminar_catalogo_proyectos"))
                                 <td>
                                   <div>

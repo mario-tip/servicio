@@ -32,6 +32,12 @@ class Asset extends Model
         'subcategory_id',
         'customer_id',
         'equipment_id',
+        'depreciation',
+        'quantity',
+        'documents',
+        'image',
+        'code_rfid',
+        ''
     ];
 
 
@@ -99,6 +105,19 @@ class Asset extends Model
     }
     public function getMaintenanceDateAttribute($value) {
         return isset($value) ? Carbon::parse($value)->format('d-m-Y') : null;
+    }
+
+    public function dame($date, $discount, $cost){
+
+      $datework = Carbon::parse($date);
+      $now = Carbon::now();
+      $testdate = $datework->diffInDays($now);
+
+      if ($testdate > 365) {
+        $var = ($cost * $discount) / 100;
+        $descuento = $var / $testdate;
+        return $cost - $descuento + 0;
+      }
     }
 
     // public function setProjectIdAttribute($value)

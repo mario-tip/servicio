@@ -66,8 +66,8 @@
                 <div class="col-md-6 form-group-container">
                     <div class="form-group">
                         <label class="control-label" for="person_department_id"><span>*</span>Department: </label>
-                        {!!Form::select('person[department_id]', $requirements['departments'], $person->department_id,
-                         ['class' => 'bs-select form-control no-text-area', 'id' => 'person_department_id', 'title' => 'Select...']) !!}
+                        {!!Form::text('person[department_id]', $person->department_id,
+                         ['class' => 'bs-select form-control no-text-area', 'id' => 'person_department_id']) !!}
                     </div>
                 </div>
                 <div class="col-md-6 form-group-container">

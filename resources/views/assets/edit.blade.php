@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label" for="asset_cost"><span>*</span>Price: </label>
+                                        <label class="control-label" for="asset_cost"><span>*</span>Purchase price: </label>
                                         {!! Form::text('asset[cost]', $asset->cost, ['class' => 'form-control', 'id' => 'asset_cost',
                                         'onkeypress' => 'return validateInput(event, 5)', 'placeholder' => '0.00']) !!}
                                     </div>
@@ -197,6 +197,20 @@
                                         <label class="control-label" for="asset_subcategory_id"><span>*</span>Subcategory : </label>
                                         {!! Form::select('asset[subcategory_id]', $dependencies['subcategories'], $asset->subcategory_id, ['class' => 'bs-select form-control', 'id' => 'asset_subcategory_id', 'title' => 'Select...']) !!}
                                     </div>
+                                </div>
+                                <div class="col-md-6 form-group-container">
+                                  <div class="form-group">
+                                    <label class="control-label" for="asset_depreciation"><span>*</span>Deprecation: </label>
+                                    {!! Form::text('asset[depreciation]', $asset->depreciation,
+                                    [
+                                    'class' => 'form-control',
+                                    'id' => 'asset_depreciation',
+                                    'maxlength' => 3,
+                                    'placeholder' => '.%',
+                                    'max' => 100,
+                                    'onkeypress' => 'return validateInput(event, 5)'
+                                    ])!!}
+                                  </div>
                                 </div>
                             </div>
                         </div>

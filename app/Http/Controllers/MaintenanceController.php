@@ -14,15 +14,9 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 
-class MaintenanceController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+class MaintenanceController extends Controller {
+
+    public function index(){
 
         if(userHasPermission("listar_mantenimientos")):
             return view('maintenances.index');
@@ -30,26 +24,13 @@ class MaintenanceController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create(){
 
             return view('maintenances.create');
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(MaintenanceRequest $request)
-    {
+    public function store(MaintenanceRequest $request){
         $data = $request->all();
 
         // dd($data = $request->all());
@@ -57,7 +38,7 @@ class MaintenanceController extends Controller
         $data['maintenance_date'] = Input::has('maintenance_date')?Carbon::parse($data['maintenance_date'])->format('Y-m-d'):'';
         $data['maintenance_time'] = Input::has('maintenance_time')?Carbon::parse($data['maintenance_time'])->format('H:i:s'):'';
 
-        // Valores por default
+        // Valores por default (toods menzos porque estan esos campos)
         $data['type'] = 0;
         $data['is_periodical'] = false;
         // dd($data);
@@ -91,14 +72,7 @@ class MaintenanceController extends Controller
         return Redirect::to('/maintenances');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    public function show($id){
         if(userHasPermission("mostrar_mantenimientos")):
             $maintenance = Maintenance::find($id);
 
@@ -145,14 +119,7 @@ class MaintenanceController extends Controller
         endif;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id){
         if(userHasPermission("editar_mantenimientos")):
             $maintenance = Maintenance::find($id);
 
@@ -172,15 +139,7 @@ class MaintenanceController extends Controller
         endif;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(MaintenanceRequest $request, $id)
-    {
+    public function update(MaintenanceRequest $request, $id){
         $data = $request->all();
 
         // var_dump($data);
@@ -231,14 +190,7 @@ class MaintenanceController extends Controller
         return Redirect::to('/maintenances');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function destroy($id){
         //
     }
 

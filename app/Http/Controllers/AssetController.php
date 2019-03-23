@@ -24,12 +24,19 @@ class AssetController extends Controller
 
     public function index(){
         if(userHasPermission('listar_captura_info')) {
-            $assets = Asset::all();
-            return view("assets.index", compact('assets'));
-        }
-        return redirect()->back();
-    }
 
+          $assets = Asset::all();
+
+          foreach ($assets as $asset) {
+          $resp  =  $asset->dame($asset->adquisition_date, $asset->depreciation, $asset->cost);
+          // $assets->put('actual_price', $resp);
+
+          }
+          // echo $assets;
+          return view("assets.index", compact('assets'));
+        }
+        // return redirect()->back();
+    }
 
     public function create(){
         if(userHasPermission('crear_captura_info')) {
