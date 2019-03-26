@@ -7,7 +7,7 @@
 
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -24,35 +24,31 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
-         
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-pencil font-blue-200"></i>
-                        <span class="caption-subject bold font-blue-200">Edit roll</span>
-                    </div>
-                </div>
-                <div class="portlet-body">
+              <div class="portlet-title topForm">
+              </div>
+              <div class="portlet-body">
+                <p class="titleForm">Edit roll</p>
                     {!! Form::open(['route' => ['roles.update', $role->id], 'method' => 'PUT', 'class' => '', 'files' => true]) !!}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                         <div class="portlet-body">
                             <div class="horizontal-form">
-                                <div class="form-body">
+                                <div class="form-body bodyForm">
                                     <div class="row">
-                                        <div class="col-md-12 form-group-container">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="control-label" for="name"> <span class="required" aria-required="true"> * </span>Name: </label>
+                                                <label class="control-label" for="name"> <span class="required" aria-required="true">* </span>Name: </label>
                                                 {!!Form::text('name',$role->name,['class'=>'form-control', 'placeholder'=>'Insert name', 'autocomplete'=>"off", 'onkeypress'=>'validateInput(event, 1)', 'id'=>'name'])!!}
                                             </div>
                                         </div>
                                     </div>
-                                   
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="portlet light">
@@ -62,7 +58,7 @@
                                                         <span class="caption-subject font-green-sharp bold uppercase">Permissions</span>
                                                     </div>
                                                     <ul class="nav nav-tabs">
-                                                        
+
                                                         <li class="active">
                                                             <a href="#portlet_tab_1_0" data-toggle="tab" aria-expanded="true">
                                                             Dashboard</a>
@@ -101,30 +97,30 @@
                                                                                                 <label>
                                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
                                                                                                         <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id ,old('permissions_arr',[])) ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-                        
+
                                                                                                         <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                                                         </ins>
                                                                                                     </div> {{$permission->name_english}}
                                                                                                 </label>
                                                                                             @endif
                                                                                         @endforeach
-                        
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>  
+                                                                        </div>
                                                                     @endif
-                                                                @endforeach  
+                                                                @endforeach
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="tab-pane" id="portlet_tab_1_1">
-                                                            <div class="skin skin-minimal ">        
-                                                            {{-- <form class="form-horizontal" role="form" > estas lineas fueron comentadas para el formulario llegara al controlador  --}} 
+                                                            <div class="skin skin-minimal ">
+                                                            {{-- <form class="form-horizontal" role="form" > estas lineas fueron comentadas para el formulario llegara al controlador  --}}
                                                                 @foreach ($categories as $category)
                                                                     @if ( $category->module_category == 1 )
-                                                                       
-                                                                        @if( $category->id == 4 ) <div class="row"> @endif 
+
+                                                                        @if( $category->id == 4 ) <div class="row"> @endif
                                                                             <div class="form-body col-md-3">
                                                                                 <div class="form-group">
                                                                                     <label class=" col-md-4 control-label">{{ $category->display_name}}</label>
@@ -135,7 +131,7 @@
                                                                                                     {{-- <div>{{$permission->name}}</div> --}}
                                                                                                     <label>
                                                                                                         <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                                                            <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
+                                                                                                            <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }}
                                                                                                             class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
                                                                                                         </div> {{$permission->name_english}}
                                                                                                     </label>
@@ -145,13 +141,13 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        @if( $category->id == 4  ) </div>  @endif 
+                                                                        @if( $category->id == 4  ) </div>  @endif
                                                                     @endif
                                                                 @endforeach
                                                             {{-- </form> --}}
                                                             </div>
                                                         </div>
-                        
+
                                                         <div class="tab-pane" id="portlet_tab_1_2">
                                                             <div class="skin skin-minimal">
                                                             {{-- <form role="form" class="form-horizontal"> --}}
@@ -167,7 +163,7 @@
                                                                                                 {{-- <div>{{$permission->name}}</div> --}}
                                                                                                 <label>
                                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                                                        <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
+                                                                                                        <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }}
                                                                                                         class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
                                                                                                     </div> {{$permission->name_english}}
                                                                                                 </label>
@@ -176,14 +172,14 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>  
+                                                                        </div>
                                                                     @endif
-                                                                @endforeach  
+                                                                @endforeach
                                                             </div>
                                                             {{-- </form> --}}
-                                                            
+
                                                         </div>
-                        
+
                                                         <div class="tab-pane" id="portlet_tab_1_3">
                                                             <div class="skin skin-minimal">
                                                                 {{-- <form role="form " > --}}
@@ -199,7 +195,7 @@
                                                                                                 {{-- <div>{{$permission->name}}</div> --}}
                                                                                                 <label>
                                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                                                        <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
+                                                                                                        <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }}
                                                                                                         class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
                                                                                                     </div> {{$permission->name_english}}
                                                                                                 </label>
@@ -208,13 +204,13 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>  
+                                                                        </div>
                                                                     @endif
-                                                                @endforeach  
+                                                                @endforeach
                                                                 {{-- </form> --}}
                                                             </div>
                                                         </div>
-                        
+
                                                         <div class="tab-pane" id="portlet_tab_1_4">
                                                             <div class="skin skin-minimal">
                                                             {{-- <form role="form"> --}}
@@ -230,7 +226,7 @@
                                                                                             {{-- <div>{{$permission->name}}</div> --}}
                                                                                             <label>
                                                                                                 <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                                                    <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }} 
+                                                                                                    <input type="checkbox" name="permissions_arr[]" value="{{$permission->id}}" {{in_array($permission->id , old('permissions_arr',[])) ? 'checked' : '' }} {{$permission->active ? 'checked' : '' }}
                                                                                                     class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;"> <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"> </ins>
                                                                                                 </div> {{$permission->name_english}}
                                                                                             </label>
@@ -239,13 +235,13 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>  
+                                                                    </div>
                                                                 @endif
-                                                            @endforeach  
+                                                            @endforeach
                                                             {{-- </form> --}}
                                                             </div>
                                                         </div>
-                        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -254,17 +250,25 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="form-actions col-sm-offset-5">
-                            <button type="submit" class="btn green-meadow circle" id="send">Save</button>
-                            <a class="btn red circle" href="{{URL::route('roles.index')}}">Cancel</a>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group" style="text-align: center;">
+                              <button type="submit" class="btn btnFormSave" id="send">Save</button>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group" style="text-align: center;">
+                              <a class="btn btnFormCancel" href="{{URL::route('roles.index')}}">Cancel</a>
+                            </div>
+                          </div>
                         </div>
-                        
+
                     {!!Form::close()!!}
                 </div>
             </div>
             <!-- END EXAMPLE TABLE PORTLET-->
-          
+
         </div>
     </div>
 @endsection

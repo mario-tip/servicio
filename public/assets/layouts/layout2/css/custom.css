@@ -431,3 +431,8 @@
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
+.labelControl {
+  margin-bottom: 7px !important;
+  font-weight: 900 !important;
+}
