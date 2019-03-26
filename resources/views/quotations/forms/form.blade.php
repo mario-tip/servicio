@@ -61,12 +61,12 @@
         @if ($quotation->quotation_file)
         <div class="row">
           <div class="col-md-6 form-group-container">
-            <div class="form-group">
+            <div class="form-group thumbnail">
               <?php
                         $mime_array = App\Quotation::getFileMime(public_path($quotation->quotation_file));
                         ?>
               @if($mime_array == null)
-              <h2 class="file-not-found">Not found file </h2>
+              <h2 class="file-not-found" style="margin-top: 10px;">Not found file </h2>
               @else
               <?php $file_type = $mime_array[0]; $file_extension = $mime_array[1]; ?>
               @if($file_type == 'image')
@@ -96,14 +96,14 @@
                     <i class="fa fa-file fileinput-exists"></i>&nbsp;
                     <span class="fileinput-filename"> </span>
                   </div>
-                  <span class="input-group-addon btn default btn-file">
+                  <span class="input-group-addon btn green-jungle btn-file">
                     <span class="fileinput-new"> Add </span>
                     <span class="fileinput-exists"> Change </span>
                     <input type="file" name="quotation_file">
 
                   </span>
 
-                  <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Delete </a>
+                  <a href="javascript:;" class="input-group-addon btn red fileinput-exists btnForm" data-dismiss="fileinput"> Delete </a>
 
                 </div>
               </div>
@@ -117,7 +117,15 @@
   </div>
 
 
-  <div class="form-actions col-sm-offset-5">
-    <button type="submit" class="btn btn-circle green-meadow" id="save_equipment">Save</button>
-    <a class="btn btn-circle red" href="{!!URL::route('quotations.index')!!}">Cancel</a>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group" style="text-align: center;">
+        <button type="submit" class="btn btnFormSave" id="save_equipment">Save</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group" style="text-align: center;">
+        <a class="btn btnFormCancel" href="{!!URL::route('quotations.index')!!}">Cancel</a>
+      </div>
+    </div>
   </div>

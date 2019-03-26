@@ -6,7 +6,7 @@
     {!! Html::style("/assets/css/asset.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
@@ -22,23 +22,19 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12" id="asset_form_subcontainer">
             <!-- BEGIN NEW ASSET PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                      <i class="fa fa-history font-green-haze "></i>
-                        <span class="caption-subject bold font-green-haze">Firmware history</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
                 <div class="portlet-body">
-
+                  <p class="titleForm">Firmware history</p>
                     <div class="horizontal-form firmware-history-asset-data">
-                        <div class="form-body">
+                        <div class="form-body bodyForm">
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">

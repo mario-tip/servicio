@@ -7,7 +7,7 @@
     {!! Html::style("/assets/css/asset.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
@@ -23,22 +23,19 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row">
+    <div class="row paddingForm">
         <div class="col-md-12">
             <!-- BEGIN NEW ASSET PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                      <i class="fa fa-eye font-gray"></i>
-                        <span class="caption-subject bold font-gray">Detail asset</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
                 <div class="portlet-body">
+                  <p class="titleForm">Detail asset</p>
                     <div class="horizontal-form">
-                        <div class="form-body">
+                        <div class="form-body bodyForm">
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
@@ -162,14 +159,12 @@
 
             <!-- BEGIN ASSET'S PARTS PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <span class="caption-subject bold">Additional Information</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
                 <div class="portlet-body">
+                  <p class="titleForm">Additional information</p>
                     <div class="horizontal-form">
-                        <div class="form-body">
+                        <div class="form-body bodyForm">
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">

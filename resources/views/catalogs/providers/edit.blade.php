@@ -27,17 +27,14 @@
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12" id="">
         {!! Form::model($provider, ['route' => ['providers.update', $provider->id], 'method' => 'PUT', 'id' => 'provider_form']) !!}
         <!-- BEGIN NEW LOCATION PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                      <i class="icon-pencil font-blue"></i>
-                        <span class="caption-subject bold font-blue">Edit supplier</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Edit supplier</p>
                 @include("catalogs.providers.forms.form")
             </div>
             <!-- END NEW LOCATION PORTLET-->

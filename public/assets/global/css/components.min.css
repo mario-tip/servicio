@@ -8095,9 +8095,9 @@ th > .mt-radio.mt-radio-single {
     font-size: 14px;
     font-weight: 400;
     height: 34px;
-    color: #555;
-    background-color: #fff;
-    border: 1px solid #c2cad8;
+    color: #333333;
+    background-color: #f2f6f9;
+    border: 0px solid #f2f6f9;
     -webkit-box-shadow: none;
     box-shadow: none;
     -webkit-transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;

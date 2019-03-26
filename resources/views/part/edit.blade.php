@@ -11,7 +11,7 @@
     {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -28,20 +28,17 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
-        <div class="col-md-12">
-            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-            <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                      <i class="icon-pencil font-blue"></i>
-                        <span class="caption-subject bold font-blue">Edit part</span>
-                    </div>
-                </div>
-                <div class="portlet-body">
+  <div class="row content_container paddingForm">
+      <div class="col-md-12">
+          <!-- BEGIN EXAMPLE TABLE PORTLET-->
+          <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title topForm">
+            </div>
+              <div class="portlet-body">
+                <p class="titleForm">Edit part</p>
                     {!! Form::model($part,['route' => ['parts.update', $part->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'files' => true]) !!}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 

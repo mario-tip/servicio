@@ -17,7 +17,7 @@
 .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-label {
   vertical-align: top; }
 .portlet-body .horizontal-form .form-body .row .form-group-container .form-group textarea, .modal-body .horizontal-form .form-body .row .form-group-container .form-group textarea {
-  resize: vertical; }
+  resize: none; }
 .portlet-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content, .modal-body .horizontal-form .form-body .row .form-group-container .form-group .textarea-content {
   width: 70%;
   text-align: justify; }

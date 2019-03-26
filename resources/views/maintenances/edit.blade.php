@@ -11,7 +11,7 @@
     {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -28,22 +28,20 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-pencil font-blue"></i>
-                        <span class="caption-subject bold font-blue">Edit maintenance</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
                 <div>@php
                     // dd($maintenance);
                 @endphp</div>
                 <div class="portlet-body">
+                  <p class="titleForm">Edit maintenance</p>
+
                     {!! Form::model($maintenance,['route' => ['maintenances.update', $maintenance->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'files' => true]) !!}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                         @include("maintenances.form")
@@ -180,7 +178,8 @@
             });
 
             $(".activos").css('border', 'none');
-            $(".activos").css('background-color', '#fefeff');
+            $(".activos").css('cursor', 'not-allowed');
+            $(".activos").css('background-color', '#f2f6f9');
             $(".activos").prop('readonly', true);
         });
 

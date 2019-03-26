@@ -5,7 +5,7 @@
     {!! Html::style("/assets/css/project.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -23,21 +23,18 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12" id="">
         {!! Form::model($project, ['route' => ['projects.update', $project->id], 'method' => 'PUT', 'id' => 'project_form']) !!}
 
         <!-- BEGIN NEW LOCATION PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-pencil font-blue"></i>
-                        <span class="caption-subject bold font-blue">Edit Project</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+                <p class="titleForm">Edit project</p>
                 @include("catalogs.projects.forms.form")
             </div>
             <!-- END NEW LOCATION PORTLET-->

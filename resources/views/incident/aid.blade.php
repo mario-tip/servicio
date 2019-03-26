@@ -58,9 +58,9 @@
                             <th class="center">Date</th>
                             <th class="center">Technical</th>
                             <th class="center">Status</th>
-                            @if(userHasPermission("mostrar_consulta_atencion_incidencias")) 
+                            @if(userHasPermission("mostrar_consulta_atencion_incidencias"))
                             <th class="center">Actions</th>
-                            @endif 
+                            @endif
                         </tr>
                         </thead>
 

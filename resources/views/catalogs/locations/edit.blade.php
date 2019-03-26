@@ -5,7 +5,7 @@
     {!! Html::style("/assets/css/location.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -23,20 +23,17 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12" id="">
         {!! Form::model($location, ['route' => ['locations.update', $location->id], 'method' => 'PUT', 'id' => 'location_form']) !!}
         <!-- BEGIN EDIT LOCATION PORTLET-->
         <div class="portlet light portlet-fit bordered">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="icon-pencil font-blue"></i>
-                    <span class="caption-subject bold font-blue">Edit location </span>
-                </div>
-            </div>
+          <div class="portlet-title topForm">
+          </div>
+          <p class="titleForm">Edit location</p>
             @include("catalogs.locations.forms.form")
         </div><!-- END EDIT LOCATION PORTLET-->
         {!! Form::close() !!}

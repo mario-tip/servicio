@@ -11,7 +11,7 @@
     {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
         <ul class="page-breadcrumb">
@@ -28,25 +28,23 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-eye"></i>
-                        <span class="caption-subject bold">Incident detail</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
                 <div class="portlet-body">
+                  <p class="titleForm">Incident detail</p>
+
                     <div class="horizontal-form">
-                        <div class="form-body">
+                        <div class="form-body bodyForm">
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label"><b>who registered? :</b></label>
+                                        <label class="control-label"><b>Who registered? :</b></label>
                                         <label class="control-label">{{$incident->full_name}}</label>
                                     </div>
                                 </div>
@@ -158,7 +156,7 @@
                                     <div class="col-md-6 form-group-container">
                                         <div class="form-group">
                                             <label class="control-label"><b>Suggested attention hour :</b></label>
-    
+
                                             <label class="control-label">{{$incident->suggested_time}}</label>
                                         </div>
                                     </div>
@@ -191,14 +189,12 @@
             </div>
 
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <span class="caption-subject bold">Detail of attention</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
                 <div class="portlet-body">
+                  <p class="titleForm">Detail of attention</p>
                     <div class="horizontal-form">
-                        <div class="form-body">
+                        <div class="form-body bodyForm">
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
@@ -249,7 +245,7 @@
                                 </div>
                             </div>
                             @endif
-                            
+
 
                         </div>
                     </div>

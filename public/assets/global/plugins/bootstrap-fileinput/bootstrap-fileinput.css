@@ -3,7 +3,7 @@
  * Copyright 2012-2014 Arnold Daniels
  * Licensed under Apache-2.0 (https://github.com/jasny/bootstrap/blob/master/LICENSE)
  */
- 
+
 .btn-file {
   position: relative;
   overflow: hidden;
@@ -75,7 +75,7 @@
 }
 .fileinput-new.input-group .btn-file,
 .fileinput-new .input-group .btn-file {
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 10px 10px 0;
 }
 .fileinput-new.input-group .btn-file.btn-xs,
 .fileinput-new .input-group .btn-file.btn-xs,

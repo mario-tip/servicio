@@ -2,55 +2,59 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <label for="name"><span class="required" aria-required="true"> * </span>Search asset:</label>
+        <label for="name"><span class="required" aria-required="true">* </span>Search asset:</label>
         <select name="asset_id" id="asset_id" class="form-control asset"></select>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <label for="name"><span class="required" aria-required="true"> * </span>Service type:</label>
+        <label for="name"><span class="required" aria-required="true">* </span>Service type:</label>
         {!! Form::select('type', array('0'=>'Cleaning','1'=>'Repair'), null, ['class' => 'bs-select form-control', 'id' => 'type', 'title' => 'Select...']) !!}
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-3">
       <div class="form-group">
         <label for="name" class="control-label">Asset ID:</label>
         {!!Form::text('asset_custom_id',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'asset_custom_id'])!!}
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-5">
       <div class="form-group">
         <label for="name" class="control-label">Name Asset:</label>
         {!!Form::text('asset_name',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'asset_name'])!!}
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
       <div class="form-group">
         <label for="name" class="control-label">Brand:</label>
         {!!Form::text('brand',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'brand'])!!}
       </div>
     </div>
-    <div class="col-md-5">
-      <div class="form-group">
-        <label for="name" class="control-label">Location:</label>
-        {!!Form::text('location',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'location'])!!}
-      </div>
-    </div>
-    <div class="col-md-2">
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
       <div class="form-group">
         <label for="name" class="control-label">Serie:</label>
         {!!Form::text('serial',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'serial'])!!}
       </div>
     </div>
+    <div class="col-md-9">
+      <div class="form-group">
+        <label for="name" class="control-label">Location:</label>
+        {!!Form::text('location',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'location'])!!}
+      </div>
+    </div>
   </div>
+
 
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
-        <label for="inputEmail1" class="control-label"><span class="required" aria-required="true"> * </span>Problem description:</label>
+        <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span>Problem description:</label>
         {!!Form::textarea('description',null,['size' => '30x2','class'=>'form-control', 'placeholder'=>'', 'autocomplete'=>"off", 'id'=>'description'])!!}
       </div>
     </div>
@@ -59,7 +63,7 @@
   <div class="row">
     <div class="col-md-3">
       <div class="form-group">
-        <label for="name" class="control-label"><span class="required" aria-required="true"> * </span>Requested by:</label>
+        <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Requested by:</label>
         <select class="bs-select form-control person" name="person_id" id="person_id">
           <option value="0" disabled selected>Select...</option>
           @foreach($persons as $person)
@@ -70,7 +74,7 @@
     </div>
     <div class="col-md-3">
       <div class="form-group">
-        <label for="inputEmail1" class="control-label"><span class="required" aria-required="true"> * </span> Suggested date:</label>
+        <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span> Suggested date:</label>
         <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
           {!! Form::text('suggested_date', null, ['class' => 'form-control', 'style' => 'pointer-events: none;','id' => 'suggested_date', 'readonly']) !!}
           <span class="input-group-btn">
@@ -83,7 +87,7 @@
     </div>
     <div class="col-md-3">
       <div class="form-group">
-        <label class="control-label"><span class="required" aria-required="true"> * </span> Suggested hour:</label>
+        <label class="control-label"><span class="required" aria-required="true">* </span> Suggested hour:</label>
         <div class="input-group">
           {!! Form::text('suggested_time', null, ['class' => 'form-control timepicker timepicker-24','style' => 'pointer-events: none;', 'id' => 'suggested_time', 'readonly']) !!}
           <span class="input-group-btn">
@@ -96,7 +100,7 @@
     </div>
     <div class="col-md-3">
       <div class="form-group">
-        <label for="name" class="control-label"><span class="required" aria-required="true"> * </span> Preference :</label>
+        <label for="name" class="control-label"><span class="required" aria-required="true">* </span> Preference :</label>
         {!! Form::select('priority', array('0'=>'Low', '1'=>'Medium', '2'=>'Hig'), null, ['class' => 'bs-select form-control', 'id' => 'priority', 'title' => 'Select...']) !!}
       </div>
     </div>
@@ -111,7 +115,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <label for="inputEmail1" class="control-label"><span class="required" aria-required="true"> * </span> Add evidence:</label>
+      <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span> Add evidence:</label>
 
       <div class="form-group">
         <div class="fileinput fileinput-new" data-provides="fileinput">

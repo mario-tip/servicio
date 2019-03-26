@@ -83,7 +83,7 @@
                     cache: true
                 },
                 language: "es",
-                placeholder: "insert folio incident",
+                placeholder: "Insert folio incident",
                 minimumInputLength: 3,
             });
             $('.currency-format').number(true, 2);

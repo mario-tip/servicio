@@ -8,7 +8,7 @@
     {!! Html::style("/assets/css/asset.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div class="page-bar">
         <div id="errors_container"></div>
         <ul class="page-breadcrumb">
@@ -25,36 +25,33 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12" id="asset_form_subcontainer">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             {!! Form::open(['id' => 'asset_form', 'data-method' => 'POST']) !!}
                 <!-- BEGIN NEW ASSET PORTLET-->
                 <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="fa fa-plus font-cian-700"></i>
-                            <span class="caption-subject bold font-cian-700 ">New asset</span>
-                        </div>
-                    </div>
+                  <div class="portlet-title topForm">
+                  </div>
                     <div class="portlet-body">
+                      <p class="titleForm">New asset</p>
                         <div class="horizontal-form">
-                            <div class="form-body">
+                            <div class="form-body bodyForm">
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
                                             <label class="control-label" for="asset_custom_id">Asset ID: </label>
                                             {!! Form::text('asset[asset_custom_id]', $asset->asset_custom_id, ['class' => 'form-control', 'id' => 'asset_custom_id']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_adquisition_date_container"><span>*</span>Date of purchase: </label>
+                                            <label class="control-label" for="asset_adquisition_date_container"><span class="required" aria-required="true">* </span>Date of purchase: </label>
                                             <div class="date-picker-container" >
-                                                <div class="input-medium date date-picker" data-date-format="dd-mm-yyyy" >  {{--Removed class input-group, and data-date-start-date="+0d"--}}
+                                                <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" >  {{--Removed class input-group, and data-date-start-date="+0d"--}}
                                                     {!! Form::text('asset[adquisition_date]', $asset->adquisition_date, ['class' => 'form-control',
                                                     'id' => 'asset_adquisition_date', 'readonly']) !!}
                                                     <span class="input-group-btn">
@@ -68,74 +65,74 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_name"><span>*</span>Asset name: </label>
+                                            <label class="control-label" for="asset_name"><span class="required" aria-required="true">* </span>Asset name: </label>
                                             {!! Form::text('asset[name]', $asset->name, ['class' => 'form-control', 'id' => 'asset_name']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_cost"><span>*</span>Actual price: </label>
+                                            <label class="control-label" for="asset_cost"><span class="required" aria-required="true">* </span>Price: </label>
                                             {!! Form::text('asset[cost]', $asset->cost, ['class' => 'form-control', 'id' => 'asset_cost',
                                             'onkeypress' => 'return validateInput(event, 5)', 'placeholder' => '0.00']) !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_model"><span>*</span>Model: </label>
+                                            <label class="control-label" for="asset_model"><span class="required" aria-required="true">* </span>Model: </label>
                                             {!! Form::text('asset[model]', $asset->model, ['class' => 'form-control', 'id' => 'asset_model']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_condition"><span>*</span>State: </label>
+                                            <label class="control-label" for="asset_condition"><span class="required" aria-required="true">* </span>State: </label>
                                             {!!Form::select('asset[condition]',['1' => 'New','2' => 'Used'], $asset->condition, ['class' => 'bs-select form-control', 'id' => 'asset_condition', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_serial"><span>*</span>Serial number: </label>
+                                            <label class="control-label" for="asset_serial"><span class="required" aria-required="true">* </span>Serial number: </label>
                                             {!! Form::text('asset[serial]', $asset->serial, ['class' => 'form-control', 'id' => 'asset_serial']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_model_status"><span>*</span>Status: </label>
+                                            <label class="control-label" for="asset_model_status"><span class="required" aria-required="true">* </span>Status: </label>
                                             {!!Form::select('asset[status]', ['0' => 'Inactive','1' => 'Active'], $asset->status, ['class' => 'bs-select form-control', 'id' => 'asset_status', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_brand"><span>*</span>Brand: </label>
+                                            <label class="control-label" for="asset_brand"><span class="required" aria-required="true">* </span>Brand: </label>
                                             {!! Form::text('asset[brand]', $asset->brand, ['class' => 'form-control', 'id' => 'asset_brand']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_person_id"><span>*</span>Person: </label>
+                                            <label class="control-label" for="asset_person_id"><span class="required" aria-required="true">* </span>Person: </label>
                                             {!!Form::select('asset[person_id]', $dependencies['persons'], $asset->person_id, ['class' => 'bs-select form-control', 'id' => 'asset_person_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label"><span>*</span>Location: </label>
+                                            <label class="control-label"><span class="required" aria-required="true">* </span>Loation: </label>
                                             {!!Form::select('asset[location_id]', $dependencies['locations'], $location_id, ['class' => 'bs-select form-control', 'id' => 'asset_location_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group datepicker-group">
                                             <label class="control-label" for="asset_expires_date"><span></span>Expiration date: </label>
                                             <div class="date-picker-container">
-                                                <div class="input-medium date date-picker" data-date-format="dd-mm-yyyy" id="asset_expires_date">
+                                                <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" id="asset_expires_date">
                                                     {!! Form::text('asset[expires_date]', $asset->expires_date, ['class' => 'form-control', 'id' => 'asset_expires_date', 'readonly']) !!}
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button">
@@ -148,13 +145,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label textarea-label" for="asset_description"><span>*</span>Description: </label>
-                                            {!! Form::textarea('asset[description]', $asset->description, ['rows' => '5', 'class' => 'form-control', 'id' => 'asset_description']) !!}
+                                            <label class="control-label textarea-label" for="asset_description"><span class="required" aria-required="true">* </span>Description: </label>
+                                            {!! Form::textarea('asset[description]', $asset->description, ['size' => '30x2', 'class' => 'form-control', 'id' => 'asset_description']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
                                             <label class="control-label" for="asset_provider_id"><span></span>Provider: </label>
                                             {!!Form::select('asset[provider_id]', $dependencies['providers'], $asset->provider_id, ['class' => 'bs-select form-control', 'id' => 'asset_provider_id', 'title' => 'Select...']) !!}
@@ -162,13 +159,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_customer_id"><span>*</span>Customer: </label>
+                                            <label class="control-label" for="asset_customer_id"><span class="required" aria-required="true">* </span>Customer: </label>
                                             {!!Form::select('asset[customer_id]', $dependencies['customers'], $asset->customer_id, ['class' => 'bs-select form-control', 'id' => 'asset_customer_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
                                             <label class="control-label" for="asset_purchase_order"><span></span>Purchase reference: </label>
                                             {!! Form::text('asset[purchase_order]', $asset->purchase_order, ['class' => 'form-control', 'id' => 'asset_purchase_order']) !!}
@@ -176,122 +173,27 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_project_id"><span>*</span>Project: </label>
+                                            <label class="control-label" for="asset_project_id"><span class="required" aria-required="true">* </span>Project: </label>
                                             {!! Form::select('asset[project_id]', $dependencies['projects'], $asset->project_id, ['class' => 'bs-select form-control', 'id' => 'asset_project_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_barcode"><span>*</span>Bar code: </label>
+                                            <label class="control-label" for="asset_barcode"><span class="required" aria-required="true">* </span>Bar code: </label>
                                             {!! Form::text('asset[barcode]', $asset->barcode, ['class' => 'form-control', 'id' => 'asset_barcode']) !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group-container">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label class="control-label" for="asset_subcategory_id"><span>*</span>Subcategory: </label>
+                                            <label class="control-label" for="asset_subcategory_id"><span class="required" aria-required="true">* </span>Subcategory: </label>
                                             {!! Form::select('asset[subcategory_id]', $dependencies['subcategories'], $asset->subcategory_id, ['class' => 'bs-select form-control', 'id' => 'asset_subcategory_id', 'title' => 'Select...']) !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group-container">
-                                      <div class="form-group">
-                                        <label class="control-label" for="asset_depreciation"><span>*</span>Deprecation: </label>
-                                        {!! Form::text('asset[depreciation]', $asset->depreciation,
-                                        [
-                                        'class' => 'form-control',
-                                        'id' => 'asset_depreciation',
-                                        'maxlength' => 3,
-                                        'placeholder' => '.%',
-                                        'max' => 100,
-                                        'onkeypress' => 'return validateInput(event, 5)'
-                                        ])!!}
-                                      </div>
-                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 form-group-container">
-                                        <div class="form-group">
-                                            <label class="control-label" for="asset_quantity"><span>*</span>Quantity: </label>
-                                            {!! Form::text('asset[quantity]', $asset->quantity,[
-                                            'class' => 'form-control',
-                                            'id' => 'asset_quantity',
-                                            'maxlength' => 5,
-                                            'max' => 100,
-                                            'onkeypress' => 'return validateInput(event, 5)'
-                                            ])!!}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-group-container">
-                                      <div class="form-group">
-                                        <label class="control-label" for="asset_rfid_code"><span>*</span>RFID Code: </label>
-                                        {!! Form::text('asset[rfid_code]', $asset->rfid_code,[
-                                        'class' => 'form-control',
-                                        'id' => 'rfid_code',
-                                        'maxlength' => 18,
-                                        ])!!}
-                                      </div>
-                                    </div>
-                                </div>
-                              <?php // IDEA: images and files  ?>
-                                <div class="row">
-                                  <div class="col-md-6 form-group-container">
-                                      <div class="form-group">
-                                          <label class="control-label textarea-label" for="quotation_file"><span id="span_quotation_file_required"></span>File: </label>
-                                          <div class="fileinput fileinput-new" data-provides="fileinput" id="quotation_file">
-                                              <div class="input-group input-large">
-                                                  <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
-                                                      <i class="fa fa-file fileinput-exists"></i>&nbsp;
-                                                      <span class="fileinput-filename"> </span>
-                                                  </div>
-                                                  <span class="input-group-addon btn default btn-file">
-                                                      <span class="fileinput-new"> Add </span>
-                                                      <span class="fileinput-exists"> Change </span>
-                                                      <input type="file" name="quotation_file" >
-
-                                                  </span>
-
-                                                  <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Delete </a>
-
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                    <div class="col-md-6 form-group-container">
-                                      <div class="form-group last">
-                                  			<label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Add image :</label>
-                                  			<div class="col-sm-7">
-                                  				<div class="fileinput fileinput-new" data-provides="fileinput">
-                                  					<div class="fileinput-new thumbnail" >
-
-                                               @if(isset($incident))
-                                                   <img src="http://service.altatec.com.mx/{{$incident->evidence_file}}" alt=""/>
-                                               @else
-                                                   <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
-                                               @endif
-
-                                  					</div>
-                                  					<div class="fileinput-preview fileinput-exists thumbnail" >
-                                  					</div>
-                                  					<div>
-                                  						<span class="btn default btn-file">
-                                  						<span class="fileinput-new">
-                                  						Select image </span>
-                                  						<span class="fileinput-exists">
-                                  						Change </span>
-                                  						<input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" />
-                                  						</span>
-                                  						<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
-                                  						Remove </a>
-                                  					</div>
-                                  				</div>
-                                  			</div>
-                                  		</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>

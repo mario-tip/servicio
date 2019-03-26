@@ -8,7 +8,7 @@
     {!! Html::style("/assets/css/quotation.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     <div id="errors_container">
         @include('partials.message')
     </div>
@@ -28,7 +28,7 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
     <div class="row content_container">
@@ -166,10 +166,18 @@
                 <div class="modal-body" id="bodyUpdateFirmware">
                     @include("quotations.forms.authorization_form")
                 </div>
-                <div class="form-actions col-sm-offset-5">
-                    <button type="submit" class="btn btn-circle green-meadow">Save</button>
-                    <a class="btn btn-circle red" href="#" data-dismiss="modal">Cancel</a>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group" style="text-align: center;">
+                    <button type="submit" class="btn btnFormSave">Save</button>
+                  </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="form-group" style="text-align: center;">
+                    <a class="btn btnFormCancel" href="#" data-dismiss="modal">Cancel</a>
+                </div>
+              </div>
+            </div>
                 {!! Form::close() !!}
             </div>
             <!-- /.modal-content -->
