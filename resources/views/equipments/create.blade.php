@@ -1,6 +1,8 @@
 @extends("layouts.master")
 
 @section("styles")
+    {!! Html::style("/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css") !!}
+    {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
     {!! Html::style("/assets/global/plugins/select2/css/select2.min.css") !!}
     {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
     {!! Html::style("/assets/global/plugins/datatables/datatables.min.css") !!}
@@ -48,6 +50,8 @@
 @endsection
 
 @section("scripts")
+    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
+    {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
     {!! Html::script("/assets/global/plugins/datatables/datatables.min.js") !!}
     {!! Html::script("/assets/pages/scripts/table-datatables-scroller.min.js") !!}
     {!! Html::script("/assets/scripts/jquery.number.js") !!}

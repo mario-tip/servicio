@@ -20,6 +20,18 @@ class Equipment extends Model
      */
     protected $fillable = [
         'name',
+        'price',
+        'cat_num',
+        'serial',
+        'date_purchase',
+        'quantity',
+        'code',
+        'code_rfid',
+        'provider_id',
+        'part_id',
+        'description',
+        'image',
+        'files'
     ];
 
     public function parts()

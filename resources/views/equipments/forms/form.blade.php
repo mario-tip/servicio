@@ -2,16 +2,170 @@
     <div class="horizontal-form">
         <div class="form-body">
             <div class="row">
-                <div class="col-md-12 form-group-container">
+                <div class="col-md-6 form-group-container">
                     <div class="form-group">
-                        <label class="control-label" for="equipment_name"><span>*</span>Equipment name: </label>
+                        <label class="control-label" for="equipment_name"><span>*</span>Name: </label>
                         {!! Form::text('equipment[name]', $equipment->name, ['class' => 'form-control',
-                        'id' => 'equipment_name']) !!}
+                        'id' => 'equipment_name', 'maxlength' => 45]) !!}
+                    </div>
+                </div>
+                <div class="col-md-3 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Price: </label>
+                        {!! Form::text('equipment[price]', $equipment->price,[
+                        'class' => 'form-control', 'id' => 'equipment_price','maxlength' => 10,
+                        'onkeypress' => 'return validateInput(event, 5)', 'placeholder' => '0.00']) !!}
+                    </div>
+                </div>
+                <div class="col-md-3 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Catalog number: </label>
+                        {!! Form::text('equipment[cat_num]', $equipment->cat_num,[
+                        'class' => 'form-control', 'id' => 'equipment_cat_num','maxlength' => 10,
+                        'onkeypress' => 'return validateInput(event, 5)']) !!}
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 form-group-container">
+
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Serial: </label>
+                        {!! Form::text('equipment[serial]', $equipment->serial,[ 'maxlength' => 30,
+                        'class' => 'form-control', 'id' => 'equipment_serial']) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 form-group-container">
+                <div class="form-group datepicker-group">
+                            <label class="control-label" for="equipment_maintenance_container"><span>*</span>Maintenance : </label>
+                            <div class="date-picker-container">
+                                <div class="input-medium date date-picker" data-date-format="dd-mm-yyyy" id="equipment_maintenance_container">
+                                    {!! Form::text('equipment[maintenance_date]', $equipment->maintenance_date,
+                                    ['class' => 'form-control', 'id' => 'equipment_maintenance_date', 'readonly']) !!}
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button">
+                                            <i class="fa fa-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Quantity: </label>
+                        {!! Form::text('equipment[quantity]', $equipment->price,[
+                        'class' => 'form-control', 'id' => 'equipment_price', 'maxlength' => 7,
+                        'onkeypress' => 'return validateInput(event, 5)']) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Code: </label>
+                        {!! Form::text('equipment[code]', $equipment->code,[
+                        'class' => 'form-control', 'id' => 'equipment_code', 'maxlength' => 18,
+                        'onkeypress' => 'return validateInput(event, 5)']) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Code RFID: </label>
+                        {!! Form::text('equipment[code_rfid]', $equipment->code_rfid,[
+                        'class' => 'form-control', 'id' => 'equipment_code_rfid', 'maxlength' => 20,
+                        'onkeypress' => 'return validateInput(event, 5)']) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Provider: </label>
+                        {!! Form::select('equipment[price]', $equipment->price,[
+                        'class' => 'form-control', 'id' => 'equipment_price',
+                        'onkeypress' => 'return validateInput(event, 5)']) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Number part: </label>
+                        {!! Form::text('equipment[price]', $equipment->price,[
+                        'class' => 'form-control', 'id' => 'equipment_price',
+                        'onkeypress' => 'return validateInput(event, 5)']) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                        <label class="control-label" for="equipment_name"><span>*</span>Description: </label>
+                        {!! Form::text('equipment[description]', $equipment->description,[
+                        'class' => 'form-control', 'id' => 'equipment_description',
+                        'onkeypress' => 'return validateInput(event, 5)']) !!}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group last">
+                  <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>Image:</label>
+                  <div class="col-sm-7">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                      <div class="fileinput-new thumbnail">
+
+                        @if(isset($incident))
+                        <img src="http://service.altatec.com.mx/{{$incident->evidence_file}}" alt="" />
+                        @else
+                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                        @endif
+
+                      </div>
+                      <div class="fileinput-preview fileinput-exists thumbnail">
+                      </div>
+                      <div>
+                        <span class="btn default btn-file">
+                          <span class="fileinput-new">
+                            Select image </span>
+                          <span class="fileinput-exists">
+                            Change </span>
+                          <input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" />
+                        </span>
+                        <a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+                          Remove </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6 form-group-container">
+                    <div class="form-group">
+                    <label class="control-label textarea-label" for="quotation_file">File: </label>
+                    <div class="fileinput fileinput-new" data-provides="fileinput" id="quotation_file">
+                    <div class="input-group input-large">
+                      <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                        <span class="fileinput-filename"> </span>
+                      </div>
+                      <span class="input-group-addon btn default btn-file">
+                        <span class="fileinput-new"> Add </span>
+                        <span class="fileinput-exists"> Change </span>
+                        <input type="file" name="quotation_file">
+
+                      </span>
+
+                      <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Delete </a>
+
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group-container">
                     <div class="select2-group">
                         <label class="control-label" for="equipment_parts"><span></span>Add part: </label>
                         <select id="part_select" class="form-control select2"></select>
@@ -19,6 +173,11 @@
                     </div>
                 </div>
             </div>
+
+
+
+            </div>
+
             <div class="row" id="equipment_parts_container">
                 <div class="col-md-12" id="parts_subcontainer">
                     <table class="table table-striped table-bordered table-hover" id="datatable_parts">
