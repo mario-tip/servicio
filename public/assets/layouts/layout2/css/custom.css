@@ -1,7 +1,11 @@
 .footer-sidebar {
   position: fixed;
-  bottom: 0;
-  width: 7.2em;
+  bottom: 1em;
+  width: 8.9em;
+}
+
+.center {
+    text-align: center;
 }
 
 /* ### LOG IN ### */
@@ -160,7 +164,7 @@
 /* ### END LOGIN ### */
 /* ### HEADER ### */
 .page-header.navbar .page-logo {
-  padding-left: 125px !important;
+  padding-left: 11em !important;
   padding-top: 7px !important;
   background: #ffffff !important;
 }
@@ -351,7 +355,7 @@
 /* ### END CLIMA ### */
 /* ### FORMULARIOS ### */
 .paddingForm {
-  padding: 0em 14em !important;
+  padding: 0em 6em !important;
 }
 
 .topForm {
@@ -439,7 +443,6 @@
 
 /* ### END FORMULARIOS ### */
 /* ### LISTAS ### */
-
 .btnList, .btnList:hover, .btnList:focus {
   background: #3a96ee;
   color: #FFFFFFFF;
@@ -467,4 +470,19 @@
 
 .table-scrollable thead {
   background: #f2f6f9;
+}
+
+/* ### END LISTAS ### */
+/* ### SIDEBAR ### */
+
+.menu-toggler.sidebar-toggler {
+  display: block;
+  cursor: pointer;
+  margin-top: 2.5em;
+}
+
+
+.menu-toggler.sidebar-toggler > i {
+  font-size: 2em;
+  color: #ffffff;
 }

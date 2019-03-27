@@ -197,32 +197,52 @@
   color: #3b5074
 }
 
+.page-sidebar .page-sidebar-menu>li.open {
+  background: #ffffff;
+}
+
 /* Hover para cada li  */
 .page-sidebar .page-sidebar-menu>li.open>a, .page-sidebar .page-sidebar-menu>li:hover>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a {
   background: #FFFFFF;
-  color: #22B9FF;
+  color: #3a96ee;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 
 /* Color icono cuando hover  */
 .page-sidebar .page-sidebar-menu>li.open>a>.arrow.open:before, .page-sidebar .page-sidebar-menu>li.open>a>.arrow:before, .page-sidebar .page-sidebar-menu>li.open>a>i, .page-sidebar .page-sidebar-menu>li:hover>a>.arrow.open:before, .page-sidebar .page-sidebar-menu>li:hover>a>.arrow:before, .page-sidebar .page-sidebar-menu>li:hover>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a>i {
-  color: #22B9FF;
+  color: #3a96ee;
 }
 
 
 /* Activo background y fuente activo */
-.page-sidebar .page-sidebar-menu>li.active.open>a, .page-sidebar .page-sidebar-menu>li.active>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a {
-  background: #FDFAEB;
-  color: #22B9FF;
+.page-sidebar .page-sidebar-menu>li.active>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a {
+  background: #3a96ee;
+  color: #FFFFFF;
 }
+
+.page-sidebar .page-sidebar-menu>li.active.open>a {
+  background: #ffffff;
+  color: #3A96EE;
+}
+
+.page-sidebar .page-sidebar-menu>li.active.open>a>i {
+  color: #3A96EE;
+}
+
 /* Activo mas el hover color background */
 .page-sidebar .page-sidebar-menu>li.active.open>a:hover, .page-sidebar .page-sidebar-menu>li.active>a:hover, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a:hover, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a:hover {
-  background: #FDFAEB;
+  background: #ffffff;
+  color: #3a96ee;
 }
 
 /* Activo icono color  */
-.page-sidebar .page-sidebar-menu>li.active.open>a>i, .page-sidebar .page-sidebar-menu>li.active>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a>i {
-  color: #22B9FF;
+.page-sidebar .page-sidebar-menu>li.active>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a>i {
+  color: #FFFFFF;
+}
+
+.page-sidebar .page-sidebar-menu>li.active>a:hover>i {
+  color: #3A96EE;
 }
 
 .page-sidebar .page-sidebar-menu>li.active.open>a>.arrow.open:before, .page-sidebar .page-sidebar-menu>li.active.open>a>.arrow:before, .page-sidebar .page-sidebar-menu>li.active>a>.arrow.open:before, .page-sidebar .page-sidebar-menu>li.active>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a>.arrow:before {
@@ -250,7 +270,7 @@
 }
 
 .page-sidebar .page-sidebar-menu .sub-menu>li>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a {
-  color: #515d62;
+  color: #3a96ee;
 }
 /*
 .page-sidebar .page-sidebar-menu .sub-menu>li>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a:hover{
@@ -262,7 +282,7 @@
 }
 
 .page-sidebar .page-sidebar-menu .sub-menu>li>a>i[class*=icon-], .page-sidebar .page-sidebar-menu .sub-menu>li>a>i[class^=icon-], .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a>i[class*=icon-], .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a>i[class^=icon-] {
-  color: #a8aabb
+  color: #3a96ee;
 }
 
 .page-sidebar .page-sidebar-menu .sub-menu>li>a>.arrow.open:before, .page-sidebar .page-sidebar-menu .sub-menu>li>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a>.arrow:before {
@@ -294,8 +314,8 @@
 }
 
 @media (min-width:992px) {
-  .page-sidebar-menu.page-sidebar-menu-closed>li:hover, .page-sidebar-menu.page-sidebar-menu-closed>li:hover>.sub-menu, .page-sidebar-menu.page-sidebar-menu-hover-submenu li:hover>.sub-menu {
-    box-shadow: 5px 5px rgba(48, 48, 48, .2)
+  .page-sidebar-menu.page-sidebar-menu-closed>li:hover>.sub-menu, .page-sidebar-menu.page-sidebar-menu-hover-submenu li:hover>.sub-menu {
+    box-shadow: 0 1px 10px 0 rgba(50, 50, 50, .2);
   }
 
   .page-sidebar-fixed:not(.page-footer-fixed) .page-content {

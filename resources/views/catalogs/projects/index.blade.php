@@ -10,7 +10,7 @@
     <div id="notification_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -21,20 +21,17 @@
                 <a>Projects</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="glyphicon glyphicon-blackboard font-blue-400"></i>
-                        <span class="caption-subject bold font-blue-400">Projects</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Projects</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
@@ -42,7 +39,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_proyectos"))
-                                    <a href="{{URL::route('projects.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New project</a>
+                                    <a href="{{URL::route('projects.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New project</a>
                                     @endif
                                 </div>
                             </div>
@@ -69,7 +66,7 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_proyectos"))
-                                    <a href="{{route('projects.edit', $project->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('projects.edit', $project->id) }}" title="Edit" class="btn btnIconList">
                                       <i class="fa fa-edit"></i>
                                     </a>
                                     @endif

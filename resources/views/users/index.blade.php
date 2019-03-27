@@ -7,7 +7,7 @@
 
 @section('breadcrumb')
     @include('partials.message')
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -17,20 +17,17 @@
                 <a href="{!!URL::to('/users')!!}">Users</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="glyphicon glyphicon-sunglasses font-blue-200"></i>
-                        <span class="caption-subject bold font-blue-200">Users</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Users</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
@@ -38,7 +35,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_usuarios"))
-                                    <a href="{{URL::route('users.create')}}" class="btn green circle"><i class="fa fa-plus"></i> New user </a>
+                                    <a href="{{URL::route('users.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New user </a>
                                     @endif
                                 </div>
                             </div>
@@ -68,7 +65,7 @@
                                 <td >
                                   <div class="center_items">
                                     @if(userHasPermission("editar_usuarios"))
-                                        <a href="{{URL::route('users.edit', $user->id) }}" title="Edit" class="btn btn-icon-only blue circle">
+                                        <a href="{{URL::route('users.edit', $user->id) }}" title="Edit" class="btn btnIconList">
                                           <i class="fa fa-edit"></i>
                                         </a>
                                     @endif

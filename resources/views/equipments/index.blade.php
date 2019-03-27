@@ -12,7 +12,7 @@
     <div id="notification_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -22,28 +22,24 @@
                 <a href="{!!URL::to('/equipments')!!}">Equipments</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="glyphicon glyphicon-barcode font-blue-300"></i>
-                        <span class="caption-subject bold font-blue-300">Equipments brochure </span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Equipments brochure</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_tipo_equipo"))
-                                    <a href="{{URL::route('equipments.create')}}" class="btn btn-circle btn-success "><i class="fa fa-plus"></i> New Equipment</a>
+                                    <a href="{{URL::route('equipments.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New Equipment</a>
                                     @endif
                                 </div>
                             </div>
@@ -67,7 +63,7 @@
                                 <td>
                                     <div class="center_items">
                                     @if(userHasPermission("editar_tipo_equipo"))
-                                    <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Edit" class="btn btnIconList">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
