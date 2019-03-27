@@ -70,6 +70,21 @@
   </div>
 
   <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name" class="control-label">Provider:</label>
+        {!!Form::select('provider_id', $providers['provider'], ['class' => 'form-control', 'id' => 'asset_provider_id', 'title' => 'Select...']) !!}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name" class="control-label">Status:</label>
+        {!!Form::text('status',null,['class'=>'form-control activos', 'autocomplete'=>"off", 'id' => 'status','readonly','style' => 'pointer-events: none;'])!!}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-12">
       <div class="form-group">
         <label for="notes" class="control-label"><span class="required" aria-required="true"> * </span> Notes:</label>

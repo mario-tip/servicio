@@ -8,6 +8,7 @@ use App\Maintenance;
 use App\Person;
 use App\ServiceOrder;
 use App\User;
+use App\Provider;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
@@ -25,9 +26,15 @@ class MaintenanceController extends Controller {
     }
 
     public function create(){
+      $providers = $this->getProviders();
 
-            return view('maintenances.create');
+            return view('maintenances.create', compact('providers'));
 
+    }
+    private function getProviders(){
+      return [
+          'provider' => Provider::all()->pluck('name', 'id'),
+      ];
     }
 
     public function store(MaintenanceRequest $request){
@@ -72,6 +79,8 @@ class MaintenanceController extends Controller {
         return Redirect::to('/maintenances');
     }
 
+
+
     public function show($id){
         if(userHasPermission("mostrar_mantenimientos")):
             $maintenance = Maintenance::find($id);
@@ -110,6 +119,8 @@ class MaintenanceController extends Controller {
                 $maintenance->person_name = '';
                 $maintenance->signature = '';
             }
+
+            echo $maintenance;
 
             return view('maintenances.show', compact('maintenance', 'asset'));
         else:

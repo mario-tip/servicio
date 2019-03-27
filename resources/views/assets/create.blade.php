@@ -231,7 +231,6 @@
                         <span class="fileinput-new"> Add </span>
                         <span class="fileinput-exists"> Change </span>
                         <input type="file" name="document" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
-
                       </span>
 
                       <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Delete </a>

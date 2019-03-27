@@ -3,7 +3,6 @@
     {!! Html::style("/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css") !!}
     {!! Html::style("/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css") !!}
     {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
-
     {!!Html::style("/assets/global/plugins/datatables/datatables.min.css")!!}
     {{--{!! Html::style("/assets/css/main.css") !!}--}}
     {!! Html::style("/assets/css/asset.css") !!}
@@ -35,7 +34,7 @@
         <div class="col-md-12">
             <div class="portlet light portlet-fit bordered">
               <div class="portlet-title topForm">
-              </div>                    
+              </div>
                 <div class="portlet-body">
                   <p class="titleForm">Detail maintenance {{$maintenance->folio}}</p>
 
@@ -106,8 +105,10 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
+                                      @if(isset($maintenance->person_name))
                                         <label class="control-label textarea-label">Who registered?</label>
                                         <label class="control-label textarea-content">{{$maintenance->person_name}}</label>
+                                      @endif
                                     </div>
                                 </div>
                             </div>

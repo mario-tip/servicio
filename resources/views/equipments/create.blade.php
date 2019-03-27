@@ -6,7 +6,7 @@
     {!! Html::style("/assets/global/plugins/select2/css/select2.min.css") !!}
     {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
     {!! Html::style("/assets/global/plugins/datatables/datatables.min.css") !!}
-    {{--{!! Html::style("/assets/css/main.css") !!}--}}
+    <!-- {{--{!! Html::style("/assets/css/main.css") !!}--}} -->
     {!! Html::style("/assets/css/equipment.css") !!}
 @endsection
 

@@ -83,7 +83,7 @@
                 <div class="col-md-6 form-group-container">
                     <div class="form-group">
                         <label class="control-label" for="equipment_name"><span>*</span>Provider: </label>
-                        {!! Form::select('equipment[price]', $equipment->price,[
+                        {!! Form::text('equipment[price]', $equipment->price,[
                         'class' => 'form-control', 'id' => 'equipment_price',
                         'onkeypress' => 'return validateInput(event, 5)']) !!}
                     </div>
@@ -114,15 +114,11 @@
                   <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>Image:</label>
                   <div class="col-sm-7">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                      <div class="fileinput-new thumbnail">
 
                         @if(isset($incident))
                         <img src="http://service.altatec.com.mx/{{$incident->evidence_file}}" alt="" />
-                        @else
-                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
                         @endif
 
-                      </div>
                       <div class="fileinput-preview fileinput-exists thumbnail">
                       </div>
                       <div>
@@ -131,7 +127,7 @@
                             Select image </span>
                           <span class="fileinput-exists">
                             Change </span>
-                          <input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" />
+                          <input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" accept="image/*" />
                         </span>
                         <a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
                           Remove </a>
@@ -149,15 +145,14 @@
                         <i class="fa fa-file fileinput-exists"></i>&nbsp;
                         <span class="fileinput-filename"> </span>
                       </div>
+                      
                       <span class="input-group-addon btn default btn-file">
                         <span class="fileinput-new"> Add </span>
                         <span class="fileinput-exists"> Change </span>
-                        <input type="file" name="quotation_file">
-
+                        <input type="file" name="quotation_file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
                       </span>
 
                       <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Delete </a>
-
                     </div>
                   </div>
                 </div>
