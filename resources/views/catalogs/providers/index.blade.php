@@ -10,7 +10,7 @@
     <div id="notification_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -21,20 +21,17 @@
                 <a>Suppliers</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="glyphicon glyphicon-briefcase font-blue-800"></i>
-                        <span class="caption-subject bold font-blue-800">Suppliers brochure</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Suppliers brochure</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
@@ -42,7 +39,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_proveedores"))
-                                    <a href="{{URL::route('providers.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add supplier</a>
+                                    <a href="{{URL::route('providers.create')}}" class="btn btnList"><i class="fa fa-plus"></i> Add supplier</a>
                                     @endif
                                 </div>
                             </div>
@@ -53,7 +50,7 @@
                             <tr>
                                 <th class="center">Name</th>
                                 <th class="center">Address</th>
-                                <th class="center">Telephono</th>
+                                <th class="center">Phone number</th>
                                 @if(userHasPermission("editar_catalogo_proveedores") ||userHasPermission("eliminar_catalogo_proveedores") )
                                 <th class="center">Actions</th>
                                 @endif
@@ -68,7 +65,7 @@
                                 @if(userHasPermission("editar_catalogo_proveedores") ||userHasPermission("eliminar_catalogo_proveedores") )
                                 <td>
                                     @if(userHasPermission("editar_catalogo_proveedores"))
-                                    <a href="{{route('providers.edit', $provider->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('providers.edit', $provider->id) }}" title="Edit" class="btn btnIconList">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif

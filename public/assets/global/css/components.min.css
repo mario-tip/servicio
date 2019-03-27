@@ -14929,8 +14929,8 @@ body[ng-controller] .modal {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    border: 1px solid #e7ecf1;
-    margin: 10px 0!important !important;
+    border: 0px solid #e7ecf1;
+    margin: 10px 0!important;
 }
 .DTS .table-scrollable,
 .table-scrollable > .table-bordered,
@@ -14948,7 +14948,7 @@ body[ng-controller] .modal {
 }
 .table-scrollable > .table {
     width: 100%!important;
-    margin: 0!important !important;
+    margin: 0 !important;
     background-color: #fff;
 }
 .table-scrollable > .table > tbody > tr > th,
@@ -15184,7 +15184,7 @@ body[ng-controller] .modal {
 }
 .table-hover > tbody > tr:hover,
 .table-hover > tbody > tr:hover > td {
-    background: #f3f4f6!important;
+    background: #c7d7f7!important
 }
 .nav-pills,
 .nav-tabs {

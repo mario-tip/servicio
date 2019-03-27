@@ -436,3 +436,35 @@
   margin-bottom: 7px !important;
   font-weight: 900 !important;
 }
+
+/* ### END FORMULARIOS ### */
+/* ### LISTAS ### */
+
+.btnList, .btnList:hover, .btnList:focus {
+  background: #3a96ee;
+  color: #FFFFFFFF;
+  border-radius: 0px !important;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.btnList2, .btnList2:hover, .btnList2:focus {
+  background: #3a25b7;
+  color: #FFFFFFFF;
+  border-radius: 0px !important;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.btnIconList, .btnIconList:hover, .btnIconList:focus {
+  background: #3a96ee;
+  border: 0px solid #3a96ee;
+  border-radius: 20px !important;
+  color: #FFFFFFFF;
+}
+
+.table-scrollable thead {
+  background: #f2f6f9;
+}

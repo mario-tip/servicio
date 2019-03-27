@@ -7,7 +7,7 @@
     {!! Html::style("/assets/css/service_order.css") !!}
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
     @include('partials.message')
     <div class="page-bar">
         <ul class="page-breadcrumb">
@@ -24,19 +24,16 @@
             </li>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-search font-red-700"></i>
-                        <span class="caption-subject bold font-red-700">View services</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">View services</p>
                 <div class="portlet-body">
 {{--                    <div class="table-toolbar">
                         <div class="row">
@@ -63,18 +60,18 @@
                             <th class="center">Date </th>
                             <th class="center">Technical </th>
                             <th class="center">Status</th>
-                            @if(userHasPermission("mostrar_consulta_servicio") )  
+                            @if(userHasPermission("mostrar_consulta_servicio") )
                                 <th class="center">Actions</th>
                             @endif
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($service_orders as $service_order)
-                        
+
                             <tr>
                                 <td class="center"> {{$service_order->folio}} </td>
                                 @if($service_order->type == 0)
-                                <td class="center"> {{!empty($service_order->incident) ? $service_order->incident->asset->name : null}} </td>                              
+                                <td class="center"> {{!empty($service_order->incident) ? $service_order->incident->asset->name : null}} </td>
                                 @else
                                 <td class="center"> {{!empty($service_order->maintenance) ? $service_order->maintenance->asset->name : null}} </td>
                                 @endif
@@ -94,7 +91,7 @@
                                 <td class="center"> {{$service_order->time}} </td>
                                 <td class="center"> {{$service_order->date}} </td>
                                 <td class="center"> {{$service_order->technician->name }}</td>
-                                
+
                                 <td class="center">
                                   @if ($service_order->getStatusWord() == "Pending")
                                     <span class="label label-sm label-info">
@@ -107,10 +104,10 @@
                                   @endif
                                 </td>
 
-                                @if(userHasPermission("mostrar_consulta_servicio") ) 
+                                @if(userHasPermission("mostrar_consulta_servicio") )
                                 <td>
                                   <div>
-                                    <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btn-circle btn-icon-only grey-silver">
+                                    <a href="{{URL::route('service-orders.show', $service_order->id)}}" title="Mostrar" class="btn btnIconList">
                                       <i class="fa fa-eye"></i>
                                     </a>
                                   </div>

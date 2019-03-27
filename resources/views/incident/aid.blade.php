@@ -8,7 +8,7 @@
 
 @section('breadcrumb')
     @include('partials.message')
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -22,30 +22,17 @@
                 <a href="{!!URL::to('/aid')!!}">Attention of incidents</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class=" icon-bubble font-green-600"></i>
-                        <span class="caption-subject bold font-green-600">Attention of incidents</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Attention of incidents</p>
                 <div class="portlet-body">
-                    <div class="table-toolbar">
-                        <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6">
-                                <div class="btn-group pull-right">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                         <tr>
@@ -103,7 +90,7 @@
                                 <td>
                                   <div>
                                     <a href="{!!URL::to('/incidents_datails/'.$incident->id)!!}" title="Show details"
-                                       class="btn btn-circle btn-icon-only grey-silver ">
+                                       class="btn btnIconList">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                   </div>

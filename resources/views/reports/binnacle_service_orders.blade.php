@@ -12,46 +12,43 @@
     <div id="errors_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <div id="errors_container"></div>
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
-{{--            <li>
+           <li>
                 <a href="{!!URL::to('/reports')!!}">Reportes</a>
                 <i class="fa fa-circle"></i>
-            </li>--}}
+            </li>
             <li>
                 <a href="#">Service log</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-earphones-alt font-green-700"></i>
-                        <span class="caption-subject bold font-green-700">Service log</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Service log</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         {!! Form::open(['route' => 'reports.generate-binnacle-service-orders', 'method' => 'POST', 'id' => 'binnacle_service_orders_filters_form']) !!}
                         <div class="row">
                             <div class="col-md-4" id="dates_container">
                                 <div class="form-group col-md-8" id="dates_sub_container">
-                                    <label class="control-label">Dates:</label>
+                                    <label class="control-label">Dates</label>
                                     <div class="input-group input-medium date-picker input-daterange" data-date-format="dd-mm-yyyy">
                                         <span class="input-group-addon">From </span>
                                         {!! Form::text('service_orders[start_date]', null, ['class' => 'form-control date-input', 'id' => 'from_date']) !!}
-                                        <span class="input-group-addon">to</span>
+                                        <span class="input-group-addon">To</span>
                                         {!! Form::text('service_orders[end_date]', null, ['class' => 'form-control date-input', 'id' => 'to_date']) !!}
                                     </div>
                                 </div>
@@ -61,13 +58,13 @@
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
                                     @if(userHasPermission('generar_consulta_bitacora'))
-                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generate</button>
+                                    <button type="submit" class="btn btnList" id="generate_report">Generate</button>
                                     @endif
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-binnacle-service-orders'])!!}
                                     <input type="hidden" id="data" name="data">
                                     @if(userHasPermission('descargar_consulta_bitacora'))
-                                    <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Download</button>
+                                    <button type="submit" class="btn btnList2 disabled-button" id="download_report" disabled>Download</button>
                                     @endif
                                     {!! Form::close() !!}
                                 </div>

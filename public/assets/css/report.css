@@ -22,7 +22,7 @@
 
 /*# sourceMappingURL=report.css.map */
 #dates_sub_container > div > :nth-child(1) {
-  border-left: solid 1px #c2cad8;
+  /* border-left: solid 1px #c2cad8; */
 }
 /* Para la palabra from de la vista Este estilo estaba en el html */
 #dates_container > div > div span:nth-child(1) {

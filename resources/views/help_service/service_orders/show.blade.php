@@ -10,7 +10,7 @@
 
 @endsection
 
-@section('breadcrumb')
+{{-- @section('breadcrumb')
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -26,19 +26,16 @@
         </li>
     </ul>
 </div>
-@endsection
+@endsection --}}
 
 @section("page-content")
-    <div class="row">
+    <div class="row paddingForm">
         <div class="col-md-12">
             <!-- BEGIN SHOW SERVICE ORDER PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-eye"></i>
-                        <span class="caption-subject bold font-gray">Detail service</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Detail service</p>
                 <div class="portlet-body">
                   <div class="row">
                     <div class="col-md-6 col-sm-12">
@@ -61,12 +58,12 @@
                                 <div class="row static-info">
                                     <div class="col-md-5 name">Who registered :</div>
                                     <div class="col-md-7 value">
-                                        {{$service_order->incident->person->name}} 
+                                        {{$service_order->incident->person->name}}
                                     </div>
                                 </div>
                                 @endif
 
-                               
+
 
                                 <div class="row static-info">
                                     <div class="col-md-5 name">Asset ID :</div>
@@ -192,7 +189,7 @@
                                     </div>
                                 </div>
                                 @else
-                                
+
                                 @endif
                                 @php
                                     // dd($service_order->maintenance->asset->locations[0]);
@@ -292,7 +289,7 @@
                                         {{!is_null($service_order->authorizer) ? $service_order->authorizer->name : null}}
                                 </div>
                             </div>
-                                
+
                             <div class="row static-info">
                                 <div class="col-md-5 name">
                                         Signature:
@@ -410,7 +407,7 @@
                                                         <td>{{$part->price}}</td>
                                                     </tr>
                                                 @endforeach
-                                            @endif  
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>

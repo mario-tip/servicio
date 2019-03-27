@@ -13,7 +13,7 @@
     <div id="errors_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <div id="errors_container"></div>
         <ul class="page-breadcrumb">
             <li>
@@ -25,7 +25,7 @@
                 <a> Customer service </a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
@@ -33,13 +33,9 @@
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class=" icon-user-follow font-green-400"></i>
-                        <span class="caption-subject bold font-green-400"> Customer service </span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Customer service</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         {!! Form::open(['route' => 'reports.generate-customer-service-orders', 'method' => 'POST', 'id' => 'customer_service_orders_filters_form']) !!}
@@ -77,13 +73,13 @@
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
                                     @if(userHasPermission("generar_reporte_servicio"))
-                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generate</button>
+                                    <button type="submit" class="btn btnList" id="generate_report">Generate</button>
                                     @endif
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-customer-service-orders'])!!}
                                     <input type="hidden" id="data" name="data">
                                     @if(userHasPermission("exportar_reporte_servicio"))
-                                    <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Download</button>
+                                    <button type="submit" class="btn btnList2 disabled-button" id="download_report" disabled>Download</button>
                                     @endif
                                     {!! Form::close() !!}
                                 </div>

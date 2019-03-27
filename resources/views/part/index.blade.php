@@ -8,7 +8,7 @@
 
 @section('breadcrumb')
     @include('partials.message')
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -18,28 +18,24 @@
                 <a href="{!!URL::to('/parts')!!}">Parts brochure</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-frame font-cian-500"></i>
-                        <span class="caption-subject bold font-cian-500">Parts brochure</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Parts brochure</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_correlativos"))
-                                    <a href="{{URL::route('parts.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New part</a>
+                                    <a href="{{URL::route('parts.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New part</a>
                                     @endif
                                 </div>
                             </div>
@@ -70,7 +66,7 @@
                                   <div class="">
                                     @if(userHasPermission("editar_catalogo_correlativos"))
                                     <a href="{{  URL::route('parts.edit', $part->id) }}" title="Edit"
-                                       class="btn btn-circle btn-icon-only btn-info ">
+                                       class="btn btnIconList">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif

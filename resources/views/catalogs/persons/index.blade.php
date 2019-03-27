@@ -11,7 +11,7 @@
     <div id="notification_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -22,20 +22,17 @@
                 <a>People</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="glyphicon glyphicon-user font-blue-700"></i>
-                        <span class="caption-subject bold font-blue-700">People Brochure</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">People Brochure</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
@@ -43,7 +40,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_catalogo_personas"))
-                                    <a href="{{URL::route('persons.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> New person</a>
+                                    <a href="{{URL::route('persons.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New person</a>
                                     @endif
                                 </div>
                             </div>
@@ -72,7 +69,7 @@
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_catalogo_personas"))
-                                    <a href="{{route('persons.edit', $person->id) }}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{route('persons.edit', $person->id) }}" title="Edit" class="btn btnIconList">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif

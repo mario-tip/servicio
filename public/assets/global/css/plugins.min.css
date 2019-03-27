@@ -988,7 +988,7 @@ table.dataTable tr.heading>th {
 }
 
 table.dataTable td.sorting_1, table.dataTable td.sorting_2, table.dataTable td.sorting_3, table.dataTable th.sorting_1, table.dataTable th.sorting_2, table.dataTable th.sorting_3 {
-  background: #fbfcfd !important
+  /* background: #fbfcfd !important */
 }
 
 .paging_bootstrap_extended {
@@ -1071,7 +1071,7 @@ table.dataTable td.sorting_1, table.dataTable td.sorting_2, table.dataTable td.s
 }
 
 .dataTables_scrollHead {
-  border-bottom: 2px solid #e7ecf1 !important
+  border-bottom: 0px solid #e7ecf1 !important
 }
 
 .dataTables_scrollHead thead th {
@@ -1079,7 +1079,7 @@ table.dataTable td.sorting_1, table.dataTable td.sorting_2, table.dataTable td.s
 }
 
 .dataTables_scrollBody {
-  border-bottom: 1px solid #e7ecf1 !important
+  border-bottom: 0px solid #e7ecf1 !important
 }
 
 .table-both-scroll .dataTables_scrollBody {

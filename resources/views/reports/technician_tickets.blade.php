@@ -13,32 +13,29 @@
     <div id="errors_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <div id="errors_container"></div>
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
             </li>
-          
+
             <li>
                 <a>User tickets and status</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                      <i class="icon-tag font-green-500"></i>
-                        <span class="caption-subject bold font-green-500">User tickets and status</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">User tickets and status</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         {!! Form::open(['route' => 'reports.generate-technician-tickets', 'method' => 'POST', 'id' => 'tickets_filters_form']) !!}
@@ -79,24 +76,24 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
                                     @if(userHasPermission("generar_reporte_tickets"))
-                                    <button type="submit" class="btn btn-circle blue" id="generate_report">Generate</button>
+                                    <button type="submit" class="btn btnList" id="generate_report">Generate</button>
                                     @endif
                                     {!! Form::close() !!}
                                     {!!Form::open(['route'=>'reports.export-technician-tickets'])!!}
                                         <input type="hidden" id="data" name="data">
                                         @if(userHasPermission("exportar_reporte_tickets"))
-                                        <button type="submit" class="btn btn-circle green-meadow disabled-button" id="download_report" disabled>Download</button>
+                                        <button type="submit" class="btn btnList2 disabled-button" id="download_report" disabled>Download</button>
                                         @endif
                                     {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>

@@ -31,16 +31,13 @@
 @endsection --}}
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                      <i class="icon-call-in font-red-700"></i>
-                        <span class="caption-subject bold font-red-700">Service quotations</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Service quotations</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
@@ -48,7 +45,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("crear_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add quotation</a>
+                                    <a href="{{URL::route('quotations.create')}}" class="btn btnList"><i class="fa fa-plus"></i> Add quotation</a>
                                     @endif
                                 </div>
                             </div>
@@ -90,30 +87,34 @@
                                     </span>
                                   @endif
                                 </td>
-                                @if(userHasPermission("editar_cotizacion_servicios") || userHasPermission("mostrar_cotizacion_servicios") ||userHasPermission("cancelar_cotizacion_servicios") || userHasPermission("cambiar_estatus_cotizacion_servicios") )
+                                @if(
+                                  userHasPermission("editar_cotizacion_servicios") ||
+                                  userHasPermission("mostrar_cotizacion_servicios") ||
+                                  userHasPermission("cambiar_estatus_cotizacion_servicios") || 
+                                  userHasPermission("cancelar_cotizacion_servicios") )
                                 <td>
                                   <div>
                                     @if(userHasPermission("editar_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.edit', $quotation->id)}}" title="Edit" class="btn btn-circle btn-icon-only btn-info">
+                                    <a href="{{URL::route('quotations.edit', $quotation->id)}}" title="Edit" class="btn btnIconList">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @endif
 
                                     @if(userHasPermission("mostrar_cotizacion_servicios"))
-                                    <a href="{{URL::route('quotations.show', $quotation->id)}}" title="Show" class="btn btn-circle btn-icon-only grey-silver">
+                                    <a href="{{URL::route('quotations.show', $quotation->id)}}" title="Show" class="btn btnIconList">
                                         <i class="fa fa-eye"></i>
+                                    </a>
+                                    @endif
+
+                                    @if(userHasPermission("cambiar_estatus_cotizacion_servicios"))
+                                    <a href="#authorization_modal" data-toggle="modal" title="Change status" data-id="{{$quotation->id}}" data-authorization="{{$quotation->authorization}}" class="btn btnIconList change-quotation-status">
+                                        <i class="fa fa-check"></i>
                                     </a>
                                     @endif
 
                                     @if(userHasPermission("cancelar_cotizacion_servicios"))
                                     <a href="#cancel_modal" data-toggle="modal" data-name="{{$quotation->name}}" data-id="{{$quotation->id}}" title="Cancel" class="btn btn-circle btn-icon-only red cancel_quotation">
                                         <i class="fa fa-ban"></i>
-                                    </a>
-                                    @endif
-
-                                    @if(userHasPermission("cambiar_estatus_cotizacion_servicios"))
-                                    <a href="#authorization_modal" data-toggle="modal" title="Change status" data-id="{{$quotation->id}}" data-authorization="{{$quotation->authorization}}" class="btn btn-circle btn-icon-only green-meadow change-quotation-status">
-                                        <i class="fa fa-check"></i>
                                     </a>
                                     @endif
                                   </div>
