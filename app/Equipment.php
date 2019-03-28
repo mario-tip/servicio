@@ -22,6 +22,7 @@ class Equipment extends Model
         'name',
         'price',
         'cat_num',
+        'part_num',
         'serial',
         'date_purchase',
         'quantity',

@@ -1,35 +1,28 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Asset;
-use App\Person;
-use App\Incident;
-use App\Quotation;
-use Carbon\Carbon;
-use App\ServiceOrder;
-use Illuminate\Http\Request;
-use App\Mail\IncidentMailUser;
-use App\Mail\IncidentMailAdmin;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\IncidentRequest;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Input;
-use App\Http\Requests\IncidentRequest;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+use App\Mail\IncidentMailAdmin;
+use App\Mail\IncidentMailUser;
+use Illuminate\Http\Request;
+use App\ServiceOrder;
+use App\Quotation;
+use Carbon\Carbon;
+use App\Incident;
+use App\Person;
+use App\Asset;
+use App\User;
 
-class IncidentController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
+class IncidentController extends Controller {
+
+    public function index(Request $request){
         if(userHasPermission("listar_registro_incidencias")) {
             $user = $request->user();
 
@@ -45,13 +38,7 @@ class IncidentController extends Controller
         return \redirect()->back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create(){
         if(userHasPermission("crear_registro_incidencias")) {
             $persons = Person::all();
             return view('incident.create')->with('persons', $persons);
@@ -59,14 +46,7 @@ class IncidentController extends Controller
         return \redirect()->back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(IncidentRequest $request)
-    {
+    public function store(IncidentRequest $request){
         $data = $request->all();
 
         if(!empty($data['parts'])){
@@ -137,25 +117,11 @@ class IncidentController extends Controller
         return Redirect::to('/incidents');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    public function show($id){
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id){
         if(userHasPermission("editar_registro_incidencias")) {
             $incident = Incident::find($id);
             $persons = Person::all();
@@ -166,15 +132,7 @@ class IncidentController extends Controller
         return \redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(IncidentRequest $request, $id)
-    {
+    public function update(IncidentRequest $request, $id){
         $data = $request->all();
 
         if(!empty($data['parts'])){
@@ -227,14 +185,7 @@ class IncidentController extends Controller
         return Redirect::to('/incidents');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function destroy($id){
         $status = Incident::select('service_order.status as service_status')
             ->join('assets', 'assets.id', '=', 'incidents.asset_id')
             ->join('persons', 'persons.id', '=', 'assets.person_id')
@@ -531,8 +482,7 @@ class IncidentController extends Controller
         }
     }
 
-    public function getDataAsset($id)
-    {
+    public function getDataAsset($id){
         $asset = Asset::find($id);
 
         $data = [];
@@ -562,8 +512,7 @@ class IncidentController extends Controller
         }
     }
 
-    public function getIncidentParts(Request $request)
-    {
+    public function getIncidentParts(Request $request){
         if($request->ajax()){
             $asset_parts = Asset::find($request->get('asset_id'))->parts;
             Log::debug('assets parts: '. $asset_parts);

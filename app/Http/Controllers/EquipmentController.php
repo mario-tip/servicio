@@ -1,30 +1,22 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
 use App\Equipment;
 use App\Part;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use App\Provider;
+use Carbon\Carbon;
 use Validator;
 use Session;
 
-class EquipmentController extends Controller
-{
-    /**
-     * EquipmentController constructor.
-     */
-    public function __construct()
-    {
+class EquipmentController extends Controller {
+    public function __construct(){
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+
+    public function index(){
         if(userHasPermission("listar_tipo_equipo")) {
             $equipments = Equipment::all();
             return view('equipments.index', compact('equipments'));
@@ -32,18 +24,20 @@ class EquipmentController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create(){
         if(userHasPermission("crear_tipo_equipo")) {
+
+            $providers = $this->getDependences();
             $equipment = new Equipment;
-            return view('equipments.create', compact('equipment','parts'));
+            return view('equipments.create', compact('equipment','parts','providers'));
         }
         return redirect()->back();
+    }
+
+    private function getDependences(){
+      return [
+        'provide' => Provider::all()->pluck('name','id')
+      ];
     }
 
     /*Obtiene las partes para el select2*/
@@ -100,16 +94,28 @@ class EquipmentController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+
         $equipment_data = $request->get('equipment');
         $validator = $this->validateInputs($equipment_data);
+        $equipment_data['date_purchase'] = Carbon::parse($equipment_data['date_purchase'])->format('Y-m-d');
+
+        if ($request->has('image_eq')) {
+          $img = $request->file('image_eq')->getClientOriginalName();
+          $name = str_random(10).'.'.time().'.'.'image'.'.'.$img->getClientOriginalExtension();
+          $img->move(public_path().'/images/parts/',$name);
+
+        }
+
+        if ($request->has('doc_file')) {
+          $doc = Input::file('doc_file');
+          $file = $doc->getClientOriginalName();
+          $extension = $doc->getClientOriginalExtension();
+          $name = str_random(10).'_'.time().'_'.'file'.'.'.$extension;
+          $main_doc = 'images/parts'.$name;
+
+          $doc->move(public_path().'/images/parts/',$main_doc);
+        }
 
         if($validator->fails()) {
             $response = [
@@ -134,38 +140,26 @@ class EquipmentController extends Controller
         }
     }
 
-    private function validateInputs($form_data)
-    {
+    private function validateInputs($form_data){
         $messages = [
             'name.required' => 'The equipment name is required'
         ];
 
         $validator = Validator::make($form_data, [
-            'name' => 'required'
+            'name' => 'required',
+            'price' => 'required',
+            'serial' => 'required',
+            'date_purchase' => 'required',
+            'quantity' => 'required',
+            'provider_id' => 'required',
+            'description' => 'required',
+            'image_eq' => 'image '
         ], $messages);
 
         return $validator;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Equipment $equipment)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id){
         if(userHasPermission("editar_tipo_equipo")) {
             $equipment = Equipment::find($id);
             return view('equipments.edit', compact('equipment'));
@@ -173,15 +167,7 @@ class EquipmentController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $equipment_data = $request->get('equipment');
         $validator = $this->validateInputs($equipment_data);
 
@@ -211,14 +197,7 @@ class EquipmentController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Equipment  $equipment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function destroy($id){
         $response = ['errors' => false];
         $equipment = Equipment::find($id);
 
