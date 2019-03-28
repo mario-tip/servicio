@@ -5,7 +5,7 @@
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 /* ### LOG IN ### */
@@ -474,15 +474,47 @@
 
 /* ### END LISTAS ### */
 /* ### SIDEBAR ### */
-
 .menu-toggler.sidebar-toggler {
   display: block;
   cursor: pointer;
   margin-top: 2.5em;
 }
 
-
-.menu-toggler.sidebar-toggler > i {
+.menu-toggler.sidebar-toggler>i {
   font-size: 2em;
   color: #ffffff;
+}
+
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li.footer-sidebar {
+  width: 5.7em !important;
+}
+
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li.footer-sidebar:hover {
+  position: fixed !important;
+}
+
+.spanSubMenu::before {
+  position: absolute;
+  top: 0em;
+  left: -2em;
+  right: auto;
+  display: inline-block !important;
+  border-bottom: 25px solid transparent;
+  border-top: 25px solid transparent;
+  border-left: 0px solid transparent;
+  border-right: 28px solid #e0e0e05e;
+  content: '';
+}
+
+.spanSubMenu::after {
+  position: absolute;
+  top: 0.15em;
+  left: -2em;
+  right: auto;
+  display: inline-block !important;
+  border-bottom: 23px solid transparent;
+  border-top: 23px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 25px solid #ffffff;
+  content: '';
 }

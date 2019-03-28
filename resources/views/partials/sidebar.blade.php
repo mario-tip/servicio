@@ -37,7 +37,7 @@
           <span class="selected"></span>
         </a>
         <ul class="sub-menu">
-
+          <span class="spanSubMenu"></span>
           @if(userHasPermission("listar_registro_incidencias") )
           <li class="nav-item">
             <a href="{!!URL::to('/incidents')!!}">
@@ -79,6 +79,8 @@
           <span class="selected"></span>
         </a>
         <ul class="sub-menu">
+          <span class="spanSubMenu"></span>
+
 
           @if(userHasPermission("listar_captura_info") )
           <li class="nav-item">
@@ -123,6 +125,8 @@
           <span class="selected"></span>
         </a>
         <ul class="sub-menu">
+          <span class="spanSubMenu"></span>
+
           @if(userHasPermission("generar_consulta_bitacora"))
           <li class="nav-item">
             <a href="{!!route('reports.binnacle-service-orders')!!}" class="nav-link nav-toggle">
@@ -170,6 +174,8 @@
           <span class="selected"></span>
         </a>
         <ul class="sub-menu">
+          <span class="spanSubMenu"></span>
+
           @if(userHasPermission("listar_catalogo_proveedores"))
           <li class="nav-item">
             <a href="{{route('providers.index')}}" class="nav-link nav-toggle">
