@@ -14,7 +14,7 @@
 
 @section('breadcrumb')
     @include('partials.message')
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -24,7 +24,7 @@
                 <a href="{!!URL::to('/problems')!!}">Problems</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")

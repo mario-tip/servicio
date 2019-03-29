@@ -28,18 +28,15 @@
 @endsection
 
 @section("page-content")
-    <div class="row">
+    <div class="row paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
         {!! Form::model($equipment, ['id' => 'equipment_form', 'data-method' => 'PUT']) !!}
             {!! Form::hidden(null, $equipment->id, ['id' => 'equipment_id']) !!}
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-pencil font-blue"></i>
-                        <span class="caption-subject bold font-blue">Edit Equipment</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+                <p class="titleForm">Edit equipment</p>
             @include("equipments.forms.form")
             </div>
         {!! Form::close() !!}

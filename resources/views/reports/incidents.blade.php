@@ -13,7 +13,7 @@
     <div id="errors_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <div id="errors_container"></div>
         <ul class="page-breadcrumb">
             <li>
@@ -28,7 +28,7 @@
                 <a>Incident report</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="pull-right" id="toolbar_buttons_container">
                                 <div class="btn-group col-md-2" id="toolbar_buttons_sub_container">
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>

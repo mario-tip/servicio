@@ -6,9 +6,9 @@
 {!! Html::style("/assets/css/incident.css") !!}
 @endsection
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     @include('partials.message')
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -18,8 +18,8 @@
               <a href="{!!URL::to('/incidents')!!}">Event log </a>
             </li>
         </ul>
-    </div>
-@endsection --}}
+    </div> --}}
+@endsection
 
 @section("page-content")
 <div class="row content_container paddingForm">

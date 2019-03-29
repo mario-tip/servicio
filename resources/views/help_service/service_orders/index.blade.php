@@ -7,9 +7,9 @@
     {!! Html::style("/assets/css/service_order.css") !!}
 @endsection
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     @include('partials.message')
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -23,8 +23,8 @@
                 <a>View services</a>
             </li>
         </ul>
-    </div>
-@endsection --}}
+    </div> --}}
+@endsection
 
 @section("page-content")
     <div class="row content_container paddingForm">

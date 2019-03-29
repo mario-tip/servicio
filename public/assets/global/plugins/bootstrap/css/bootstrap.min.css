@@ -5048,7 +5048,7 @@ a.badge:focus, a.badge:hover {
 }
 
 .alert, .thumbnail {
-  margin-bottom: 20px
+  margin-bottom: 0px
 }
 
 .alert .alert-link, .close {

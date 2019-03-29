@@ -8,11 +8,11 @@
     {!! Html::style("/assets/css/quotation.css") !!}
 @endsection
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     <div id="errors_container">
         @include('partials.message')
     </div>
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -27,8 +27,8 @@
                 </a>
             </li>
         </ul>
-    </div>
-@endsection --}}
+    </div> --}}
+@endsection
 
 @section("page-content")
     <div class="row content_container paddingForm">
@@ -90,7 +90,7 @@
                                 @if(
                                   userHasPermission("editar_cotizacion_servicios") ||
                                   userHasPermission("mostrar_cotizacion_servicios") ||
-                                  userHasPermission("cambiar_estatus_cotizacion_servicios") || 
+                                  userHasPermission("cambiar_estatus_cotizacion_servicios") ||
                                   userHasPermission("cancelar_cotizacion_servicios") )
                                 <td>
                                   <div>

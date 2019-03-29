@@ -163,7 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
-        
+
 
         /*
          * Package Service Providers...
@@ -185,7 +185,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
-        
+
     ],
 
     /*
@@ -240,7 +240,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class,
-        
+
     ],
 
 ];

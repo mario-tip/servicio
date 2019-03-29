@@ -31,17 +31,14 @@
 @endsection
 
 @section("page-content")
-    <div class="row">
+    <div class="row paddingForm">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
         {!! Form::open(['id' => 'equipment_form', 'data-method' => 'POST', 'files' => true]) !!}
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-plus font-blue-300"> </i>
-                        <span class="caption-subject bold font-blue-300"> New equipment </span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+                <p class="titleForm">New equipment</p>
                 @include("equipments.forms.form")
             </div>
         {!! Form::close() !!}
