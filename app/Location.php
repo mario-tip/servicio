@@ -19,7 +19,18 @@ class Location extends Model
      * @var array
      */
     protected $fillable = [
-        'description', 'address', 'building', 'floor', 'shelf', 'area', 'hall', 'room', 'compartment', 'notes'
+        'description',
+         'address',
+         'building',
+         'floor',
+         'shelf',
+         'area',
+         'hall',
+         'room',
+         'compartment',
+         'notes',
+         'codigo_rfid',
+         'loc_2d',
     ];
 
     public function assets()

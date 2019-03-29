@@ -96,16 +96,18 @@ class EquipmentController extends Controller {
 
     public function store(Request $request){
 
+
+
         $equipment_data = $request->get('equipment');
         $validator = $this->validateInputs($equipment_data);
         $equipment_data['date_purchase'] = Carbon::parse($equipment_data['date_purchase'])->format('Y-m-d');
 
-        if ($request->has('image_eq')) {
-          $img = $request->file('image_eq')->getClientOriginalName();
-          $name = str_random(10).'.'.time().'.'.'image'.'.'.$img->getClientOriginalExtension();
+          $img = Input::file('image_eq');
+          $ext = $img->getClientOriginalExtension();
+          $name = str_random(10).'.'.time().'.'.'image'.'.'.$ext;
           $img->move(public_path().'/images/parts/',$name);
-
-        }
+          $equipment_data['image'] = $name;
+          dd($equipment_data);
 
         if ($request->has('doc_file')) {
           $doc = Input::file('doc_file');

@@ -31,7 +31,7 @@ class Equipment extends Model
         'provider_id',
         'part_id',
         'description',
-        'image',
+        'image_eq',
         'files'
     ];
 

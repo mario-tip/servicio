@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <label for="name" class="control-label"><span class="required" aria-required="true">* </span> Part name:</label>
+        <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Name:</label>
         {!!Form::text('name',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'name'])!!}
       </div>
     </div>
@@ -20,6 +20,20 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Barcode:</label>
+        {!!Form::text('barcode',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'name'])!!}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Code RFID:</label>
+        {!!Form::text('code_rfid',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'number'])!!}
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">

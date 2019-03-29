@@ -111,11 +111,6 @@
                   <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>Image:</label>
                   <div class="col-sm-7">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
-
-                        @if(isset($incident))
-                        <img src="http://service.altatec.com.mx/{{$incident->image}}" alt="" />
-                        @endif
-
                       <div class="fileinput-preview fileinput-exists thumbnail">
                       </div>
                       <div>

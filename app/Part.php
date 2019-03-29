@@ -19,7 +19,7 @@ class Part extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'number', 'price', 'description',
+        'name', 'number', 'price', 'description','barcode', 'code_rfid'
     ];
 
     public function assets()
