@@ -29,7 +29,7 @@ class EquipmentController extends Controller {
 
             $providers = $this->getDependences();
             $equipment = new Equipment;
-            return view('equipments.create', compact('equipment','parts','providers'));
+            return view('equipments.create', compact('equipment','providers'));
         }
         return redirect()->back();
     }
