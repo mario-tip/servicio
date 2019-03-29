@@ -11,10 +11,10 @@
     {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
 @endsection
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
-        <ul class="page-breadcrumb">
+        {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Inicio</a>
                 <i class="fa fa-circle"></i>
@@ -26,9 +26,9 @@
             <li>
                 <a href="{!!URL::to('/parts/'.$part->id.'/edit')!!}">Edit part </a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
-@endsection --}}
+@endsection
 
 @section("page-content")
   <div class="row content_container paddingForm">

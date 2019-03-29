@@ -11,7 +11,7 @@
 @section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
-        <ul class="page-breadcrumb">
+        {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
@@ -23,7 +23,7 @@
             <li>
                 <a>Edit user</a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
 @endsection
 
@@ -39,7 +39,7 @@
                         <span class="caption-subject bold font-blue-200">Edit user</span>
                     </div>
                 </div>
-                
+
 
                 <div class="portlet-body">
                     <div class="horizontal-form">
@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                             </div>
-                
+
                             <div class="row">
                               <div class="col-md-6 form-group-container">
                                   <div class="form-group">
@@ -74,7 +74,7 @@
                                   </div>
                               </div>
                             </div>
-                
+
                             <div class="row">
                               <div class="col-md-6 form-group-container">
                                   <div class="form-group">
@@ -90,7 +90,7 @@
                                 </div>
                               </div>
                             </div>
-                
+
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
@@ -99,7 +99,7 @@
                                     </div>
                                 </div>
                             </div>
-                
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="portlet light">
@@ -108,39 +108,39 @@
                                                 <i class="fa fa-envelope-o font-green-sharp"></i>
                                                 <span class="caption-subject font-green-sharp bold uppercase">Notifications incidents</span>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="portlet-body form">
                                             <div class="tab-content">
-                
+
                                                 <div class="tab-pane active" id="portlet_tab_1_1">
-                                                    <div class="skin skin-minimal "> 
+                                                    <div class="skin skin-minimal ">
                                                         <div class="row">
-                                                            <div class="col-md-6 form-group-container">  
-                                                                <div class="form-group"> 
+                                                            <div class="col-md-6 form-group-container">
+                                                                <div class="form-group">
                                                                     <label for="" class="control-label col-md-3">Notifications incidents</label>
                                                                     <input type="checkbox" class="make-switch" data-on-color="info" data-off-color="success" name="active_notification" value="true" {{$user_edit->active_notification == 1 ? 'checked' : '' }} >
                                                                 </div>
                                                             </div>
-                
-                                                            <div class="col-md-6 form-group-container">  
-                                                                <div class="form-group"> 
+
+                                                            <div class="col-md-6 form-group-container">
+                                                                <div class="form-group">
                                                                     <label class="control-label col-md-3">With copy to: </label>
                                                                     <div class="input-group">
                                                                         <div class="icheck-list">
                                                                             @foreach ($users as $user)
                                                                                 <label>
                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                                        
+
                                                                                         <input type="checkbox" name="notifications[]" value="{{$user->id}}" {{in_array($user->id ,old('notifications',[])) ? 'checked' : '' }}  {{$user->active ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-                
+
                                                                                         <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                                         </ins>
                                                                                     </div> {{$user->name}}
                                                                                 </label>
                                                                             @endforeach
-                                                                        </div>  
-                                                                    </div>   
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -150,7 +150,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>    
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -160,39 +160,39 @@
                                                 <i class="fa fa-envelope-o font-green-sharp"></i>
                                                 <span class="caption-subject font-green-sharp bold uppercase">Notifications service order</span>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="portlet-body form">
                                             <div class="tab-content">
-                
+
                                                 <div class="tab-pane active" id="portlet_tab_1_1">
-                                                    <div class="skin skin-minimal "> 
+                                                    <div class="skin skin-minimal ">
                                                         <div class="row">
-                                                            <div class="col-md-6 form-group-container">  
-                                                                <div class="form-group"> 
+                                                            <div class="col-md-6 form-group-container">
+                                                                <div class="form-group">
                                                                     <label for="" class="control-label col-md-3">Notifications service order </label>
                                                                     <input type="checkbox" class="make-switch" data-on-color="info" data-off-color="success" name="active_notification_order" value="true" {{$user_edit->active_notification_order == 1 ? 'checked' : '' }} >
                                                                 </div>
                                                             </div>
-                
-                                                            <div class="col-md-6 form-group-container">  
-                                                                <div class="form-group"> 
+
+                                                            <div class="col-md-6 form-group-container">
+                                                                <div class="form-group">
                                                                     <label class="control-label col-md-3">With copy to: </label>
                                                                     <div class="input-group">
                                                                         <div class="icheck-list">
                                                                             @foreach ($users as $user)
                                                                                 <label>
                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                                        
+
                                                                                         <input type="checkbox" name="notifications_order[]" value="{{$user->id}}" {{in_array($user->id ,old('notifications_order',[])) ? 'checked' : '' }}  {{$user->active_order ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-                
+
                                                                                         <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                                         </ins>
                                                                                     </div> {{$user->name}}
                                                                                 </label>
                                                                             @endforeach
-                                                                        </div>  
-                                                                    </div>   
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -202,8 +202,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
-                            
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="portlet light">
@@ -212,39 +212,39 @@
                                                 <i class="fa fa-envelope-o font-green-sharp"></i>
                                                 <span class="caption-subject font-green-sharp bold uppercase">Notifications finished service</span>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="portlet-body form">
                                             <div class="tab-content">
-                
+
                                                 <div class="tab-pane active" id="portlet_tab_1_1">
-                                                    <div class="skin skin-minimal "> 
+                                                    <div class="skin skin-minimal ">
                                                         <div class="row">
-                                                            <div class="col-md-6 form-group-container">  
-                                                                <div class="form-group"> 
+                                                            <div class="col-md-6 form-group-container">
+                                                                <div class="form-group">
                                                                     <label for="" class="control-label col-md-3">Notifications finished service </label>
                                                                     <input type="checkbox" class="make-switch" data-on-color="info" data-off-color="success" name="active_notification_end" value="true" {{$user_edit->active_notification_end == 1 ? 'checked' : '' }} >
                                                                 </div>
                                                             </div>
-                
-                                                            <div class="col-md-6 form-group-container">  
-                                                                <div class="form-group"> 
+
+                                                            <div class="col-md-6 form-group-container">
+                                                                <div class="form-group">
                                                                     <label class="control-label col-md-3">With copy to: </label>
                                                                     <div class="input-group">
                                                                         <div class="icheck-list">
                                                                             @foreach ($users as $user)
                                                                                 <label>
                                                                                     <div class="icheckbox_flat-grey " style="position: relative;">
-                                                                                        
+
                                                                                         <input type="checkbox" name="notifications_end[]" value="{{$user->id}}" {{in_array($user->id ,old('notifications_end',[])) ? 'checked' : '' }}  {{$user->active_end ? 'checked' : '' }} class="icheck" data-checkbox="icheckbox_flat-grey" style="position: absolute; opacity: 0;">
-                
+
                                                                                         <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                                                                                         </ins>
                                                                                     </div> {{$user->name}}
                                                                                 </label>
                                                                             @endforeach
-                                                                        </div>  
-                                                                    </div>   
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -265,7 +265,7 @@
                 </div>
             </div>
             <!-- END EXAMPLE TABLE PORTLET-->
-            
+
           {!!Form::close()!!}
         </div>
     </div>

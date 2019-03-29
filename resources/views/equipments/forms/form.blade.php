@@ -35,7 +35,7 @@
             'class' => 'form-control', 'id' => 'equipment_serial']) !!}
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
           <div class="form-group datepicker-group">
             <label class="control-label" for="equipment_maintenance_container"><span class="required" aria-required="true">* </span>Date purchase:</label>
             <div class="date-picker-container">

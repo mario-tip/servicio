@@ -5,10 +5,10 @@
     {!!Html::style("/assets/global/plugins/icheck/skins/all.css")!!}
 @endsection
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
-        <ul class="page-breadcrumb">
+        {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
@@ -20,9 +20,9 @@
             <li>
                 <a href="{!!URL::to('/users/create')!!}">New user</a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
-@endsection --}}
+@endsection
 
 @section("page-content")
     <div class="row content_container paddingForm">

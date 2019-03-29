@@ -8,10 +8,10 @@
     {!! Html::style("/assets/css/service_order.css") !!}
 @endsection
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     <div class="page-bar">
         @include('partials.request')
-        <ul class="page-breadcrumb">
+        {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
@@ -23,9 +23,9 @@
             <li>
                 <a href="#">Service order</a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
-@endsection --}}
+@endsection
 
 @section("page-content")
     <div class="row paddingForm">
@@ -62,7 +62,7 @@
             $("#liHelpDesk").addClass("active");
             $("#liIncidents").addClass("active");
             $(".activos").css('cursor', 'not-allowed');
-            
+
         });
     </script>
 @endsection

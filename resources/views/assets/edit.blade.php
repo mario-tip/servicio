@@ -9,11 +9,11 @@
     {!! Html::style("/assets/css/asset.css") !!}
 @endsection
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     <div class="page-bar">
         <div id="errors_container"></div>
         @include('partials.request')
-        <ul class="page-breadcrumb">
+        {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
@@ -25,9 +25,9 @@
             <li>
                 <a href="#">Edit asset</a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
-@endsection --}}
+@endsection
 
 @section("page-content")
     <div class="row content_container paddingForm">

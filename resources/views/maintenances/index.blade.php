@@ -14,7 +14,7 @@
 
 @section('breadcrumb')
     @include('partials.message')
-    <div class="page-bar">
+    {{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -24,27 +24,24 @@
                 <a href="{!!URL::to('/maintenances')!!}">Administration of scheduled maintenance</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 @endsection
 
 @section("page-content")
-    <div class="row content_container">
+    <div class="row content_container paddingForm">
         <div class="col-md-12">
             <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-calendar font-red-600"></i>
-                        <span class="caption-subject bold font-red-600">Calendar of upcoming maintenance</span>
-                    </div>
-                </div>
+              <div class="portlet-title topForm">
+              </div>
+              <p class="titleForm">Calendar of upcoming maintenance</p>
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    @if(userHasPermission("crear_mantenimientos") )  
-                                    <a href="{{URL::route('maintenances.create')}}" class="btn btn-circle green"><i class="fa fa-plus"></i> Add maintenance</a>
+                                    @if(userHasPermission("crear_mantenimientos") )
+                                    <a href="{{URL::route('maintenances.create')}}" class="btn btnList"><i class="fa fa-plus"></i> Add maintenance</a>
                                     @endif
                                 </div>
                             </div>
