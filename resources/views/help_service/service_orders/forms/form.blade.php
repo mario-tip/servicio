@@ -56,7 +56,7 @@
             <label class="control-label form-label textarea-label">Affected parties: </label>
             <div class="damaged-parts form-control activos">
               @foreach($incident->parts as $part)
-                <span >{{$part->name}}</span></br>
+                <span>{{$part->name}}</span></br>
                 @endforeach
             </div>
           </div>
@@ -89,15 +89,13 @@
         <div class="col-md-3 ">
           <div class="form-group datepicker-group">
             <label class="control-label form-label" for="service_order_date"><span class="required" aria-required="true">* </span>Date: </label>
-            <div class="input-group date-picker-container">
-              <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" id="service_order_date">{{--Removed class input-group, and data-date-start-date="+0d"--}}
-                {!! Form::text('service_order[date]', null, ['class' => 'form-control input-medium', 'id' => 'service_order_date', 'readonly', 'role' => 'button']) !!}
-                <span class="input-group-btn">
-                  <button class="btn default btnIconForm" type="button">
-                    <i class="fa fa-calendar"></i>
-                  </button>
-                </span>
-              </div>
+            <div class="input-group date date-picker date-picker-container" data-date-format="dd-mm-yyyy" id="service_order_date">{{--Removed class input-group, and data-date-start-date="+0d"--}}
+              {!! Form::text('service_order[date]', null, ['class' => 'form-control', 'id' => 'service_order_date', 'readonly', 'role' => 'button']) !!}
+              <span class="input-group-btn">
+                <button class="btn default btnIconForm" type="button">
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </span>
             </div>
           </div>
         </div>
@@ -106,7 +104,7 @@
           <div class="form-group timepicker-group">
             <label class="control-label form-label" for="service_order_time"><span class="required" aria-required="true">* </span>Hour: </label>
             <div class="input-group time-picker-container">
-              {!! Form::text('service_order[time]', null, ['class' => 'form-control timepicker timepicker-24 input-medium', 'readonly', 'role' => 'button']) !!}
+              {!! Form::text('service_order[time]', null, ['class' => 'form-control timepicker timepicker-24', 'readonly', 'role' => 'button']) !!}
               <span class="input-group-btn">
                 <button class="btn default btnIconForm" type="button">
                   <i class="fa fa-clock-o"></i>

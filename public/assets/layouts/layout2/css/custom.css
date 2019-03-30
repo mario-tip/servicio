@@ -4,6 +4,10 @@
   width: 8.9em;
 }
 
+.sidebarPadding {
+  padding-top: 6em !important;
+}
+
 .center {
   text-align: center;
 }
@@ -477,12 +481,13 @@
 .menu-toggler.sidebar-toggler {
   display: block;
   cursor: pointer;
-  margin-top: 2.5em;
 }
 
 .menu-toggler.sidebar-toggler>i {
   font-size: 2em;
   color: #ffffff;
+  line-height: 1em;
+  margin-top: 1em;
 }
 
 .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li.footer-sidebar {
