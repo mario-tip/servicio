@@ -1,4 +1,4 @@
-<div class="col-md-12" id="incident_parts_subcontainer">
+<div class="table-scrollable" id="incident_parts_subcontainer">
     {!! Form::hidden('', count($incident_parts),  ['id' => 'incident_parts_length']) !!}
     <table class="table table-striped table-bordered table-hover" id="datatable_parts">
         <thead>

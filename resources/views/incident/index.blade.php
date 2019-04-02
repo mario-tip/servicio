@@ -7,8 +7,8 @@
 @endsection
 
 @section('breadcrumb')
-    @include('partials.message')
-    {{-- <div class="page-bar">
+@include('partials.message')
+{{-- <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -158,9 +158,19 @@
 
       </div>
       <div class="modal-footer">
-        <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-        <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal" onclick="deleteUser()">Ok</button>
-        <button type="button" class="btn btn-circle red " data-dismiss="modal"></i>Cancel</button>
+        <div class="row">
+          <div class="col-md-6">
+            <div style="text-align: center;">
+              <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
+              <button type="button" class="btn btnFormSave" data-dismiss="modal" onclick="deleteUser()">Ok</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div style="text-align: center;">
+              <button type="button" class="btn btnFormCancel " data-dismiss="modal"></i>Cancel</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -178,7 +188,7 @@
       </div>
       <div class="modal-body">The incidence can NOT be eliminated if it is in process.</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-circle green-meadow" data-dismiss="modal">Ok</button>
+        <button type="button" class="btn btnFormSave" data-dismiss="modal">Ok</button>
       </div>
     </div>
     <!-- /.modal-content -->

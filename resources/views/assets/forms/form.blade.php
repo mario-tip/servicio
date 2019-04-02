@@ -9,7 +9,7 @@
       <div class="form-body bodyForm">
         <div class="row">
           <div class="col-md-12 form-group-container">
-            <div class="form-group equipment-select-group">
+            <div class="form-group equipment-select-group ">
               <label class="control-label" id="asset_equipment_label" for="asset_equipment_id">Asset type: </label>
               {!!Form::select('asset[equipment_id]', $dependencies['equipments'], $asset->equipment_id,
               ['class' => 'bs-select form-control asset-equipment', 'id' => 'asset_equipment_id',

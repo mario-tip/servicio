@@ -9,9 +9,9 @@
 @endsection
 
 @section('breadcrumb')
-    <div class="page-bar">
-        <div id="errors_container"></div>
-        {{-- <ul class="page-breadcrumb">
+<div class="page-bar">
+  <div id="errors_container"></div>
+  {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
@@ -24,7 +24,7 @@
                 <a>New asset</a>
             </li>
         </ul> --}}
-    </div>
+</div>
 @endsection
 
 @section("page-content")
@@ -218,31 +218,30 @@
             </div>
 
             <div class="row">
-              <div class="col-md-6 form-group-container">
+              <div class="col-md-6">
+                <label class="control-label textarea-label" for="document"><span id="span_quotation_file_required"></span>File: </label>
                 <div class="form-group">
-                  <label class="control-label textarea-label" for="document"><span id="span_quotation_file_required"></span>File: </label>
                   <div class="fileinput fileinput-new" data-provides="fileinput" id="document">
                     <div class="input-group input-large">
-                      <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                      <div class="form-control uneditable-input input-fixed input-group" data-trigger="fileinput">
                         <i class="fa fa-file fileinput-exists"></i>&nbsp;
                         <span class="fileinput-filename"> </span>
                       </div>
-                      <span class="input-group-addon btn default btn-file">
+                      <span class="input-group-addon btn green-jungle btn-file btnForm">
                         <span class="fileinput-new"> Add </span>
                         <span class="fileinput-exists"> Change </span>
                         <input type="file" name="document" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
                       </span>
 
-                      <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Delete </a>
+                      <a href="javascript:;" class="input-group-addon btn red fileinput-exists btnForm" data-dismiss="fileinput"> Delete </a>
 
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 form-group-container">
-                <div class="form-group last">
-                  <label for="inputEmail1" class="col-md-2 control-label"><span class="required" > </span>Image :</label>
-                  <div class="col-sm-7">
+              <div class="col-md-6">
+                  <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span>Image:</label>
+                  <div class="form-group">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-new ">
 
@@ -256,19 +255,18 @@
                       <div class="fileinput-preview fileinput-exists thumbnail">
                       </div>
                       <div>
-                        <span class="btn default btn-file">
+                        <span class="btn green-jungle btn-file btnForm">
                           <span class="fileinput-new">
                             Select image </span>
                           <span class="fileinput-exists">
                             Change </span>
-                          <input type="file" name="image" id="image" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" accept="image/*"/>
+                          <input type="file" name="image" id="image" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" accept="image/*" />
                         </span>
-                        <a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+                        <a href="#" class="btn red fileinput-exists btnForm" data-dismiss="fileinput">
                           Remove </a>
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
 

@@ -35,7 +35,7 @@
         <p class="titleForm">Detail quotation</p>
 
         <div class="horizontal-form">
-          <div class="form-body">
+          <div class="form-body bodyForm">
             <div class="row">
               <div class="col-md-12 form-group-container">
                 <div class="form-group">
@@ -113,7 +113,7 @@
               </div>
               <!-- Table parts -->
               <div class="col-md-12" id="incident_parts_subcontainer">
-                <div class="portlet-body">
+                <div class="portlet-body table-scrollable">
                   <table class="table table-striped table-bordered table-hover order-column" id="datatable_parts">
                     <thead>
                       <tr>

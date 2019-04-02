@@ -476,6 +476,15 @@
   background: #f2f6f9;
 }
 
+.table-scrollable input {
+  border: 1px solid #93a1bb;
+  border-radius: 10px;
+}
+
+.table-scrollable input:focus {
+  border: 1px solid #3a96ee;
+}
+
 /* ### END LISTAS ### */
 /* ### SIDEBAR ### */
 .menu-toggler.sidebar-toggler {

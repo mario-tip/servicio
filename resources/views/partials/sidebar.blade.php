@@ -4,7 +4,7 @@
   <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
   <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
   <div class="page-sidebar navbar-collapse collapse">
-    @if (\Request::route()->getName()!= "Dashboard")
+    @if (\Request::route()->getName()!= "Desktop")
     <div class="menu-toggler sidebar-toggler center">
       <i class="fa fa-bars"></i>
     </div>
@@ -26,8 +26,15 @@
       </li>
 
       <!-- END SIDEBAR TOGGLER BUTTON -->
-      @if (\Request::route()->getName()!= "Dashboard")
+      @if (\Request::route()->getName()!= "Desktop")
       @if(!user_can())
+        <li id="liDashboard" class="nav-item">
+          <a href="/dashboard" class="nav-link nav-toggle">
+            <i class="iconos-Dashboard-Blanco"></i>
+            <span class="title not-select ">Dashboard</span>
+            <span class="selected"></span>
+          </a>
+        </li>
 
       @if( userHasPermission("listar_registro_incidencias") || userHasPermission("listar_consulta_servicio") || userHasPermission("listar_mantenimientos") || userHasPermission("listar_cotizacion_servicios"))
       <li id="liHelpDesk" class="nav-item">

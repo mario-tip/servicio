@@ -128,20 +128,17 @@
         <div class="col-md-6">
           <label class="control-label textarea-label" for="doc_file">File: </label>
           <div class="form-group">
-
             <div class="fileinput fileinput-new" data-provides="fileinput" id="doc_file">
               <div class="input-group input-large">
                 <div class="form-control uneditable-input input-fixed input-group" data-trigger="fileinput">
                   <i class="fa fa-file fileinput-exists"></i>&nbsp;
                   <span class="fileinput-filename"> </span>
                 </div>
-
                 <span class="input-group-addon btn green-jungle btn-file btnForm">
                   <span class="fileinput-new"> Add </span>
                   <span class="fileinput-exists"> Change </span>
                   <input type="file" name="doc_file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
                 </span>
-
                 <a href="javascript:;" class="input-group-addon btn red fileinput-exists btnForm" data-dismiss="fileinput"> Delete </a>
               </div>
             </div>

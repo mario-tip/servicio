@@ -141,8 +141,8 @@ class HomeController extends Controller
         $resolution->options([
             'legend' => [ 'display' => true ],
             'fill' => true,
-            'title' => [ 'display' => true, 'text'=> 'Average resolution time by severity (Hours)', 'fontSize' => 26],   
-           
+            'title' => [ 'display' => true, 'text'=> 'Average resolution time by severity (Hours)', 'fontSize' => 26],
+
              ]);
 
         $incidents = Incident::all();
@@ -162,15 +162,15 @@ class HomeController extends Controller
         $tickets->options([
             'legend' => [ 'display' => true ],
             'fill' => true,
-            'title' => [ 'display' => true, 'text'=> 'Incidents', 'fontSize' => 26] ]); 
+            'title' => [ 'display' => true, 'text'=> 'Incidents', 'fontSize' => 26] ]);
 
-        return view('dashboard.index', compact('chart_line','chart_pie','chart_pie_hig','chart_technician','resolution','tickets'));
+        return view('desktop.index', compact('chart_line','chart_pie','chart_pie_hig','chart_technician','resolution','tickets'));
     }
 
     //funcion que retorna el promedio de una prioridad  Baja=0  Media=1  ALta=2
     public function getResolutionProm($priority){
-       
-        // Consulta para saber las ordenes cerradas y con prioridad de acuerdo al parametro     
+
+        // Consulta para saber las ordenes cerradas y con prioridad de acuerdo al parametro
         $orders_service = ServiceOrder::select('service_order.folio AS folio',
                                                     'incidents.priority',
                                                     DB::raw('incidents.created_at AS date_incident'),
@@ -186,16 +186,16 @@ class HomeController extends Controller
                                             ->join('incidents', 'incidents.id', '=', 'service_order.type_id')
                                             ->get();
         $timeAll = 0;
-                        
+
         $total_orders = count((array)$orders_service->all());
 
         foreach ($orders_service as $key => $order_service) {
         $dateResolution = Carbon::parse($order_service['resolution_date']);
         $dateIncident = Carbon::parse($order_service['date_incident']);
-        $lengthHours = $dateResolution->diffInHours($dateIncident);   
+        $lengthHours = $dateResolution->diffInHours($dateIncident);
         $timeAll += $lengthHours;
         }
-        
+
         if($total_orders == 0){
             $average = 0;
         }else{

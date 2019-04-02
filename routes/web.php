@@ -14,7 +14,7 @@
 Auth::routes();
 
 // Ruta para home
-Route::get('/',['as'=>'Dashboard','uses'=>'HomeController@index']);
+Route::get('/',['as'=>'Desktop','uses'=>'HomeController@index']);
 
 Route::resource('/users', 'UserController');
 
@@ -147,6 +147,9 @@ Route::get('getIncidentParts','IncidentController@getIncidentParts');
 
 // Route to manage parts
 Route::resource('/parts', 'PartController');
+
+// Route to dashboard
+Route::get('/dashboard',['as'=>'Dashboard','uses'=>'DashboardController@index']);
 
 //Ws to loginAs
 Route::post('loginAs', 'APIController@loginAs');
