@@ -7,7 +7,7 @@ Login page
 }
 
 .login a {
-  color: #333333 !important;
+  color: #333333;
 }
 
 .login a:focus {
@@ -201,7 +201,7 @@ Login page
 }
 
 .login .content .forget-password {
-  color: #d7eaf7;
+  color: #333333;
   font-size: 15px;
 }
 

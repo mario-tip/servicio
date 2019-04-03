@@ -1,5 +1,74 @@
+/* ### RIGHT SIDEBAR ### */
+.modal.fade:not(.in).right .modal-dialog {
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+
+.modal.right .modal-dialog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+.modal.right .modal-content {
+  min-height: 100vh;
+  border: 0;
+}
+
+.modal-content {
+  border-radius: 0px !important;
+}
+
+@media (min-width: 768px) {
+  .modal-sm {
+    width: 30em !important;
+  }
+}
+
+.navMenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebarModal {
+  padding: 3em 3em !important;
+}
+
+.sidebarFotoUser {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.sideBarModalUsername {
+  font-size: 1.5em;
+}
+
+.sidebarModal>ul>li>a {
+  display: block;
+  position: relative;
+  margin: 0;
+  border: 0;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding: 10px 15px;
+}
+
+.sidebarModal>ul>li>a>i {
+  color: #3A96EE;
+}
+
+.sidebarModal>ul>li>a>.title {
+  color: #333333;
+}
+
+/* ### END RIGHT SIDEBAR ### */
 .footer-sidebar {
-  position: fixed;
+  position: fixed !important;
   bottom: 1em;
   width: 8.9em;
 }
@@ -10,6 +79,11 @@
 
 .center {
   text-align: center;
+}
+
+/* Desaprecer logo de amcharts */
+.portlet.light>div>div>svg>g>g>g>g>g:nth-child(3) {
+  display: none;
 }
 
 /* ### LOG IN ### */
@@ -76,7 +150,7 @@
 .btn-login {
   border: none;
   background: #333333;
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: 25px;
   font-weight: 100;
   line-height: 1.2 !important;
@@ -168,7 +242,7 @@
 /* ### END LOGIN ### */
 /* ### HEADER ### */
 .page-header.navbar .page-logo {
-  padding-left: 11em !important;
+  padding-left: 10.5em !important;
   padding-top: 7px !important;
   background: #ffffff !important;
 }

@@ -876,7 +876,7 @@
   text-decoration: none;
   font-size: 1em;
   font-weight: 300;
-  text-align: center
+  text-align: center !important;
 }
 
 .page-sidebar .page-sidebar-menu>li>a>.title, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li>a>.title {
