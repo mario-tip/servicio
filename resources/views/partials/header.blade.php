@@ -30,6 +30,7 @@
           <li class="dropdown dropdown-user">
             <a href="javascript:;" class="dropdown-toggle displayLiDesktop" data-toggle="modal" data-target="#sidebar-right" data-hover="dropdown" data-close-others="true">
               <span class="username username-hide-on-mobile"> {!!Auth::user()->username!!} </span>
+              <img src="https://i.ytimg.com/vi/C_puzdDIPQw/maxresdefault.jpg" class="img-circle fotoPerfil" alt="">
               <i class="glyphicon glyphicon-menu-down"></i>
             </a>
             {{-- <ul class="dropdown-menu dropdown-menu-default">
@@ -61,7 +62,7 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body sidebarModal">
-        <img src="https://cdn.forbes.com.mx/2018/05/chicharito03-640x360.jpg" class="img-circle sidebarFotoUser" alt="">
+        <img src="https://i.ytimg.com/vi/C_puzdDIPQw/maxresdefault.jpg" class="img-circle sidebarFotoUser" alt="">
         <p class="username text-center sideBarModalUsername"> {!!Auth::user()->username!!} </p>
         <ul class="navMenu">
           <li id="" class="nav-item">
@@ -82,7 +83,7 @@
               <span class="title not-select ">Settings</span>
             </a>
           </li>
-          <li class="nav-item footer-sidebar">
+          <li class="nav-item footer-sidebar" style="right: 0;">
             <a style="min-height: 1px;" href="{{ url('/logout') }}" role="button" tabindex="0" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
               <span class="title not-select ">Sign out</span>
               <i class="fa fa-sign-out"></i>

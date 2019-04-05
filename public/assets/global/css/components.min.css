@@ -8902,7 +8902,7 @@ h6 .label {
     z-index: 10060;
 }
 .modal .modal-header {
-    border-bottom: 1px solid #EFEFEF;
+    border-bottom: 0px solid #EFEFEF;
 }
 .modal .modal-header h3 {
     font-weight: 300;

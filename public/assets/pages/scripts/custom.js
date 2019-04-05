@@ -6,11 +6,11 @@ function mostrarSaludo() {
   var hourNow = today.getHours();
   var greeting;
 
-  if (hourNow < 12) {
+  if (hourNow > 5 & hourNow < 12) {
     greeting = "Good morning";
-  } else if (hourNow < 18) {
+  } else if (hourNow < 19) {
     greeting = 'Good afternoon';
-  } else if (hourNow < 24) {
+  } else if (hourNow < 24 & hourNow > 5) {
     greeting = "Good night"
   } else {
     greeting = "Welcome";

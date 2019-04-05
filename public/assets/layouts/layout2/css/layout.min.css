@@ -442,7 +442,7 @@
 }
 
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle {
-  padding: 24px 12px
+  padding: 24px 12px !important;
 }
 
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle>.username {
