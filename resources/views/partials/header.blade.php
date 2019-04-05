@@ -18,7 +18,11 @@
     </a>
     <!-- END RESPONSIVE MENU TOGGLER -->
     <div class="page-top" align="center">
-      <span class="saludo nombreVista">{{\Request::route()->getName()}}</span>
+      @php
+      $name_route = explode(".", Request::route()->getName());
+      $link = ucwords($name_route[0]);
+      @endphp
+      <span class="saludo nombreVista">{{$link}}</span>
       <span id="saludo" class="saludo"></span>
       <span class="username username-hide-on-mobile saludo"> {!!Auth::user()->username!!} </span>
 

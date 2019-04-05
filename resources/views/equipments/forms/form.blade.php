@@ -117,6 +117,11 @@
                     Select image </span>
                   <span class="fileinput-exists">
                     Change </span>
+                      {{-- {!! Form::file('equipment[image_eq]', $equipment->image_eq,[
+                        'class' => 'form-control product mb-10',
+                        'id'=>'image_eq',
+                        'name'=>'image_eq'
+                        ]) !!} --}}
                   <input type="file" name="image_eq" id="image_eq" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" accept="image/*" />
                 </span>
                 <a href="#" class="btn red fileinput-exists btnForm" data-dismiss="fileinput">

@@ -35,6 +35,7 @@
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
         {!! Form::open(['id' => 'equipment_form', 'data-method' => 'POST', 'files' => true]) !!}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
             <div class="portlet light portlet-fit bordered">
               <div class="portlet-title topForm">
               </div>
@@ -71,7 +72,7 @@
 
         });
         /*Deshabilitamos todas las teclas de refresh*/
-/*        document.onkeydown = function(ev) {
+        /*document.onkeydown = function(ev) {
             var key;
             ev = ev || event;
             key = ev.keyCode;
