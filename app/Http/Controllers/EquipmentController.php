@@ -103,13 +103,13 @@ class EquipmentController extends Controller {
         $equipment_data['date_purchase'] = Carbon::parse($equipment_data['date_purchase'])->format('Y-m-d');
 
           $img = Input::file('image_eq');
+          dd($request->image_eq);
           $ext = $img->getClientOriginalExtension();
           $name = str_random(10).'.'.time().'.'.'image'.'.'.$ext;
           $img->move(public_path().'/images/parts/',$name);
           $equipment_data['image'] = $name;
-          dd($equipment_data);
 
-        if ($request->has('doc_file')) {
+        /*if ($request->has('doc_file')) {
           $doc = Input::file('doc_file');
           $file = $doc->getClientOriginalName();
           $extension = $doc->getClientOriginalExtension();
@@ -117,7 +117,7 @@ class EquipmentController extends Controller {
           $main_doc = 'images/parts'.$name;
 
           $doc->move(public_path().'/images/parts/',$main_doc);
-        }
+        }*/
 
         if($validator->fails()) {
             $response = [

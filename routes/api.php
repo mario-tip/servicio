@@ -41,5 +41,7 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::get('logout', 'APIController@logout');
 
+        Route::resource('area', 'AreaController');
+
     });
 });
