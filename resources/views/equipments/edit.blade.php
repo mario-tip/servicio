@@ -1,11 +1,14 @@
 @extends("layouts.master")
 
 @section("styles")
-    {!! Html::style("/assets/global/plugins/select2/css/select2.min.css") !!}
-    {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
-    {!! Html::style("/assets/global/plugins/datatables/datatables.min.css") !!}
-    {{--{!! Html::style("/assets/css/main.css") !!}--}}
-    {!! Html::style("/assets/css/equipment.css") !!}
+  {!! Html::style("/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css") !!}
+  {!! Html::style("/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css") !!}
+  {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
+  {!! Html::style("/assets/global/plugins/select2/css/select2.min.css") !!}
+  {!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
+  {!! Html::style("/assets/global/plugins/datatables/datatables.min.css") !!}
+  {{--{!! Html::style("/assets/css/main.css") !!}--}}
+  {!! Html::style("/assets/css/equipment.css") !!}
 @endsection
 
 @section('breadcrumb')
@@ -46,13 +49,21 @@
 @endsection
 
 @section("scripts")
-    {!! Html::script("/assets/global/plugins/datatables/datatables.min.js") !!}
-    {!! Html::script("/assets/pages/scripts/table-datatables-scroller.min.js") !!}
-    {!! Html::script("/assets/scripts/jquery.number.js") !!}
-    {!! Html::script("/assets/global/plugins/select2/js/select2.full.min.js") !!}
-    {!! Html::script("/assets/global/plugins/select2/js/i18n/eu.js") !!}
-    {!! Html::script("/assets/scripts/validateFields.js") !!}
-    {!! Html::script("/assets/scripts/equipment_form.js") !!}
+  {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
+  {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
+  {!! Html::script("/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js") !!}
+  {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
+
+  {!! Html::script("/assets/pages/scripts/components-bootstrap-select.min.js") !!}
+  {!! Html::script("/assets/pages/scripts/components-date-time-pickers.min.js") !!}
+
+  {!! Html::script("/assets/global/plugins/datatables/datatables.min.js") !!}
+  {!! Html::script("/assets/pages/scripts/table-datatables-scroller.min.js") !!}
+  {!! Html::script("/assets/scripts/jquery.number.js") !!}
+  {!! Html::script("/assets/global/plugins/select2/js/select2.full.min.js") !!}
+  {!! Html::script("/assets/global/plugins/select2/js/i18n/eu.js") !!}
+  {!! Html::script("/assets/scripts/validateFields.js") !!}
+  {!! Html::script("/assets/scripts/equipment_form.js") !!}
 
     <script type="application/javascript">
         $(document).ready(function(){
@@ -62,13 +73,13 @@
 
         });
         /*Deshabilitamos todas las teclas de refresh*/
-        document.onkeydown = function(ev) {
+        /*document.onkeydown = function(ev) {
             var key;
             ev = ev || event;
             key = ev.keyCode;
             if (key == 116 || ev.ctrlKey) {
                 return false;  // disable refresh keys and key combinations
             }
-        }
+        }*/
     </script>
 @endsection

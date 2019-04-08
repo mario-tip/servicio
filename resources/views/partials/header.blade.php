@@ -34,7 +34,7 @@
           <li class="dropdown dropdown-user">
             <a href="javascript:;" class="dropdown-toggle displayLiDesktop" data-toggle="modal" data-target="#sidebar-right" data-hover="dropdown" data-close-others="true">
               <span class="username username-hide-on-mobile"> {!!Auth::user()->username!!} </span>
-              <img src="https://i.ytimg.com/vi/C_puzdDIPQw/maxresdefault.jpg" class="img-circle fotoPerfil" alt="">
+              <img src="https://stylesatlife.com/wp-content/uploads/2018/02/Hairstyles-For-Oval-Face-Men-1.jpg" class="img-circle fotoPerfil" alt="">
               <i class="glyphicon glyphicon-menu-down"></i>
             </a>
             {{-- <ul class="dropdown-menu dropdown-menu-default">
@@ -66,7 +66,7 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body sidebarModal">
-        <img src="https://i.ytimg.com/vi/C_puzdDIPQw/maxresdefault.jpg" class="img-circle sidebarFotoUser" alt="">
+        <img src="https://stylesatlife.com/wp-content/uploads/2018/02/Hairstyles-For-Oval-Face-Men-1.jpg" class="img-circle sidebarFotoUser" alt="">
         <p class="username text-center sideBarModalUsername"> {!!Auth::user()->username!!} </p>
         <ul class="navMenu">
           <li id="" class="nav-item">
@@ -106,7 +106,3 @@
 <div class="clearfix"></div>
 
 <!-- END HEADER & CONTENT DIVIDER -->
-
-<script>
-
-</script>

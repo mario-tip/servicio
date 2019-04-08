@@ -44,7 +44,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     @if(userHasPermission("editar_mantenimientos"))
-                                    <a href="{{ URL::route('maintenances.edit', $maintenance->id) }}" class="btn btn-circle blue"><i class="fa fa-edit"></i> Edit maintenance</a>
+                                    <a href="{{ URL::route('maintenances.edit', $maintenance->id) }}" class="btn btnList"><i class="fa fa-edit"></i> Edit maintenance</a>
                                     @endif
                                 </div>
                             </div>
