@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
-use App\Equipment;
-use App\Part;
-use App\Provider;
 use Carbon\Carbon;
+use App\Equipment;
+use App\Provider;
 use Validator;
+use App\Part;
 use Session;
 
 class EquipmentController extends Controller {
@@ -27,17 +27,11 @@ class EquipmentController extends Controller {
     public function create(){
         if(userHasPermission("crear_tipo_equipo")) {
 
-            $providers = $this->getDependences();
+            $providers = Provider::all();
             $equipment = new Equipment;
-            return view('equipments.create', compact('equipment','providers'));
+            return view('equipments.create', compact('equipment'))->with('providers',$providers);
         }
         return redirect()->back();
-    }
-
-    private function getDependences(){
-      return [
-        'provide' => Provider::all()->pluck('name','id')
-      ];
     }
 
     /*Obtiene las partes para el select2*/
@@ -96,18 +90,16 @@ class EquipmentController extends Controller {
 
     public function store(Request $request){
 
-
-
         $equipment_data = $request->get('equipment');
         $validator = $this->validateInputs($equipment_data);
         $equipment_data['date_purchase'] = Carbon::parse($equipment_data['date_purchase'])->format('Y-m-d');
 
-          $img = Input::file('image_eq');
-          dd($request->image_eq);
-          $ext = $img->getClientOriginalExtension();
-          $name = str_random(10).'.'.time().'.'.'image'.'.'.$ext;
-          $img->move(public_path().'/images/parts/',$name);
-          $equipment_data['image'] = $name;
+          // $img = Input::file('image_eq');
+          // dd($request->image_eq);
+          // $ext = $img->getClientOriginalExtension();
+          // $name = str_random(10).'.'.time().'.'.'image'.'.'.$ext;
+          // $img->move(public_path().'/images/parts/',$name);
+          // $equipment_data['image'] = $name;
 
         /*if ($request->has('doc_file')) {
           $doc = Input::file('doc_file');
@@ -163,8 +155,9 @@ class EquipmentController extends Controller {
 
     public function edit($id){
         if(userHasPermission("editar_tipo_equipo")) {
+          $providers = Provider::all();
             $equipment = Equipment::find($id);
-            return view('equipments.edit', compact('equipment'));
+            return view('equipments.edit', compact('equipment','providers'));
         }
         return redirect()->back();
     }

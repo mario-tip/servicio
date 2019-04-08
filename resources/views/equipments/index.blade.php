@@ -12,8 +12,8 @@
 <div id="notification_container">
   @include('partials.message')
 </div>
-{{-- <div class="page-bar">
-        <ul class="page-breadcrumb">
+<div class="page-bar">
+        {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
@@ -21,8 +21,8 @@
             <li>
                 <a href="{!!URL::to('/equipments')!!}">Equipments</a>
             </li>
-        </ul>
-    </div> --}}
+        </ul> --}}
+    </div>
 @endsection
 
 @section("page-content")

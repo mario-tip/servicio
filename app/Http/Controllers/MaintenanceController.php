@@ -120,8 +120,6 @@ class MaintenanceController extends Controller {
                 $maintenance->signature = '';
             }
 
-            echo $maintenance;
-
             return view('maintenances.show', compact('maintenance', 'asset'));
         else:
             Session::flash('message', 'You dont have permissions.');

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Http\Requests\ProjectRequest;
 use Illuminate\Support\Facades\Session;
+use App\Person;
+use App\Location;
+use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
@@ -23,14 +26,31 @@ class ProjectController extends Controller
 
     public function create(){
         if(userHasPermission("crear_catalogo_proyectos")) {
+
+          $depende = $this->getDepende();
             $project = new Project();
-            return view('catalogs.projects.create', compact('project'));
+
+            return view('catalogs.projects.create', compact('depende','project'));
         }
         return redirect()->back();
     }
 
+    public function getDepende(){
+
+      $personas = Person::all();
+      return[
+        'persons' => Person::all('id','name'),
+        'locations' => Location::all('id','area')
+      ];
+    }
+
     public function store(ProjectRequest $request){
+
+
         try{
+          $request['start_contract'] = Carbon::parse($request['start_contract'])->format('Y-m-d');
+          $request['end_contract'] = Carbon::parse($request['end_contract'])->format('Y-m-d');
+          // dd($request->all());
             Project::create($request->get('project'));
             $request->session()->flash('message', 'Project created successfully');
             return redirect()->route('projects.index');
@@ -41,8 +61,9 @@ class ProjectController extends Controller
 
     public function edit($id){
         if(userHasPermission("editar_catalogo_proyectos")) {
+          $depende = $this->getDepende();
             $project = Project::find($id);
-            return view('catalogs.projects.edit', compact('project'));
+            return view('catalogs.projects.edit', compact('project','depende'));
         }
         return redirect()->back();
     }

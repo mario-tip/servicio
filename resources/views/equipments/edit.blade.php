@@ -11,7 +11,7 @@
 @section('breadcrumb')
     <div class="page-bar">
         <div id="errors_container"></div>
-        <ul class="page-breadcrumb">
+        {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
                 <i class="fa fa-circle"></i>
@@ -23,7 +23,7 @@
             <li>
                 <a href="#">Edit equipment</a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
 @endsection
 

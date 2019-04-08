@@ -26,27 +26,23 @@ class Person extends Model
         'state_id', 'department_id', 'user_id'
     ];
 
-    public function maintenances()
-    {
+    public function maintenances(){
         return $this->hasMany('App\Maintenance', 'person_id', 'id');
     }
 
-    public function incidents()
-    {
+    public function incidents(){
         return $this->hasMany('App\Incident', 'person_id', 'id');
     }
 
-    public function assets()
-    {
+    public function assets(){
         return $this->hasMany('App\Asset', 'person_id', 'id');
     }
-    /*public function user()
-    {
+
+    /*public function user(){
         return $this->hasOne('App\User', 'id', 'user_id');
     }*/
 
-    /*public function notifyCreatedUser($email, $password)
-    {
+    /*public function notifyCreatedUser($email, $password){
         $body = "Usuario creado:  \n" .
                 "Usuario: " . $email . "\n" .
                 "Contraseña: " . $password;

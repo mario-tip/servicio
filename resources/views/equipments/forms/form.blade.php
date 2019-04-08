@@ -81,8 +81,13 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Provider: </label>
-            {!! Form::select('equipment[provider_id]',$providers['provide'],null,['class' => 'bs-select form-control', 'id' => 'provider_id', 'title' => 'Select...']) !!}
+            <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Provider:</label>
+            <select class="bs-select form-control person" name="person_id" id="person_id">
+              <option value="0" disabled selected>Select..</option>
+              @foreach($providers as $prov)
+              <option value="{{$prov->id}}" {{isset($equipment) ? ($equipment->provider_id == $prov->id) ? 'selected':'' : ''}}>{{$prov->name}}</option>
+              @endforeach
+            </select>
           </div>
         </div>
       </div>
@@ -117,7 +122,7 @@
                     Select image </span>
                   <span class="fileinput-exists">
                     Change </span>
-                      {{-- {!! Form::file('equipment[image_eq]', $equipment->image_eq,[
+                  {{-- {!! Form::file('equipment[image_eq]', $equipment->image_eq,[
                         'class' => 'form-control product mb-10',
                         'id'=>'image_eq',
                         'name'=>'image_eq'

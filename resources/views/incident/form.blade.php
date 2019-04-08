@@ -67,7 +67,7 @@
         <select class="bs-select form-control person" name="person_id" id="person_id">
           <option value="0" disabled selected>Select...</option>
           @foreach($persons as $person)
-          <option value="{{$person->id}}" {{isset($incident) ? ($incident->person_id == $person->id)?'selected':'' : ''}}>{{$person->name}}</option>
+          <option value="{{$person->id}}" {{isset($incident) ? ($incident->person_id == $person->id) : ''}}>{{$person->name}}</option>
           @endforeach
         </select>
       </div>
