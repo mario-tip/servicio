@@ -91,12 +91,10 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="equipment_name" class="control-label"><span class="required" aria-required="true">* </span>Provider:</label>
-            <select class="bs-select form-control person" name="provider_id" id="provider_id">
-              <option value="0" disabled selected>Select..</option>
-              @foreach($providers as $prov)
-              <option value="{{$prov->id}}" {{isset($equipment) ? ($equipment->provider_id == $prov->id) ? 'selected':'' : ''}}>{{$prov->name}}</option>
-              @endforeach
-            </select>
+            {{ Form::select('equipment[provider_id]', $depe['providers'] , $equipment->provider_id,
+              ['class' => 'bs-select form-control',
+              'id' => 'equipment_provider_id',
+              ] ) }}
           </div>
         </div>
       </div>

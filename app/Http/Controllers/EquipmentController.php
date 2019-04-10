@@ -18,7 +18,7 @@ class EquipmentController extends Controller {
 
     public function index(){
         if(userHasPermission("listar_tipo_equipo")) {
-            $equipments = Equipment::all();
+            $equipments = Equipment::orderBy('updated_at','desc')->get();
             return view('equipments.index', compact('equipments'));
         }
         return redirect()->back();
@@ -27,11 +27,19 @@ class EquipmentController extends Controller {
     public function create(){
         if(userHasPermission("crear_tipo_equipo")) {
 
-            $providers = Provider::all('id','name');
-            $equipment = new Equipment;
-            return view('equipments.create', compact('equipment','providers'));
+          $equipment = new Equipment;
+            $depe = $this->getDepende();
+            // dd($depe);
+            return view('equipments.create', compact('equipment','depe'));
         }
         return redirect()->back();
+    }
+
+    public function getDepende()
+    {
+      return [
+        'providers' => Provider::getSelectProvider(),
+      ];
     }
 
     /*Obtiene las partes para el select2*/
@@ -155,9 +163,9 @@ class EquipmentController extends Controller {
 
     public function edit($id){
         if(userHasPermission("editar_tipo_equipo")) {
-          $providers = Provider::all('id','name');
+            $depe = $this->getDepende();
             $equipment = Equipment::find($id);
-            return view('equipments.edit', compact('equipment','providers'));
+            return view('equipments.edit', compact('equipment','depe'));
         }
         return redirect()->back();
     }
