@@ -27,9 +27,9 @@ class EquipmentController extends Controller {
     public function create(){
         if(userHasPermission("crear_tipo_equipo")) {
 
-            $providers = Provider::all();
+            $providers = Provider::all('id','name');
             $equipment = new Equipment;
-            return view('equipments.create', compact('equipment'))->with('providers',$providers);
+            return view('equipments.create', compact('equipment','providers'));
         }
         return redirect()->back();
     }
@@ -155,7 +155,7 @@ class EquipmentController extends Controller {
 
     public function edit($id){
         if(userHasPermission("editar_tipo_equipo")) {
-          $providers = Provider::all();
+          $providers = Provider::all('id','name');
             $equipment = Equipment::find($id);
             return view('equipments.edit', compact('equipment','providers'));
         }

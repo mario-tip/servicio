@@ -19,6 +19,7 @@ class Equipment extends Model
      * @var array
      */
     protected $fillable = [
+        'id_equipment',
         'name',
         'price',
         'cat_num',

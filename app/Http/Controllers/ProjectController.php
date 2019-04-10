@@ -18,7 +18,6 @@ class ProjectController extends Controller
     public function index(){
         if(userHasPermission("listar_catalogo_proyectos")) {
             $projects = Project::with('assets')->get();
-            // dd($);{}
             return view('catalogs.projects.index', compact('projects'));
         }
         return redirect()->back();
@@ -48,9 +47,7 @@ class ProjectController extends Controller
 
 
         try{
-          $request['start_contract'] = Carbon::parse($request['start_contract'])->format('Y-m-d');
-          $request['end_contract'] = Carbon::parse($request['end_contract'])->format('Y-m-d');
-          // dd($request->all());
+
             Project::create($request->get('project'));
             $request->session()->flash('message', 'Project created successfully');
             return redirect()->route('projects.index');

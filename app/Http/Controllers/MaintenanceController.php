@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Asset;
 use App\Http\Requests\MaintenanceRequest;
-use App\Maintenance;
-use App\Person;
-use App\ServiceOrder;
-use App\User;
-use App\Provider;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
+use App\ServiceOrder;
+use App\Maintenance;
+use Carbon\Carbon;
+use App\Provider;
+use App\Person;
+use App\Asset;
+use App\User;
 
 class MaintenanceController extends Controller {
 
@@ -26,15 +26,10 @@ class MaintenanceController extends Controller {
     }
 
     public function create(){
-      $providers = $this->getProviders();
+      $provider = Provider::all('id', 'name');
 
-            return view('maintenances.create', compact('providers'));
+            return view('maintenances.create', compact('provider'));
 
-    }
-    private function getProviders(){
-      return [
-          'provider' => Provider::all()->pluck('name', 'id'),
-      ];
     }
 
     public function store(MaintenanceRequest $request){
@@ -141,8 +136,9 @@ class MaintenanceController extends Controller {
                 $maintenance->user_id = '';
             }
             // dd($maintenance);
+            $provider = Provider::all('id', 'name');
 
-            return view('maintenances.edit', compact('maintenance'));
+            return view('maintenances.edit', compact('maintenance','provider'));
         else:
             return redirect()->back();
         endif;

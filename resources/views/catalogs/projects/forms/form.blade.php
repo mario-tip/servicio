@@ -100,20 +100,21 @@
               <option value="{{ $person->id }}" {{isset($project) ? ($project->person_id == $person->id) ? 'selected':'' : ''}}>{{$person->name}}</option>
               @endforeach
             </select> --}}
-            {!! Form::select('project[person_id]', $depende['persons']->pluck('name'), isset($project) ? "selected":"Select.." , ['class' => 'bs-select form-control','id' => 'person_id'])!!}
+            {!! Form::select('project[person_id]', $depende['persons']->pluck('name'), isset($project) ? "selected":"Select.." , ['class' => 'bs-select form-control','id' => 'person_id', 'title' => 'Select...'])!!}
 
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Location:</label>
-            {{-- <select class="bs-select form-control " name="location_id" id="location_id">
-              <option value="0" disabled selected>Select..</option>
+            <select class="bs-select form-control " name="location_id" id="location_id">
+              {{-- <option value="0" disabled selected>Select..</option>
               @foreach($depende['locations'] as $local)
               <option value="{{ $local->id }}" {{isset($project) ? ($project->location_id == $local->id) ? 'selected':'' : ''}}>{{$local->area}}</option>
               @endforeach
             </select> --}}
-            {!! Form::select('project[location_id]', $depende['locations']->pluck('area'), isset($project) ? "selected":"Select.." , ['class' => 'bs-select form-control','id' => 'location_id'])!!}
+
+            {!! Form::select('project[location_id]', $depende['locations']->pluck('area'), $depende['locations']->pluck('id'), ['class' => 'bs-select form-control', 'title' => 'Select...'])!!}
           </div>
         </div>
       </div>
@@ -132,5 +133,17 @@
     </div>
   </div>
 </div>
+
+@php
+  echo $project;
+@endphp
+<br>
+@php
+echo  $depende['persons'];
+@endphp
+<br>
+@php
+echo $depende['locations'];
+@endphp
 
 <!-- END NEW LOCATION PORTLET-->

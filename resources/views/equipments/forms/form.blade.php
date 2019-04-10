@@ -2,6 +2,32 @@
   <div class="horizontal-form">
     <div class="form-body bodyForm">
       <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="control-label " for="equipment_name"><span class="required" aria-required="true">* </span>Id equipment: </label>
+            {!! Form::text('equipment[id_equipment]', $equipment->id_equipment, ['class' => 'form-control',
+            'id' => 'equipment_name', 'maxlength' => 50]) !!}
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Quantity: </label>
+            {!! Form::text('equipment[quantity]', $equipment->quantity,[
+            'class' => 'form-control', 'id' => 'equipment_quantity', 'maxlength' => 7,
+            'onkeypress' => 'return validateInput(event, 5)']) !!}
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Code: </label>
+            {!! Form::text('equipment[code]', $equipment->code,[
+            'class' => 'form-control', 'id' => 'equipment_code', 'maxlength' => 18,
+            'onkeypress' => 'return validateInput(event, 5)']) !!}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Name: </label>
@@ -53,24 +79,7 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Quantity: </label>
-            {!! Form::text('equipment[quantity]', $equipment->quantity,[
-            'class' => 'form-control', 'id' => 'equipment_quantity', 'maxlength' => 7,
-            'onkeypress' => 'return validateInput(event, 5)']) !!}
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Code: </label>
-            {!! Form::text('equipment[code]', $equipment->code,[
-            'class' => 'form-control', 'id' => 'equipment_code', 'maxlength' => 18,
-            'onkeypress' => 'return validateInput(event, 5)']) !!}
-          </div>
-        </div>
-      </div>
+
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
@@ -81,8 +90,8 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Provider:</label>
-            <select class="bs-select form-control person" name="person_id" id="person_id">
+            <label for="equipment_name" class="control-label"><span class="required" aria-required="true">* </span>Provider:</label>
+            <select class="bs-select form-control person" name="provider_id" id="provider_id">
               <option value="0" disabled selected>Select..</option>
               @foreach($providers as $prov)
               <option value="{{$prov->id}}" {{isset($equipment) ? ($equipment->provider_id == $prov->id) ? 'selected':'' : ''}}>{{$prov->name}}</option>

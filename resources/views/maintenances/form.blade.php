@@ -73,7 +73,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label for="name" class="control-label">Provider:</label>
-        {!!Form::select('provider_id', $providers['provider'], null, ['class' => 'form-control bs-select', 'id' => 'asset_provider_id', 'title' => 'Select...']) !!}
+        {!!Form::select('provider_id',  $provider->pluck('name'), null, ['class' => 'form-control bs-select', 'id' => 'asset_provider_id', 'title' => 'Select...']) !!}
       </div>
     </div>
     <div class="col-md-6">
