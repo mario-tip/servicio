@@ -638,3 +638,112 @@
   border-right: 25px solid #ffffff;
   content: '';
 }
+
+/* ### MAINTENANCE ### */
+.d-accordion .panel-heading {
+  cursor: pointer;
+}
+
+.d-accordion .panel-heading.collapsed .fa-chevron-up:before {
+  content: '\f078';
+}
+
+.titleMaintenance {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 500;
+  color: #3a96ee;
+}
+
+.borderTasks {
+  border-radius: 10px;
+}
+
+.borderTasks .panel {
+  border-radius: 0px;
+  border: 0px solid transparent;
+}
+
+.borderTasks .panel:first-child, .borderTasks .panel-default:first-child>.panel-heading {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.borderTasks .panel:last-child, .borderTasks .panel-default:last-child>.panel-heading.collapsed {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.borderTasks .panel:last-child, .borderTasks .panel-default:last-child>.panel-heading:last-child {
+  border-bottom: 1px solid #3a96ee;
+}
+
+.borderTasks .panel+.panel {
+  margin-top: 0px;
+}
+
+.borderTasks .panel-heading {
+  border-radius: 0px;
+}
+
+.borderTasks .panel-default>.panel-heading.collapsed {
+  color: #333;
+  background-color: #FFFFFF;
+  border: 1px solid #3a96ee;
+  border-bottom: 0px solid transparent;
+}
+
+.borderTasks .panel-default>.panel-heading{
+  background: #3a96ee;
+  color: #FFFFFF;
+}
+
+.borderTasks .panel-default>.panel-heading:hover {
+  color: #FFFFFF;
+  background-color: #3a96ee;
+}
+
+.borderTasks .panel-title {
+  margin-top: 0;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.borderTasks .panel-title i {
+  margin-top: .1em;
+}
+
+.borderTasks .panel-default>.panel-heading+.panel-collapse>.panel-body {
+  border-top: 1px solid #3a96ee;
+  border-left: 1px solid #3a96ee;
+  border-right: 1px solid #3a96ee;
+}
+
+.borderTasks .panel-default:last-child>.panel-heading+.panel-collapse>.panel-body {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.borderTasks .panel .panel-body {
+  font-size: 1.1em;
+  padding: 4px;
+}
+
+.borderTasks tbody tr:nth-of-type(odd) {
+  background-color: #fbfcfd;
+}
+
+.borderTasks tbody tr:nth-of-type(odd) {
+  background-color: #f2f6f9;
+}
+
+.borderTasks tbody th {
+  padding: 10px 15px;
+  font-weight: 500;
+}
+
+.tableSubtitle {
+  margin: 0;
+  padding: 10px 10px;
+  font-weight: 600;
+}
