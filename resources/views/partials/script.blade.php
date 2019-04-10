@@ -60,6 +60,7 @@
 {!! Html::script('assets/pages/scripts/dashboard.min.js') !!}
 {!! Html::script('assets/pages/scripts/custom.js') !!}
 {!! Html::script('assets/pages/scripts/clima.js') !!}
+{!! Html::script('assets/global/plugins/jsCalendar/source/jsCalendar.js') !!}
         <!-- END PAGE LEVEL SCRIPTS -->
 
 <!-- BEGIN THEME LAYOUT SCRIPTS -->

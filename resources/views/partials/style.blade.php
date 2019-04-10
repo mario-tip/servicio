@@ -10,7 +10,7 @@
 {!! Html::style('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
 {!! Html::style('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') !!}
 {!! Html::style('assets/layouts/layout2/css/custom.css') !!}
-
+{!! Html::style('assets/global/plugins/jsCalendar/source/jsCalendar.css') !!}
 
 
         <!-- END GLOBAL MANDATORY STYLES -->
