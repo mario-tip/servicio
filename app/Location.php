@@ -19,22 +19,15 @@ class Location extends Model
      * @var array
      */
     protected $fillable = [
-        'description',
-         'address',
-         'building',
-         'floor',
-         'shelf',
-         'area',
-         'hall',
-         'room',
-         'compartment',
-         'notes',
-         'codigo_rfid',
-         'loc_2d',
+      'description', 'address', 'building', 'floor', 'shelf', 'area',
+      'hall','room','compartment','notes','codigo_rfid','loc_2d'
     ];
 
-    public function assets()
-    {
+    public function assets(){
         return $this->belongsToMany('App\Asset', 'inventory', 'location_id', 'asset_id');
+    }
+
+    public static function getSelectLocation(){
+      return self::all()->pluck('area','id');
     }
 }

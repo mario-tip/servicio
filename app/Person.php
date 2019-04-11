@@ -38,6 +38,10 @@ class Person extends Model
         return $this->hasMany('App\Asset', 'person_id', 'id');
     }
 
+    public static function getSelectPerson() {
+      return self::all()->pluck('name','id');
+    }
+
     /*public function user(){
         return $this->hasOne('App\User', 'id', 'user_id');
     }*/

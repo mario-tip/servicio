@@ -38,8 +38,8 @@ class ProjectController extends Controller
 
       $personas = Person::all();
       return[
-        'persons' => Person::all('id','name'),
-        'locations' => Location::all('id','area')
+        'persons' => Person::getSelectPerson(),
+        'locations' => Location::getSelectLocation()
       ];
     }
 
