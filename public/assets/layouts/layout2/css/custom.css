@@ -96,6 +96,12 @@
   width: 8.9em;
 }
 
+@media (max-height:890px) {
+  .footer-sidebar, .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li.footer-sidebar:hover {
+    position: inherit !important;
+  }
+}
+
 .sidebarPadding {
   padding-top: 6em !important;
 }
@@ -593,6 +599,24 @@
 
 /* ### END LISTAS ### */
 /* ### SIDEBAR ### */
+.scrollbar {
+  max-height: 787px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.page-sidebar-closed .scrollbar {
+  overflow: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
 .menu-toggler.sidebar-toggler {
   display: block;
   cursor: pointer;
@@ -609,8 +633,10 @@
   width: 5.7em !important;
 }
 
-.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li.footer-sidebar:hover {
-  position: fixed !important;
+@media (min-height:891px) {
+  .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li.footer-sidebar:hover {
+    position: fixed !important;
+  }
 }
 
 .spanSubMenu::before {
@@ -693,7 +719,7 @@
   border-bottom: 0px solid transparent;
 }
 
-.borderTasks .panel-default>.panel-heading{
+.borderTasks .panel-default>.panel-heading {
   background: #3a96ee;
   color: #FFFFFF;
 }
