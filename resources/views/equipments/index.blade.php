@@ -32,7 +32,7 @@
     <div class="portlet light portlet-fit bordered">
       <div class="portlet-title topForm">
       </div>
-      <p class="titleForm">Equipments brochure</p>
+      <p class="titleForm">Equipment module</p>
       <div class="portlet-body">
         <div class="table-toolbar">
           <div class="row">

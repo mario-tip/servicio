@@ -117,7 +117,7 @@ class AssetController extends Controller
             'person_id.required' => 'The person is required',
             'description.required' => 'The description is required',
             'customer_id.required' => 'The customer is required',
-            'project_id.required' =>  'The project is required',
+            'project_id.required' =>  'The project is required'
         ];
 
         $validations = [

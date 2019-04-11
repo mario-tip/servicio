@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-3">
       <div class="form-group">
-        <label for="name" class="control-label"><span class="required" aria-required="true">* </span> Part number:</label>
+        <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Number:</label>
         {!!Form::text('number',null,['class'=>'form-control activos', 'placeholder'=>'', 'autocomplete'=>"off", 'id' => 'number'])!!}
       </div>
     </div>

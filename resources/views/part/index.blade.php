@@ -28,7 +28,7 @@
     <div class="portlet light portlet-fit bordered">
       <div class="portlet-title topForm">
       </div>
-      <p class="titleForm">Parts brochure</p>
+      <p class="titleForm">Parts</p>
       <div class="portlet-body">
         <div class="table-toolbar">
           <div class="row">
@@ -47,7 +47,7 @@
               <th class="center">Part name</th>
               <th class="center">Part number </th>
               <th class="center">Price</th>
-              <th class="center">Description</th>
+              {{-- <th class="center">Description</th> --}}
               @if(userHasPermission("editar_catalogo_correlativos") || userHasPermission("eliminar_catalogo_correlativos"))
               <th class="center">Actions</th>
               @endif
@@ -60,7 +60,7 @@
               <td class="center"> {{$part->name}} </td>
               <td class="center"> {{$part->number}} </td>
               <td class="center"> {{$part->price}} </td>
-              <td class="center"> {{$part->description}} </td>
+              {{-- <td class="center"> {{$part->description}} </td> --}}
               @if(userHasPermission("editar_catalogo_correlativos") || userHasPermission("eliminar_catalogo_correlativos"))
               <td>
                 <div class="">

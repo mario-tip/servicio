@@ -39,7 +39,7 @@
             <div class="portlet light portlet-fit bordered">
               <div class="portlet-title topForm">
               </div>
-                <p class="titleForm">New equipment</p>
+                <p class="titleForm">New equipment module</p>
                 @include("equipments.forms.form")
             </div>
         {!! Form::close() !!}

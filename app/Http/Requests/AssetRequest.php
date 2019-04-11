@@ -6,23 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AssetRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
+    public function authorize(){
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
+    public function rules(){
         return [
             /*'asset.asset_custom_id' => 'required',*/
             'asset.adquisition_date' => 'required',
@@ -37,7 +25,7 @@ class AssetRequest extends FormRequest
             'asset.subcategory_id' => 'required',
             /*'asset_parts' => 'required|array|min:1',*/
             'asset.maintenance_date' => 'required',
-            // 'asset.asset_customer_id' => 'required' 
+            // 'asset.asset_customer_id' => 'required'
         ];
     }
 
