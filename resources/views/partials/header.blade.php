@@ -21,6 +21,19 @@
       @php
       $name_route = explode(".", Request::route()->getName());
       $link = ucwords($name_route[0]);
+
+      switch ($link) {
+        case 'Persons':
+          $link = 'Owners';
+          break;
+        case 'Equipments':
+          $link = 'Equipments Module';
+        break;
+        case 'Actives':
+          $link = 'Equipments';
+        default:
+          break;
+      }
       @endphp
       <span class="saludo nombreVista">{{$link}}</span>
       <span id="saludo" class="saludo"></span>

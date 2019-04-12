@@ -32,7 +32,7 @@
     <div class="portlet light portlet-fit bordered">
       <div class="portlet-title topForm">
       </div>
-      <p class="titleForm">People Brochure</p>
+      <p class="titleForm">Owners</p>
       <div class="portlet-body">
         <div class="table-toolbar">
           <div class="row">
@@ -40,7 +40,7 @@
             <div class="col-md-6">
               <div class="btn-group pull-right">
                 @if(userHasPermission("crear_catalogo_personas"))
-                <a href="{{URL::route('persons.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New person</a>
+                <a href="{{URL::route('persons.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New owner</a>
                 @endif
               </div>
             </div>
@@ -51,7 +51,6 @@
             <tr>
               <th class="center">Name</th>
               <th class="center">Last name</th>
-              <th class="center">Mother's surname</th>
               <th class="center">E-mail</th>
               @if(userHasPermission("editar_catalogo_personas") || userHasPermission("eliminar_catalogo_personas"))
               <th class="center">Action</th>
@@ -63,7 +62,6 @@
             <tr>
               <td class="center">{{$person->name}}</td>
               <td class="center">{{$person->father_last_name}}</td>
-              <td class="center">{{$person->mother_last_name}}</td>
               <td class="center">{{$person->email}}</td>
               @if(userHasPermission("editar_catalogo_personas") || userHasPermission("eliminar_catalogo_personas"))
               <td>
@@ -95,7 +93,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Delete person</h4>
+        <h4 class="modal-title">Delete owner</h4>
       </div>
       <div class="modal-body" id="bodyDelete"></div>
       <div class="modal-footer">
@@ -127,7 +125,7 @@
       <div class="modal-header">
         <h4 class="modal-title"></h4>
       </div>
-      <div class="modal-body">The person can not be eliminated, if it is associated with an asset.</div>
+      <div class="modal-body">The owner can not be eliminated, if it is associated with an asset.</div>
       <div class="modal-footer">
         <button type="button" class="btn btnFormSave" data-dismiss="modal">Ok</button>
       </div>
@@ -155,7 +153,7 @@
     id = $(this).data("id");
     var name = $(this).data("name");
     var nodeName = document.createElement("p");
-    var nameNode = document.createTextNode("Are you sure delete the person ?");
+    var nameNode = document.createTextNode("Are you sure delete the owner ?");
     nodeName.appendChild(nameNode);
     $("#bodyDelete").empty();
     document.getElementById("bodyDelete").appendChild(nodeName);

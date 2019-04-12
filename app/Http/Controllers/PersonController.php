@@ -1,31 +1,19 @@
 <?php
 namespace App\Http\Controllers;
-
+use App\Http\Requests\PersonRequest;
 use App\Department;
 use App\Person;
-use App\User;
 use App\State;
-use App\Http\Requests\PersonRequest;
+use App\User;
 use Session;
 
-class PersonController extends Controller
-{
+class PersonController extends Controller {
 
-    /**
-     * PersonController constructor.
-     */
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    public function index(){
         if(userHasPermission("listar_catalogo_personas")) {
             $persons = Person::all();
             return view('catalogs.persons.index', compact('persons'));
@@ -33,13 +21,7 @@ class PersonController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create(){
         if(userHasPermission("crear_catalogo_personas")) {
             $person = new Person();
             $requirements = $this->getRequirements();
@@ -48,22 +30,14 @@ class PersonController extends Controller
         return redirect()->back();
     }
 
-    private function getRequirements()
-    {
+    private function getRequirements(){
         return [
             'states' => State::getSelectStates(),
             'departments' => Department::getSelectDepartments()
         ];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(PersonRequest $request)
-    {
+    public function store(PersonRequest $request){
         $person_data = $request->get('person');
          try {
             /*$password = str_random(8);
@@ -85,25 +59,7 @@ class PersonController extends Controller
          }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Person  $person
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Person $person)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Person  $person
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id){
         if(userHasPermission("editar_catalogo_personas")) {
             $person = Person::find($id);
             $requirements = $this->getRequirements();
@@ -112,15 +68,7 @@ class PersonController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Person  $person
-     * @return \Illuminate\Http\Response
-     */
-    public function update(PersonRequest $request, Person $person)
-    {
+    public function update(PersonRequest $request, Person $person){
         $person_data = $request->get('person');
         /*$user_data = [
             'username' => $person_data['email'],
@@ -137,14 +85,7 @@ class PersonController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Person  $person
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function destroy($id){
         $response = ['errors' => false];
         $person = Person::find($id);
 

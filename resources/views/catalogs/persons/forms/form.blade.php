@@ -2,8 +2,8 @@
   <div class="horizontal-form">
     <div class="form-body bodyForm">
       <div class="row">
-        <div class="col-md-12">
-          <p class="subtitleForm">Employment information</p>
+        <div class="col-md-12 text-center">
+          <h4>Employment information</h4>
         </div>
       </div>
     </div>
@@ -47,9 +47,9 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="person_mother_last_name"><span class="required" aria-required="true">* </span> Mother's surname : </label>
-            {!! Form::text('person[mother_last_name]', $person->mother_last_name, ['class' => 'form-control no-text-area',
-            'id' => 'person_mother_last_name']) !!}
+            <label class="control-label" for="person_company_position"><span></span>Job: </label>
+            {!! Form::text('person[company_position]', $person->company_position, ['class' => 'form-control no-text-area',
+            'id' => 'person_company_position']) !!}
           </div>
         </div>
         <div class="col-md-6">
@@ -69,13 +69,7 @@
             ['class' => 'bs-select form-control no-text-area', 'id' => 'person_department_id', 'title' => 'Select...']) !!}
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="control-label" for="person_company_position"><span></span>Job: </label>
-            {!! Form::text('person[company_position]', $person->company_position, ['class' => 'form-control no-text-area',
-            'id' => 'person_company_position']) !!}
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -84,8 +78,8 @@
   <div class="horizontal-form">
     <div class="form-body bodyForm">
       <div class="row">
-        <div class="col-md-12">
-          <p class="subtitleForm">Contact information</p>
+        <div class="col-md-12 text-center">
+          <h4>Contact information</h4>
         </div>
       </div>
     </div>

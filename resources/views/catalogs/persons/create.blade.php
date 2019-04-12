@@ -34,7 +34,7 @@
             <div class="portlet light portlet-fit bordered">
               <div class="portlet-title topForm">
               </div>
-                <p class="titleForm">New person</p>
+                <p class="titleForm">New owner</p>
                 @include("catalogs.persons.forms.form")
             </div>
             <!-- END NEW LOCATION PORTLET-->
