@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="form-group">
-            <label class="control-label " for="equipment_name"><span class="required" aria-required="true">* </span>Id equipment: </label>
+            <label class="control-label " for="equipment_name"><span class="required" aria-required="true">* </span>Equipment module ID: </label>
             {!! Form::text('equipment[id_equipment]', $equipment->id_equipment, ['class' => 'form-control',
             'id' => 'equipment_name', 'maxlength' => 50]) !!}
           </div>
@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Code: </label>
+            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Barcode: </label>
             {!! Form::text('equipment[code]', $equipment->code,[
             'class' => 'form-control', 'id' => 'equipment_code', 'maxlength' => 18,
             'onkeypress' => 'return validateInput(event, 5)']) !!}
@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Name: </label>
+            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Equipment module name: </label>
             {!! Form::text('equipment[name]', $equipment->name, ['class' => 'form-control',
             'id' => 'equipment_name', 'maxlength' => 45]) !!}
           </div>
@@ -43,27 +43,28 @@
             'onkeypress' => 'return validateInput(event, 5)', 'placeholder' => '0.00']) !!}
           </div>
         </div>
-        <div class="col-md-3">
+        {{-- <div class="col-md-3">
           <div class="form-group">
             <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Catalog number: </label>
             {!! Form::text('equipment[cat_num]', $equipment->cat_num,[
             'class' => 'form-control', 'id' => 'equipment_cat_num','maxlength' => 10,
             'onkeypress' => 'return validateInput(event, 5)']) !!}
           </div>
-        </div>
+        </div> --}}
+        {{-- Se comenta este campo porque anteriormente se tenía un catalago de partes para los equipos --}}
       </div>
       <div class="row">
 
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Serial: </label>
+            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Serial number: </label>
             {!! Form::text('equipment[serial]', $equipment->serial,[ 'maxlength' => 30,
             'class' => 'form-control', 'id' => 'equipment_serial']) !!}
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group datepicker-group">
-            <label class="control-label" for="equipment_maintenance_container"><span class="required" aria-required="true">* </span>Date purchase:</label>
+            <label class="control-label" for="equipment_maintenance_container"><span class="required" aria-required="true">* </span>Purchase date:</label>
             <div class="date-picker-container">
               <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" id="equipment_maintenance_container">
                 {!! Form::text('equipment[date_purchase]', $equipment->date_purchase,
@@ -83,7 +84,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Code RFID: </label>
+            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>RFID Code: </label>
             {!! Form::text('equipment[code_rfid]', $equipment->code_rfid,[
             'class' => 'form-control', 'id' => 'equipment_code_rfid', 'maxlength' => 20,]) !!}
           </div>
@@ -101,7 +102,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Number part: </label>
+            <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Part number: </label>
             {!! Form::text('equipment[part_num]', $equipment->part_num,[
             'class' => 'form-control', 'id' => 'equipment_part_num',
             'onkeypress' => 'return validateInput(event, 5)']) !!}
@@ -119,16 +120,14 @@
 
       <div class="row">
         <div class="col-md-6">
-          <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span>Image:</label>
+          <label class="control-label"><span class="required" aria-required="true">* </span>Photo:</label>
           <div class="form-group">
             <div class="fileinput fileinput-new" data-provides="fileinput">
               <div class="fileinput-preview fileinput-exists thumbnail"></div>
               <div>
                 <span class="btn green-jungle btn-file btnForm">
-                  <span class="fileinput-new">
-                    Select image </span>
-                  <span class="fileinput-exists">
-                    Change </span>
+                  <span class="fileinput-new">Choose a photo </span>
+                  <span class="fileinput-exists">Change </span>
                   {{-- {!! Form::file('equipment[image_eq]', $equipment->image_eq,[
                         'class' => 'form-control product mb-10',
                         'id'=>'image_eq',
@@ -188,8 +187,8 @@
                   <table class="table table-striped table-bordered table-hover" id="datatable_parts">
                     <thead>
                       <tr>
-                        <th>Name part</th>
-                        <th>Number part</th>
+                        <th>Part name</th>
+                        <th>Part number</th>
                         <th>Price</th>
                         <th>Description</th>
                         <th>Actions</th>

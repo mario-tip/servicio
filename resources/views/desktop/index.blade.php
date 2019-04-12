@@ -116,7 +116,15 @@
                   <li>
                     <a href="{!!URL::to('/actives')!!}">
                       <i class="icon-list"></i>
-                      <span>Asset List</span>
+                      <span>Equipments</span>
+                    </a>
+                  </li>
+                  @endif
+                  @if(userHasPermission("listar_tipo_equipo"))
+                  <li>
+                    <a href="{!!URL::to('/equipments')!!}">
+                      <i class="glyphicon glyphicon-barcode"></i>
+                      <span>Equipments module</span>
                     </a>
                   </li>
                   @endif
@@ -124,7 +132,7 @@
                   <li>
                     <a href="{!!URL::to('/parts')!!}">
                       <i class="icon-frame"></i>
-                      <span>Parts Brochure</span>
+                      <span>Parts</span>
                     </a>
                   </li>
                   @endif
@@ -260,14 +268,6 @@
                     <a href="{{route('projects.index')}}">
                       <i class="glyphicon glyphicon-blackboard"></i>
                       <span>Projects</span>
-                    </a>
-                  </li>
-                  @endif
-                  @if(userHasPermission("listar_tipo_equipo"))
-                  <li>
-                    <a href="{!!URL::to('/equipments')!!}">
-                      <i class="glyphicon glyphicon-barcode"></i>
-                      <span>Equipments</span>
                     </a>
                   </li>
                   @endif

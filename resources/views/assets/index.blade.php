@@ -30,7 +30,7 @@
     <div class="portlet light portlet-fit bordered">
       <div class="portlet-title topForm">
       </div>
-      <p class="titleForm">Asset information capture</p>
+      <p class="titleForm">Equipments</p>
       <div class="portlet-body">
         <div class="table-toolbar">
           <div class="row">
@@ -38,7 +38,7 @@
             <div class="col-md-6">
               <div class="btn-group pull-right">
                 @if(userHasPermission('crear_captura_info'))
-                <a href="{{URL::route('actives.create')}}" class="btn btnList"><i class="fa fa-plus"></i>Add asset</a>
+                <a href="{{URL::route('actives.create')}}" class="btn btnList"><i class="fa fa-plus"></i> Add equipment</a>
                 @endif
               </div>
             </div>
@@ -47,8 +47,8 @@
         <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
           <thead>
             <tr>
-              <th class="center">Asset ID </th>
-              <th class="center">Asset name</th>
+              <th class="center">Equipment ID </th>
+              <th class="center">Equipment name</th>
               <th class="center">Model</th>
               <th class="center">Serial number</th>
               <th class="center">Depreciation</th>
@@ -69,12 +69,12 @@
               <td>
                 <div class="center_items">
                   @if(userHasPermission('editar_captura_info'))
-                  <a href="{{ URL::route('actives.edit', $asset->id) }}" title="Edit" class="btn btnIconList">
+                  <a href="{{ URL::route('actives.edit', $asset->id) }}" title="Edit equipment" class="btn btnIconList">
                     <i class="fa fa-edit"></i>
                   </a>
                   @endif
                   @if(userHasPermission('mostrar_captura_info'))
-                  <a href="{{ URL::route('actives.show', $asset->id) }}" title="Show" class="btn btnIconList">
+                  <a href="{{ URL::route('actives.show', $asset->id) }}" title="Show equipment" class="btn btnIconList">
                     <i class="icon-eye"></i>
                   </a>
                   @endif
@@ -106,7 +106,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Update Firmware</h4>
+        <h4 class="titleForm">Update firmware</h4>
       </div>
       <div id="modal_errors_container"></div>
       {!! Form::open(['route' => 'firmwares.store', 'method' => 'POST', 'id' => 'firmware_form']) !!}

@@ -93,7 +93,23 @@
           <li class="nav-item">
             <a href="{!!URL::to('/actives')!!}" class="nav-link nav-toggle">
               <i class=" icon-list"></i>
-              Asset List</a>
+              Equipments</a>
+          </li>
+          @endif
+
+          @if(userHasPermission("listar_tipo_equipo"))
+          <li class="nav-item">
+            <a href="{!!URL::to('/equipments')!!}" class="nav-link nav-toggle">
+              <i class="glyphicon glyphicon-barcode"></i>
+              Equipments module</a>
+          </li>
+          @endif
+
+          @if(userHasPermission("listar_catalogo_correlativos") )
+          <li class="nav-item">
+            <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
+              <i class="icon-frame"></i>
+              Parts</a>
           </li>
           @endif
           {{-- <li id="" class="nav-item" >
@@ -101,13 +117,7 @@
                     <i class="icon-layers"></i>
                     Asset Groups</a>
                   </li> --}}
-          @if(userHasPermission("listar_catalogo_correlativos") )
-          <li class="nav-item">
-            <a href="{!!URL::to('/parts')!!}" class="nav-link nav-toggle">
-              <i class="icon-frame"></i>
-              Parts brochure</a>
-          </li>
-          @endif
+
           {{-- <li id="" class="nav-item">
                     <a href="{!!URL::to('/')!!}" class="nav-link nav-toggle">
                     <i class="icon-check"></i>
@@ -223,13 +233,7 @@
           </li>
           @endif
 
-          @if(userHasPermission("listar_tipo_equipo"))
-          <li class="nav-item">
-            <a href="{!!URL::to('/equipments')!!}" class="nav-link nav-toggle">
-              <i class="glyphicon glyphicon-barcode"></i>
-              Equipment</a>
-          </li>
-          @endif
+
 
           @if(userHasPermission("listar_usuarios"))
           <li class="nav-item">
@@ -257,7 +261,6 @@
         </a>
       </li>
       @endif
-      @endif
       <li class="nav-item footer-sidebar">
         <a style="min-height: 50px;" href="{{ url('/logout') }}" role="button" tabindex="0" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
           <i class="fa fa-sign-out"></i>
@@ -266,6 +269,7 @@
           {{ csrf_field() }}
         </form>
       </li>
+      @endif
     </ul>
     <!-- END SIDEBAR MENU -->
     <!-- END SIDEBAR MENU -->

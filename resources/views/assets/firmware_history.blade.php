@@ -38,7 +38,7 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Asset ID : </label>
+                                        <label class="control-label">Equipment ID: </label>
                                         <label class="control-label">{{$asset->asset_custom_id}}</label>
                                     </div>
                                 </div>
@@ -52,13 +52,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Asset name: </label>
+                                        <label class="control-label">Equipment name: </label>
                                         <label class="control-label">{{$asset->name}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
-                                        <label class="control-label">Serial number : </label>
+                                        <label class="control-label">Serial number: </label>
                                         <label class="control-label">{{$asset->serial}}</label>
                                     </div>
                                 </div>
@@ -69,8 +69,8 @@
                     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                         <thead>
                             <tr>
-                                <th class="center">Asset ID </th>
-                                <th class="center">Asset</th>
+                                <th class="center">Equipment ID </th>
+                                <th class="center">Equipment name</th>
                                 <th class="center">Previous firmware </th>
                                 <th class="center">Updated firmware  </th>
                                 <th class="center">Update date </th>

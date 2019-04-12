@@ -68,7 +68,7 @@
     <script type="application/javascript">
         $(document).ready(function(){
             $("#liEquipments").addClass("active");
-            $("#liTools").addClass("active");
+            $("#liAssets").addClass("active");
 
         });
         /*Deshabilitamos todas las teclas de refresh*/

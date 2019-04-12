@@ -3,14 +3,14 @@
   <div class="portlet-title topForm">
   </div>
   <div class="portlet-body horizontal-form">
-    <p class="titleForm">Asset parts</p>
+    <p class="titleForm">Equipment module</p>
 
     <div class="horizontal-form">
       <div class="form-body bodyForm">
         <div class="row">
           <div class="col-md-12 form-group-container">
             <div class="form-group equipment-select-group ">
-              <label class="control-label" id="asset_equipment_label" for="asset_equipment_id">Asset type: </label>
+              <label class="control-label" id="asset_equipment_label" for="asset_equipment_id">Equipment module: </label>
               {!!Form::select('asset[equipment_id]', $dependencies['equipments'], $asset->equipment_id,
               ['class' => 'bs-select form-control asset-equipment', 'id' => 'asset_equipment_id',
               'title' => 'Select...']) !!}

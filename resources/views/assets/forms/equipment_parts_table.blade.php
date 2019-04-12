@@ -12,8 +12,8 @@
                 <th>Part name</th>
                 <th>Part number</th>
                 <th>Price</th>
-                <th>Description</th>
-                <th>Serie number</th>
+                <th width="50%">Description</th>
+                <th>Serial number</th>
             </tr>
         </thead>
         <tbody>
@@ -30,9 +30,9 @@
                 <td>{{$part->name}}</td>
                 <td>{{$part->number}}</td>
                 <td class="currency-format">{{$part->price}}</td>
-                <td>{{$part->description}}</td>
+                <td width="50%">{{$part->description}}</td>
                 <td>
-                    {!! Form::text(null, $part->serial, ['class' => 'equipment-part-input form-control', 'placeholder' => 'Serie number', 'id' => 'part_input' . $part->id]) !!}
+                    {!! Form::text(null, $part->serial, ['class' => 'equipment-part-input form-control', 'placeholder' => 'Serial number', 'id' => 'part_input' . $part->id]) !!}
                 </td>
             </tr>
             @endforeach

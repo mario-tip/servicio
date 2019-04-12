@@ -144,7 +144,13 @@ class EquipmentController extends Controller {
 
     private function validateInputs($form_data){
         $messages = [
-            'name.required' => 'The equipment name is required'
+            'name.required' => 'Equipment module name is required.',
+            'price.required' => 'Price is required.',
+            'serial.required' => 'Serial number is required.',
+            'date_purchase.required' => 'Purchase date is required.',
+            'quantity.required' => 'Quantity is required.',
+            'provider_id' => 'Provider is required.',
+            'description.required' => 'Description is required.'
         ];
 
         $validator = Validator::make($form_data, [

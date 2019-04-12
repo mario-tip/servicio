@@ -99,25 +99,25 @@ class AssetController extends Controller
 
     private function validateInputs($form_data, $method) {
         $messages = [
-            'asset_custom_id.required' => 'The id of the asset is required',
-            'adquisition_date.required' => 'The purchase date of the asset is required',
-            'name.required' => 'The name of the asset is required',
-            'model.required' => 'The asset model is required',
-            'unique' => 'The model already exists',
-            'condition.required' => 'The state of the asset is required',
-            'serial.required' => 'The serial number of the asset is required',
-            'status.required' => 'The status of the asset is required',
-            'brand.required' => 'The brand of the asset is required',
-            'location_id.required' => 'The location of the asset is required',
-            'barcode.required' => 'The barcode is required',
-            'subcategory_id.required' => 'The subcategory is required',
-            'equipment_id.required' => 'The type of asset is required',
-            'maintenance_date.required' => 'The maintenance date is required',
-            'cost.required' => 'The price is required',
-            'person_id.required' => 'The person is required',
-            'description.required' => 'The description is required',
-            'customer_id.required' => 'The customer is required',
-            'project_id.required' =>  'The project is required'
+            'asset_custom_id.required' => 'Equipment ID is required.',
+            'adquisition_date.required' => 'Purchase date is required.',
+            'name.required' => 'Equipment name is required.',
+            'model.required' => 'Model is required.',
+            'unique' => 'Model already exists.',
+            'condition.required' => 'Condition is required.',
+            'serial.required' => 'Serial number is required.',
+            'status.required' => 'Status is required.',
+            'brand.required' => 'Brand is required.',
+            'location_id.required' => 'Location is required.',
+            'barcode.required' => 'The barcode is required.',
+            'subcategory_id.required' => 'Subcategory is required.',
+            'equipment_id.required' => 'Equipment module is required.',
+            'maintenance_date.required' => 'Maintenance date is required.',
+            'cost.required' => 'Price is required.',
+            'person_id.required' => 'Owner is required.',
+            'description.required' => 'Description is required.',
+            'customer_id.required' => 'Customer is required.',
+            'project_id.required' =>  'Project is required.'
         ];
 
         $validations = [

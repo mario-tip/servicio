@@ -600,7 +600,7 @@
 /* ### END LISTAS ### */
 /* ### SIDEBAR ### */
 .scrollbar {
-  max-height: 787px;
+  max-height: 805px;
   overflow: scroll;
   scrollbar-width: none;
 }

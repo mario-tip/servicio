@@ -37,19 +37,19 @@
       <div class="portlet-title topForm">
       </div>
       <div class="portlet-body">
-        <p class="titleForm">New asset</p>
+        <p class="titleForm">New equipment</p>
         <div class="horizontal-form">
           <div class="form-body bodyForm">
             <div class="row">
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_custom_id">Asset ID: </label>
+                  <label class="control-label" for="asset_custom_id">Equipment ID: </label>
                   {!! Form::text('asset[asset_custom_id]', $asset->asset_custom_id, ['class' => 'form-control', 'id' => 'asset_custom_id']) !!}
                 </div>
               </div>
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_adquisition_date_container"><span class="required" aria-required="true">* </span>Date of purchase: </label>
+                  <label class="control-label" for="asset_adquisition_date_container"><span class="required" aria-required="true">* </span>Purchase date:</label>
                   <div class="date-picker-container">
                     <div class="input-group date date-picker" data-date-format="dd-mm-yyyy"> {{--Removed class input-group, and data-date-start-date="+0d"--}}
                       {!! Form::text('asset[adquisition_date]', $asset->adquisition_date, ['class' => 'form-control',
@@ -67,7 +67,7 @@
             <div class="row">
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_name"><span class="required" aria-required="true">* </span>Asset name: </label>
+                  <label class="control-label" for="asset_name"><span class="required" aria-required="true">* </span>Equipment name: </label>
                   {!! Form::text('asset[name]', $asset->name, ['class' => 'form-control', 'id' => 'asset_name']) !!}
                 </div>
               </div>
@@ -88,7 +88,7 @@
               </div>
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_condition"><span class="required" aria-required="true">* </span>State: </label>
+                  <label class="control-label" for="asset_condition"><span class="required" aria-required="true">* </span>Condition: </label>
                   {!!Form::select('asset[condition]',['1' => 'New','2' => 'Used'], $asset->condition, ['class' => 'bs-select form-control', 'id' => 'asset_condition', 'title' => 'Select...']) !!}
                 </div>
               </div>
@@ -116,7 +116,7 @@
               </div>
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_person_id"><span class="required" aria-required="true">* </span>Person: </label>
+                  <label class="control-label" for="asset_person_id"><span class="required" aria-required="true">* </span>Owner: </label>
                   {!!Form::select('asset[person_id]', $dependencies['persons'], $asset->person_id, ['class' => 'bs-select form-control', 'id' => 'asset_person_id', 'title' => 'Select...']) !!}
                 </div>
               </div>
@@ -124,7 +124,7 @@
             <div class="row">
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label"><span class="required" aria-required="true">* </span>Loation: </label>
+                  <label class="control-label"><span class="required" aria-required="true">* </span>Location: </label>
                   {!!Form::select('asset[location_id]', $dependencies['locations'], $location_id, ['class' => 'bs-select form-control', 'id' => 'asset_location_id', 'title' => 'Select...']) !!}
                 </div>
               </div>
@@ -167,7 +167,7 @@
               </div>
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_purchase_order"><span></span>Purchase reference: </label>
+                  <label class="control-label" for="asset_purchase_order"><span></span>Payment reference: </label>
                   {!! Form::text('asset[purchase_order]', $asset->purchase_order, ['class' => 'form-control', 'id' => 'asset_purchase_order']) !!}
                 </div>
               </div>
@@ -181,7 +181,7 @@
               </div>
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_barcode"><span class="required" aria-required="true">* </span>Bar code: </label>
+                  <label class="control-label" for="asset_barcode"><span class="required" aria-required="true">* </span>Barcode: </label>
                   {!! Form::text('asset[barcode]', $asset->barcode, ['class' => 'form-control', 'id' => 'asset_barcode']) !!}
                 </div>
               </div>
@@ -240,7 +240,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                  <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span>Image:</label>
+                  <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span>Photo:</label>
                   <div class="form-group">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-new ">
@@ -256,14 +256,11 @@
                       </div>
                       <div>
                         <span class="btn green-jungle btn-file btnForm">
-                          <span class="fileinput-new">
-                            Select image </span>
-                          <span class="fileinput-exists">
-                            Change </span>
+                          <span class="fileinput-new">Choose a photo </span>
+                          <span class="fileinput-exists">Change </span>
                           <input type="file" name="image" id="image" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" accept="image/*" />
                         </span>
-                        <a href="#" class="btn red fileinput-exists btnForm" data-dismiss="fileinput">
-                          Remove </a>
+                        <a href="#" class="btn red fileinput-exists btnForm" data-dismiss="fileinput">Remove </a>
                       </div>
                     </div>
                   </div>

@@ -32,14 +32,14 @@
     <div class="portlet light portlet-fit bordered">
       <div class="portlet-title topForm">
       </div>
-      <p class="titleForm">Equipment module</p>
+      <p class="titleForm">Equipments module</p>
       <div class="portlet-body">
         <div class="table-toolbar">
           <div class="row">
             <div class="col-md-12">
               <div class="btn-group pull-right">
                 @if(userHasPermission("crear_tipo_equipo"))
-                <a href="{{URL::route('equipments.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New Equipment</a>
+                <a href="{{URL::route('equipments.create')}}" class="btn btnList"><i class="fa fa-plus"></i> New equipment module</a>
                 @endif
               </div>
             </div>
@@ -48,7 +48,7 @@
         <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
           <thead>
             <tr>
-              <th class="center">Name equipment</th>
+              <th class="center">Equipment module name</th>
               @if(userHasPermission("editar_tipo_equipo") || userHasPermission("editar_tipo_equipo") )
               <th class="center">Actions</th>
               @endif
@@ -63,12 +63,12 @@
               <td>
                 <div class="center_items">
                   @if(userHasPermission("editar_tipo_equipo"))
-                  <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Edit" class="btn btnIconList">
+                  <a href="{{ URL::route('equipments.edit', $equipment->id)}}" title="Edit equipment module" class="btn btnIconList">
                     <i class="fa fa-edit"></i>
                   </a>
                   @endif
                   @if(userHasPermission("eliminar_tipo_equipo"))
-                  <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Delete" class="btn btn-circle btn-icon-only red delete-equipment">
+                  <a href="#basic" data-toggle="modal" data-name="{{$equipment->name}}" data-id="{{$equipment->id}}" title="Delete equipment module" class="btn btn-circle btn-icon-only red delete-equipment">
                     <i class="fa fa-trash-o"></i>
                   </a>
                   @endif
@@ -146,7 +146,7 @@
 {!! Html::script("/assets/scripts/equipment.js") !!}
 <script type="application/javascript">
   $(document).ready(function() {
-    $("#liTools").addClass("active");
+    $("#liAssets").addClass("active");
     $("#liEquipments").addClass("active");
   });
 </script>

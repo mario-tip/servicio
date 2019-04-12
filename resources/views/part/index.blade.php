@@ -65,12 +65,12 @@
               <td>
                 <div class="">
                   @if(userHasPermission("editar_catalogo_correlativos"))
-                  <a href="{{  URL::route('parts.edit', $part->id) }}" title="Edit" class="btn btnIconList">
+                  <a href="{{  URL::route('parts.edit', $part->id) }}" title="Edit part" class="btn btnIconList">
                     <i class="fa fa-edit"></i>
                   </a>
                   @endif
                   @if(userHasPermission("eliminar_catalogo_correlativos"))
-                  <a href="#basic" data-toggle="modal" data-name="{{$part->name}}" data-id="{{$part->id}}" title="Delete" class="btn btn-circle btn-icon-only red modalDelete">
+                  <a href="#basic" data-toggle="modal" data-name="{{$part->name}}" data-id="{{$part->id}}" title="Delete part" class="btn btn-circle btn-icon-only red modalDelete">
                     <i class="fa fa-trash-o"></i>
                   </a>
                   @endif
@@ -102,7 +102,7 @@
           <div class="col-md-6">
             <div style="text-align: center;">
               <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-              <button type="button" class="btn btnFormSave" data-dismiss="modal" onclick="deleteUser()">Ok</button>
+              <button type="button" class="btn btnFormSave" data-dismiss="modal" onclick="deleteUser()">Yes</button>
             </div>
           </div>
           <div class="col-md-6">
