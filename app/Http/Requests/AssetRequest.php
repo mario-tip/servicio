@@ -12,7 +12,7 @@ class AssetRequest extends FormRequest
 
     public function rules(){
         return [
-            /*'asset.asset_custom_id' => 'required',*/
+            'asset.asset_custom_id' => 'required',
             'asset.adquisition_date' => 'required',
             'asset.name' => 'required',
             'asset.model' => 'required',
@@ -26,6 +26,7 @@ class AssetRequest extends FormRequest
             /*'asset_parts' => 'required|array|min:1',*/
             'asset.maintenance_date' => 'required',
             // 'asset.asset_customer_id' => 'required'
+            // 'asset.image' => 'required'
         ];
     }
 

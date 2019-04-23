@@ -69,7 +69,7 @@
       </div>
 
       <div class="row text-center">
-        <h4>Administrative Employee</h4>
+        <h4 class="subtitle">Administrative Employee</h4>
       </div>
 
       <div class="row">

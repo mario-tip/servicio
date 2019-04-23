@@ -10,34 +10,10 @@ class Asset extends Model
     protected $table = 'assets';
 
     protected $fillable = [
-        'asset_custom_id',
-        'project_id',
-        'model',
-        'name',
-        'serial',
-        'brand',
-        'adquisition_date',
-        'barcode',
-        'cost',
-        'condition',
-        'status',
-        'person_id',
-        'expires_date',
-        'description',
-        'purchase_order',
-        'maintenance_date',
-        'notes',
-        'provider_id',
-        'deleted_at',
-        'subcategory_id',
-        'customer_id',
-        'equipment_id',
-        'depreciation',
-        'quantity',
-        'documents',
-        'image',
-        'code_rfid',
-        ''
+      'equipment_id','asset_custom_id','project_id','model','name','serial','brand','adquisition_date',
+      'barcode','cost','condition','status','person_id','expires_date','description','purchase_order',
+      'maintenance_date','notes','provider_id','deleted_at','subcategory_id','customer_id',
+      'depreciation','quantity','code_rfid','image','document'
     ];
 
 

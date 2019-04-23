@@ -43,7 +43,6 @@ class AssetController extends Controller
             $dependencies = $this->getDependenciesData();
             $asset = new Asset;
             $location_id = null;
-            // dd($dependencies);
             return view("assets.create", compact('dependencies', 'asset', 'location_id'));
         }
         return redirect()->back();
@@ -65,22 +64,56 @@ class AssetController extends Controller
     public function store(Request $request){
 
         $asset_data = $request->get('asset');
-        $validator = $this->validateInputs($asset_data, 'POST');
+
+        $validator = Validator::make($asset_data,[
+          'adquisition_date' => 'required',
+          'name' => 'required',
+          'model' => 'required',
+          'condition' => 'required',
+          'serial' => 'required',
+          'status' => 'required',
+          'brand' => 'required',
+          'location_id' => 'required',
+          'barcode' => 'required',
+          'subcategory_id' => 'required',
+          'maintenance_date' => 'required',
+          'cost' => 'required',
+          'person_id' => 'required',
+          'description' => 'required',
+          'customer_id' => 'required',
+          'project_id' => 'required'
+        ]);
 
         if($validator->fails()) {
-            $response = [
-                'errors' => true,
-                'errors_fragment' => \View::make('partials.request')->withErrors($validator)->render()
-            ];
-            return response()->json($response);
+
+            // return redirect()->back()->withErrors($validator)->withInput();
         }
 
+
         $asset_data = $this->formatFormData($asset_data);
-        // dd(response()->json($asset_data));
 
         $locations = [];
         $locations[$asset_data['location_id']] = ['status' => '1'];
         $equipment_parts = $request->get('equipment_parts');
+
+        if ($request->hasFile('document')) {
+          $document = $request->file('document');
+          $ext_doc = $document->getClientOriginalExtension();
+          $name_doc = str_random(5)."_".time()."_"."doc_assets" . "." . $ext_doc;
+          $destinationPath = public_path('/images/assets');
+          dd($document);
+          $document->move($destinationPath,$name_doc);
+          $asset_data['document'] = $name_doc;
+        }
+
+        if ($request->hasFile('image')) {
+          $image = $request->file('image');
+          $ext_img = $image->getClientOriginalExtension();
+          $name_img = str_random(5)."_".time()."_"."img_assets" . "." . $ext_img;
+          $destinationPath = public_path('/images/assets');
+          $image->move($destinationPath,$name_img);
+          $asset_data['image'] = $name_img;
+        }
 
         try {
             $asset = Asset::create($asset_data);
@@ -138,10 +171,11 @@ class AssetController extends Controller
             'person_id' => 'required',
             'description' => 'required',
             'customer_id' => 'required',
-            'project_id' => 'required'
+            'project_id' => 'required',
+            'quantity' => 'required'
         ];
 
-        if($method == 'POST') $validations['model'] = 'required|unique:assets';
+        if($method == 'PUT') $validations['model'] = 'required|unique:assets';
 
         $validator = Validator::make($form_data, $validations, $messages);
 
@@ -181,6 +215,7 @@ class AssetController extends Controller
     public function edit($id){
         if(userHasPermission('editar_captura_info')) {
             $asset = Asset::find($id);
+            // dd($asset);
             $location_id = count($asset->locations) == 0 ? null : $asset->locations[0]->id;
             $dependencies = $this->getDependenciesData();
             return view('assets.edit', compact('asset', 'dependencies', 'location_id'));
@@ -190,8 +225,27 @@ class AssetController extends Controller
 
     public function update(Request $request, $id){
         $asset_data = $request->get('asset');
-        $validator = $this->validateInputs($asset_data, 'PUT');
+        $asset_data['_method'] = 'PUT';
 
+        if ($request->hasFile('document')) {
+          $document = $request->file('document');
+          $ext_doc = $document->getClientOriginalExtension();
+          $name_doc = str_random(5)."_".time()."_"."doc_assets" . "." . $ext_doc;
+          $destinationPath = public_path('/images/assets');
+          $document->move($destinationPath,$name_doc);
+          $asset_data['document'] = $name_doc;
+        }
+
+        if ($request->hasFile('image')) {
+          $image = $request->file('image');
+          $ext_img = $image->getClientOriginalExtension();
+          $name_img = str_random(5)."_".time()."_"."img_assets" . "." . $ext_img;
+          $destinationPath = public_path('/images/assets');
+          $image->move($destinationPath,$name_img);
+          $asset_data['image'] = $name_img;
+        }
+
+        $validator = $this->validateInputs($asset_data, 'PUT');
         if($validator->fails()) {
             $response = [
                 'errors' => true,

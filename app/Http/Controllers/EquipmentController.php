@@ -35,8 +35,7 @@ class EquipmentController extends Controller {
         return redirect()->back();
     }
 
-    public function getDepende()
-    {
+    public function getDepende(){
       return [
         'providers' => Provider::getSelectProvider(),
       ];
@@ -101,23 +100,6 @@ class EquipmentController extends Controller {
         $equipment_data = $request->get('equipment');
         $validator = $this->validateInputs($equipment_data);
         $equipment_data['date_purchase'] = Carbon::parse($equipment_data['date_purchase'])->format('Y-m-d');
-
-          // $img = Input::file('image_eq');
-          // dd($request->image_eq);
-          // $ext = $img->getClientOriginalExtension();
-          // $name = str_random(10).'.'.time().'.'.'image'.'.'.$ext;
-          // $img->move(public_path().'/images/parts/',$name);
-          // $equipment_data['image'] = $name;
-
-        /*if ($request->has('doc_file')) {
-          $doc = Input::file('doc_file');
-          $file = $doc->getClientOriginalName();
-          $extension = $doc->getClientOriginalExtension();
-          $name = str_random(10).'_'.time().'_'.'file'.'.'.$extension;
-          $main_doc = 'images/parts'.$name;
-
-          $doc->move(public_path().'/images/parts/',$main_doc);
-        }*/
 
         if($validator->fails()) {
             $response = [

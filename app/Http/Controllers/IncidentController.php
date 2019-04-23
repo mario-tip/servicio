@@ -46,12 +46,14 @@ class IncidentController extends Controller {
         return \redirect()->back();
     }
 
-    public function store(IncidentRequest $request){
+    public function store(Request $request){
         $data = $request->all();
 
         if(!empty($data['parts'])){
             $parts = $data['parts'];
         }
+
+        dd($request->all());
 
         $data['suggested_date'] = Input::has('suggested_date')?Carbon::parse($data['suggested_date'])->format('Y-m-d'):'';
         $data['suggested_time'] = Input::has('suggested_time')?Carbon::parse($data['suggested_time'])->format('H:i:s'):'';

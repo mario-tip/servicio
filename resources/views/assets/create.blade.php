@@ -4,13 +4,14 @@
 {!! Html::style("/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css") !!}
 {!! Html::style("/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css") !!}
 {!! Html::style("/assets/global/plugins/datatables/datatables.min.css") !!}
-{{--{!! Html::style("/assets/css/main.css") !!}--}}
+{!! Html::style("/assets/global/plugins/select2/css/select2.min.css") !!}
+{!! Html::style("/assets/global/plugins/select2/css/select2-bootstrap.min.css") !!}
 {!! Html::style("/assets/css/asset.css") !!}
 @endsection
 
 @section('breadcrumb')
 <div class="page-bar">
-  <div id="errors_container"></div>
+  @include('partials.request')
   {{-- <ul class="page-breadcrumb">
             <li>
                 <a href="{!!URL::to('/')!!}">Home</a>
@@ -31,7 +32,7 @@
 <div class="row content_container paddingForm">
   <div class="col-md-12" id="asset_form_subcontainer">
     <!-- BEGIN EXAMPLE TABLE PORTLET-->
-    {!! Form::open(['id' => 'asset_form', 'data-method' => 'POST']) !!}
+    {!! Form::open(['route' => 'actives.store', 'data-method' => 'POST', 'files' => true]) !!}
     <!-- BEGIN NEW ASSET PORTLET-->
     <div class="portlet light portlet-fit bordered">
       <div class="portlet-title topForm">
@@ -43,7 +44,7 @@
             <div class="row">
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_custom_id">Equipment ID: </label>
+                  <label class="control-label" for="asset_custom_id"><span class="required" aria-required="true">* </span>Equipment ID: </label>
                   {!! Form::text('asset[asset_custom_id]', $asset->asset_custom_id, ['class' => 'form-control', 'id' => 'asset_custom_id']) !!}
                 </div>
               </div>
@@ -211,7 +212,7 @@
               </div>
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_subcategory_id"><span class="required" aria-required="true">* </span>RFID Code: </label>
+                  <label class="control-label" for="asset_subcategory_id"><span class="required" > </span>RFID Code: </label>
                   {!! Form::text('asset[code_rfid]', $asset->code_rfid,['class' => 'form-control','id' => 'asset_code_rfid','maxlength' => 20 ])!!}
                 </div>
               </div>
@@ -219,9 +220,32 @@
 
             <div class="row">
               <div class="col-md-6">
-                <label class="control-label textarea-label" for="document"><span id="span_quotation_file_required"></span>File: </label>
+                <label for="inputEmail1" class="control-label"><span class="required"></span>Photo:</label>
                 <div class="form-group">
-                  <div class="fileinput fileinput-new" data-provides="fileinput" id="document">
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-new ">
+                    </div>
+                    <div class="fileinput-preview fileinput-exists thumbnail">
+                    </div>
+                    <div>
+                      <span class="btn green-jungle btn-file btnForm">
+                        <span class="fileinput-new">Choose a image </span>
+                        <span class="fileinput-exists">Change </span>
+                        {!! Form::file('image', $asset->image, [
+                          'class'=>'form-control product mb-10',
+                          'accept="image/*'
+                          ]) !!}
+                      </span>
+                      <a href="#" class="btn red fileinput-exists btnForm" data-dismiss="fileinput">Remove </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="control-label textarea-label"<span id="span_quotation_file_required"></span>File: </label>
+                <div class="form-group">
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="input-group input-large">
                       <div class="form-control uneditable-input input-fixed input-group" data-trigger="fileinput">
                         <i class="fa fa-file fileinput-exists"></i>&nbsp;
@@ -230,41 +254,20 @@
                       <span class="input-group-addon btn green-jungle btn-file btnForm">
                         <span class="fileinput-new"> Add </span>
                         <span class="fileinput-exists"> Change </span>
-                        <input type="file" name="document" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
+                        {!! Form::file('document', $asset->document, [
+                          'class'=>'form-control product mb-10',
+                          'accept' => 'application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf'
+                          ]) !!}
                       </span>
-
                       <a href="javascript:;" class="input-group-addon btn red fileinput-exists btnForm" data-dismiss="fileinput"> Delete </a>
-
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                  <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span>Photo:</label>
-                  <div class="form-group">
-                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                      <div class="fileinput-new ">
+            </div>
 
-                        <!-- @if(isset($asset))
-                        <img src="http://service.altatec.com.mx/{{$asset->image}}" alt="" />
-                        @else
-                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
-                        @endif -->
+            <div class="row">
 
-                      </div>
-                      <div class="fileinput-preview fileinput-exists thumbnail">
-                      </div>
-                      <div>
-                        <span class="btn green-jungle btn-file btnForm">
-                          <span class="fileinput-new">Choose a photo </span>
-                          <span class="fileinput-exists">Change </span>
-                          <input type="file" name="image" id="image" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox" accept="image/*" />
-                        </span>
-                        <a href="#" class="btn red fileinput-exists btnForm" data-dismiss="fileinput">Remove </a>
-                      </div>
-                    </div>
-                  </div>
-              </div>
             </div>
 
           </div>
@@ -281,12 +284,20 @@
 @section("scripts")
 {!! Html::script("/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") !!}
 {!! Html::script("/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.eu.min.js") !!}
+{!! Html::script("/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js") !!}
 {!! Html::script("/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js") !!}
+
 {!! Html::script("/assets/pages/scripts/components-bootstrap-select.min.js") !!}
+{!! Html::script("/assets/pages/scripts/components-date-time-pickers.min.js") !!}
+
+{!! Html::script("/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js") !!}
+{!! Html::script("/assets/global/scripts/datatable.js") !!}
 {!! Html::script("/assets/global/plugins/datatables/datatables.min.js") !!}
-{!! Html::script("/assets/pages/scripts/table-datatables-scroller.min.js") !!}
-{!! Html::script("/assets/scripts/jquery.number.js") !!}
+{!! Html::script("/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js") !!}
+
 {!! Html::script("/assets/scripts/validateFields.js") !!}
+{!! Html::script("/assets/global/plugins/select2/js/select2.full.min.js") !!}
+{!! Html::script("/assets/global/plugins/select2/js/i18n/en.js") !!}
 {!! Html::script("/assets/scripts/asset.js") !!}
 <script type="application/javascript">
   $(document).ready(function() {
