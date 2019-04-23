@@ -22,7 +22,7 @@ class PersonRequest extends FormRequest
         return [
             'person.name.required' => 'The name is required',
             'person.father_last_name.required' => 'The last name is required',
-            'person.department_id.required' => 'The department is required',
+            // 'person.department_id.required' => 'The department is required',
             'person.address.required' => 'Address 1 is required',
             'person.phone.required' => 'The phone is required',
             'person.phone.size' => 'The phone must contain 10 digits',
@@ -46,7 +46,7 @@ class PersonRequest extends FormRequest
         $validations = [
             'person.name' => 'required',
             'person.father_last_name' => 'required',
-            'person.department_id' => 'required',
+            // 'person.department_id' => 'required',
             'person.address' => 'required',
             'person.phone' => 'required|size:10',
             // 'person.state_id' => 'required',
