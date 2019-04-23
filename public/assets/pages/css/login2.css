@@ -27,7 +27,7 @@ Login page
 
 .login .content {
   width: 470px;
-  margin: 100px auto 40px auto;
+  margin: 5em auto 2em auto;
 }
 
 .login .form-title {
@@ -256,9 +256,9 @@ Login page
     padding: 0px;
   }
 
-  .login .content {
+  /* .login .content {
     width: 245px;
-  }
+  } */
 
   .login .content h3 {
     font-size: 22px;

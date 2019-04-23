@@ -81,7 +81,7 @@
 
       <div class="alert alert-danger display-hide">
         <button class="close" data-close="alert"></button>
-        <span> Introduce tu correo electrónico y contraseña. </span>
+        <span> Enter your username and password. </span>
       </div>
       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->

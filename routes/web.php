@@ -140,5 +140,10 @@ Route::resource('/parts', 'PartController');
 // Route to dashboard
 Route::get('/dashboard',['as'=>'Dashboard','uses'=>'DashboardController@index']);
 
+// Route to profile
+Route::get('/profile', function () {
+    return view('profile.index');
+});
+
 //Ws to loginAs
 Route::post('loginAs', 'APIController@loginAs');
