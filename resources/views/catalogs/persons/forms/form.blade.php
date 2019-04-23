@@ -125,17 +125,17 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="person_state_id"><span class="required" aria-required="true">* </span>State: </label>
-            {!!Form::select('person[state_id]', $requirements['states'], $person->state_id,
-            ['class' => 'bs-select form-control no-text-area', 'id' => 'person_state_id', 'title' => 'Select...']) !!}
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
             <label class="control-label" for="person_email"><span class="required" aria-required="true">* </span>E-mail : </label>
             {!! Form::text('person[email]', $person->email, ['class' => 'form-control no-text-area',
             'id' => 'person_email']) !!}
           </div>
+        </div>
+        <div class="col-md-6">
+          {{-- <div class="form-group">
+            <label class="control-label" for="person_state_id"><span class="required" aria-required="true">* </span>State: </label>
+            {!!Form::select('person[state_id]', $requirements['states'], $person->state_id,
+            ['class' => 'bs-select form-control no-text-area', 'id' => 'person_state_id', 'title' => 'Select...']) !!}
+          </div> --}}
         </div>
       </div>
       <div class="row">

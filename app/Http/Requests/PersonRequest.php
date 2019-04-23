@@ -49,7 +49,7 @@ class PersonRequest extends FormRequest
             'person.department_id' => 'required',
             'person.address' => 'required',
             'person.phone' => 'required|size:10',
-            'person.state_id' => 'required',
+            // 'person.state_id' => 'required',
             'person.city' => 'required',
             'person.zip_code' => 'required|size:5',
         ];
