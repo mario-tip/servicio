@@ -121,7 +121,7 @@
                     <td>
                       <div>
                         @if(userHasPermission("editar_registro_incidencias"))
-                        <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Edit" class="btn btnIconList">
+                        <a href="{{URL::route('incidents.edit', $incident->id)}}" title="Edit incident" class="btn btnIconList">
                           <i class="fa fa-edit"></i>
                         </a>
                         @endif
@@ -131,7 +131,7 @@
                         </a>
                         @endif
                         @if(userHasPermission("eliminar_registro_incidencias"))
-                        <a href="#basic" data-toggle="modal" data-name="{{$incident->name}}" data-id="{{$incident->id}}" title="Delete" class="btn btn-circle btn-icon-only red modalDelete">
+                        <a href="#basic" data-toggle="modal" data-name="{{$incident->name}}" data-id="{{$incident->id}}" title="Delete incident" class="btn btn-circle btn-icon-only red modalDelete">
                           <i class="fa  fa-trash-o"></i>
                         </a>
                         @endif

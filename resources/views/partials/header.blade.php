@@ -83,7 +83,7 @@
         <p class="username text-center sideBarModalUsername"> {!!Auth::user()->username!!} </p>
         <ul class="navMenu">
           <li id="" class="nav-item">
-            <a href="" class="nav-link nav-toggle">
+            <a href="/profile" class="nav-link nav-toggle">
               <i class="fa fa-user"></i>
               <span class="title not-select ">Profile</span>
             </a>
