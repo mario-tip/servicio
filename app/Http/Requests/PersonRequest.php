@@ -26,7 +26,7 @@ class PersonRequest extends FormRequest
             'person.address.required' => 'Address 1 is required',
             'person.phone.required' => 'The phone is required',
             'person.phone.size' => 'The phone must contain 10 digits',
-            'person.state_id.required' => 'The state is required',
+            // 'person.state_id.required' => 'The state is required',
             'person.email.required' => 'Mail is required',
             'person.email.email' => 'The format of the email is incorrect',
             'person.email.unique' => 'The email already exists',
