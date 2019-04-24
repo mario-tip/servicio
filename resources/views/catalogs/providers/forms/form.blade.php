@@ -37,22 +37,6 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="provider_state_id"><span class="required" aria-required="true">* </span>State: </label>
-            {!!Form::select('provider[state_id]', $states, $provider->state_id,
-            ['class' => 'bs-select form-control', 'id' => 'provider_state_id', 'title' => 'Select...']) !!}
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="control-label" for="provider_website"><span></span>Website: </label>
-            {!! Form::text('provider[website]', $provider->website, ['class' => 'form-control',
-            'id' => 'provider_website']) !!}
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
             <label class="control-label" for="provider_address"><span></span>Address: </label>
             {!! Form::text('provider[address]', $provider->address, ['class' => 'form-control',
             'id' => 'provider_address']) !!}
@@ -64,6 +48,22 @@
             {!! Form::text('provider[zip_code]', $provider->zip_code, ['class' => 'form-control',
             'id' => 'provider_zip_code', 'onkeypress' => 'return validateInput(event, 2)',
             'maxlength' => '5']) !!}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {{-- <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="provider_state_id"><span class="required" aria-required="true">* </span>State: </label>
+            {!!Form::select('provider[state_id]', $states, $provider->state_id,
+            ['class' => 'bs-select form-control', 'id' => 'provider_state_id', 'title' => 'Select...']) !!}
+          </div>
+        </div> --}}
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="provider_website"><span></span>Website: </label>
+            {!! Form::text('provider[website]', $provider->website, ['class' => 'form-control',
+            'id' => 'provider_website']) !!}
           </div>
         </div>
       </div>

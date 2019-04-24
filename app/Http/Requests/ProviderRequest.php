@@ -24,7 +24,7 @@ class ProviderRequest extends FormRequest
             'provider.zip_code.size' => 'The zip code must contain 5 digits',
             'provider.email.required' => 'The E-mail is required',
             'provider.email.email' => 'The E-mail format is incorrect',
-            'provider.state_id.required' => 'The state is required',
+            // 'provider.state_id.required' => 'The state is required',
             'provider.contact_phone.size' => "The contact's phone must contain 10 digits",
             'provider.contact_email.email' => "The contact's email format is incorrect",
         ];
@@ -42,7 +42,7 @@ class ProviderRequest extends FormRequest
             'provider.phone' => 'size:10',
             'provider.zip_code' => 'size:5',
             'provider.email' => 'required|email',
-            'provider.state_id' => 'required',
+            // 'provider.state_id' => 'required',
             'provider.contact_phone' => 'size:10',
             'provider.contact_email' => 'email',
         ];
