@@ -13,7 +13,7 @@ class Asset extends Model
       'equipment_id','asset_custom_id','project_id','model','name','serial','brand','adquisition_date',
       'barcode','cost','condition','status','person_id','expires_date','description','purchase_order',
       'maintenance_date','notes','provider_id','deleted_at','subcategory_id','customer_id',
-      'depreciation','quantity','code_rfid','image','document'
+      'depreciation','quantity','code_rfid','image','document','location_id'
     ];
 
 

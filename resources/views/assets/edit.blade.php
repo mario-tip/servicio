@@ -127,7 +127,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="control-label"><span class="required" aria-required="true">* </span>Location: </label>
-                  {!! Form::select('asset[location_id]', $dependencies['locations'], $location_id, ['class' => 'bs-select form-control', 'id' => 'asset_location_id', 'title' => 'Select...']) !!}
+                  {!! Form::select('asset[location_id]', $dependencies['locations'], $asset->location_id, ['class' => 'bs-select form-control', 'id' => 'asset_location_id', 'title' => 'Select...']) !!}
                 </div>
               </div>
               <div class="col-md-6">
