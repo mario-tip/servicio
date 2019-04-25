@@ -145,5 +145,10 @@ Route::get('/profile', function () {
     return view('profile.index');
 });
 
+// Route to profile
+Route::get('/settings', function () {
+    return view('settings.index');
+});
+
 //Ws to loginAs
 Route::post('loginAs', 'APIController@loginAs');

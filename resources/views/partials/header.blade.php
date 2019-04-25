@@ -91,11 +91,11 @@
           <li id="" class="nav-item">
             <a href="" class="nav-link nav-toggle">
               <i class="fa fa-envelope"></i>
-              <span class="title not-select ">Messages</span>
+              <span class="title not-select12">Messages</span>
             </a>
           </li>
           <li id="" class="nav-item">
-            <a href="" class="nav-link nav-toggle">
+            <a href="/settings" class="nav-link nav-toggle">
               <i class="icon-settings"></i>
               <span class="title not-select ">Settings</span>
             </a>
