@@ -75,7 +75,7 @@ class AssetController extends Controller
           'brand' => 'required',
           'location_id' => 'required',
           'barcode' => 'required',
-          'subcategory_id' => 'required',
+          // 'subcategory_id' => 'required',
           'maintenance_date' => 'required',
           'cost' => 'required',
           'person_id' => 'required',
@@ -143,7 +143,7 @@ class AssetController extends Controller
             'brand.required' => 'Brand is required.',
             'location_id.required' => 'Location is required.',
             'barcode.required' => 'The barcode is required.',
-            'subcategory_id.required' => 'Subcategory is required.',
+            // 'subcategory_id.required' => 'Subcategory is required.',
             'equipment_id.required' => 'Equipment module is required.',
             'maintenance_date.required' => 'Maintenance date is required.',
             'cost.required' => 'Price is required.',
@@ -164,7 +164,7 @@ class AssetController extends Controller
             'brand' => 'required',
             'location_id' => 'required',
             'barcode' => 'required',
-            'subcategory_id' => 'required',
+            // 'subcategory_id' => 'required',
             /*'equipment_id' => 'required',*/ //|array|min:1
             'maintenance_date' => 'required',
             'cost' => 'required',
@@ -175,7 +175,7 @@ class AssetController extends Controller
             'quantity' => 'required'
         ];
 
-        if($method == 'PUT') $validations['model'] = 'required|unique:assets';
+        if($method == 'POST') $validations['model'] = 'required|unique:assets';
 
         $validator = Validator::make($form_data, $validations, $messages);
 
@@ -193,7 +193,7 @@ class AssetController extends Controller
         $asset_data['project_id'] = intval($asset_data['project_id']);
         $asset_data['provider_id'] = intval($asset_data['provider_id']);
         $asset_data['customer_id'] = intval($asset_data['customer_id']);
-        $asset_data['subcategory_id'] = intval($asset_data['subcategory_id']);
+        // $asset_data['subcategory_id'] = intval($asset_data['subcategory_id']);
         $asset_data['equipment_id'] = intval($asset_data['equipment_id']);
 
         return $asset_data;
