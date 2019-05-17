@@ -101,7 +101,7 @@ class AssetController extends Controller
           $ext_doc = $document->getClientOriginalExtension();
           $name_doc = str_random(5)."_".time()."_"."doc_assets" . "." . $ext_doc;
           $destinationPath = public_path('/images/assets');
-          dd($document);
+
           $document->move($destinationPath,$name_doc);
           $asset_data['document'] = $name_doc;
         }
