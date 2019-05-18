@@ -45,9 +45,9 @@ class ProjectController extends Controller
 
     public function store(ProjectRequest $request){
 
-
         try{
 
+          dd($request->all());
             Project::create($request->get('project'));
             $request->session()->flash('message', 'Project created successfully');
             return redirect()->route('projects.index');

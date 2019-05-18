@@ -79,6 +79,8 @@
             <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
               <span class="input-group-addon">Start </span>
               {!! Form::text('project[start_contract]', $project->start_contract, ['class' => 'form-control date-input', 'id' => 'start_contract']) !!}
+              {{-- @if (project[start_contract]) @endif --}}
+
               <span class="input-group-addon">End </span>
               {!! Form::text('project[end_contract]', $project->end_contract, ['class' => 'form-control date-input', 'id' => 'end_contract']) !!}
             </div>

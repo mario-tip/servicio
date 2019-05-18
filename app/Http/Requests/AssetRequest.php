@@ -11,24 +11,28 @@ class AssetRequest extends FormRequest
     }
 
     public function rules(){
+
         return [
-            'asset.asset_custom_id' => 'required',
-            'asset.adquisition_date' => 'required',
-            'asset.name' => 'required',
-            'asset.model' => 'required',
-            'asset.condition' => 'required',
-            'asset.serial' => 'required',
-            'asset.status' => 'required',
-            'asset.brand' => 'required',
-            'asset.location_id' => 'required',
-            'asset.barcode' => 'required',
-            // 'asset.subcategory_id' => 'required',
-            /*'asset_parts' => 'required|array|min:1',*/
-            'asset.maintenance_date' => 'required',
-            // 'asset.asset_customer_id' => 'required'
-            // 'asset.image' => 'required'
+          'asset.adquisition_date' => 'required',
+          'asset.name' => 'required',
+          'asset.model' => 'required',
+          'asset.condition' => 'required',
+          'asset.serial' => 'required',
+          'asset.status' => 'required',
+          'asset.brand' => 'required',
+          'asset.location_id' => 'required',
+          'asset.barcode' => 'required',
+          'asset.maintenance_date' => 'required',
+          'asset.cost' => 'required',
+          'asset.person_id' => 'required',
+          'asset.description' => 'required',
+          'asset.customer_id' => 'required',
+          'asset.project_id' => 'required',
+          'asset.location_id' = 'required'
         ];
     }
+
+
 
     public function messages() {
         return [
@@ -40,12 +44,13 @@ class AssetRequest extends FormRequest
             'asset.serial.required' => 'El número de serie del activo es requerido',
             'asset.status.required' => 'El estatus del activo es requerido',
             'asset.brand.required' => 'La marca del activo es requerida',
-            'asset.location_id.required' => 'La ubicación del activo es requerida',
             'asset.barcode.required' => 'El código de barras es requerido',
-            // 'asset.subcategory_id.required' => 'LA subcategoria es requerida',
-            /*'asset_parts.required' => 'Las partes del activo son requeridas',*/
             'asset.maintenance_date.required' => 'La fecha de mantenimiento es requerida',
-            // 'asset.asset_customer_id.required' => ''
+            'asset.location_id.required' => 'La ubicación del activo es requerida',
+            'asset.person_id.required' => 'La persona es requerida',
+            'asset.description.required' => 'La descripción es requerida',
+            'asset.customer_id.required' => 'El cliente es necessario',
+            'asset.project_id.required' => 'El proyecto es requerido'
         ];
     }
 }

@@ -8,11 +8,7 @@ use Session;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         if(userHasPermission("listar_catalogo_clientes")) {
@@ -22,11 +18,6 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         if(userHasPermission("crear_catalogo_clientes")) {
@@ -44,12 +35,6 @@ class CustomerController extends Controller
         ];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(CustomerRequest $request)
     {
         try {
@@ -61,23 +46,6 @@ class CustomerController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         if(userHasPermission("editar_catalogo_clientes")) {
@@ -88,16 +56,8 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function update(CustomerRequest $request, Customer $customer)
     {
-        // dd($customer);
         try {
             $customer->fill($request->get('customer'));
             $customer->save();
@@ -108,12 +68,6 @@ class CustomerController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $response = ['errors' => false];
