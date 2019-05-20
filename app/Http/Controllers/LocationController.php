@@ -30,8 +30,11 @@ class LocationController extends Controller {
     }
 
     public function store(LocationRequest $request) {
+
+      dd($request->location);
+
         try{
-            Location::create($request->get('location'));
+            Location::create($request->location);
             $request->session()->flash('message', 'Location saved successfully');
             return redirect()->route('locations.index');
         }catch(\Exception $e) {

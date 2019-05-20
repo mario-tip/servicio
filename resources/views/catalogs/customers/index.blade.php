@@ -59,7 +59,7 @@
           <tbody>
             @foreach($customers as $customer)
             <tr>
-              <td class="center"> {{$customer->idcustomer}}</td>
+              <td class="center"> {{$customer->id}}</td>
               <td class="center"> {{$customer->name}}</td>
               <td class="center"> {{$customer->getTypeWord()}}</td>
               @if(userHasPermission("editar_catalogo_clientes") || userHasPermission("eliminar_catalogo_clientes"))

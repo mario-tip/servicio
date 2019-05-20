@@ -2,12 +2,13 @@
   <div class="horizontal-form">
     <div class="form-body bodyForm">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-2">
           <div class="form-group">
-            <label class="control-label" for="customer_idcustomer"><span class="required" aria-required="true">* </span>Id: </label>
-            {!! Form::text('customer[idcustomer]', $customer->idcustomer, [
+            <label class="control-label" for="customer_idcustomer">Id: </label>
+            {!! Form::text(null, $customer->id, [
             'class' => 'form-control',
             'id' => 'customer_idcustomer',
+            'disabled' => 'disabled',
             // 'onkeypress' => 'return validateInput(event, 2)',
             'maxlength' => '12'
             ]) !!}
@@ -22,25 +23,6 @@
             ]) !!}
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8">
-          <div class="form-group">
-            <label class="control-label" for="customer_idcustomer">Address: </label>
-            {!! Form::textarea('customer[address]', $customer->address, [
-            'class' => 'form-control',
-            'rows'=>"3"
-            ]) !!}
-          </div>
-        </div>
-        <div class="col-md-2">
-        </div>
-      </div>
-
-      <div class="row">
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label" for="customer_type"><span class="required" aria-required="true">* </span>Type: </label>
@@ -48,7 +30,11 @@
             ['class' => 'bs-select form-control', 'id' => 'customer_type', 'title' => 'Select...']) !!}
           </div>
         </div>
-        <div class="col-md-4">
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-3">
           <div class="form-group">
             <label class="control-label" for="customer_name">RFC: </label>
             {!! Form::text('customer[rfc]', $customer->rfc, [
@@ -57,12 +43,21 @@
             ]) !!}
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
             <label class="control-label" for="customer_name">Phone: </label>
             {!! Form::text('customer[phone]', $customer->phone, [
             'class' => 'form-control',
             'id' => 'customer_name'
+            ]) !!}
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="customer_idcustomer">Address: </label>
+            {!! Form::textarea('customer[address]', $customer->address, [
+            'class' => 'form-control',
+            'rows'=>"3"
             ]) !!}
           </div>
         </div>

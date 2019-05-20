@@ -18,10 +18,11 @@ class LocationRequest extends FormRequest
 
     public function messages() {
         return [
-            'location.description.required' => 'The description is required ',
-            'location.address.required' => 'The address is required',
-            'location.building.required' => 'The binding is required',
-            'location.floor.required' => 'The floor ir required '
+          'location.name.required' => 'The name is required',
+          'location.description.required' => 'The description is required ',
+          'location.address.required' => 'The address is required',
+          'location.building.required' => 'The building is required',
+          'location.floor.required' => 'The floor ir required '
         ];
     }
     /**
@@ -32,10 +33,11 @@ class LocationRequest extends FormRequest
     public function rules()
     {
         return [
-            'location.description' => 'required',
-            'location.address' => 'required',
-            'location.building' => 'required',
-            'location.floor' => 'required'
+          'location.name' => 'required',
+          'location.description' => 'required',
+          'location.address' => 'required',
+          'location.building' => 'required',
+          'location.floor' => 'required'
         ];
     }
 }
