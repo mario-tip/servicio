@@ -36,7 +36,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label class="" for="inputEmail1"><span class="required" aria-required="true">* </span>Email: </label>
+            <label class="" for="inputEmail1"> Email: </label>
             {!!Form::text('project[email]', $project->email, [
             'class'=>'form-control',
             'autocomplete'=>"off",
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-md-3">
           <div class="form-group">
             <label class="control-label" for="project_name"><span class="required" aria-required="true">* </span>Phone: </label>
@@ -57,12 +57,6 @@
             ]) !!}
           </div>
         </div>
-
-        {{-- {!! Form::checkbox('', [
-          'class' => 'icheckbox'
-          ])!!}
-        <input type="checkbox" class="icheckbox_minimal-blue"> --}}
-
 
         <div class="col-md-3">
           <div class="form-group">
@@ -79,29 +73,19 @@
             <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
               <span class="input-group-addon">Start </span>
               {!! Form::text('project[start_contract]', $project->start_contract, ['class' => 'form-control date-input', 'id' => 'start_contract']) !!}
-              {{-- @if (project[start_contract]) @endif --}}
 
               <span class="input-group-addon">End </span>
               {!! Form::text('project[end_contract]', $project->end_contract, ['class' => 'form-control date-input', 'id' => 'end_contract']) !!}
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
 
-      <div class="row">
 
-      </div>
-
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Person:</label>
-            {{-- <select class="bs-select form-control " name="person_id" id="person_id">
-              <option value="0" disabled selected>Select..</option>
-              @foreach($depende['persons'] as $person)
-              <option value="{{ $person->id }}" {{isset($project) ? ($project->person_id == $person->id) ? 'selected':'' : ''}}>{{$person->name}}</option>
-              @endforeach
-            </select> --}}
             {!! Form::select('project[person_id]', $depende['persons'], $project->person_id, ['class' => 'bs-select form-control','id' => 'person_id', 'title' => 'Select...'])!!}
 
           </div>
@@ -109,17 +93,11 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="name" class="control-label"><span class="required" aria-required="true">* </span>Location:</label>
-            {{-- <select class="bs-select form-control " name="location_id" id="location_id">
-              <option value="0" disabled selected>Select..</option>
-              @foreach($depende['locations'] as $local)
-              <option value="{{ $local->id }}" {{isset($project) ? ($project->location_id == $local->id) ? 'selected':'' : ''}}>{{$local->area}}</option>
-              @endforeach
-            </select> --}}
-
             {!! Form::select('project[location_id]', $depende['locations'], $project->location_id, ['class' => 'bs-select form-control', 'title' => 'Select...'])!!}
           </div>
         </div>
-      </div>
+      </div> --}}
+
     </div>
   </div>
 </div>

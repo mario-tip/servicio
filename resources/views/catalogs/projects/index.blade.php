@@ -48,7 +48,8 @@
         <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
           <thead>
             <tr>
-              <th class="center">Project name </th>
+              <th class="center">Id</th>
+              <th class="center">Name</th>
               <th class="center">Description</th>
               <th class="center">Assets</th>
               @if(userHasPermission("editar_catalogo_proyectos") || userHasPermission("eliminar_catalogo_proyectos"))
@@ -59,9 +60,10 @@
           <tbody>
             @foreach($projects as $project)
             <tr>
+              <td class="center"> {{$project->id_project}}</td>
               <td class="center"> {{$project->name}}</td>
               <td class="center"> {{$project->description}}</td>
-              <td class="center">{{count($project->assets)}}</td>
+              <td class="center"> {{count($project->assets)}}</td>
               @if(userHasPermission("editar_catalogo_proyectos") || userHasPermission("eliminar_catalogo_proyectos"))
               <td>
                 <div>

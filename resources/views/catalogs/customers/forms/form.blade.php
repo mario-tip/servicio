@@ -29,7 +29,7 @@
         </div>
         <div class="col-md-8">
           <div class="form-group">
-            <label class="control-label" for="customer_idcustomer"><span class="required" aria-required="true">* </span>Address: </label>
+            <label class="control-label" for="customer_idcustomer">Address: </label>
             {!! Form::textarea('customer[address]', $customer->address, [
             'class' => 'form-control',
             'rows'=>"3"
@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>RFC: </label>
+            <label class="control-label" for="customer_name">RFC: </label>
             {!! Form::text('customer[rfc]', $customer->rfc, [
             'class' => 'form-control',
             'id' => 'customer_name'
@@ -59,7 +59,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>Phone: </label>
+            <label class="control-label" for="customer_name">Phone: </label>
             {!! Form::text('customer[phone]', $customer->phone, [
             'class' => 'form-control',
             'id' => 'customer_name'
@@ -75,7 +75,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>Name: </label>
+            <label class="control-label" for="customer_name">Name: </label>
             {!! Form::text('customer[adm_name]', $customer->adm_name, [
             'class' => 'form-control',
             'id' => 'customer_name'
@@ -84,7 +84,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>Phone: </label>
+            <label class="control-label" for="customer_name">Phone: </label>
             {!! Form::text('customer[adm_phone]', $customer->adm_phone, [
             'class' => 'form-control',
             'id' => 'customer_name'
@@ -93,7 +93,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>Email: </label>
+            <label class="control-label" for="customer_name">Email: </label>
             {!! Form::text('customer[adm_email]', $customer->adm_email, [
             'class' => 'form-control',
             'id' => 'customer_name'
@@ -109,7 +109,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>Name: </label>
+            <label class="control-label" for="customer_name">Name: </label>
             {!! Form::text('customer[sup_name]', $customer->sup_name, [
             'class' => 'form-control',
             'id' => 'customer_name'
@@ -118,7 +118,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>Phone: </label>
+            <label class="control-label" for="customer_name">Phone: </label>
             {!! Form::text('customer[sup_phone]', $customer->sup_phone, [
             'class' => 'form-control',
             'id' => 'customer_name'
@@ -127,7 +127,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="customer_name"><span class="required" aria-required="true">* </span>Email: </label>
+            <label class="control-label" for="customer_name">Email: </label>
             {!! Form::text('customer[sup_email]', $customer->sup_email, [
             'class' => 'form-control',
             'id' => 'customer_name'

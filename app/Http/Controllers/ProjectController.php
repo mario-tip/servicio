@@ -47,7 +47,6 @@ class ProjectController extends Controller
 
         try{
 
-          dd($request->all());
             Project::create($request->get('project'));
             $request->session()->flash('message', 'Project created successfully');
             return redirect()->route('projects.index');
