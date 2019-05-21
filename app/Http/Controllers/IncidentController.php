@@ -32,8 +32,6 @@ class IncidentController extends Controller {
             } else {
                 $incidents = Incident::all();
             }
-
-
             return view('incident.index', compact('incidents'));
         }
         return \redirect()->back();
@@ -64,12 +62,9 @@ class IncidentController extends Controller {
       }
         $data = $request->all();
 
-        // dd($data);
-
         if(!empty($data['parts'])){
             $parts = $data['parts'];
         }
-
 
         $data['suggested_date'] = Input::has('suggested_date')?Carbon::parse($data['suggested_date'])->format('Y-m-d'):'';
         $data['suggested_time'] = Input::has('suggested_time')?Carbon::parse($data['suggested_time'])->format('H:i:s'):'';
@@ -133,10 +128,6 @@ class IncidentController extends Controller {
 
         Session::flash('message', 'Incident saved successfully.');
         return Redirect::to('/incidents');
-    }
-
-    public function show($id){
-        //
     }
 
     public function edit($id){

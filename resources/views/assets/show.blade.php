@@ -1,10 +1,10 @@
 @extends("layouts.master")
 
 @section("styles")
-    {{--{!! Html::style("/assets/css/main.css") !!}--}}
-    {!! Html::style("/assets/css/slick_slider/slick.css") !!}
-    {!! Html::style("/assets/css/slick_slider/slick-theme.css") !!}
-    {!! Html::style("/assets/css/asset.css") !!}
+{{--{!! Html::style("/assets/css/main.css") !!}--}}
+{!! Html::style("/assets/css/slick_slider/slick.css") !!}
+{!! Html::style("/assets/css/slick_slider/slick-theme.css") !!}
+{!! Html::style("/assets/css/asset.css") !!}
 @endsection
 
 {{-- @section('breadcrumb')
@@ -26,161 +26,181 @@
 @endsection --}}
 
 @section("page-content")
-    <div class="row paddingForm">
-        <div class="col-md-12">
-            <!-- BEGIN NEW ASSET PORTLET-->
-            <div class="portlet light portlet-fit bordered">
-              <div class="portlet-title topForm">
-              </div>
-                <div class="portlet-body">
-                  <p class="titleForm">Equipment</p>
-                    <div class="horizontal-form">
-                        <div class="form-body bodyForm">
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Equipment ID: </label>
-                                        <label class="control-label">{{$asset->asset_custom_id}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Purchase date: </label>
-                                        <label class="control-label">{{$asset->adquisition_date}}</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Equipment name: </label>
-                                        <label class="control-label">{{$asset->name}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Price: </label>
-                                        <label class="control-label" id="asset_cost">{{'$' . $asset->cost}}</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Model: </label>
-                                        <label class="control-label">{{$asset->model}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Condition: </label>
-                                        <label class="control-label"> {{ $asset->condition == 1 ? "New" : "Used" }}  </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Serial number: </label>
-                                        <label class="control-label">{{$asset->serial}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Status: </label>
-                                        <label class="control-label">{{ $asset->serial == 1 ? "Inactive" : "Active" }}</label>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Brand: </label>
-                                        <label class="control-label">{{$asset->brand}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Owner: </label>
-                                        <label class="control-label">{{$asset->person->name}}</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label textarea-label">Description: </label>
-                                        <label class="control-label textarea-content">{{$asset->description}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Expiration date: </label>
-                                        <label class="control-label">{{$asset->expires_date}}</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Provider: </label>
-                                        <?php $provider = ($asset->provider != null) ? $asset->provider->name : null; ?>
-                                        <label class="control-label">{{$provider}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Payment reference: </label>
-                                        <label class="control-label">{{$asset->purchase_order}}</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Customer: </label>
-                                        <label class="control-label">{{!empty($asset->customers) ? $asset->customers->name : ''}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Barcode: </label>
-                                        <label class="control-label">{{$asset->barcode }}</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="row paddingForm">
+  <div class="col-md-12">
+    <!-- BEGIN NEW ASSET PORTLET-->
+    <div class="portlet light portlet-fit bordered">
+      <div class="portlet-title topForm">
+      </div>
+      <div class="portlet-body">
+        <p class="titleForm">Equipment</p>
+        <div class="horizontal-form">
+          <div class="form-body bodyForm">
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Equipment ID: </label>
+                  <label class="control-label">{{$asset->asset_custom_id}}</label>
                 </div>
-            </div>
-            <!-- END NEW ASSET PORTLET-->
-
-            <!-- BEGIN ASSET'S PARTS PORTLET-->
-            <div class="portlet light portlet-fit bordered">
-              <div class="portlet-title topForm">
               </div>
-                <div class="portlet-body">
-                  <p class="titleForm">Additional information</p>
-                    <div class="horizontal-form">
-                        <div class="form-body bodyForm">
-                            <div class="row">
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label">Maintenance : </label>
-                                        <label class="control-label">{{$asset->maintenance_date}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group-container">
-                                    <div class="form-group">
-                                        <label class="control-label textarea-label">Notes : </label>
-                                        <label class="control-label textarea-content">{{$asset->notes}}</label>
-                                    </div>
-                                </div>
-                            </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Purchase date: </label>
+                  <label class="control-label">{{$asset->adquisition_date}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Equipment name: </label>
+                  <label class="control-label">{{$asset->name}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Price: </label>
+                  <label class="control-label" id="asset_cost">{{'$' . $asset->cost}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Model: </label>
+                  <label class="control-label">{{$asset->model}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Condition: </label>
+                  <label class="control-label"> {{ $asset->condition == 1 ? "New" : "Used" }} </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Serial number: </label>
+                  <label class="control-label">{{$asset->serial}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Status: </label>
+                  <label class="control-label">{{ $asset->serial == 1 ? "Inactive" : "Active" }}</label>
 
-                            {{-- <div class="row">
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Brand: </label>
+                  <label class="control-label">{{$asset->brand}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Owner: </label>
+                  <label class="control-label">{{$asset->person->name}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label textarea-label">Description: </label>
+                  <label class="control-label textarea-content">{{$asset->description}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Expiration date: </label>
+                  <label class="control-label">{{$asset->expires_date}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Provider: </label>
+                  <?php $provider = ($asset->provider != null) ? $asset->provider->name : null; ?>
+                  <label class="control-label">{{$provider}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Payment reference: </label>
+                  <label class="control-label">{{$asset->purchase_order}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Customer: </label>
+                  <label class="control-label">{{!empty($asset->customers) ? $asset->customers->name : ''}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Barcode: </label>
+                  <label class="control-label">{{$asset->barcode }}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label for="">Image: </label>
+                  @if ($asset->image)
+                  <img src="{{URL::to('images/assets')}}/{{ $asset->image }}" alt="">
+                  @else
+                  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="no image" />
+                  @endif
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <label for="">Document: </label>
+                @if ($asset->document)
+                  <a href="{{URL::to('images/assets')}}/{{ $asset->document }}" class="btn btnIconList">{{$asset->document}}</a>
+                @else
+                  <a class="btn btnIconList">No document</a>
+                @endif
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END NEW ASSET PORTLET-->
+
+    <!-- BEGIN ASSET'S PARTS PORTLET-->
+    <div class="portlet light portlet-fit bordered">
+      <div class="portlet-title topForm">
+      </div>
+      <div class="portlet-body">
+        <p class="titleForm">Additional information</p>
+        <div class="horizontal-form">
+          <div class="form-body bodyForm">
+            <div class="row">
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label">Maintenance : </label>
+                  <label class="control-label">{{$asset->maintenance_date}}</label>
+                </div>
+              </div>
+              <div class="col-md-6 form-group-container">
+                <div class="form-group">
+                  <label class="control-label textarea-label">Notes : </label>
+                  <label class="control-label textarea-content">{{$asset->notes}}</label>
+                </div>
+              </div>
+            </div>
+
+            {{-- <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Picture : </label>
@@ -193,38 +213,38 @@
                                 <div class="asset-images-carousel" style="margin: 0 auto">
                                     @foreach($asset->images as $image)
                                     <img src="{{Config::get('constants.assets_system_url') . $image->path}}"/>
-                                    @endforeach
-                                </div>
-                            </div> --}}
+            @endforeach
+          </div>
+        </div> --}}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END ASSET'S PARTS PORTLET-->
-        </div>
+      </div>
     </div>
+  </div>
+</div>
+<!-- END ASSET'S PARTS PORTLET-->
+</div>
+</div>
 @endsection
 @section("scripts")
-    {!!Html::script("/assets/scripts/jquery.number.js")!!}
-    {!!Html::script("/assets/scripts/slick.min.js")!!}
-    {!!Html::script("/assets/scripts/asset.js")!!}
-    <script type="text/javascript">
-        $(document).ready(function() {
-          $("#liAssets").addClass("active");
-          $("#liAssetsList").addClass("active");
+{!!Html::script("/assets/scripts/jquery.number.js")!!}
+{!!Html::script("/assets/scripts/slick.min.js")!!}
+{!!Html::script("/assets/scripts/asset.js")!!}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#liAssets").addClass("active");
+    $("#liAssetsList").addClass("active");
 
-            $('#asset_cost').number(true, 2);
+    $('#asset_cost').number(true, 2);
 
-            /*Asset images slider*/
-            $('.asset-images-carousel').slick({
-                infinite: false,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 5000,
-            });
+    /*Asset images slider*/
+    $('.asset-images-carousel').slick({
+      infinite: false,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 5000,
+    });
 
-        });
-    </script>
+  });
+</script>
 @endsection

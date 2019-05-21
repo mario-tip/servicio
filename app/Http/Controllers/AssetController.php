@@ -29,7 +29,6 @@ class AssetController extends Controller
 
           foreach ($assets as $asset) {
           $resp  =  $asset->dame($asset->adquisition_date, $asset->depreciation, $asset->cost);
-          // $assets->put('actual_price', $resp);
 
           }
           // echo $assets;
@@ -65,7 +64,7 @@ class AssetController extends Controller
 
       $asset_data = $request->get('asset');
 
-        $validator = Validator::make($asset_data,[
+        $validator = Validator::make($asset_data, [
           'asset_custom_id' => 'required|unique:assets',
           'adquisition_date' => 'required',
           'name' => 'required',
@@ -121,10 +120,6 @@ class AssetController extends Controller
             $request->session()->flash('message', 'Asset saved successfully');
             return redirect()->route('actives.index');
         } catch (\Exception $e) {
-            $response = [
-                'errors' => true,
-                'errors_fragment' => \View::make('partials.request')->withErrors([$e->getMessage()])->render()
-            ];
             return redirect()->back()->withErrors($e->getMessage())->withInput();
         }
     }
@@ -172,12 +167,29 @@ class AssetController extends Controller
 
       $asset_data = $request->get('asset');
 
+      $validator = Validator::make($asset_data, [
+        'asset_custom_id' => 'required',
+        'adquisition_date' => 'required',
+        'name' => 'required',
+        'model' => 'required',
+        'condition' => 'required',
+        'serial' => 'required',
+        'status' => 'required',
+        'brand' => 'required',
+        'location_id' => 'required',
+        'barcode' => 'required',
+        'maintenance_date' => 'required',
+        'cost' => 'required',
+        'person_id' => 'required',
+        'description' => 'required',
+        'customer_id' => 'required',
+        'project_id' => 'required'
+      ]);
 
-      // $validator = Validator::make($asset_data,['asset_custom_id' => 'unique:assets']);
-      //
-      // if($validator->fails()) {
-      //      return redirect()->back()->withErrors($validator)->withInput();
-      // }
+      if($validator->fails()) {
+
+           return redirect()->back()->withErrors($validator)->withInput();
+      }
 
         if ($request->hasFile('document')) {
           $document = $request->file('document');
@@ -205,6 +217,7 @@ class AssetController extends Controller
         $equipment_parts = $request->get('equipment_parts');
         $equipment_parts = $equipment_parts == null ? [] : $equipment_parts;
 
+
         try {
             $asset = Asset::find($id);
             $asset->fill($asset_data);
@@ -212,15 +225,11 @@ class AssetController extends Controller
             $asset->locations()->sync($locations);
             $asset->save();
             $request->session()->flash('message', 'Asset updated successfully');
-            return response()->json(['errors' => false]);
+            return redirect('/actives');
         } catch (\Exception $e) {
-            $response = [
-                'errors' => true,
-                'errors_fragment' => \View::make('partials.request')->withErrors([$e->getMessage()])->render()
-            ];
-            return $response;
-        }
+            return redirect()->back()->withErrors($e)->withInput();
     }
+  }
 
     public function destroy($id){
         /*No se elimina activo desde el sistema de soporte*/
@@ -267,4 +276,5 @@ class AssetController extends Controller
             'message' => 'Only ajax requests are allowed'
         ]);
     }
+
 }
