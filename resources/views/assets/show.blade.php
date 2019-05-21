@@ -165,7 +165,7 @@
               <div class="col-md-6 form-group-container">
                 <label for="">Document: </label>
                 @if ($asset->document)
-                  <a href="{{URL::to('images/assets')}}/{{ $asset->document }}" class="btn btnIconList">{{$asset->document}}</a>
+                  <a href="{{URL::to('images/assets')}}/{{ $asset->document }} " target="_blank" class="btn btnIconList">{{$asset->document}}</a>
                 @else
                   <a class="btn btnIconList">No document</a>
                 @endif

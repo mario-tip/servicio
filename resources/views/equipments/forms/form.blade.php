@@ -22,7 +22,7 @@
             <label class="control-label" for="equipment_name"><span class="required" aria-required="true">* </span>Barcode: </label>
             {!! Form::text('equipment[code]', $equipment->code,[
             'class' => 'form-control', 'id' => 'equipment_code', 'maxlength' => 18,
-            'onkeypress' => 'return validateInput(event, 5)']) !!}
+            ]) !!}
           </div>
         </div>
       </div>
