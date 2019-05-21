@@ -20,7 +20,8 @@ class ProjectRequest extends FormRequest
     {
         return [
             'project.name.required' => 'The name is required',
-            'project.description.required' => 'The description is required'
+            'project.description.required' => 'The description is required',
+            'project.id_project.required' => 'The name Id project is required'
         ];
     }
     /**
@@ -32,7 +33,8 @@ class ProjectRequest extends FormRequest
     {
         return [
             'project.name' => 'required',
-            'project.description' => 'required'
+            'project.description' => 'required',
+            'project.id_project' => 'required'
         ];
     }
 }

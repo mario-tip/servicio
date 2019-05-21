@@ -2,14 +2,21 @@
   <div class="horizontal-form">
     <div class="form-body bodyForm">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label" for="location_compartment"><span></span>Compartment: </label>
-            {!! Form::text('location[compartment]', $location->compartment, ['class' => 'form-control',
-            'id' => 'location_compartment']) !!}
+            <label class="control-label"><span class="required">*</span>Name: </label>
+            {!! Form::text('location[name]', $location->name, ['class' => 'form-control']) !!}
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" for="location_building"><span class="required" aria-required="true">*</span>Building: </label>
+            {!! Form::text('location[building]', $location->building, ['class' => 'form-control',
+            'id' => 'location_building']) !!}
+          </div>
+        </div>
+
+        <div class="col-md-4">
           <div class="form-group">
             <label class="control-label" for="location_floor"><span class="required" aria-required="true">*</span>Floor: </label>
             {{-- Sole == Piso == Tier --}}
@@ -35,18 +42,19 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="control-label" for="location_building"><span class="required" aria-required="true">*</span>Building: </label>
-            {!! Form::text('location[building]', $location->building, ['class' => 'form-control',
-            'id' => 'location_building']) !!}
-          </div>
-        </div>
+
         <div class="col-md-6">
           <div class="form-group">
             <label class="control-label" for="location_room"><span></span>Room: </label>
             {!! Form::text('location[room]', $location->room, ['class' => 'form-control',
             'id' => 'location_room']) !!}
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="location_compartment"><span></span>Compartment: </label>
+            {!! Form::text('location[compartment]', $location->compartment, ['class' => 'form-control',
+            'id' => 'location_compartment']) !!}
           </div>
         </div>
       </div>

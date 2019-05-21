@@ -45,7 +45,6 @@ class ProjectController extends Controller
 
     public function store(ProjectRequest $request){
 
-
         try{
 
             Project::create($request->get('project'));

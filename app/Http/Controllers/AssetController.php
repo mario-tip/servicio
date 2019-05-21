@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AssetRequest2;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Subcategory;
@@ -51,13 +51,13 @@ class AssetController extends Controller
     /*Obtiene las dependencias del asset, para los select del form*/
     private function getDependenciesData() {
         return [
-            'equipments' => Equipment::all()->pluck('name', 'id'),
-            'locations' => Location::all()->pluck('address', 'id'),
-            'persons' => Person::all()->pluck('name', 'id'),
-            'providers' => Provider::all()->pluck('name', 'id'),
-            'customers' => Customer::all()->pluck('name', 'id'),
-            'projects' => Project::all()->pluck('name', 'id'),
-            'subcategories' => Subcategory::all()->pluck('name', 'id'),
+            'equipments' => Equipment::pluck('name', 'id'),
+            'locations' => Location::pluck('name', 'id'),
+            'persons' => Person::pluck('name', 'id'),
+            'providers' => Provider::pluck('name', 'id'),
+            'customers' => Customer::pluck('name', 'id'),
+            'projects' => Project::pluck('name', 'id'),
+            'subcategories' => Subcategory::pluck('name', 'id'),
         ];
     }
 
@@ -66,6 +66,7 @@ class AssetController extends Controller
         $asset_data = $request->get('asset');
 
         $validator = Validator::make($asset_data,[
+          'asset_custom_id' => 'required|unique:assets',
           'adquisition_date' => 'required',
           'name' => 'required',
           'model' => 'required',
@@ -75,7 +76,6 @@ class AssetController extends Controller
           'brand' => 'required',
           'location_id' => 'required',
           'barcode' => 'required',
-          'subcategory_id' => 'required',
           'maintenance_date' => 'required',
           'cost' => 'required',
           'person_id' => 'required',
@@ -86,9 +86,8 @@ class AssetController extends Controller
 
         if($validator->fails()) {
 
-            // return redirect()->back()->withErrors($validator)->withInput();
+             return redirect()->back()->withErrors($validator)->withInput();
         }
-
 
         $asset_data = $this->formatFormData($asset_data);
 
@@ -101,7 +100,7 @@ class AssetController extends Controller
           $ext_doc = $document->getClientOriginalExtension();
           $name_doc = str_random(5)."_".time()."_"."doc_assets" . "." . $ext_doc;
           $destinationPath = public_path('/images/assets');
-          dd($document);
+
           $document->move($destinationPath,$name_doc);
           $asset_data['document'] = $name_doc;
         }
@@ -120,68 +119,15 @@ class AssetController extends Controller
             $asset->parts()->attach($equipment_parts);
             $asset->locations()->attach($locations);
             $request->session()->flash('message', 'Asset saved successfully');
-            return response()->json(['errors' => false]);
+            return redirect()->route('actives.index');
         } catch (\Exception $e) {
             $response = [
                 'errors' => true,
                 'errors_fragment' => \View::make('partials.request')->withErrors([$e->getMessage()])->render()
             ];
-            return response()->json($response);
+            return redirect()->back()->withErrors($e->getMessage())->withInput();
         }
     }
-
-    private function validateInputs($form_data, $method) {
-        $messages = [
-            'asset_custom_id.required' => 'Equipment ID is required.',
-            'adquisition_date.required' => 'Purchase date is required.',
-            'name.required' => 'Equipment name is required.',
-            'model.required' => 'Model is required.',
-            'unique' => 'Model already exists.',
-            'condition.required' => 'Condition is required.',
-            'serial.required' => 'Serial number is required.',
-            'status.required' => 'Status is required.',
-            'brand.required' => 'Brand is required.',
-            'location_id.required' => 'Location is required.',
-            'barcode.required' => 'The barcode is required.',
-            'subcategory_id.required' => 'Subcategory is required.',
-            'equipment_id.required' => 'Equipment module is required.',
-            'maintenance_date.required' => 'Maintenance date is required.',
-            'cost.required' => 'Price is required.',
-            'person_id.required' => 'Owner is required.',
-            'description.required' => 'Description is required.',
-            'customer_id.required' => 'Customer is required.',
-            'project_id.required' =>  'Project is required.'
-        ];
-
-        $validations = [
-            /*'asset_custom_id' => 'required',*/
-            'adquisition_date' => 'required',
-            'name' => 'required',
-            'model' => 'required',
-            'condition' => 'required',
-            'serial' => 'required',
-            'status' => 'required',
-            'brand' => 'required',
-            'location_id' => 'required',
-            'barcode' => 'required',
-            'subcategory_id' => 'required',
-            /*'equipment_id' => 'required',*/ //|array|min:1
-            'maintenance_date' => 'required',
-            'cost' => 'required',
-            'person_id' => 'required',
-            'description' => 'required',
-            'customer_id' => 'required',
-            'project_id' => 'required',
-            'quantity' => 'required'
-        ];
-
-        if($method == 'PUT') $validations['model'] = 'required|unique:assets';
-
-        $validator = Validator::make($form_data, $validations, $messages);
-
-        return $validator;
-    }
-
 
     /*formateando algunos datos del form para guardarlos en la db*/
     private function formatFormData($asset_data) {
@@ -193,7 +139,6 @@ class AssetController extends Controller
         $asset_data['project_id'] = intval($asset_data['project_id']);
         $asset_data['provider_id'] = intval($asset_data['provider_id']);
         $asset_data['customer_id'] = intval($asset_data['customer_id']);
-        $asset_data['subcategory_id'] = intval($asset_data['subcategory_id']);
         $asset_data['equipment_id'] = intval($asset_data['equipment_id']);
 
         return $asset_data;
@@ -224,6 +169,11 @@ class AssetController extends Controller
     }
 
     public function update(Request $request, $id){
+      $validator = Validator::make($asset_data,['asset_custom_id' => 'unique:assets']);
+
+      if($validator->fails()) {
+           return redirect()->back()->withErrors($validator)->withInput();
+      }
         $asset_data = $request->get('asset');
         $asset_data['_method'] = 'PUT';
 

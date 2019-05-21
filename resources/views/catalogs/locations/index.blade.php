@@ -48,6 +48,7 @@
         <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
           <thead>
             <tr>
+              <th class="center">Name</th>
               <th class="center">Description</th>
               <th class="center">Building</th>
               <th class="center">Area</th>
@@ -59,6 +60,7 @@
           <tbody>
             @foreach($locations as $location)
             <tr>
+              <td class="center"> {{$location->name}}</td>
               <td class="center"> {{$location->description}}</td>
               <td class="center"> {{$location->building}}</td>
               <td class="center"> {{$location->area}}</td>

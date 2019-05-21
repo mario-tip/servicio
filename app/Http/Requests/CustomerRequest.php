@@ -19,7 +19,6 @@ class CustomerRequest extends FormRequest
     public function messages()
     {
         return [
-            'customer.idcustomer.required' => 'The ID is required ',
             'customer.name.required' => 'The name is required ',
             'customer.type.required' => 'The type is required '
         ];
@@ -33,7 +32,6 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            'customer.idcustomer' => 'required',
             'customer.name' => 'required',
             'customer.type' => 'required'
         ];
