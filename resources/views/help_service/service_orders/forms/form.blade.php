@@ -3,32 +3,27 @@
   <div class="horizontal-form">
     <div class="form-body">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label class="control-label form-label">Who registered:</label>
             <label class="form-control activos">{{$incident->person->name}}</label>
           </div>
         </div>
-        <div class="col-md-6 ">
+        <div class="col-md-4 ">
           <div class="form-group">
             <label class="control-label form-label">Asset: </label>
             <label class="form-control activos">{{$incident->asset->name}}</label>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="form-group">
-            <label class="control-label form-label">Asset: </label>
-            <label class="form-control activos">{{$incident->asset->name}}</label>
-          </div>
-        </div>
-        <div class="col-md-6 ">
+        <div class="col-md-4 ">
           <div class="form-group">
             <label class="control-label form-label">Brand: </label>
             <label class="form-control activos">{{$incident->asset->brand}}</label>
           </div>
         </div>
+      </div>
+      <div class="row">
+
       </div>
       <div class="row">
         <div class="col-md-6 ">
@@ -40,7 +35,7 @@
         <div class="col-md-6 ">
           <div class="form-group">
             <label class="control-label form-label">Location: </label>
-            <label class="form-control activos">{{$incident->asset->locations[0]->address}}</label>
+            <label class="form-control activos">{{$incident->asset->locations[0]->name}}</label>
           </div>
         </div>
       </div>

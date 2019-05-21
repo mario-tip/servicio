@@ -107,9 +107,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @php
-                                // dd($incident);
-                            @endphp
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">
@@ -140,9 +137,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @php
-                                // dd($incident);
-                            @endphp
                             <div class="row">
                                 <div class="col-md-6 form-group-container">
                                     <div class="form-group">

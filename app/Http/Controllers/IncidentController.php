@@ -19,6 +19,7 @@ use App\Incident;
 use App\Person;
 use App\Asset;
 use App\User;
+use Validator;
 
 class IncidentController extends Controller {
 
@@ -47,13 +48,28 @@ class IncidentController extends Controller {
     }
 
     public function store(Request $request){
+
+      $validator = Validator::make($request->all(),[
+        'asset_id' => 'required',
+        'type' => 'required',
+        'description' => 'required',
+        'person_id' => 'required',
+        'suggested_date' => 'required',
+        'suggested_time' => 'required',
+        'priority' => 'required',
+        'evidence_file' => 'required',
+      ]);
+      if($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+      }
         $data = $request->all();
+
+        // dd($data);
 
         if(!empty($data['parts'])){
             $parts = $data['parts'];
         }
 
-        dd($request->all());
 
         $data['suggested_date'] = Input::has('suggested_date')?Carbon::parse($data['suggested_date'])->format('Y-m-d'):'';
         $data['suggested_time'] = Input::has('suggested_time')?Carbon::parse($data['suggested_time'])->format('H:i:s'):'';
@@ -134,7 +150,7 @@ class IncidentController extends Controller {
         return \redirect()->back();
     }
 
-    public function update(IncidentRequest $request, $id){
+    public function update(Request $request, $id){
         $data = $request->all();
 
         if(!empty($data['parts'])){
@@ -150,8 +166,9 @@ class IncidentController extends Controller {
         if(!empty($evidence_file)){
             $file = $evidence_file->getClientOriginalName();
             $ext = $evidence_file->getClientOriginalExtension();
-            $name = str_random(10)."_".time()."_"."signature".".".$ext;
+            $name = str_random(10)."_".time()."_"."incidents".".".$ext;
             $fileLogo = 'images/incidents/'.$name;
+            $evidence_file->move(public_path().'/images/incidents/',$fileLogo);
         }else{
             $fileLogo = $incident->evidence_file;
         }
@@ -173,15 +190,15 @@ class IncidentController extends Controller {
             $incident_parts = $incident->parts()->sync($parts);
         }
 
-        if(!empty($evidence_file)){
-            $folder = public_path().'/images/incidents';
-            if(!file_exists($folder)){
-                mkdir($folder, 0777, true);
-                $evidence_file->move(public_path().'/images/incidents/',$fileLogo);
-            }else{
-                $evidence_file->move(public_path().'/images/incidents/',$fileLogo);
-            }
-        }
+        // if(!empty($evidence_file)){
+        //     $folder = public_path().'/images/incidents';
+        //     if(!file_exists($folder)){
+        //         mkdir($folder, 0777, true);
+        //         $evidence_file->move(public_path().'/images/incidents/',$fileLogo);
+        //     }else{
+        //         $evidence_file->move(public_path().'/images/incidents/',$fileLogo);
+        //     }
+        // }
 
         Session::flash('message', 'Incident update successfully.');
         return Redirect::to('/incidents');
@@ -464,17 +481,14 @@ class IncidentController extends Controller {
 
             $user = $request->user();
 
-            // DB::table('log')->insert([
-            //     "texto" => $user
-            // ]);
             if ($user->type_user ==  1) {
-                $data = Asset::select('id','name AS text')
-                ->where('name','like','%'.$keyword.'%')
+                $data = Asset::select('id','asset_custom_id AS text')
+                ->where('asset_custom_id','like','%'.$keyword.'%')
 
                 ->get();
             } else {
-                $data = Asset::select('id','name AS text')
-                ->where('name','like','%'.$keyword.'%')
+                $data = Asset::select('id','asset_custom_id AS text')
+                ->where('asset_custom_id','like','%'.$keyword.'%')
                 ->where('customer_id', '=', $user->customer_id)
                 ->get();
             }

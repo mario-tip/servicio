@@ -133,9 +133,9 @@
           <div class="fileinput-new thumbnail">
 
             @if(isset($incident))
-            <img src="http://service.altatec.com.mx/{{$incident->evidence_file}}" alt="" />
+              <img src="{{URL::to('/')}}/{{ $incident->evidence_file }}" height="300" weight="300">
             @else
-            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="no image" />
             @endif
 
           </div>

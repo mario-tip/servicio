@@ -42,7 +42,7 @@ class ServiceOrderController extends Controller
                 $service_orders = ServiceOrder::all();
                 // dd($service_orders);
             }
-            
+
             return view('help_service.service_orders.index', compact('service_orders'));
         }
         return redirect()->back();
@@ -58,6 +58,7 @@ class ServiceOrderController extends Controller
         if(userHasPermission("generar_orden_servicio")) {
             $incident = Incident::find($incident_id);
             $dependencies = $this->getDependenciesData();
+
             return view('help_service.service_orders.create', compact('incident', 'dependencies'));
         }
         return redirect()->back();
@@ -69,12 +70,6 @@ class ServiceOrderController extends Controller
             'technicians' => User::getSelectTechnicians()];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ServiceOrderRequest $request)
     {
         $user = $request->user();
@@ -88,8 +83,8 @@ class ServiceOrderController extends Controller
 
         try{
             $serviceOrderTemp = ServiceOrder::create($service_order_data);
-            
-            
+
+
             //Manda correo a la persona que esta generando la orden de servicio en caso de que tenga activa las notificaciones de ordenes de servicio.
             if($user->active_notification_order){
                 Mail::to($user->email)->send(new sendUserMail($serviceOrderTemp));
@@ -100,21 +95,21 @@ class ServiceOrderController extends Controller
 
             Mail::to($serviceOrderTemp->technician['email'])->send(new OrderServiceMail($serviceOrderTemp));
 
-            // Se envia correo a los de "con copia a" configurado en usuario. 
+            // Se envia correo a los de "con copia a" configurado en usuario.
             $users_send = DB::table('users')
                 ->join('user_notification_order', 'users.id', '=', 'user_notification_order.notification_order_id')
                 ->select('users.*')
                 ->where('user_notification_order.user_id', '=', $user->id)
                 ->get();
-            
-            
+
+
 
             foreach ($users_send as $key => $user_send) {
                 // Mail::to($user_send->email)->send(new copyServiceOrder($serviceOrderTemp,$user_send));
                 Mail::to($user_send->email)->send(new sendUserMail($serviceOrderTemp));
             }
-            
-            
+
+
 
             $request->session()->flash('message', 'Service order saved correctly');
             return redirect('/service-orders');
@@ -138,37 +133,4 @@ class ServiceOrderController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
