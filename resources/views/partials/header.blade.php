@@ -13,9 +13,12 @@
     </div>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    @if (\Request::route()->getName()!= "Desktop")
     <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
       <span></span>
     </a>
+    @endif
+
     <!-- END RESPONSIVE MENU TOGGLER -->
     <div class="page-top" align="center">
       @php

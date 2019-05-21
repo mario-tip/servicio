@@ -15646,6 +15646,7 @@ body[ng-controller] .modal {
   font-size: 81px;
   line-height: 56px;
   text-align: center;
+  color: #3a96ee;
 }
 .tiles .tile .tile-body h1,
 .tiles .tile .tile-body h2,
@@ -25143,4 +25144,18 @@ body.stop-scrolling {
 }
 .font-cian-300 {
     color: #4DD0E1 !important;
+}
+
+@media (max-width: 991px) {
+    .btn-group > .dropdown-menu:before, .dropdown > .dropdown-menu:before, .dropdown-toggle > .dropdown-menu:before{
+        border-right: 0px solid transparent !important;
+        border-bottom: 0px solid #e0e0e0 !important;
+        border-left: 0 solid transparent !important;
+    }
+
+    .dropdown > .dropdown-menu:after {
+        border-right: 0px solid transparent !important;
+        border-bottom: 0px solid #fff !important;
+        border-left: 0px solid transparent !important;
+    }
 }

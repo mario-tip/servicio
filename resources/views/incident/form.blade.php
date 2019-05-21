@@ -156,7 +156,7 @@
 </div>
 
 <!-- BEGIN ASSET'S PARTS PORTLET-->
-<div class="portlet light portlet-fit bordered" style="margin: 0.5em 7em 2em;">
+<div class="portlet light portlet-fit bordered portletForm">
   <div class="portlet-title topForm">
   </div>
   <div class="portlet-body horizontal-form">

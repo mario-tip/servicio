@@ -26,41 +26,41 @@
 
 .iconos-Settings-blanco:before {
   content: "\e900";
-  color: #fff;
+  /* color: #fff; */
 }
 .iconos-Analytics-Blanco:before {
   content: "\e901";
-  color: #fff;
+  /* color: #fff; */
 }
 .iconos-Help-Desk-Blanco:before {
   content: "\e902";
-  color: #fff;
+  /* color: #fff; */
 }
 .iconos-Assets-Blanco:before {
   content: "\e903";
-  color: #fff;
+  /* color: #fff; */
 }
 .iconos-Dashboard-Blanco:before {
   content: "\e904";
-  color: #fff;
+  /* color: #fff; */
 }
 .iconos-SettingsAzul:before {
   content: "\e905";
-  color: #348aee;
+  /* color: #348aee; */
 }
 .iconos-AnalyticsAzul:before {
   content: "\e906";
-  color: #348aee;
+  /* color: #348aee; */
 }
 .iconos-Help-DeskAzul:before {
   content: "\e907";
-  color: #348aee;
+  /* color: #348aee; */
 }
 .iconos-AssetsAzul:before {
   content: "\e908";
-  color: #348aee;
+  /* color: #348aee; */
 }
 .iconos-Dashboard-azul:before {
   content: "\e909";
-  color: #348aee;
+  /* color: #348aee; */
 }
