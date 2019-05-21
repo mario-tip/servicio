@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="form-group">
-            <label class="control-label" for="incident_select"><span class="required" aria-required="true">* </span>Search incident: </label>
+            <label class="control-label" for="incident_select"><span class="required" aria-required="true">* </span>Search incident folio: </label>
             {!! Form::select('quotation[incident_id]', [], $quotation->incident_id,
             ['class' => 'form-control', 'id' => 'incident_select']) !!}
           </div>

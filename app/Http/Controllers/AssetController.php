@@ -63,7 +63,7 @@ class AssetController extends Controller
 
     public function store(Request $request){
 
-        $asset_data = $request->get('asset');
+      $asset_data = $request->get('asset');
 
         $validator = Validator::make($asset_data,[
           'asset_custom_id' => 'required|unique:assets',
@@ -169,13 +169,15 @@ class AssetController extends Controller
     }
 
     public function update(Request $request, $id){
-      $validator = Validator::make($asset_data,['asset_custom_id' => 'unique:assets']);
 
-      if($validator->fails()) {
-           return redirect()->back()->withErrors($validator)->withInput();
-      }
-        $asset_data = $request->get('asset');
-        $asset_data['_method'] = 'PUT';
+      $asset_data = $request->get('asset');
+
+
+      // $validator = Validator::make($asset_data,['asset_custom_id' => 'unique:assets']);
+      //
+      // if($validator->fails()) {
+      //      return redirect()->back()->withErrors($validator)->withInput();
+      // }
 
         if ($request->hasFile('document')) {
           $document = $request->file('document');
@@ -193,16 +195,6 @@ class AssetController extends Controller
           $destinationPath = public_path('/images/assets');
           $image->move($destinationPath,$name_img);
           $asset_data['image'] = $name_img;
-        }
-
-        $validator = $this->validateInputs($asset_data, 'PUT');
-        if($validator->fails()) {
-            $response = [
-                'errors' => true,
-                'errors_fragment' => \View::make('partials.request')->withErrors($validator)->render()
-            ];
-
-            return response()->json($response);
         }
 
         $asset_data = $this->formatFormData($asset_data);
