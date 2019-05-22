@@ -50,13 +50,13 @@ class AssetController extends Controller
     /*Obtiene las dependencias del asset, para los select del form*/
     private function getDependenciesData() {
         return [
-            'equipments' => Equipment::pluck('name', 'id'),
-            'locations' => Location::pluck('name', 'id'),
-            'persons' => Person::pluck('name', 'id'),
-            'providers' => Provider::pluck('name', 'id'),
-            'customers' => Customer::pluck('name', 'id'),
-            'projects' => Project::pluck('name', 'id'),
-            'subcategories' => Subcategory::pluck('name', 'id'),
+            'equipments' => Equipment::orderBy('name', 'asc')->pluck('name', 'id'),
+            'locations' => Location::orderBy('name', 'asc')->pluck('name', 'id'),
+            'persons' => Person::orderBy('name', 'asc')->pluck('name', 'id'),
+            'providers' => Provider::orderBy('name', 'asc')->pluck('name', 'id'),
+            'customers' => Customer::orderBy('name', 'asc')->pluck('name', 'id'),
+            'projects' => Project::orderBy('name', 'asc')->pluck('name', 'id'),
+            'subcategories' => Subcategory::orderBy('name', 'asc')->pluck('name', 'id'),
         ];
     }
 
@@ -80,7 +80,8 @@ class AssetController extends Controller
           'person_id' => 'required',
           'description' => 'required',
           'customer_id' => 'required',
-          'project_id' => 'required'
+          'project_id' => 'required',
+          'depreciation' => 'required'
         ]);
 
         if($validator->fails()) {
@@ -187,7 +188,6 @@ class AssetController extends Controller
       ]);
 
       if($validator->fails()) {
-
            return redirect()->back()->withErrors($validator)->withInput();
       }
 

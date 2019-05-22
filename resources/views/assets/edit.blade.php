@@ -207,7 +207,7 @@
             <div class="row">
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_subcategory_id"><span class="required" aria-required="true">* </span>Deprecation: </label>
+                  <label class="control-label" for="asset_subcategory_id"><span class="required" aria-required="true">* </span>Depreciation: </label>
                   {!! Form::text('asset[depreciation]', $asset->depreciation,['class' => 'form-control','id' => 'asset_depreciation','maxlength' => 3,'placeholder' => '%','max' => 100,'onkeypress' => 'return validateInput(event, 5)'])!!}
                 </div>
               </div>
@@ -215,14 +215,16 @@
 
             <div class="row">
               <div class="col-md-6">
-                <label for="inputEmail1" class="control-label"><span class="required" aria-required="true">* </span>Photo:</label>
+                <label for="inputEmail1" class="control-label">Photo:</label>
                 <div class="form-group">
                   <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-new ">
                       @if ($asset->image)
                       <img src="{{URL::to('/')}}/images/assets/{{ $asset->image }}" height="300" weight="300">
                       @else
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAACClBMVEUAAAAAAAB/f39VVVU/Pz9mZmZVVVVISEhfX19UVFRMTExFRUVOTk5ISEhVVVVPT09LS0tQUFBMTExUVFRRUVFNTU1VVVVRUVFOTk5UVFRPT09VVVVSUlJPT09NTU1SUlJQUFBNTU1SUlJQUFBOTk5SUlJQUFBOTk5RUVFPT09RUVFPT09RUVFQUFBTU1NRUVFQUFBRUVFQUFBPT09QUFBPT09SUlJQUFBPT09SUlJRUVFPT09RUVFQUFBRUVFSUlJRUVFQUFBQUFBPT09RUVFPT09RUVFSUlJRUVFQUFBRUVFPT09QUFBQUFBQUFBRUVFRUVFRUVFQUFBPT09RUVFQUFBQUFBQUFBRUVFQUFBRUVFRUVFRUVFQUFBRUVFRUVFQUFBRUVFRUVFRUVFQUFBRUVFPT09QUFBRUVFRUVFQUFBQUFBRUVFRUVFQUFBRUVFRUVFRUVFQUFBRUVFRUVFPT09QUFBRUVFPT09QUFBRUVFQUFBRUVFQUFBRUVFQUFBRUVFRUVFRUVFRUVFRUVFPT09QUFBRUVFQUFBPT09QUFBRUVFPT09QUFBPT09RUVFPT09RUVFRUVFRUVFPT09QUFBRUVFRUVFPT09PT09RUVFPT09RUVFPT09RUVFPT09RUVFPT09RUVFRUVFPT09PT09RUVFPT09PT09RUVFPT09PT09RUVFRUVGn96iXAAAArXRSTlMAAQIDBAUGBwgJCgsNDg8QERMUFRYXGBkaGx0eHyAhIiMkJSYnKCkqLC0vMDIzNDU2ODk6PD0+P0BBQkNFRkhKS0xPUFFTVVdYWV5gYmZvcHF0dXZ3eHl8fX+AgYSFhoeIiYqNj5CRkpaXmJ6fo6WmqqyusLO0tba3uLm7vL7AwcLDxcbJysvMztDR0tPU19na29zf4OHi5ebn6Onr7e/w8fP09fb3+Pn6+/z9/ls/KjMAAAMpSURBVHja7dvpV1JBFADwRz7ipViaZbZo+wLZSkVKJpJCm7YZKZVtlrZHaotl2L5YmWWmJFohQgj/Y0crFZhBmrlc7Jy5H3nvzP0deLPehySJECFCxDQKzXbLHoSwGBVyfmt/GCn6raT8xSNhtBgxEQDtYcRoJwB8mIBhAiCMGgIgANMbMNidnPAlCnAkaa65LwACwAjQri1cqaQMsK6+c2wCf1mzMBWAxc6JT/31megA82DE6PVRhwywBaPGz4FCVIAhEDOCuxcgAtI/EeaQOyo8gJ04i5WgAWQ3EdCKBthFWdHnYAHqKCuJCixAEwVQgwV4TAE0YAFoO7VLWIDbFMAJLMApCqAcC2CidMNsWvNKVbNzL+RA1EsE3KW1Pv/N6OVbMtxQfJQIKKY0nvb09/XzcACli5C/idb4kT83BHVw0/Fmf0z+L/MobS/xJjBZ/POCpOJnVH6PntZ2y8RNuwGXZCWeiPzvV9Oatk66610a4KI070Zo/FPfuQxay7Mjekwl6LJ81dmOUUPgybFc+o/bGLlu0wJvTJTluvx43VvaEnXCeBp5ayZ3RD2rQ4twAdUxvfU6KqDAGwMIbcQE3CMMmC5EgC3xSTspgDl9RMAHNRbgCmXdUoUEMIQoAE8WCkD9lnoSeQEFYKcfhfqXIQCWDsU5jHUmH6B6GPc4eBs4IH2TuWjyCUVd/PPoZypYQFHz2BLtle1vlbFhqhPxfZAA7c3xy49KNZI0t7JryiP5bgUOkPki4gnvcSdUFDgOBpBbmaoS33KgAJcZ6yKNQIBDrIWZ4BoQQBl7VbkFAqD/zlGcMvEDcnt4qmOvZ/ACZj3nq88d5ASonJwFwt4MPsAZ7hKlgwtwgL9G6s3jABgDAFXaq+yAFR6QF0bWswKyOmEK1Q8YAXIbVKl8AxvADlarP8kE0AyAAa4xAfThFH8D2X6o/N4Ctmdg/w+Y/J+NzN3QWl3r4IzawyZZvD/w/wEu5icnXOJNKgEQAAEQAAEQAAEQAAEQgPiAYcz8pD+5uDABbQTAziBe/uAO0s6p/CtW/j4Lee8202AuQwjzVrUkQoQIEdMofgHCPTva70igEgAAAABJRU5ErkJggg==" alt="Red dot" />
+                      <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAACClBMVEUAAAAAAAB/f39VVVU/Pz9mZmZVVVVISEhfX19UVFRMTExFRUVOTk5ISEhVVVVPT09LS0tQUFBMTExUVFRRUVFNTU1VVVVRUVFOTk5UVFRPT09VVVVSUlJPT09NTU1SUlJQUFBNTU1SUlJQUFBOTk5SUlJQUFBOTk5RUVFPT09RUVFPT09RUVFQUFBTU1NRUVFQUFBRUVFQUFBPT09QUFBPT09SUlJQUFBPT09SUlJRUVFPT09RUVFQUFBRUVFSUlJRUVFQUFBQUFBPT09RUVFPT09RUVFSUlJRUVFQUFBRUVFPT09QUFBQUFBQUFBRUVFRUVFRUVFQUFBPT09RUVFQUFBQUFBQUFBRUVFQUFBRUVFRUVFRUVFQUFBRUVFRUVFQUFBRUVFRUVFRUVFQUFBRUVFPT09QUFBRUVFRUVFQUFBQUFBRUVFRUVFQUFBRUVFRUVFRUVFQUFBRUVFRUVFPT09QUFBRUVFPT09QUFBRUVFQUFBRUVFQUFBRUVFQUFBRUVFRUVFRUVFRUVFRUVFPT09QUFBRUVFQUFBPT09QUFBRUVFPT09QUFBPT09RUVFPT09RUVFRUVFRUVFPT09QUFBRUVFRUVFPT09PT09RUVFPT09RUVFPT09RUVFPT09RUVFPT09RUVFRUVFPT09PT09RUVFPT09PT09RUVFPT09PT09RUVFRUVGn96iXAAAArXRSTlMAAQIDBAUGBwgJCgsNDg8QERMUFRYXGBkaGx0eHyAhIiMkJSYnKCkqLC0vMDIzNDU2ODk6PD0+P0BBQkNFRkhKS0xPUFFTVVdYWV5gYmZvcHF0dXZ3eHl8fX+AgYSFhoeIiYqNj5CRkpaXmJ6fo6WmqqyusLO0tba3uLm7vL7AwcLDxcbJysvMztDR0tPU19na29zf4OHi5ebn6Onr7e/w8fP09fb3+Pn6+/z9/ls/KjMAAAMpSURBVHja7dvpV1JBFADwRz7ipViaZbZo+wLZSkVKJpJCm7YZKZVtlrZHaotl2L5YmWWmJFohQgj/Y0crFZhBmrlc7Jy5H3nvzP0deLPehySJECFCxDQKzXbLHoSwGBVyfmt/GCn6raT8xSNhtBgxEQDtYcRoJwB8mIBhAiCMGgIgANMbMNidnPAlCnAkaa65LwACwAjQri1cqaQMsK6+c2wCf1mzMBWAxc6JT/31megA82DE6PVRhwywBaPGz4FCVIAhEDOCuxcgAtI/EeaQOyo8gJ04i5WgAWQ3EdCKBthFWdHnYAHqKCuJCixAEwVQgwV4TAE0YAFoO7VLWIDbFMAJLMApCqAcC2CidMNsWvNKVbNzL+RA1EsE3KW1Pv/N6OVbMtxQfJQIKKY0nvb09/XzcACli5C/idb4kT83BHVw0/Fmf0z+L/MobS/xJjBZ/POCpOJnVH6PntZ2y8RNuwGXZCWeiPzvV9Oatk66610a4KI070Zo/FPfuQxay7Mjekwl6LJ81dmOUUPgybFc+o/bGLlu0wJvTJTluvx43VvaEnXCeBp5ayZ3RD2rQ4twAdUxvfU6KqDAGwMIbcQE3CMMmC5EgC3xSTspgDl9RMAHNRbgCmXdUoUEMIQoAE8WCkD9lnoSeQEFYKcfhfqXIQCWDsU5jHUmH6B6GPc4eBs4IH2TuWjyCUVd/PPoZypYQFHz2BLtle1vlbFhqhPxfZAA7c3xy49KNZI0t7JryiP5bgUOkPki4gnvcSdUFDgOBpBbmaoS33KgAJcZ6yKNQIBDrIWZ4BoQQBl7VbkFAqD/zlGcMvEDcnt4qmOvZ/ACZj3nq88d5ASonJwFwt4MPsAZ7hKlgwtwgL9G6s3jABgDAFXaq+yAFR6QF0bWswKyOmEK1Q8YAXIbVKl8AxvADlarP8kE0AyAAa4xAfThFH8D2X6o/N4Ctmdg/w+Y/J+NzN3QWl3r4IzawyZZvD/w/wEu5icnXOJNKgEQAAEQAAEQAAEQAAEQgPiAYcz8pD+5uDABbQTAziBe/uAO0s6p/CtW/j4Lee8202AuQwjzVrUkQoQIEdMofgHCPTva70igEgAAAABJRU5ErkJggg=="
+                        alt="Red dot" />
                       @endif
                     </div>
                     <div class="fileinput-preview fileinput-exists thumbnail">
@@ -248,7 +250,7 @@
                 <div class="form-group">
                   <div class="fileinput fileinput-new" data-provides="fileinput" id="document">
                     @if ($asset->document)
-                      <label>{{$asset->document}}</label>
+                    <label>{{$asset->document}}</label>
                     @endif
                     <div class="input-group input-large">
                       <div class="form-control uneditable-input input-fixed input-group" data-trigger="fileinput">
@@ -259,9 +261,9 @@
                         <span class="fileinput-new"> Add </span>
                         <span class="fileinput-exists"> Change </span>
                         {!! Form::file('document', null, [
-                          'class'=>'form-control product mb-10',
-                          'accept' => 'application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf'
-                          ]) !!}
+                        'class'=>'form-control product mb-10',
+                        'accept' => 'application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf'
+                        ]) !!}
                       </span>
                       <a href="javascript:;" class="input-group-addon btn red fileinput-exists btnForm" data-dismiss="fileinput"> Delete </a>
                     </div>

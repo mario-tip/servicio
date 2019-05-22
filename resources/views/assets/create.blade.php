@@ -212,7 +212,7 @@
               </div> --}}
               <div class="col-md-6 ">
                 <div class="form-group">
-                  <label class="control-label" for="asset_subcategory_id"><span class="required" aria-required="true">* </span>Deprecation: </label>
+                  <label class="control-label" for="asset_subcategory_id"><span class="required" aria-required="true">* </span>Depreciation: </label>
                   {!! Form::text('asset[depreciation]', $asset->depreciation,['class' => 'form-control','id' => 'asset_depreciation','maxlength' => 3,'placeholder' => '%','max' => 100,'onkeypress' => 'return validateInput(event, 5)'])!!}
                 </div>
               </div>
