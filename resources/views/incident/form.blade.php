@@ -67,7 +67,7 @@
         <select class="bs-select form-control person" name="person_id" id="person_id">
           <option value="0" disabled selected>Select...</option>
           @foreach($persons as $person)
-          <option value="{{$person->id}}" {{  ($incident->person_id == $person->id) ? 'selected = "selected"' : ''}}>{{$person->name}}</option>
+          <option value="{{$person->id}}" {{ isset($incident) && ($incident->person_id == $person->id) ? 'selected = "selected"' : ""}}>{{$person->name}}</option>
           @endforeach
         </select>
       </div>
@@ -105,13 +105,6 @@
       </div>
     </div>
   </div>
-
-  {{-- <div class="form-group">
-        <label for="inputEmail1" class="col-md-2 control-label"><span class="required" aria-required="true"> * </span> Add evidence :</label>
-        <div class="col-sm-7">
-            <input type="file" name="evidence_file" id="evidence_file" class="form-control product mb-10" data-buttonText="Select archive" data-iconName="fa fa-inbox"/>
-        </div>
-    </div> --}}
 
   <div class="row">
     <div class="col-md-6">
