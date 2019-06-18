@@ -43,5 +43,7 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::resource('area', 'AreaController');
 
+        Route::resource('maintenance','MaintenanceApi');
+
     });
 });

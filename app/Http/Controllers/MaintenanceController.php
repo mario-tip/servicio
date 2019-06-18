@@ -35,15 +35,13 @@ class MaintenanceController extends Controller {
     public function store(MaintenanceRequest $request){
         $data = $request->all();
 
-        // dd($data = $request->all());
-
         $data['maintenance_date'] = Input::has('maintenance_date')?Carbon::parse($data['maintenance_date'])->format('Y-m-d'):'';
         $data['maintenance_time'] = Input::has('maintenance_time')?Carbon::parse($data['maintenance_time'])->format('H:i:s'):'';
 
         // Valores por default (toods menzos porque estan esos campos)
         $data['type'] = 0;
         $data['is_periodical'] = false;
-        // dd($data);
+        dd($data);
         $maintenance = Maintenance::create($data);
 
         $folio = '';
@@ -146,8 +144,6 @@ class MaintenanceController extends Controller {
 
     public function update(MaintenanceRequest $request, $id){
         $data = $request->all();
-
-        // var_dump($data);
 
         $maintenance = Maintenance::find($id);
 
