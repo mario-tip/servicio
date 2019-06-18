@@ -41,7 +41,7 @@ class APIController extends Controller
         try {
             $validator = Validator::make(Input::all(), User::$validationRules, User::$validationMessages);
             if ($validator->fails()) {
-                return response()->json(array('error' => true, 'message' => $validator->messages()->first() . '.', 'code' => 401));
+                return response()->json(array('error' => true, 'message' => $validator->messages()->first() . '.', 'code' => 401), 400);
             } else {
                 if (!$token = JWTAuth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
                     return response()->json(array('error' => true, 'message' => 'Credenciales incorrectas', 'code' => 401));
