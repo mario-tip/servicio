@@ -9,8 +9,10 @@ use Illuminate\Http\Request;
 use App\ServiceOrder;
 use App\Maintenance;
 use Carbon\Carbon;
-use App\Asset;
+use App\Provider;
 use App\Person;
+use App\Asset;
+use App\User;
 
 class AppCmmsController extends Controller
 {
@@ -26,7 +28,12 @@ class AppCmmsController extends Controller
 
       $valin = Validator::make($request->all(), [
             'asset_id' => 'required',
-            'provider' => 'required'
+            'provider_id' => 'required',
+            'asset' => 'required',
+            'maintenance_date' => 'required',
+            'maintenance_time' => 'required',
+            'technician' => 'required',
+            'notes' => 'required'
         ]);
 
         if ($valin->fails()) {
@@ -139,4 +146,17 @@ class AppCmmsController extends Controller
     public function getUser(){
       return Auth::user();
     }
+
+    public function create(){
+      $providers = Provider::all('id', 'name');
+      $technicians = User::where('type_user', 2)->select('id','name','username')->get();
+      $assets = Asset::all('id','asset_custom_id','name','serial','barcode','image');
+      $data = [
+        'providers' => $providers,
+        'technicians' => $technicians,
+        'assets' => $assets
+      ];
+      return $data;
+    }
+
 }

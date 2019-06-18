@@ -47,5 +47,7 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::get('user', 'AppCmmsController@getUser');
 
+        Route::get('getdepmaintenance','AppCmmsController@create');
+
     });
 });

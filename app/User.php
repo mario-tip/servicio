@@ -10,18 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name',
         'username',
@@ -33,15 +23,10 @@ class User extends Authenticatable
         'active_notification',
         'active_notification_order',
         'active_notification_end',
-        'customer_id'
-
+        'customer_id',
+        'img'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -83,7 +68,7 @@ class User extends Authenticatable
                 ->where('roles.name', 'tecnico')->get()->pluck('name', 'id');
     }
 
-    //Funcion que filtra las ordenes de servicio de el usuario logueado 
+    //Funcion que filtra las ordenes de servicio de el usuario logueado
     public function getOrders(){
         return $this->hasMany(ServiceOrder::class,'user_id','id');
     }
@@ -91,5 +76,9 @@ class User extends Authenticatable
     public function getIncidents(){
         return $this->hasMany(Incident::class,'user_id','id');
     }
-    
+
+    public function tecnicos(){
+      return $this->hasMany(User::class,'user_id','id')->where('type_user', '2');
+    }
+
 }

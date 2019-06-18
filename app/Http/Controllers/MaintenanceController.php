@@ -27,7 +27,6 @@ class MaintenanceController extends Controller {
 
     public function create(){
       $provider = Provider::all('id', 'name');
-
             return view('maintenances.create', compact('provider'));
 
     }
