@@ -43,7 +43,9 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::resource('area', 'AreaController');
 
-        Route::resource('maintenance','MaintenanceApi');
+        Route::resource('maintenance','AppCmmsController');
+
+        Route::get('user', 'AppCmmsController@getUser');
 
     });
 });

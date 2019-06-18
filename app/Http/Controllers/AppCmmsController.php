@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use App\Asset;
 use App\Person;
 
-class MaintenanceApi extends Controller
+class AppCmmsController extends Controller
 {
     public function index(){
       $service_orders =  ServiceOrder::whereUser_id(Auth::user()->id)
@@ -134,5 +134,9 @@ class MaintenanceApi extends Controller
         return $maintenance;
       }
       return 'no esxiste el mantenimiento';
+    }
+
+    public function getUser(){
+      return Auth::user();
     }
 }
