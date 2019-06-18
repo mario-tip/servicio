@@ -41,10 +41,10 @@ class APIController extends Controller
         try {
             $validator = Validator::make(Input::all(), User::$validationRules, User::$validationMessages);
             if ($validator->fails()) {
-                return response()->json(array('error' => true, 'message' => $validator->messages()->first() . '.', 'code' => 401), 400);
+                return response()->json(array('error' => true, 'message' => $validator->messages()->first() . '.', 'code' => 400), 400);
             } else {
                 if (!$token = JWTAuth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
-                    return response()->json(array('error' => true, 'message' => 'Credenciales incorrectas', 'code' => 401));
+                    return response()->json(array('error' => true, 'message' => 'Credenciales incorrectas', 'code' => 401), 401);
                 } else {
                     $context = JWTAuth::setToken($token);
                     $user = $context->authenticate();
@@ -59,9 +59,9 @@ class APIController extends Controller
                 }
             }
         } catch (JWTException $ex) {
-            return response()->json(['error' => true, 'message' => 'Acceso no autorizado', 'code' => 401]);
+            return response()->json(['error' => true, 'message' => 'Acceso no autorizado', 'code' => 401], 401);
         } catch (\Exception $ex) {
-            return response()->json(['error' => true, 'message' => $ex->getMessage(), 'code' => 500]);
+            return response()->json(['error' => true, 'message' => $ex->getMessage(), 'code' => 500], 500);
         }
     }
 
