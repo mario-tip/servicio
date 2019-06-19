@@ -96,6 +96,10 @@ class Asset extends Model
       }
     }
 
+    public function location(){
+      return $this->belongsTo(Location::class,'location_id','id');
+    }
+
     // public function setProjectIdAttribute($value)
     // {
     //     var_dump("Quiere entrar a hacer nulo el project ID");

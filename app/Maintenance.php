@@ -6,34 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maintenance extends Model
 {
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
+
     protected $table = 'maintenances';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'type', 
-        'is_periodical', 
-        'notes', 
-        'maintenance_date', 
-        'is_annual', 
-        'is_monthly', 
-        'is_biweekly', 
-        'asset_id', 
-        'person_id', 
+        'type',
+        'is_periodical',
+        'notes',
+        'maintenance_date',
+        'is_annual',
+        'is_monthly',
+        'is_biweekly',
+        'asset_id',
+        'person_id',
         'maintenance_time'
     ];
 
     public function asset()
     {
-        return $this->belongsTo('App\Asset', 'asset_id', 'id');
+        return $this->belongsTo('App\Asset', 'asset_id', 'id')->with('location');
     }
 
     public function person()
@@ -54,5 +45,5 @@ class Maintenance extends Model
         ];
         return $maintenance_types[$key];
     }
-   
+
 }
