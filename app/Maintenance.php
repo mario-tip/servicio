@@ -19,7 +19,9 @@ class Maintenance extends Model
         'is_biweekly',
         'asset_id',
         'person_id',
-        'maintenance_time'
+        'maintenance_time',
+        'user_id',
+        'provider_id'
     ];
 
     public function asset()

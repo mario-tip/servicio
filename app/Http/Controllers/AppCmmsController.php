@@ -18,11 +18,15 @@ use DB;
 
 class AppCmmsController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+
+      if ($request->has('perra')) {
+      return $request->perra;
+      }
       $service_orders =  ServiceOrder::whereUser_id(Auth::user()->id)
       ->whereType(1)->pluck('type_id');
       $result = Maintenance::whereIn('id', $service_orders)->with('asset')
-      ->paginate(2);
+      ->paginate(4);
       return $result;
     }
 
@@ -32,7 +36,7 @@ class AppCmmsController extends Controller
             'asset_id' => 'required|numeric',
             'provider_id' => 'required|numeric',
             'maintenance_date' => 'required|date',
-            'maintenance_time' => 'required',
+            'maintenance_time' => 'required|date_format:H:i:s',
             'user_id' => 'required|numeric',
             'notes' => 'required'
         ]);
