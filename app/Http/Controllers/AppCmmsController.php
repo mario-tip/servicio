@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 use App\ServiceOrder;
 use App\Maintenance;
 use Carbon\Carbon;
+use App\Incident;
 use App\Provider;
 use App\Person;
 use App\Asset;
 use App\User;
+use DB;
 
 class AppCmmsController extends Controller
 {
@@ -27,12 +29,11 @@ class AppCmmsController extends Controller
     public function store(Request $request){
 
       $valin = Validator::make($request->all(), [
-            'asset_id' => 'required',
-            'provider_id' => 'required',
-            'asset' => 'required',
-            'maintenance_date' => 'required',
+            'asset_id' => 'required|numeric',
+            'provider_id' => 'required|numeric',
+            'maintenance_date' => 'required|date',
             'maintenance_time' => 'required',
-            'technician' => 'required',
+            'user_id' => 'required|numeric',
             'notes' => 'required'
         ]);
 
@@ -45,7 +46,7 @@ class AppCmmsController extends Controller
       $data['maintenance_date'] = Input::has('maintenance_date')?Carbon::parse($data['maintenance_date'])->format('Y-m-d'):'';
       $data['maintenance_time'] = Input::has('maintenance_time')?Carbon::parse($data['maintenance_time'])->format('H:i:s'):'';
 
-      // Valores por default (toods menzos porque estan esos campos)
+      // Valores por default (todos menzos porque estan esos campos)
       $data['type'] = 0;
       $data['is_periodical'] = false;
       // dd($data);
@@ -74,7 +75,11 @@ class AppCmmsController extends Controller
       $service_order->type_id = $maintenance->id;
       $service_order->user_id = $data['user_id'];
       $service_order->save();
-      return response()->json('Se creo orden de mantenimiento', 201);
+      return response()->json([
+        'msg' => 'Se creo orden de mantenimiento con exito',
+        'id' => $service_order->id,
+        'code' => 201
+      ], 201);
     }
 
     public function show($id){
@@ -85,15 +90,12 @@ class AppCmmsController extends Controller
 
           $service_order = ServiceOrder::where('type', '=', 1)
               ->where('type_id', '=', $maintenance->id)->first();
-              // dd(['estas es la orden de servicio'=>$service_order]);
 
           if($service_order != null){
               $person = Person::find($service_order->person_id);
 
               $maintenance->folio = $service_order->folio;
               $maintenance->person_notes = $service_order->notes;
-
-
 
               if($person != null){
                   $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
@@ -157,6 +159,19 @@ class AppCmmsController extends Controller
         'assets' => $assets
       ];
       return $data;
+    }
+
+    public function searchServices(Request $request){
+
+      $valin = Validator::make($request->all(), [
+            'customer_id' => 'required',
+            'service_order_date' => 'required',
+        ]);
+
+        if ($valin->fails()) {
+          return response()->json($valin->messages());
+        }
+        return 'ola k ase';
     }
 
 }

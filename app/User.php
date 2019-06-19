@@ -77,8 +77,4 @@ class User extends Authenticatable
         return $this->hasMany(Incident::class,'user_id','id');
     }
 
-    public function tecnicos(){
-      return $this->hasMany(User::class,'user_id','id')->where('type_user', '2');
-    }
-
 }

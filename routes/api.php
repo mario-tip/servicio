@@ -49,5 +49,7 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::get('getdepmaintenance','AppCmmsController@create');
 
+        Route::post('findServices' , 'AppCmmsController@searchServices');
+
     });
 });
