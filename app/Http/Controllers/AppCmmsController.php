@@ -41,8 +41,17 @@ class AppCmmsController extends Controller
             'notes' => 'required'
         ]);
 
+        // return $request->all();
+        $resp = [];
         if ($valin->fails()) {
-          return response()->json($valin->messages());
+          $variable = $valin->messages();
+          foreach ($variable as $key => $value) {
+            $resp = [
+              'key' => $value
+            ];
+          }
+          return $variable;
+          return response()->json($valin->messages(),400);
         }
 
       $data = $request->all();
@@ -176,6 +185,81 @@ class AppCmmsController extends Controller
           return response()->json($valin->messages());
         }
         return 'ola k ase';
+    }
+
+    public function ResolveMain(Request $request){
+
+      $valin = Validator::make($request->all(), [
+          'id' => 'required|numeric',
+          'person_id' => 'required|numeric',
+          'signature' => 'required|image',
+          'img_evidence' => 'image',
+          'comments' => 'required',
+          'status' => 'required|numeric'
+        ]);
+
+        if ($valin->fails()) {
+          return response()->json($valin->messages());
+        }
+          $sign = $request->file('signature');
+          $ImgEvidence = $request->file('img_evidence');
+
+          $data = $request->only(['id','person_id','signature','img_evidence','comments','status']);
+
+          $service_order = ServiceOrder::find($request->id);
+
+          if (!empty($sign)) {
+              $file = $sign->getClientOriginalName();
+              $ext = $sign->getClientOriginalExtension();
+              $name = str_random(5) . "_" . time() . "_" . "signature" . "." . $ext;
+              $fileLogo = 'images/resolutions/' . $name;
+              $sign->move(public_path() . '/images/resolutions/', $fileLogo);
+              $data['signature'] = request()->root().'/'.$fileLogo;
+          }
+
+          if (!empty($ImgEvidence)) {
+            $file = $ImgEvidence->getClientOriginalName();
+            $ext = $ImgEvidence->getClientOriginalExtension();
+            $name = str_random(5) . "_" . time() . "_" . "evidence_maintenance" . "." . $ext;
+            $name_evidence = 'images/resolutions/' . $name;
+            $ImgEvidence->move(public_path() . '/images/resolutions/', $name_evidence);
+            $data['img_evidence'] = request()->root().'/'.$name_evidence;
+          }
+
+          $data['resolution_date'] = Carbon::now()->format('Y-m-d');
+          $data['resolution_time'] = Carbon::now()->format('H:i:s');
+
+          ServiceOrder::whereId($request->id)->update($data);
+
+          $user = $request->user();
+
+          $users_send = DB::table('users')
+          ->join('user_notification_end', 'users.id', '=', 'user_notification_end.notification_end_id')
+          ->select('users.*')
+          ->where('user_notification_end.user_id', '=', $user->id)
+          ->get();
+
+
+          if($user->active_notification_end){
+              Mail::to($user->email)->send(new ServiceOrderEnd($service_order));
+          }
+
+          foreach ($users_send as $key => $user_send) {
+              Mail::to($user_send->email)->send(new ServiceOrderEnd($service_order));
+          }
+
+          if (!empty($parts)) {
+              if ($service_order->type == 0) {
+                  $incident = Incident::find($service_order->type_id);
+                  $incident_parts = $incident->parts()->sync($parts);
+              }
+          }
+
+          if (!$request->has('person_id')) {
+              return response()->json(['error' => true, 'message' => 'No se pudo actualizar el registro', 'code' => 400]);
+          } else {
+              return response()->json(['error' => false, 'message' => 'Registro actualizado correctamente', 'code' => 201],201);
+          }
     }
 
 }

@@ -37,19 +37,23 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::post('resolution', 'APIController@resolution');
 
-        Route::get('get-asset-detail-by-barcode', 'APIController@getAssetDetailByBarcode');
+        Route::get('get-asset-detail-by-barcode','APIController@getAssetDetailByBarcode');
 
-        Route::get('logout', 'APIController@logout');
+        Route::get('logout','APIController@logout');
 
-        Route::resource('area', 'AreaController');
+        Route::resource('area','AreaController');
 
         Route::resource('maintenance','AppCmmsController');
 
-        Route::get('user', 'AppCmmsController@getUser');
+        Route::get('user','AppCmmsController@getUser');
 
         Route::get('getdepmaintenance','AppCmmsController@create');
 
-        Route::post('findServices' , 'AppCmmsController@searchServices');
+        Route::post('findServices','AppCmmsController@searchServices');
+
+        Route::post('attend','AppCmmsController@ResolveMain');
+
+
 
     });
 });
