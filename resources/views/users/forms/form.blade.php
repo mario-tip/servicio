@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="name"> <span class="required" aria-required="true">* </span>Name: </label>
+            <label class="control-label" for="name"> <span class="required" aria-required="true">* </span>Fullname: </label>
             {!!Form::text('name',null,['class'=>'form-control', 'placeholder'=>'Insert name', 'autocomplete'=>"off", 'onkeypress'=>'validateInput(event, 1)', 'id'=>'name'])!!}
           </div>
         </div>

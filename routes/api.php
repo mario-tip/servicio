@@ -53,7 +53,7 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::post('attend','AppCmmsController@ResolveMain');
 
-
+        Route::get('persons','AppCmmsController@GetPersons');
 
     });
 });

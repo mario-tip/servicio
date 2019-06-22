@@ -12,7 +12,8 @@
         "laravel/framework": "5.4.*",
         "laravelcollective/html": "^5.3.0",
         "maatwebsite/excel": "^2.1",
-        "tymon/jwt-auth": "0.5.*"
+        "tymon/jwt-auth": "0.5.*",
+        "yzalis/identicon": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

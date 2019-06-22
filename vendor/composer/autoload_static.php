@@ -82,6 +82,7 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         'I' => 
         array (
             'Illuminate\\' => 11,
+            'Identicon\\' => 10,
         ),
         'F' => 
         array (
@@ -237,6 +238,10 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Identicon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
@@ -343,6 +348,7 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
     );
 
     public static $classMap = array (
+        'App\\Area' => __DIR__ . '/../..' . '/app/Area.php',
         'App\\Asset' => __DIR__ . '/../..' . '/app/Asset.php',
         'App\\Categories_permission' => __DIR__ . '/../..' . '/app/categories_permission.php',
         'App\\Charts\\SampleChart' => __DIR__ . '/../..' . '/app/Charts/SampleChart.php',
@@ -356,6 +362,8 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Firmware' => __DIR__ . '/../..' . '/app/Firmware.php',
         'App\\Http\\Controllers\\APIController' => __DIR__ . '/../..' . '/app/Http/Controllers/APIController.php',
+        'App\\Http\\Controllers\\AppCmmsController' => __DIR__ . '/../..' . '/app/Http/Controllers/AppCmmsController.php',
+        'App\\Http\\Controllers\\AreaController' => __DIR__ . '/../..' . '/app/Http/Controllers/AreaController.php',
         'App\\Http\\Controllers\\AssetController' => __DIR__ . '/../..' . '/app/Http/Controllers/AssetController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -363,6 +371,7 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerController.php',
+        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\EquipmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/EquipmentController.php',
         'App\\Http\\Controllers\\FirmwareController' => __DIR__ . '/../..' . '/app/Http/Controllers/FirmwareController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
@@ -384,6 +393,7 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\AssetRequest' => __DIR__ . '/../..' . '/app/Http/Requests/AssetRequest.php',
         'App\\Http\\Requests\\CustomerRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CustomerRequest.php',
+        'App\\Http\\Requests\\EquipmentRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EquipmentRequest.php',
         'App\\Http\\Requests\\IncidentRequest' => __DIR__ . '/../..' . '/app/Http/Requests/IncidentRequest.php',
         'App\\Http\\Requests\\LocationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/LocationRequest.php',
         'App\\Http\\Requests\\MaintenanceRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MaintenanceRequest.php',
@@ -481,6 +491,7 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         'ConsoleTVs\\Charts\\Features\\Highcharts\\Chart' => __DIR__ . '/..' . '/consoletvs/charts/src/Features/Highcharts/Chart.php',
         'ConsoleTVs\\Charts\\Features\\Highcharts\\Dataset' => __DIR__ . '/..' . '/consoletvs/charts/src/Features/Highcharts/Dataset.php',
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'CreateAreasTable' => __DIR__ . '/../..' . '/database/migrations/2019_03_29_155254_create_areas_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
@@ -1159,6 +1170,12 @@ class ComposerStaticInitb9bc7f26d0c914780170bb988227cb1f
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Identicon\\Generator\\BaseGenerator' => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon/Generator/BaseGenerator.php',
+        'Identicon\\Generator\\GdGenerator' => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon/Generator/GdGenerator.php',
+        'Identicon\\Generator\\GeneratorInterface' => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon/Generator/GeneratorInterface.php',
+        'Identicon\\Generator\\ImageMagickGenerator' => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon/Generator/ImageMagickGenerator.php',
+        'Identicon\\Generator\\SvgGenerator' => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon/Generator/SvgGenerator.php',
+        'Identicon\\Identicon' => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon/Identicon.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
         'Illuminate\\Auth\\Access\\HandlesAuthorization' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/HandlesAuthorization.php',

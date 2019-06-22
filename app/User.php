@@ -24,7 +24,7 @@ class User extends Authenticatable
         'active_notification_order',
         'active_notification_end',
         'customer_id',
-        'img'
+        'img_url'
     ];
 
     protected $hidden = [

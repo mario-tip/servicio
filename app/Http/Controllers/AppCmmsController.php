@@ -256,10 +256,17 @@ class AppCmmsController extends Controller
           }
 
           if (!$request->has('person_id')) {
-              return response()->json(['error' => true, 'message' => 'No se pudo actualizar el registro', 'code' => 400]);
+              return response()->json(['error' => true, 'message' => 'No se pudo actualizar el registro'],400);
           } else {
-              return response()->json(['error' => false, 'message' => 'Registro actualizado correctamente', 'code' => 201],201);
+              return response()->json(['error' => false, 'message' => 'Registro actualizado correctamente'],201);
           }
+    }
+
+    public function GetPersons(){
+    // IDEA: Servicio para obtener la lista de clientes que pueden autorizar
+      // $identicon = new \Identicon\Identicon();
+      // return  $identicon->displayImage('tachi',150);
+      return Person::all('id','name','father_last_name','mother_last_name','email','created_at','updated_at');
     }
 
 }
