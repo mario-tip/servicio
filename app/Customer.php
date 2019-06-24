@@ -21,7 +21,7 @@ class Customer extends Model
     protected $fillable = [
         'idcustomer', 'name', 'type', 'username', 'password',
         'address','phone','adm_name','adm_phone','adm_email',
-        'rfc','sup_name','sup_phone','sup_email'
+        'rfc','sup_name','sup_phone','sup_email','person_id'
     ];
 
     /**

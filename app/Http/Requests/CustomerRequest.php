@@ -20,7 +20,8 @@ class CustomerRequest extends FormRequest
     {
         return [
             'customer.name.required' => 'The name is required ',
-            'customer.type.required' => 'The type is required '
+            'customer.type.required' => 'The type is required ',
+            'customer.person_id.required' => 'The person is required'
         ];
     }
 
@@ -33,7 +34,8 @@ class CustomerRequest extends FormRequest
     {
         return [
             'customer.name' => 'required',
-            'customer.type' => 'required'
+            'customer.type' => 'required',
+            'customer.person_id' => 'required'
         ];
     }
 }

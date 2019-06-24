@@ -61,16 +61,15 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        {{-- <div class="col-md-6">
+      {{-- <div class="row">
+        <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="person_department_id"><span class="required" aria-required="true">* </span>Department: </label>
-            {!!Form::select('person[department_id]', $requirements['departments'], $person->department_id,
-            ['class' => 'bs-select form-control no-text-area', 'id' => 'person_department_id', 'title' => 'Select...']) !!}
+            <label class="control-label" for="customer_id"><span class="required" aria-required="true">* </span>Customer: </label>
+            {!!Form::select('person[customer_id]', $requirements['customers'], $person->customer_id,
+            ['class' => 'bs-select form-control no-text-area', 'id' => 'customer_id', 'title' => 'Select...']) !!}
           </div>
-        </div> --}}
-
-      </div>
+        </div>
+      </div> --}}
     </div>
   </div>
 </div>

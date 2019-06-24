@@ -262,11 +262,14 @@ class AppCmmsController extends Controller
           }
     }
 
-    public function GetPersons(){
+    public function GetPersons(Request $request){
+
+      return $request->user()->customers;
     // IDEA: Servicio para obtener la lista de clientes que pueden autorizar
       // $identicon = new \Identicon\Identicon();
       // return  $identicon->displayImage('tachi',150);
-      return Person::all('id','name','father_last_name','mother_last_name','email','created_at','updated_at');
+      // return Person::select('id','name','father_last_name','mother_last_name','email','created_at','updated_at')
+      // ->where('customer_id', )->get();
     }
 
 }

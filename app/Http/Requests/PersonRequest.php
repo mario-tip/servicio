@@ -33,6 +33,7 @@ class PersonRequest extends FormRequest
             'person.city.required' => 'The city is required',
             'person.zip_code.required' => 'The zip code is required',
             'person.zip_code.size' => 'The postal code must contain 5 digits',
+            // 'person.customer_id.required' => 'The customer is required'
         ];
     }
 
@@ -46,12 +47,11 @@ class PersonRequest extends FormRequest
         $validations = [
             'person.name' => 'required',
             'person.father_last_name' => 'required',
-            // 'person.department_id' => 'required',
             'person.address' => 'required',
             'person.phone' => 'required|size:10',
-            // 'person.state_id' => 'required',
             'person.city' => 'required',
             'person.zip_code' => 'required|size:5',
+            // 'person.customer_id' => 'required'
         ];
         switch($this->method()) {
             case 'POST':

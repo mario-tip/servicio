@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Person;
 use App\Http\Requests\CustomerRequest;
 use Session;
 
 class CustomerController extends Controller
 {
 
-    public function index()
-    {
+    public function index(){
         if(userHasPermission("listar_catalogo_clientes")) {
             $customers = Customer::all();
             return view('catalogs.customers.index', compact('customers'));
@@ -18,8 +18,7 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    public function create()
-    {
+    public function create(){
         if(userHasPermission("crear_catalogo_clientes")) {
             $customer = new Customer();
             $requirements = $this->getRequirements();
@@ -28,15 +27,14 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    private function getRequirements()
-    {
+    private function getRequirements(){
         return [
-            'types' => ['1' => 'Company', '2' => 'Person', '3' => 'Contract']
+            'types' => ['1' => 'Company', '2' => 'Person', '3' => 'Contract'],
+            'persons' => Person::orderBy('name', 'asc')->pluck('name','id')
         ];
     }
 
-    public function store(CustomerRequest $request)
-    {
+    public function store(CustomerRequest $request){
         try {
             Customer::create($request->get('customer'));
             $request->session()->flash('message', 'Customer created successfully');
@@ -46,8 +44,7 @@ class CustomerController extends Controller
         }
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         if(userHasPermission("editar_catalogo_clientes")) {
             $customer = Customer::find($id);
             $requirements = $this->getRequirements();
@@ -56,8 +53,7 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    public function update(CustomerRequest $request, Customer $customer)
-    {
+    public function update(CustomerRequest $request, Customer $customer){
         try {
             $customer->fill($request->get('customer'));
             $customer->save();
@@ -68,8 +64,7 @@ class CustomerController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         $response = ['errors' => false];
         $customer = Customer::find($id);
 

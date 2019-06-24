@@ -31,8 +31,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function setPasswordAttribute($valor)
-    {
+    public function setPasswordAttribute($valor){
         if (!empty($valor)) {
             $this->attributes['password'] = bcrypt($valor);
         }
@@ -49,19 +48,16 @@ class User extends Authenticatable
         'password.required' => 'La contraseña es requerida'
     ];
 
-    public function roles()
-    {
+    public function roles(){
         return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
     }
 
-    public function customers()
-    {
+    public function customers(){
         return $this->belongsToMany('App\Customer', 'users_customers', 'user_id', 'customer_id');
     }
 
     /*Obtiene los técnicos ['name'=>'id'] para el select (se dan de alta desde sistema central)*/
-    public static function getSelectTechnicians()
-    {
+    public static function getSelectTechnicians(){
         return self::select('users.name', 'users.id')
                 ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
                 ->leftJoin('roles', 'roles.id', '=', 'role_user.role_id')
