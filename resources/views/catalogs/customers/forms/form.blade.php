@@ -65,7 +65,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label" for="person_id"><span class="required" aria-required="true">* </span>Customer: </label>
+            <label class="control-label" for="person_id"><span class="required" aria-required="true">* </span>Person: </label>
             {!!Form::select('customer[person_id]', $requirements['persons'], $customer->person_id,
             ['class' => 'bs-select form-control no-text-area', 'id' => 'person_id', 'title' => 'Select...']) !!}
           </div>

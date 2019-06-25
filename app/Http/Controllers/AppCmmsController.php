@@ -41,7 +41,6 @@ class AppCmmsController extends Controller
             'notes' => 'required'
         ]);
 
-        // return $request->all();
         $resp = [];
         if ($valin->fails()) {
           $variable = $valin->messages();
@@ -112,7 +111,6 @@ class AppCmmsController extends Controller
 
               if($person != null){
                   $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
-                  // dd($maintenance);
               }else{
                   $maintenance->person_name = '';
               }
@@ -182,12 +180,13 @@ class AppCmmsController extends Controller
         ]);
 
         if ($valin->fails()) {
-          return response()->json($valin->messages());
+          return response()->json($valin->messages(),400);
         }
         return 'ola k ase';
     }
 
     public function ResolveMain(Request $request){
+      // IDEA: URL: attend
 
       $valin = Validator::make($request->all(), [
           'id' => 'required|numeric',
@@ -199,7 +198,7 @@ class AppCmmsController extends Controller
         ]);
 
         if ($valin->fails()) {
-          return response()->json($valin->messages());
+          return response()->json($valin->messages(),404);
         }
           $sign = $request->file('signature');
           $ImgEvidence = $request->file('img_evidence');
@@ -256,7 +255,7 @@ class AppCmmsController extends Controller
           }
 
           if (!$request->has('person_id')) {
-              return response()->json(['error' => true, 'message' => 'No se pudo actualizar el registro'],400);
+              return response()->json(['error' => true, 'message' => 'No se pudo actualizar el registro'],404);
           } else {
               return response()->json(['error' => false, 'message' => 'Registro actualizado correctamente'],201);
           }
