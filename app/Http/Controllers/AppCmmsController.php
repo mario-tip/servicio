@@ -20,11 +20,13 @@ class AppCmmsController extends Controller
 {
     public function index(Request $request){
 
-      if ($request->has('perra')) {
-      return $request->perra;
-      }
+      $valin = Validator::make($request->all(), ['status' => 'required|numeric|between:0,1']);
+        if ($valin->fails()) {return response()->json($valin->messages(),404);}
+
       $service_orders =  ServiceOrder::whereUser_id(Auth::user()->id)
-      ->whereType(1)->pluck('type_id');
+      ->whereType(1)
+      ->whereStatus($request->status)
+      ->pluck('type_id');
       $result = Maintenance::whereIn('id', $service_orders)->with('asset','order')
       ->paginate(4);
       return $result;

@@ -43,7 +43,11 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::resource('area','AreaController');
 
+        // IDEA: new routes application cmms React native
+
         Route::resource('maintenance','AppCmmsController');
+
+        Route::post('maintenance', 'AppCmmsController@index');
 
         Route::get('user','AppCmmsController@getUser');
 
