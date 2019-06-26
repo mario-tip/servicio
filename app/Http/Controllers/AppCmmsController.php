@@ -23,12 +23,38 @@ class AppCmmsController extends Controller
       $valin = Validator::make($request->all(), ['status' => 'required|numeric|between:0,1']);
         if ($valin->fails()) {return response()->json($valin->messages(),404);}
 
-      $service_orders =  ServiceOrder::whereUser_id(Auth::user()->id)
-      ->whereType(1)
-      ->whereStatus($request->status)
-      ->pluck('type_id');
-      $result = Maintenance::whereIn('id', $service_orders)->with('asset','order')
-      ->paginate(4);
+        $service_orders =  ServiceOrder::whereUser_id(Auth::user()->id)
+        ->whereType(1)
+        ->whereStatus($request->status)
+        ->pluck('type_id');
+
+        if ($request->has('date_month')) {
+          $valin = Validator::make($request->all(), ['date_month' => 'required|date']);
+            if ($valin->fails()) {return response()->json($valin->messages(),404);}
+
+          $date_start = new Carbon($request->date);
+          $date_end = new Carbon($request->date);
+
+          $start = $date_start->startOfMonth()->toDateString();
+          $end = $date_end->endOfMonth()->toDateString();
+
+          $result = Maintenance::whereIn('id', $service_orders)
+          ->whereBetween('maintenance_date', [$start, $end])
+          ->get();
+
+        } elseif ($request->has('date_day')) {
+
+          $valin = Validator::make($request->all(), ['date_day' => 'required|date']);
+            if ($valin->fails()) {return response()->json($valin->messages(),404);}
+            $date_day = new Carbon($request->date_day);
+          $result = Maintenance::whereIn('id', $service_orders)
+          ->where('maintenance_date', $date_day->toDateString())
+          ->get();
+
+        }else{
+          $result = Maintenance::whereIn('id', $service_orders)->with('asset','order')->paginate(4);
+        }
+
       return $result;
     }
 
@@ -97,44 +123,8 @@ class AppCmmsController extends Controller
     }
 
     public function show($id){
-      if(userHasPermission("mostrar_mantenimientos")):
-          $maintenance = Maintenance::find($id);
-
-          $asset = Asset::find($maintenance->asset_id);
-
-          $service_order = ServiceOrder::where('type', '=', 1)
-              ->where('type_id', '=', $maintenance->id)->first();
-
-          if($service_order != null){
-              $person = Person::find($service_order->person_id);
-
-              $maintenance->folio = $service_order->folio;
-              $maintenance->person_notes = $service_order->notes;
-
-              if($person != null){
-                  $maintenance->person_name = $person->name.' '.$person->father_last_name.' '.$person->mother_last_name;
-              }else{
-                  $maintenance->person_name = '';
-              }
-
-              $name = $service_order->technician()->select('users.username')->first();
-              $maintenance->technician = $name->username;
-
-              if($service_order->signature){
-                  $maintenance->signature = '/'.$service_order->signature;
-              }
-
-          }else{
-              $maintenance->folio = '';
-              $maintenance->person_notes = '';
-              $maintenance->person_name = '';
-              $maintenance->signature = '';
-          }
-
-          return $maintenance;
-      else:
-          return 'sin permisos';
-      endif;
+      $result = Maintenance::findOrFail($id)->with('asset','order')->get();
+      return $result;
 
     }
 
@@ -262,14 +252,11 @@ class AppCmmsController extends Controller
         return response()->json(['error' => false, 'message' => 'Registro actualizado correctamente'],201);
     }
 
-    public function GetPersons(Request $request){
-
-      return $request->user()->customers;
+    public function GetPersons(){
     // IDEA: Servicio para obtener la lista de clientes que pueden autorizar
       // $identicon = new \Identicon\Identicon();
       // return  $identicon->displayImage('tachi',150);
-      // return Person::select('id','name','father_last_name','mother_last_name','email','created_at','updated_at')
-      // ->where('customer_id', )->get();
+      return Person::all('id','name');
     }
 
 }
