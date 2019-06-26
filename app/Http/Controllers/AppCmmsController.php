@@ -189,7 +189,7 @@ class AppCmmsController extends Controller
       // IDEA: URL: attend
 
       $valin = Validator::make($request->all(), [
-          'type_id' => 'required|numeric',
+          'id' => 'required|numeric',
           'person_id' => 'required|numeric',
           'signature' => 'required|image',
           'img_evidence' => 'image',
@@ -203,9 +203,9 @@ class AppCmmsController extends Controller
           $sign = $request->file('signature');
           $ImgEvidence = $request->file('img_evidence');
 
-          $data = $request->only(['type_id','person_id','signature','img_evidence','comments','status']);
+          $data = $request->only(['person_id','signature','img_evidence','comments','status']);
 
-          $OrderService = ServiceOrder::whereType_id($data['type_id'])->whereType(0)->latest()->get();
+          $OrderService = ServiceOrder::whereId($request->id)->get();
           if (!count($OrderService)) {
             return response()->json(['message' => 'No se encontro la orden de servicio'],400);
           }
@@ -231,7 +231,7 @@ class AppCmmsController extends Controller
           $data['resolution_date'] = Carbon::now()->format('Y-m-d');
           $data['resolution_time'] = Carbon::now()->format('H:i:s');
           // ServiceOrder::whereId($request->id)->update($data);
-          ServiceOrder::whereType_id($data['type_id'])->whereType(0)->latest()->update($data);
+          ServiceOrder::whereId($request->id)->update($data);
 
           $user = $request->user();
 
