@@ -45,19 +45,19 @@ Route::group(['prefix' => 'v1'], function () {
 
         // IDEA: new routes application cmms React native
 
-        Route::resource('maintenance','AppCmmsController');
+        Route::resource('maintenance','AppMainController');
 
-        Route::post('maintenance', 'AppCmmsController@index');
+        Route::post('maintenance', 'AppMainController@index');
 
-        Route::get('user','AppCmmsController@getUser');
+        Route::get('user','AppMainController@getUser');
 
-        Route::get('getdepmaintenance','AppCmmsController@create');
+        Route::get('getdepmaintenance','AppMainController@create');
 
-        Route::post('findServices','AppCmmsController@searchServices');
+        Route::post('findServices','AppMainController@searchServices');
 
-        Route::post('attend','AppCmmsController@ResolveMain');
+        Route::post('attend','AppMainController@ResolveMain');
 
-        Route::get('persons','AppCmmsController@GetPersons');
+        Route::get('persons','AppMainController@GetPersons');
 
     });
 });

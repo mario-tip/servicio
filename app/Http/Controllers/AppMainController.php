@@ -16,7 +16,7 @@ use App\Asset;
 use App\User;
 use DB;
 
-class AppCmmsController extends Controller
+class AppMainController extends Controller
 {
     public function index(Request $request){
 
@@ -123,9 +123,8 @@ class AppCmmsController extends Controller
     }
 
     public function show($id){
-      $result = Maintenance::findOrFail($id)->with('asset','order')->get();
-      return $result;
-
+      $result = Maintenance::whereId($id)->with('asset','order')->get();
+      return count($result) ? $result : response(['message' => 'No se encontro mantenimiento con el id '.$id],404);
     }
 
     public function update(Request $request, $id){
@@ -256,7 +255,7 @@ class AppCmmsController extends Controller
     // IDEA: Servicio para obtener la lista de clientes que pueden autorizar
       // $identicon = new \Identicon\Identicon();
       // return  $identicon->displayImage('tachi',150);
-      return Person::all('id','name');
+      return Person::all('id', 'name', 'father_last_name', 'email');
     }
 
 }
