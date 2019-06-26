@@ -189,7 +189,7 @@ class AppCmmsController extends Controller
       // IDEA: URL: attend
 
       $valin = Validator::make($request->all(), [
-          'id' => 'required|numeric',
+          'type_id' => 'required|numeric',
           'person_id' => 'required|numeric',
           'signature' => 'required|image',
           'img_evidence' => 'image',
@@ -203,9 +203,12 @@ class AppCmmsController extends Controller
           $sign = $request->file('signature');
           $ImgEvidence = $request->file('img_evidence');
 
-          $data = $request->only(['id','person_id','signature','img_evidence','comments','status']);
+          $data = $request->only(['type_id','person_id','signature','img_evidence','comments','status']);
 
-          $service_order = ServiceOrder::find($request->id);
+          $OrderService = ServiceOrder::whereType_id($data['type_id'])->whereType(0)->latest()->get();
+          if (!count($OrderService)) {
+            return response()->json(['message' => 'No se encontro la orden de servicio'],400);
+          }
 
           if (!empty($sign)) {
               $file = $sign->getClientOriginalName();
@@ -227,8 +230,8 @@ class AppCmmsController extends Controller
 
           $data['resolution_date'] = Carbon::now()->format('Y-m-d');
           $data['resolution_time'] = Carbon::now()->format('H:i:s');
-
-          ServiceOrder::whereId($request->id)->update($data);
+          // ServiceOrder::whereId($request->id)->update($data);
+          ServiceOrder::whereType_id($data['type_id'])->whereType(0)->latest()->update($data);
 
           $user = $request->user();
 
@@ -254,11 +257,7 @@ class AppCmmsController extends Controller
               }
           }
 
-          if (!$request->has('person_id')) {
-              return response()->json(['error' => true, 'message' => 'No se pudo actualizar el registro'],404);
-          } else {
-              return response()->json(['error' => false, 'message' => 'Registro actualizado correctamente'],201);
-          }
+        return response()->json(['error' => false, 'message' => 'Registro actualizado correctamente'],201);
     }
 
     public function GetPersons(Request $request){
