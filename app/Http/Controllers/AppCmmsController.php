@@ -25,7 +25,7 @@ class AppCmmsController extends Controller
       }
       $service_orders =  ServiceOrder::whereUser_id(Auth::user()->id)
       ->whereType(1)->pluck('type_id');
-      $result = Maintenance::whereIn('id', $service_orders)->with('asset')
+      $result = Maintenance::whereIn('id', $service_orders)->with('asset','order')
       ->paginate(4);
       return $result;
     }

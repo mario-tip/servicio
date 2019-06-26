@@ -21,7 +21,7 @@ class Maintenance extends Model
         'person_id',
         'maintenance_time',
         'user_id',
-        'provider_id'
+        'provider_id',
     ];
 
     public function asset()
@@ -37,6 +37,10 @@ class Maintenance extends Model
     public function services()
     {
         return $this->morphMany('App\ServiceOrder', 'serviceable', 'type','type_id');
+    }
+
+    public function order(){
+      return $this->belongsTo(ServiceOrder::class, 'id','type_id');
     }
 
     public static function getTypeWord($key)
