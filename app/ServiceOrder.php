@@ -22,80 +22,59 @@ class ServiceOrder extends Model
      * @var array
      */
     protected $fillable = [
-        'folio',
-        'date',
-        'time',
-        'notes',
-        'type',
-        'status',
-        'signature',
-        'resolution_date',
-        'resolution_time',
-        'comments',
-        'type_id',
-        'user_id',
-        'person_id'
+      'folio','date','time','notes','type','status','signature','resolution_date',
+      'resolution_time','comments','type_id','user_id','person_id'
     ];
 
-    public function serviceable()
-    {
-        return $this->morphTo();
+    public function person(){
+        return $this->hasOne(Person::class, 'id', 'person_id');
     }
 
-    public function incident()
-    {
+    public function incident(){
         return $this->hasOne('App\Incident', 'id', 'type_id');
 
     }
 
-    public function maintenance()
-    {
+    public function maintenance(){
         return $this->hasOne('App\Maintenance', 'id', 'type_id');
-        
+
     }
 
-    public function technician()
-    {
+    public function technician(){
         return $this->hasOne('App\User', 'id', 'user_id');
     }
 
-    public function authorizer()
-    {
+    public function authorizer(){
         return $this->hasOne('App\Person', 'id', 'person_id');
     }
 
-    public function quotation()
-    {
+    public function quotation(){
         return $this->hasOne('App\Quotation', 'incident_id', 'type_id');
     }
 
     /*Accessors*/
-    public function getDateAttribute($value)
-    {
+    public function getDateAttribute($value){
         return isset($value) ? Carbon::parse($value)->format('d-m-Y') : null;
     }
 
-    public function getIncidentTypeWord()
-    {
+    public function getIncidentTypeWord(){
         $incidents = [
             '0' => 'Incident',
             '1' => 'Maintenance'
         ];
         return $incidents[$this->type];
     }
-    public function getStatusWord()
-    {
+    public function getStatusWord(){
         $incidents = [
             '0' => 'Pending',
             '1' => 'Attended'
         ];
-        
+
         return $incidents[$this->status];
     }
 
     /**STAR TECHNICIAN TICKETS**/
-    public static function generateTechnicianTickets($filters)
-    {
+    public static function generateTechnicianTickets($filters){
         $query = self::select('service_order.folio AS folio', 'customers.name AS customer', 'persons.name AS person',
                 'assets.name AS asset', DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
                 'users.name AS technician', 'locations.address AS location',
@@ -114,8 +93,7 @@ class ServiceOrder extends Model
     }
 
     /*Agrega los filtros que lleguen en el request*/
-    private static function addTechnicianTicketFilters($query, $filters)
-    {
+    private static function addTechnicianTicketFilters($query, $filters){
         $query = self::addDateFilters($query, $filters);
 
         if($filters['status'] != '' && $filters['status'] != '2') {
@@ -132,8 +110,7 @@ class ServiceOrder extends Model
     /**END TECHNICIAN TICKETS**/
 
     /**START INCIDENTS**/
-    public static function generateIncidents($filters)
-    {
+    public static function generateIncidents($filters){
         $query = self::select('service_order.folio AS folio', 'assets.id AS asset_id', 'customers.name AS customer',
                 'persons.name AS person', 'assets.name AS asset_name',
                 DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
@@ -151,8 +128,7 @@ class ServiceOrder extends Model
         return $query->get();
     }
 
-    private static function addIncidentFilters($query, $filters)
-    {
+    private static function addIncidentFilters($query, $filters){
         $query = self::addDateFilters($query, $filters);
 
         if($filters['type'] != '' && $filters['type'] != '2') {
@@ -163,8 +139,7 @@ class ServiceOrder extends Model
     /**END INCIDENTS**/
 
     /**START CUSTOMER SERVICE ORDERS**/
-    public static function generateCustomerServiceOrders($filters)
-    {
+    public static function generateCustomerServiceOrders($filters){
         $query = self::select('service_order.folio AS folio',
                               'customers.name AS customer',
                               'persons.name AS person',
@@ -193,8 +168,7 @@ class ServiceOrder extends Model
         return $queryReturn;
     }
 
-    public static function calculate($query_cal)
-    {
+    public static function calculate($query_cal){
 
       // dd (gettype($query_cal));
 
@@ -223,8 +197,7 @@ class ServiceOrder extends Model
 
 
     /*Agrega los filtros que lleguen en el request*/
-    private static function addCustomerServiceOrdersFilters($query, $filters)
-    {
+    private static function addCustomerServiceOrdersFilters($query, $filters){
         $query = self::addDateFilters($query, $filters);
 
         if($filters['customer_id'] != '' && $filters['customer_id'] != '0') {
@@ -237,8 +210,7 @@ class ServiceOrder extends Model
     }
     /**END CUSTOMER SERVICE ORDERS**/
     /**START BINNACLE SERVICE ORDERS**/
-    public static function generateBinnacleServiceOrders($filters)
-    {
+    public static function generateBinnacleServiceOrders($filters){
         $query = self::select('service_order.folio AS folio', 'customers.name AS customer', 'persons.name AS person',
                 'assets.name AS asset', DB::raw('CONCAT(service_order.resolution_date," ",service_order.resolution_time) AS resolution_date'),
                 'users.name AS technician', 'locations.address AS location',
@@ -256,16 +228,14 @@ class ServiceOrder extends Model
     }
 
     /*Agrega los filtros que lleguen en el request*/
-    private static function addBinnacleServiceOrdersFilters($query, $filters)
-    {
+    private static function addBinnacleServiceOrdersFilters($query, $filters){
         $query = self::addDateFilters($query, $filters);
         return $query;
     }
     /**END BINNACLE SERVICE ORDERS*/
 
     /*Agrega filtros de fechas*/
-    private static function addDateFilters($query, $filters)
-    {
+    private static function addDateFilters($query, $filters){
         if($filters['start_date'] != '' && $filters['end_date'] != '') {
             $start_date = Carbon::parse($filters['start_date'])->format('Y-m-d');
             $end_date = Carbon::parse($filters['end_date'])->format('Y-m-d');

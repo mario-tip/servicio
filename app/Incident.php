@@ -15,7 +15,7 @@ class Incident extends Model
     ];
 
     public function asset(){
-        return $this->belongsTo('App\Asset', 'asset_id', 'id');
+        return $this->belongsTo('App\Asset', 'asset_id', 'id')->with('location');
     }
 
     public function person(){

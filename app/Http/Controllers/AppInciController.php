@@ -84,12 +84,13 @@ class AppInciController extends Controller
             Mail::to($user_send->email)->send(new IncidentMailAdmin($incident,$asset,$user,$user_send));
         }
 
-        return response()->json(['message'=>'Se guardo la orden de servicio'],201);
+        return response()->json(['message'=>'Incidente registrado con éxito'],201);
 
     }
 
     public function show($id){
-
+      $result = Incident::whereId($id)->with('asset','order')->get();
+      return count($result) ? $result : response(['message' => 'No se encontro mantenimiento con el id '.$id],404);
     }
 
     public function update(Request $request, $id){

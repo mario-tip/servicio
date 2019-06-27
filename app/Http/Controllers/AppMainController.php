@@ -40,6 +40,7 @@ class AppMainController extends Controller
 
           $result = Maintenance::whereIn('id', $service_orders)
           ->whereBetween('maintenance_date', [$start, $end])
+          ->with('asset','order','person')
           ->get();
 
         } elseif ($request->has('date_day')) {
@@ -49,14 +50,15 @@ class AppMainController extends Controller
             $date_day = new Carbon($request->date_day);
           $result = Maintenance::whereIn('id', $service_orders)
           ->where('maintenance_date', $date_day->toDateString())
+          ->with('asset','order','person')
           ->get();
 
         }else{
           $result = Maintenance::whereIn('id', $service_orders)
-          ->with('asset','order')->paginate(4);
+          ->with('asset','order','person')->paginate(4);
         }
 
-      return $result;
+      return count($result) ? $result : response()->json(['message' => 'No se encontraron incidencias'],404);
     }
 
     public function store(Request $request){
