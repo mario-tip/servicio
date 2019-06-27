@@ -32,7 +32,6 @@ class ServiceOrder extends Model
 
     public function incident(){
         return $this->hasOne('App\Incident', 'id', 'type_id');
-
     }
 
     public function maintenance(){

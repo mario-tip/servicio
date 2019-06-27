@@ -31,7 +31,7 @@ class Incident extends Model
     }
 
     public function order(){
-      return $this->belongsTo(ServiceOrder::class,'id' ,'type_id');
+      return $this->belongsTo(ServiceOrder::class,'id' ,'type_id')->with('person');
     }
 
     /*Accessors*/

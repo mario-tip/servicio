@@ -29,19 +29,16 @@ class AppMainController extends Controller
         ->pluck('type_id');
 
         if ($request->has('date_month')) {
-          $valin = Validator::make($request->all(), ['date_month' => 'required|date']);
-            if ($valin->fails()) {return response()->json($valin->messages(),404);}
+            $valin = Validator::make($request->all(), ['date_month' => 'required|date']);
+              if ($valin->fails()) {return response()->json($valin->messages(),404);}
 
-          $date_start = new Carbon($request->date);
-          $date_end = new Carbon($request->date);
+            $start = Carbon::parse($request->date_month)->startOfMonth()->toDateString();
+            $end =  Carbon::parse($request->date_month)->endOfMonth()->toDateString();
 
-          $start = $date_start->startOfMonth()->toDateString();
-          $end = $date_end->endOfMonth()->toDateString();
-
-          $result = Maintenance::whereIn('id', $service_orders)
-          ->whereBetween('maintenance_date', [$start, $end])
-          ->with('asset','order')
-          ->get();
+            $result = Maintenance::whereIn('id', $service_orders)
+            ->whereBetween('maintenance_date', [$start, $end])
+            ->with('asset','order')
+            ->get();
 
         } elseif ($request->has('date_day')) {
 
@@ -58,7 +55,7 @@ class AppMainController extends Controller
           ->with('asset','order')->paginate(4);
         }
 
-      return count($result) ? $result : response()->json(['message' => 'No se encontraron incidencias'],404);
+      return count($result) ? $result : response()->json(['message' => 'No se encontraron mantenimientos'],404);
     }
 
     public function store(Request $request){

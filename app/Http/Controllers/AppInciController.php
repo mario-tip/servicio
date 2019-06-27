@@ -21,6 +21,10 @@ class AppInciController extends Controller
       ->whereStatus($request->status)
       ->pluck('type_id');
 
+      if ($request->has('date_month')) {
+        
+      }
+
       $result = Incident::whereIn('id', $service_orders)
       ->with('asset','order')->paginate(4);
 
