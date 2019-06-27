@@ -27,7 +27,7 @@ class ServiceOrder extends Model
     ];
 
     public function person(){
-        return $this->hasOne(Person::class, 'id', 'person_id');
+        return $this->belongsTo(Person::class, 'person_id', 'id')->select('id','name','father_last_name','email');
     }
 
     public function incident(){

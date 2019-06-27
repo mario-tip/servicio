@@ -31,7 +31,7 @@ class Maintenance extends Model
 
     public function person()
     {
-        return $this->belongsTo('App\Person', 'person_id', 'id');
+        return $this->belongsTo(Person::class, 'person_id', 'id');
     }
 
     public function services()
@@ -40,7 +40,7 @@ class Maintenance extends Model
     }
 
     public function order(){
-      return $this->belongsTo(ServiceOrder::class, 'id','type_id');
+      return $this->belongsTo(ServiceOrder::class,'id','type_id')->with('person');
     }
 
     public static function getTypeWord($key)
