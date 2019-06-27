@@ -52,7 +52,8 @@ class AppMainController extends Controller
           ->get();
 
         }else{
-          $result = Maintenance::whereIn('id', $service_orders)->with('asset','order')->paginate(4);
+          $result = Maintenance::whereIn('id', $service_orders)
+          ->with('asset','order')->paginate(4);
         }
 
       return $result;
@@ -77,7 +78,6 @@ class AppMainController extends Controller
               'key' => $value
             ];
           }
-          return $variable;
           return response()->json($valin->messages(),400);
         }
 

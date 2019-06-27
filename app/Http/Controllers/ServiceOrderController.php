@@ -29,9 +29,7 @@ class ServiceOrderController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($request);
         $user = $request->user();
-        // dd($user->type_user);
 
         if(userHasPermission("listar_consulta_servicio")) {
             if ($user->type_user == 2 ) {
@@ -73,7 +71,6 @@ class ServiceOrderController extends Controller
     public function store(ServiceOrderRequest $request)
     {
         $user = $request->user();
-        // dd($user->email);
 
         $service_order_data = $request->get('service_order');
 

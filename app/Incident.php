@@ -30,6 +30,10 @@ class Incident extends Model
         return $this->belongsToMany('App\Part', 'incident_part', 'incident_id', 'part_id');
     }
 
+    public function order(){
+      return $this->belongsTo(ServiceOrder::class,'id' ,'type_id');
+    }
+
     /*Accessors*/
     public function getSuggestedDateAttribute($value){
         return isset($value) ? Carbon::parse($value)->format('d-m-Y') : null;
